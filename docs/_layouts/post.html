@@ -1,0 +1,72 @@
+---
+layout: base
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    {% if page.tags and page.tags.size > 0 %}
+        <div class="post-tag" style="text-transform:uppercase; font-size:0.875rem; margin-bottom:0.25rem;">
+        {{ page.tags[0] }}
+        </div>
+    {% endif %}
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <div class="post-meta">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      {% assign pdate = page.date | date_to_xmlschema %}
+      {%- if page.modified_date %}<span class="meta-label">Published:</span>{% endif %}
+      <time class="dt-published" datetime="{{ pdate }}" itemprop="datePublished">
+        {{ pdate | date: date_format }}
+      </time>
+      {%- if page.modified_date -%}
+        <span class="bullet-divider">•</span>
+        <span class="meta-label">Updated:</span>
+        {%- assign mdate = page.modified_date | date_to_xmlschema %}
+        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date: date_format }}
+        </time>
+      {%- endif -%}
+      {%- if page.author %}
+      <div class="{% unless page.modified_date %}force-inline {% endunless %}post-authors">
+        {%- for author in page.author %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+          {%- if forloop.last == false %}, {% endif -%}
+        {% endfor %}
+      </div>
+      {%- endif %}
+    </div>
+  </header>
+
+  {% if page.excerpt %}
+  <p class="post-excerpt" style="color:#4b5563; font-size:1rem; margin-top:0.25rem;">
+    {{ page.excerpt }}
+  </p>
+  {% endif %}
+
+  {% if page.feature_image %}
+  <figure class="post-feature-image" style="margin-top:1rem;">
+    <img src="{{ page.feature_image }}" alt="{{ page.title }}" style="width:100%; height:auto; border-radius:6px;">
+    {% if page.feature_image_caption %}
+    <figcaption style="font-size:0.875rem; color:#6b7280; margin-top:0.25rem;">
+      {{ page.feature_image_caption | markdownify }}
+    </figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if jekyll.environment == 'production' -%}
+    {% if page.comments == false -%}
+    <div class="comments-disabled-message">
+      Comments have been disabled for this post.
+    </div>
+    {% else -%}
+      {%- include comments.html -%}
+    {% endif -%}
+  {% endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

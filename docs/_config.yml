@@ -1,0 +1,48 @@
+# Site Metadata
+title: Technical & Sustainability Digest
+author:
+  name: Ketut Kumajaya
+  email: ketut.kumajaya@gmail.com
+
+description: >
+  Technical & Sustainability Digest adalah arsip konten blog internal Samator Group
+  yang menampilkan wawasan teknis, perspektif keberlanjutan, dan solusi praktis
+  berdasarkan pengalaman lapangan. Repositori ini menyimpan konten dalam bentuk
+  statis, memungkinkan backup otomatis, publikasi via static site generator.
+
+# Theme
+remote_theme: "jekyll/minima@b3385fe"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# Sass configuration
+sass:
+  quiet_deps: true
+  silence_deprecations: [import]
+
+# Minima Theme Configuration
+minima:
+  skin: classic
+
+  # Navigation Pages
+  nav_pages:
+    - about.md
+
+  # Show excerpts on homepage
+  show_excerpts: true
+
+  # Date format for posts (full date, full month, year)
+  date_format: "%B %d, %Y"  # e.g., October 13, 2025
+
+  # Social Links
+  social_links:
+    - title: Repositori Automation Blog di GitHub
+      icon: github
+      url: "https://github.com/kumajaya/automation-blog"
+    - title: Ketut Kumajaya at X (formerly Twitter)
+      icon: x-twitter
+      url: "https://x.com/ketutkumajaya"
