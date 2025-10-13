@@ -3,7 +3,7 @@ title: "Masalah MOD dan Solusi IF-THEN-ELSE di Delta Horizon 16-bit"
 date: 2025-10-09
 tags: ["Distributed Control System", "Field Experience", "Practical Engineering"]
 excerpt: "Pendekatan MOD sering dipakai untuk menghitung delta berbasis counter 16-bit di sistem DCS. Namun, metode ini rawan menghasilkan loncatan nilai saat terjadi anomali pembacaan."
-feature_image: "https://images.unsplash.com/photo-1601397922721-4326ae07bbc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fG1hdGh8ZW58MHx8fHwxNzU5OTQzNjQ3fDA&ixlib=rb-4.1.0&q=80&w=2000"
+feature_image: "/automation-blog/assets/media/photo-1601397922721-4326ae07bbc5"
 feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@joshua_hoehne?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Joshua Hoehne</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 ---
 

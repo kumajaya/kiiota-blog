@@ -3,7 +3,7 @@ title: "Manajemen OEE Shutdown di Sistem DCS"
 date: 2025-08-16
 tags: ["Overall Equipment Effectiveness", "Distributed Control System", "Practical Engineering", "FOSS Workflow"]
 excerpt: "Panduan ringkas bagi operator untuk memahami cara kerja buffer timer—mengakumulasi waktu shutdown saat trip—serta kapan memindahkannya ke kategori yang tepat, bahkan setelah plant restart."
-feature_image: "https://images.unsplash.com/photo-1748366416622-8bd7b3530dd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDYzfHxjb250cm9sJTIwcm9vbXxlbnwwfHx8fDE3NTUyODU5NDB8MA&ixlib=rb-4.1.0&q=80&w=2000"
+feature_image: "/automation-blog/assets/media/photo-1748366416622-8bd7b3530dd5"
 feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@alteredpoint?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Igor Saikin</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 ---
 

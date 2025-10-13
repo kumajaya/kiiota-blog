@@ -3,7 +3,7 @@ title: "K_UNBALANCE: Function Block untuk Deteksi Ketidakseimbangan Tegangan/Aru
 date: 2025-10-03
 tags: ["Distributed Control System", "Practical Engineering", "Field Experience"]
 excerpt: "Dirancang untuk menghitung ketidakseimbangan tegangan atau arus dari tiga input dalam sistem DCS, khususnya pada power meter yang tidak menyediakan informasi unbalance."
-feature_image: "https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHxiYWxhbmNlfGVufDB8fHx8MTc1OTQ4MTQ3Nnww&ixlib=rb-4.1.0&q=80&w=2000"
+feature_image: "/automation-blog/assets/media/photo-1536623975707-c4b3b2af565d"
 feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@coltonsturgeon?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Colton Sturgeon</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 ---
 
@@ -119,5 +119,4 @@ END_FUNCTION_BLOCK
 <hr>
 <h3 id="kesimpulan">Kesimpulan</h3>
 <p>Function Block <code>K_UNBALANCE</code> adalah artefak modular yang memperkuat transparansi dan efisiensi dalam sistem DCS. Dengan pairing array, proteksi multi-lapis, dan output yang informatif, FB ini bisa dijadikan template untuk pengembangan Function Block lain yang audit-grade dan teachable lintas plant.</p>
-<hr>
 

@@ -3,7 +3,7 @@ title: "K_LOOKUP_LINEAR: Function Block untuk Interpolasi Linear Dinamis"
 date: 2025-10-04
 tags: ["Distributed Control System", "Practical Engineering", "Field Experience"]
 excerpt: "`K_LOOKUP_LINEAR` adalah Function Block modular untuk interpolasi linear dinamis. Dengan dukungan hingga 32 titik, proteksi berlapis, dan flag audit. Implementasi ini memudahkan standardisasi lookup kurva, mempercepat commissioning, dan memastikan transparansi hasil perhitungan dalam operasi plant."
-feature_image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDd8fG1hdGh8ZW58MHx8fHwxNzU5NTU1NjM4fDA&ixlib=rb-4.1.0&q=80&w=2000"
+feature_image: "/automation-blog/assets/media/photo-1509228627152-72ae9ae6848d"
 feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@antoine1003?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Antoine Dautry</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 ---
 

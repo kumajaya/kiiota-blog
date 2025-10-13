@@ -3,7 +3,7 @@ title: "Memahami Pengukuran Level Cairan dalam Tangki Kriogenik Menggunakan Tran
 date: 2025-08-03
 tags: ["Practical Engineering", "Field Experience", "Measurement Accuracy"]
 excerpt: "Dokumen ini menjelaskan metode pengukuran level cairan kriogenik dengan transmitter DP, menyoroti pengaruh suhu terhadap densitas serta kaitannya dengan tekanan dalam ruang tertutup. Disertai studi kasus dan rekomendasi teknis untuk evaluasi dan peningkatan akurasi."
-feature_image: "https://automation.samatorgroup.com/blog/content/images/2025/08/perpective_mermaid.png"
+feature_image: "/automation-blog/assets/media/perpective_mermaid.png"
 feature_image_caption: "<span style=\"white-space: pre-wrap;\">Diagram hasil rendering </span><a href=\"https://www.mermaidchart.com/play?utm_source=mermaid_js#pako:eNqdkF9LwzAUxb_KpfbBgYWxIWrAP6jQIQNhFfpgRLImWUrTZKSJc4y97KP6Sez6Z1Rxinu8Ofd3zsldeYmmzENeEARYJVrxdIawApBkqZ1FQMnMMKwqmUu9SAQxFsaT7Q5A_Iw931_Fa99H8MQyooiCUUqNLiyxaVG-GZc5A8d5PvrYbB572HuBILiCictd8VrzMVyCAIwTqi1Eoe-XS7V_FNYBUVgl3DJDLDwwVTrfpxmzRLj0m2MNypoTO2xOYMzemIQ7khqirreNej-izdARRGUmypYYc0OS8r91o13PZq9iRDe6m1lWtix35ZHa8OaINysoBJkzBEY7RRldf2myT47CfYr83VHsk_cKhV1KBjHwVEp0RPtsyvlJYY3OGDoaJEN22m_GYJFSK9Bg_t4l25vWPO_zs__xUXhwtGxDOR9ODygtDi7dknTIL-j536S3_gSQRimc\" rel=\"noreferrer\"><span style=\"white-space: pre-wrap;\">Mermaid Live Editor</span></a><span style=\"white-space: pre-wrap;\"> dengan efek perspektif dari </span><a href=\"https://www1.lunapic.com/editor/\" rel=\"noreferrer\"><span style=\"white-space: pre-wrap;\">LunaPic</span></a>"
 ---
 
@@ -39,7 +39,7 @@ feature_image_caption: "<span style=\"white-space: pre-wrap;\">Diagram hasil ren
 <li>Mencegah penguapan dini saat tekanan dibangun (<em>PB system</em>)</li>
 </ul>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="https://automation.samatorgroup.com/blog/content/images/2025/07/level_measurement.svg" alt="level_measurement.svg" style="max-width:100%; height:auto;">
+  <img src="/automation-blog/assets/media/level_measurement.svg" alt="level_measurement.svg" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 1. Pengukuran Level Bejana Bertekanan
   </figcaption>
@@ -130,7 +130,7 @@ feature_image_caption: "<span style=\"white-space: pre-wrap;\">Diagram hasil ren
   Catatan: Nilai berat jenis referensi diperoleh dari aplikasi Vessel Volume. Data untuk CO₂ pada 1 atm dan N₂O pada 27 barg tidak tersedia karena di luar rentang operasional standar.
 </figcaption>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="https://automation.samatorgroup.com/blog/content/images/2025/07/kurva_sg_vs_tekanan.svg" alt="kurva_sg_vs_tekanan.svg" style="max-width:100%; height:auto;">
+  <img src="/automation-blog/assets/media/kurva_sg_vs_tekanan.svg" alt="kurva_sg_vs_tekanan.svg" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 3. Pengaruh Tekanan terhadap Berat Jenis Cairan Kriogenik
   </figcaption>
@@ -244,7 +244,7 @@ Bila kompensasi real-time tidak tersedia, pendekatan alternatif adalah menggunak
 </tbody>
 </table>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="https://automation.samatorgroup.com/blog/content/images/2025/07/kurva_sg_vs_dp.svg" alt="kurva_sg_vs_dp.svg" style="max-width:100%; height:auto;">
+  <img src="/automation-blog/assets/media/kurva_sg_vs_dp.svg" alt="kurva_sg_vs_dp.svg" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 4. Pengaruh Tekanan terhadap Berat Jenis dan DP (Nitrogen)
   </figcaption>
@@ -333,7 +333,7 @@ plt.show()
 </tbody>
 </table>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="https://automation.samatorgroup.com/blog/content/images/2025/07/kurva_berat_vs_tekanan.svg" alt="kurva_berat_vs_tekanan.svg" style="max-width:100%; height:auto;">
+  <img src="/automation-blog/assets/media/kurva_berat_vs_tekanan.svg" alt="kurva_berat_vs_tekanan.svg" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 5. Pengaruh Tekanan terhadap Berat
   </figcaption>
@@ -397,7 +397,7 @@ plt.show()
 </ul>
 <p>Artinya, <strong>meskipun tinggi geometri cairan tetap</strong>, <strong>nilai DP bisa berubah signifikan</strong> akibat perubahan berat jenis. Hal ini semakin menegaskan pentingnya melakukan <strong>koreksi berat jenis</strong> saat menggunakan transmitter DP untuk pengukuran level cairan kriogenik seperti oksigen dan nitrogen cair.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="https://automation.samatorgroup.com/blog/content/images/2025/07/kurva_sg_vs_dp_oksigen.svg" alt="kurva_sg_vs_dp_oksigen.svg" style="max-width:100%; height:auto;">
+  <img src="/automation-blog/assets/media/kurva_sg_vs_dp_oksigen.svg" alt="kurva_sg_vs_dp_oksigen.svg" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 6. Pengaruh Tekanan terhadap Berat Jenis dan DP (Oksigen)
   </figcaption>

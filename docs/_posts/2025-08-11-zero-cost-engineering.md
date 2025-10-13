@@ -3,7 +3,7 @@ title: "Zero-Cost Engineering"
 date: 2025-08-11
 tags: ["Cost Optimization", "Zero-Cost Engineering", "Practical Engineering", "FOSS Workflow"]
 excerpt: "An adaptive workflow, rooted in responsibility, that inspires innovation, embraces an entrepreneurial mindset, and keeps the process fun—delivering professional results without the burden of licensing costs."
-feature_image: "https://automation.samatorgroup.com/blog/content/images/2025/08/zero_cost_cover.png"
+feature_image: "/automation-blog/assets/media/zero_cost_cover.png"
 feature_image_caption: ""
 ---
 
