@@ -23,6 +23,28 @@
 <link rel="shortcut icon" href="{{ '/assets/media/favicon.ico' | relative_url }}">
 
 <style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Post header left-align */
 .post-header {
   text-align: left !important;
