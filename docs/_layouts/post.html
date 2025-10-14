@@ -43,12 +43,12 @@ layout: base
   </p>
   {% endif %}
 
-  {% if page.feature_image %}
+  {% if page.image %}
   <figure class="post-feature-image" style="margin-top:1rem;">
-    <img src="{{ page.feature_image }}" alt="{{ page.title }}" style="width:100%; height:auto; border-radius:6px;">
-    {% if page.feature_image_caption %}
+    <img src="{{ page.image }}" alt="{{ page.title }}" style="width:100%; height:auto; border-radius:6px;">
+    {% if page.image_caption %}
     <figcaption style="font-size:0.875rem; color:#6b7280; margin-top:0.25rem;">
-      {{ page.feature_image_caption | markdownify }}
+      {{ page.image_caption | markdownify }}
     </figcaption>
     {% endif %}
   </figure>

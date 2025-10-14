@@ -6,9 +6,9 @@ title: "Technical & Sustainability Digest"
 <div class="posts-container">
 {% for post in site.posts %}
   <div class="post-item" style="display:flex; flex-wrap:wrap; margin-bottom:1.5rem; align-items:flex-start;">
-    {% if post.feature_image %}
+    {% if post.image %}
     <a href="{{ site.baseurl }}{{ post.url }}" style="flex:0 0 200px; margin-right:1rem; margin-bottom:0.5rem;">
-      <img src="{{ post.feature_image }}" alt="{{ post.title }}" style="width:100%; height:auto; object-fit:cover; border-radius:6px;">
+      <img src="{{ post.image }}" alt="{{ post.title }}" style="width:100%; height:auto; object-fit:cover; border-radius:6px;">
     </a>
     {% endif %}
     <div class="post-text" style="flex:1 1 0; min-width:0;">
