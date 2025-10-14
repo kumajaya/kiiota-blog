@@ -1,11 +1,38 @@
 ---
 title: "Anchor-Based Normalization: Strategi Koreksi Drift Data Akumulator di DCS/SCADA"
-date: 2025-09-28
-author: ["Ketut Kumajaya"]
-tags: ["Measurement Accuracy", "Distributed Control System", "Field Experience"]
+date: "2025-09-28T03:13:03.000+07:00"
+slug: "anchor-based-normalization-strategi-koreksi-drift-data-akumulator-di-dcs-scada"
+layout: "post"
 excerpt: "Dari DCS ke ERP, data akumulasi sering “melenceng” tanpa kita sadari. Anchor‑Based Normalization menghadirkan cara sederhana namun kuat: satu anchor point, tiga zona deviasi, hasilnya data presisi dan transparan lintas sistem."
-feature_image: "/automation-blog/assets/media/photo-1505778276668-26b3ff7af103"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@jamie452?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Jamie Street</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1505778276668-26b3ff7af103?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fEdQU3xlbnwwfHx8fDE3NTkwMDM3ODd8MA&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@jamie452?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Jamie Street</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Measurement Accuracy"
+  - "Distributed Control System"
+  - "Field Experience"
+categories:
+  - "Measurement Accuracy"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "Dari DCS ke ERP, data akumulasi sering “melenceng” tanpa kita sadari. Anchor‑Based Normalization menghadirkan cara sederhana namun kuat: satu anchor point, tiga zona deviasi, hasilnya data presisi dan transparan lintas sistem."
+url: "https://automation.samatorgroup.com/blog/anchor-based-normalization-strategi-koreksi-drift-data-akumulator-di-dcs-scada/"
+comment_id: "68d838066d382e4b0503dd39"
+reading_time: 3
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 28 September 2025</em></p>
@@ -152,4 +179,3 @@ $$\text{Offset} = \frac{3737 - 3750}{3750} \times 100% = -0.35%$$</li>
 <p>Dengan Anchor-Based Normalization berbasis anchor point di DCS dan logika tiga zona deviasi, pipeline data menjadi lebih presisi karena drift wajar terkoreksi, lebih aman karena noise kecil diabaikan dan outlier besar dilewatkan, serta lebih transparan karena data mentah tetap utuh sementara catatan koreksi tersimpan jelas.</p>
 <p>Pendekatan ini membuat sistem audit-ready, mudah diajarkan lintas operator, dan scalable untuk berbagai aplikasi industri, khususnya pada akumulator seperti flow totalizer.</p>
 <p>Hasilnya, audit tidak lagi disibukkan membetulkan angka, melainkan dapat langsung fokus pada analisis operasional dan pemeriksaan lanjutan berbasis catatan koreksi.</p>
-

@@ -1,11 +1,38 @@
 ---
 title: "Menjaga Tulisan dari Ancaman Infrastruktur: Dari Ghost ke GitHub Pages"
-date: 2025-10-14
-author: ["Ketut Kumajaya"]
-tags: ["Practical Engineering", "Team Collaboration", "Open Source"]
+date: "2025-10-14T18:36:06.000+07:00"
+slug: "menjaga-tulisan-dari-ancaman-infrastruktur-dari-ghost-ke-github-pages"
+layout: "post"
 excerpt: "Dari Ghost ke GitHub, dari tulisan menjadi arsip pengetahuan. Sebuah perjalanan mencari cara agar dokumentasi teknis bertahan melampaui umur server dan penulisnya."
-feature_image: "/automation-blog/assets/media/photo-1647696945040-56de84f73f5c"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@gabigi?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Gabriela</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1647696945040-56de84f73f5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGJvb2tzaGVsZiUyMGtub3dsZWRnZXxlbnwwfHx8fDE3NjA0MjE5Nzd8MA&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@gabigi?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Gabriela</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Practical Engineering"
+  - "Team Collaboration"
+  - "Open Source"
+categories:
+  - "Practical Engineering"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "Dari Ghost ke GitHub, dari tulisan menjadi arsip pengetahuan. Sebuah perjalanan mencari cara agar dokumentasi teknis bertahan melampaui umur server dan penulisnya."
+url: "https://automation.samatorgroup.com/blog/menjaga-tulisan-dari-ancaman-infrastruktur-dari-ghost-ke-github-pages/"
+comment_id: "68eddfca510754064d2ff9c3"
+reading_time: 3
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 14 Oktober 2025</em></p>
@@ -70,4 +97,3 @@ feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><
 <p>Kode saya terbuka, bisa digunakan siapa saja, tanpa batasan. Namun, tentu saja tidak semua hal bisa dibuka—misalnya <em>API_KEY</em> blog pribadi, yang hanya saya miliki. Ghost tidak akan memberikan izin akses tanpa otorisasi, dan memang seharusnya begitu.</p>
 <p>Karena pada akhirnya, sebagian pengetahuan memang harus dibuka agar bisa diwariskan, sementara sebagian yang lain tetap dijaga sebagai bentuk tanggung jawab.</p>
 <p>Penasaran? Silakan kunjungi repo mirroring saya di <a href="https://github.com/kumajaya/automation-blog/tree/main?ref=automation.samatorgroup.com" target="_blank">GitHub</a>—mungkin Anda bisa fork, tambah kontribusi, atau adaptasi untuk proyek sendiri. Mari jaga warisan ini bersama!</p>
-

@@ -1,11 +1,38 @@
 ---
 title: "K_UNBALANCE: Function Block untuk Deteksi Ketidakseimbangan Tegangan/Arus di DCS"
-date: 2025-10-03
-author: ["Ketut Kumajaya"]
-tags: ["Distributed Control System", "Practical Engineering", "Field Experience"]
+date: "2025-10-03T16:04:31.000+07:00"
+slug: "k_unbalance-function-block-untuk-deteksi-ketidakseimbangan-tegangan-arus-di-dcs"
+layout: "post"
 excerpt: "Dirancang untuk menghitung ketidakseimbangan tegangan atau arus dari tiga input dalam sistem DCS, khususnya pada power meter yang tidak menyediakan informasi unbalance."
-feature_image: "/automation-blog/assets/media/photo-1536623975707-c4b3b2af565d"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@coltonsturgeon?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Colton Sturgeon</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHxiYWxhbmNlfGVufDB8fHx8MTc1OTQ4MTQ3Nnww&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@coltonsturgeon?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Colton Sturgeon</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Distributed Control System"
+  - "Practical Engineering"
+  - "Field Experience"
+categories:
+  - "Distributed Control System"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "Dirancang untuk menghitung ketidakseimbangan tegangan atau arus dari tiga input dalam sistem DCS, khususnya pada power meter yang tidak menyediakan informasi unbalance."
+url: "https://automation.samatorgroup.com/blog/k_unbalance-function-block-untuk-deteksi-ketidakseimbangan-tegangan-arus-di-dcs/"
+comment_id: "68df8d117f770e05777e0ca8"
+reading_time: 2
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <p><strong>Oleh: Ketut P. Kumajaya — 3 Oktober 2025</strong></p>
@@ -120,4 +147,3 @@ END_FUNCTION_BLOCK
 <hr>
 <h3 id="kesimpulan">Kesimpulan</h3>
 <p>Function Block <code>K_UNBALANCE</code> adalah artefak modular yang memperkuat transparansi dan efisiensi dalam sistem DCS. Dengan pairing array, proteksi multi-lapis, dan output yang informatif, FB ini bisa dijadikan template untuk pengembangan Function Block lain yang audit-grade dan teachable lintas plant.</p>
-

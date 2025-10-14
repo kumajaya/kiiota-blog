@@ -1,11 +1,38 @@
 ---
 title: "K_LOOKUP_LINEAR: Function Block untuk Interpolasi Linear Dinamis"
-date: 2025-10-04
-author: ["Ketut Kumajaya"]
-tags: ["Distributed Control System", "Practical Engineering", "Field Experience"]
+date: "2025-10-04T13:04:05.000+07:00"
+slug: "k_lookup_linear-function-block-untuk-interpolasi-linear-dinamis"
+layout: "post"
 excerpt: "`K_LOOKUP_LINEAR` adalah Function Block modular untuk interpolasi linear dinamis. Dengan dukungan hingga 32 titik, proteksi berlapis, dan flag audit. Implementasi ini memudahkan standardisasi lookup kurva, mempercepat commissioning, dan memastikan transparansi hasil perhitungan dalam operasi plant."
-feature_image: "/automation-blog/assets/media/photo-1509228627152-72ae9ae6848d"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@antoine1003?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Antoine Dautry</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDd8fG1hdGh8ZW58MHx8fHwxNzU5NTU1NjM4fDA&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@antoine1003?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Antoine Dautry</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Distributed Control System"
+  - "Practical Engineering"
+  - "Field Experience"
+categories:
+  - "Distributed Control System"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "`K_LOOKUP_LINEAR` adalah Function Block modular untuk interpolasi linear dinamis. Dengan dukungan hingga 32 titik, proteksi berlapis, dan flag audit. Implementasi ini memudahkan standardisasi lookup kurva, mempercepat commissioning, dan memastikan transparansi hasil perhitungan dalam operasi plant."
+url: "https://automation.samatorgroup.com/blog/k_lookup_linear-function-block-untuk-interpolasi-linear-dinamis/"
+comment_id: "68e0abdc7f770e05777e0cd8"
+reading_time: 5
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut P. Kumajaya | 4 Oktober 2025</em></p>
@@ -343,4 +370,3 @@ END_IF;
 END_FUNCTION_BLOCK
 </code></pre>
 </details>
-

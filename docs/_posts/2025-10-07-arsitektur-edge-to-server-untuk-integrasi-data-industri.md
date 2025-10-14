@@ -1,11 +1,39 @@
 ---
 title: "Arsitektur Edge-to-Server untuk Integrasi Data Industri"
-date: 2025-10-07
-author: ["Ketut Kumajaya"]
-tags: ["Edge Computing", "Distributed Control System", "Field Experience", "Practical Engineering"]
+date: "2025-10-07T12:08:20.000+07:00"
+slug: "arsitektur-edge-to-server-untuk-integrasi-data-industri"
+layout: "post"
 excerpt: "Dengan perangkat sederhana dan software open source, sistem ini menghadirkan integrasi data industri yang aman, efisien, dan berkelanjutan."
-feature_image: "/automation-blog/assets/media/photo-1639117474926-9e22670f6bf8"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@ayadighaith?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Ayadi Ghaith</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1639117474926-9e22670f6bf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHx0cmVuZHxlbnwwfHx8fDE3NTk3MDU1ODB8MA&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@ayadighaith?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Ayadi Ghaith</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Edge Computing"
+  - "Distributed Control System"
+  - "Field Experience"
+  - "Practical Engineering"
+categories:
+  - "Edge Computing"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "Dengan perangkat sederhana dan software open source, sistem ini menghadirkan integrasi data industri yang aman, efisien, dan berkelanjutan."
+url: "https://automation.samatorgroup.com/blog/arsitektur-edge-to-server-untuk-integrasi-data-industri/"
+comment_id: "68e32bff66a8d70580909f7a"
+reading_time: 4
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 6 Oktober 2025</em></p>
@@ -186,4 +214,3 @@ Vendor DCS dapat menawarkan solusi, dengan tantangan menghadirkan integrasi yang
 <p>Arsitektur ini lahir dari pengalaman lapangan sebagai system integrator yang ditempa oleh praktik nyata, bukan teori kelas. Setiap komponen — Rapid SCADA, Node-RED, ZeroTier, proxy layer — disatukan agar stabil, aman, dan saling memahami.</p>
 <p>Sistem cukup sederhana untuk dipahami, tangguh, fleksibel, dan profesional.<br>
 Setiap unit produksi mandiri, fleksibel dari sisi perangkat keras dan OS, tetap menjadi bagian dari ekosistem data aman yang efisien.</p>
-

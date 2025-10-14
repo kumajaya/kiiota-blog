@@ -1,11 +1,38 @@
 ---
 title: "Masalah MOD dan Solusi IF-THEN-ELSE di Delta Horizon 16-bit"
-date: 2025-10-09
-author: ["Ketut Kumajaya"]
-tags: ["Distributed Control System", "Field Experience", "Practical Engineering"]
+date: "2025-10-09T01:12:48.000+07:00"
+slug: "masalah-mod-dan-solusi-if-then-else-di-delta-horizon-16-bit"
+layout: "post"
 excerpt: "Pendekatan MOD sering dipakai untuk menghitung delta berbasis counter 16-bit di sistem DCS. Namun, metode ini rawan menghasilkan loncatan nilai saat terjadi anomali pembacaan."
-feature_image: "/automation-blog/assets/media/photo-1601397922721-4326ae07bbc5"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@joshua_hoehne?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Joshua Hoehne</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1601397922721-4326ae07bbc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fG1hdGh8ZW58MHx8fHwxNzU5OTQzNjQ3fDA&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@joshua_hoehne?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Joshua Hoehne</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Distributed Control System"
+  - "Field Experience"
+  - "Practical Engineering"
+categories:
+  - "Distributed Control System"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "Pendekatan MOD sering dipakai untuk menghitung delta berbasis counter 16-bit di sistem DCS. Namun, metode ini rawan menghasilkan loncatan nilai saat terjadi anomali pembacaan."
+url: "https://automation.samatorgroup.com/blog/masalah-mod-dan-solusi-if-then-else-di-delta-horizon-16-bit/"
+comment_id: "68e69ab866a8d7058090a012"
+reading_time: 4
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 08 Oktober 2025</em></p>
@@ -285,4 +312,3 @@ LAST_OUT  := TIMER_IN;
 END_FUNCTION_BLOCK
 </code></pre>
 </details>
-

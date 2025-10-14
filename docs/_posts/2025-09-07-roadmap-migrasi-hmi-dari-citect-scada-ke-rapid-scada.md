@@ -1,11 +1,39 @@
 ---
 title: "Roadmap Migrasi HMI dari Citect SCADA ke Rapid SCADA"
-date: 2025-09-07
-author: ["Ketut Kumajaya"]
-tags: ["SCADA", "Remote Access", "Practical Engineering", "Field Experience"]
+date: "2025-09-07T13:45:50.000+07:00"
+slug: "roadmap-migrasi-hmi-dari-citect-scada-ke-rapid-scada"
+layout: "post"
 excerpt: "Strategi migrasi HMI yang memungkinkan monitoring remote tanpa mengganggu operasional lokal, dari read-only hingga full control."
-feature_image: "/automation-blog/assets/media/photo-1653907696247-cf7ecde77d83"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@matheusdesouzacom?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Matheus de Souza</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1653907696247-cf7ecde77d83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE1fHxyZW1vdGUlMjBhY2Nlc3N8ZW58MHx8fHwxNzU3MjIxNDMwfDA&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@matheusdesouzacom?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Matheus de Souza</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "SCADA"
+  - "Remote Access"
+  - "Practical Engineering"
+  - "Field Experience"
+categories:
+  - "SCADA"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "Strategi migrasi HMI yang memungkinkan monitoring remote tanpa mengganggu operasional lokal, dari read-only hingga full control."
+url: "https://automation.samatorgroup.com/blog/roadmap-migrasi-hmi-dari-citect-scada-ke-rapid-scada/"
+comment_id: "68bd058cf80c480576839b2f"
+reading_time: 6
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <h3 id="strategi-bertahap-untuk-pendekatan-remote-monitoring-mulai-dari-read-only-testing-hingga-operasional-paralel-dan-full-control">Strategi bertahap untuk pendekatan remote monitoring, mulai dari read-only, testing, hingga operasional paralel dan full control</h3>
@@ -340,4 +368,3 @@ flowchart TD
   </button>
 </div>
 <!--kg-card-end: html-->
-

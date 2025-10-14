@@ -1,11 +1,39 @@
 ---
 title: "Kepemimpinan Manusiawi di Era Otomasi"
-date: 2025-10-11
-author: ["Ketut Kumajaya"]
-tags: ["Team Collaboration", "Leadership Human Centered", "Field Experience", "Practical Engineering"]
+date: "2025-10-11T23:54:00.000+07:00"
+slug: "kepemimpinan-manusiawi-di-era-otomasi"
+layout: "post"
 excerpt: "Di era otomasi, kepemimpinan manusiawi menjadi kunci keberhasilan. Memahami, menghargai, dan memberdayakan individu di tim lebih efektif daripada sekadar kontrol. Praktik global dan pengalaman lapangan menunjukkan: organisasi tumbuh ketika setiap orang merasa penting dan didengar."
-feature_image: "/automation-blog/assets/media/photo-1594477898765-b9ad43ad9cfc"
-feature_image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@jannerboy62?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Nick Fewings</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image: "https://images.unsplash.com/photo-1594477898765-b9ad43ad9cfc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIwfHxjb2xsYWJvcmF0aXZlfGVufDB8fHx8MTc2MDE5MzU4Nnww&ixlib=rb-4.1.0&q=80&w=2000"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@jannerboy62?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Nick Fewings</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Team Collaboration"
+  - "Leadership Human Centered"
+  - "Field Experience"
+  - "Practical Engineering"
+categories:
+  - "Team Collaboration"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "Di era otomasi, kepemimpinan manusiawi menjadi kunci keberhasilan. Memahami, menghargai, dan memberdayakan individu di tim lebih efektif daripada sekadar kontrol. Praktik global dan pengalaman lapangan menunjukkan: organisasi tumbuh ketika setiap orang merasa penting dan didengar."
+url: "https://automation.samatorgroup.com/blog/kepemimpinan-manusiawi-di-era-otomasi/"
+comment_id: "68ea6aa366a8d7058090a08f"
+reading_time: 5
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 10 Oktober 2025</em></p>
@@ -113,4 +141,3 @@ Teknologi dan sistem otomatisasi hanyalah alat; yang menentukan keberhasilan org
 <p>Kepemimpinan yang efektif di era modern bukan sekadar otoritas atau kontrol, tetapi tentang menciptakan ekosistem di mana setiap individu merasa penting, memiliki ruang untuk berkontribusi, dan bertanggung jawab terhadap hasil.<br>
 Ini sejalan dengan praktik terbaik global, di mana perusahaan besar menekankan <em>psychological safety</em>, pemberdayaan tim, dan kolaborasi sebagai inti pertumbuhan berkelanjutan.</p>
 <p>Mulailah hari ini: Evaluasi satu hubungan di tim Anda—bagaimana bisa lebih manusiawi di tengah arus otomasi?</p>
-

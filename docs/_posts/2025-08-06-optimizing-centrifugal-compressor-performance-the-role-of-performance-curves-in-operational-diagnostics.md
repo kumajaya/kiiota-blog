@@ -1,11 +1,41 @@
 ---
 title: "Optimizing Centrifugal Compressor Performance"
-date: 2025-08-06
-author: ["Ketut Kumajaya"]
-tags: ["Centrifugal Compressor", "Performance Curve", "Practical Engineering", "Field Experience", "Measurement Accuracy", "FOSS Workflow"]
+date: "2025-08-06T23:01:25.000+07:00"
+slug: "optimizing-centrifugal-compressor-performance-the-role-of-performance-curves-in-operational-diagnostics"
+layout: "post"
 excerpt: "This article presents a diagnostic analysis revealing that a new centrifugal compressor underperforms due to misaligned operation—not equipment fault. Replotting vendor curves highlights excessive flow, inadequate pressure, and motor overload. Targeted corrections improve efficiency and reliability."
-feature_image: "/automation-blog/assets/media/ZH1120-6_Flow_vs_Pressure_half.png"
-feature_image_caption: ""
+image: "/automation-blog/assets/media/ZH1120-6_Flow_vs_Pressure_half.png"
+image_caption: ""
+author:
+  - "Ketut Kumajaya"
+tags:
+  - "Centrifugal Compressor"
+  - "Performance Curve"
+  - "Practical Engineering"
+  - "Field Experience"
+  - "Measurement Accuracy"
+  - "FOSS Workflow"
+categories:
+  - "Centrifugal Compressor"
+featured: false
+visibility: "public"
+primary_author: "Ketut Kumajaya"
+codeinjection_head: ""
+codeinjection_foot: ""
+canonical_url: ""
+og_title: ""
+og_description: ""
+og_image: ""
+twitter_title: ""
+twitter_description: ""
+twitter_image: ""
+custom_excerpt: "This article presents a diagnostic analysis revealing that a new centrifugal compressor underperforms due to misaligned operation—not equipment fault. Replotting vendor curves highlights excessive flow, inadequate pressure, and motor overload. Targeted corrections improve efficiency and reliability."
+url: "https://automation.samatorgroup.com/blog/optimizing-centrifugal-compressor-performance-the-role-of-performance-curves-in-operational-diagnostics/"
+comment_id: "6891e08f547c702feb00b09a"
+reading_time: 5
+access: true
+comments: false
+feature_image_alt: ""
 ---
 
 
@@ -120,4 +150,3 @@ feature_image_caption: ""
   </button>
 </div>
 <!--kg-card-end: html-->
-
