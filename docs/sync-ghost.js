@@ -36,14 +36,33 @@ function sanitizeForYAML(str) {
     .replace(/\r?\n/g, ' '); // ganti newline dengan spasi
 }
 
-// Utility: download file dari URL ke path lokal (skip jika sudah ada)
-async function downloadFile(url, dest) {
+// Utility: download file dari URL ke path lokal dengan retry & timeout
+async function downloadFile(url, dest, retries = 3, timeoutMs = 10000) {
   if (fs.existsSync(dest)) return console.log(`Already exists: ${dest}`);
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to download ${url}: ${res.status}`);
-  const buffer = Buffer.from(await res.arrayBuffer());
-  fs.writeFileSync(dest, buffer);
-  console.log(`Downloaded: ${dest}`);
+
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeout);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const buffer = Buffer.from(await res.arrayBuffer());
+      fs.writeFileSync(dest, buffer);
+      console.log(`Downloaded: ${dest}`);
+      return; // sukses → keluar
+    } catch (err) {
+      console.warn(`Download failed (attempt ${attempt}/${retries}): ${url}`, err.message);
+      if (attempt === retries) {
+        console.error(`Giving up on: ${url}`);
+      } else {
+        await new Promise(r => setTimeout(r, 1000 * attempt)); // backoff sederhana
+      }
+    }
+  }
 }
 
 // Utility: extract semua <img src="..."> dari HTML content
@@ -53,6 +72,16 @@ function extractImages(html) {
   let match;
   while ((match = regex.exec(html)) !== null) urls.push(match[1]);
   return urls;
+}
+
+// Utility: cek apakah URL media internal (Ghost CMS)
+function isInternalMedia(url) {
+  try {
+    const u = new URL(url);
+    return u.hostname.endsWith('samatorgroup.com'); // sesuaikan domain Ghost Anda
+  } catch {
+    return false;
+  }
 }
 
 // Fungsi utama: sinkronisasi post Ghost → Markdown Jekyll
@@ -108,27 +137,36 @@ async function syncPosts() {
       fm.comments = post.comments !== undefined ? post.comments : false;
       fm.feature_image_alt = post.feature_image_alt || '';
 
-      // 3c. Download feature_image (jika ada) → simpan ke assets/media
+      // 3c. Download feature_image (jika ada & internal)
       if (post.feature_image) {
-        const urlObj = new URL(post.feature_image);
-        const mediaFileName = path.basename(urlObj.pathname);
-        const mediaPath = path.join(MEDIA_PATH, mediaFileName);
-        await downloadFile(post.feature_image, mediaPath);
-        fm.image = `${BASE_URL}/assets/media/${mediaFileName}`;
+        if (isInternalMedia(post.feature_image)) {
+          const urlObj = new URL(post.feature_image);
+          const mediaFileName = path.basename(urlObj.pathname);
+          const mediaPath = path.join(MEDIA_PATH, mediaFileName);
+          await downloadFile(post.feature_image, mediaPath);
+          fm.image = `${BASE_URL}/assets/media/${mediaFileName}`;
+        } else {
+          // eksternal → biarkan link asli
+          fm.image = post.feature_image;
+        }
       }
 
-      // 3d. Download semua <img> di konten HTML → rewrite path
+      // 3d. Download semua <img> di konten HTML → rewrite path hanya jika internal
       let contentHtml = post.html || '';
       const imgUrls = extractImages(contentHtml);
       for (const imgUrl of imgUrls) {
-        try {
-          const urlObj = new URL(imgUrl);
-          const mediaFileName = path.basename(urlObj.pathname);
-          const mediaPath = path.join(MEDIA_PATH, mediaFileName);
-          await downloadFile(imgUrl, mediaPath);
-          contentHtml = contentHtml.replaceAll(imgUrl, `${BASE_URL}/assets/media/${mediaFileName}`);
-        } catch (e) {
-          console.warn(`Skipping invalid URL: ${imgUrl}`);
+        if (isInternalMedia(imgUrl)) {
+          try {
+            const urlObj = new URL(imgUrl);
+            const mediaFileName = path.basename(urlObj.pathname);
+            const mediaPath = path.join(MEDIA_PATH, mediaFileName);
+            await downloadFile(imgUrl, mediaPath);
+            contentHtml = contentHtml.replaceAll(imgUrl, `${BASE_URL}/assets/media/${mediaFileName}`);
+          } catch (e) {
+            console.warn(`Skipping invalid URL: ${imgUrl}`);
+          }
+        } else {
+          console.log(`External image left as-is: ${imgUrl}`);
         }
       }
 
