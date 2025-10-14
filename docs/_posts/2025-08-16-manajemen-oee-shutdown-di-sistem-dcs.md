@@ -1,6 +1,7 @@
 ---
 title: "Manajemen OEE Shutdown di Sistem DCS"
 date: 2025-08-16
+author: ["Ketut Kumajaya"]
 tags: ["Overall Equipment Effectiveness", "Distributed Control System", "Practical Engineering", "FOSS Workflow"]
 excerpt: "Panduan ringkas bagi operator untuk memahami cara kerja buffer timer—mengakumulasi waktu shutdown saat trip—serta kapan memindahkannya ke kategori yang tepat, bahkan setelah plant restart."
 feature_image: "/automation-blog/assets/media/photo-1748366416622-8bd7b3530dd5"

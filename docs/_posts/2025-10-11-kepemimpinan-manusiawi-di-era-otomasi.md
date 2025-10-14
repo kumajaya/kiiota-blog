@@ -1,6 +1,7 @@
 ---
 title: "Kepemimpinan Manusiawi di Era Otomasi"
 date: 2025-10-11
+author: ["Ketut Kumajaya"]
 tags: ["Team Collaboration", "Leadership Human Centered", "Field Experience", "Practical Engineering"]
 excerpt: "Di era otomasi, kepemimpinan manusiawi menjadi kunci keberhasilan. Memahami, menghargai, dan memberdayakan individu di tim lebih efektif daripada sekadar kontrol. Praktik global dan pengalaman lapangan menunjukkan: organisasi tumbuh ketika setiap orang merasa penting dan didengar."
 feature_image: "/automation-blog/assets/media/photo-1594477898765-b9ad43ad9cfc"

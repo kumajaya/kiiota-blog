@@ -1,6 +1,7 @@
 ---
 title: "K_UNBALANCE: Function Block untuk Deteksi Ketidakseimbangan Tegangan/Arus di DCS"
 date: 2025-10-03
+author: ["Ketut Kumajaya"]
 tags: ["Distributed Control System", "Practical Engineering", "Field Experience"]
 excerpt: "Dirancang untuk menghitung ketidakseimbangan tegangan atau arus dari tiga input dalam sistem DCS, khususnya pada power meter yang tidak menyediakan informasi unbalance."
 feature_image: "/automation-blog/assets/media/photo-1536623975707-c4b3b2af565d"

@@ -1,6 +1,7 @@
 ---
 title: "Optimizing Centrifugal Compressor Performance"
 date: 2025-08-06
+author: ["Ketut Kumajaya"]
 tags: ["Centrifugal Compressor", "Performance Curve", "Practical Engineering", "Field Experience", "Measurement Accuracy", "FOSS Workflow"]
 excerpt: "This article presents a diagnostic analysis revealing that a new centrifugal compressor underperforms due to misaligned operation—not equipment fault. Replotting vendor curves highlights excessive flow, inadequate pressure, and motor overload. Targeted corrections improve efficiency and reliability."
 feature_image: "/automation-blog/assets/media/ZH1120-6_Flow_vs_Pressure_half.png"

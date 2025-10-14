@@ -1,6 +1,7 @@
 ---
 title: "Anchor-Based Normalization: Strategi Koreksi Drift Data Akumulator di DCS/SCADA"
 date: 2025-09-28
+author: ["Ketut Kumajaya"]
 tags: ["Measurement Accuracy", "Distributed Control System", "Field Experience"]
 excerpt: "Dari DCS ke ERP, data akumulasi sering “melenceng” tanpa kita sadari. Anchor‑Based Normalization menghadirkan cara sederhana namun kuat: satu anchor point, tiga zona deviasi, hasilnya data presisi dan transparan lintas sistem."
 feature_image: "/automation-blog/assets/media/photo-1505778276668-26b3ff7af103"

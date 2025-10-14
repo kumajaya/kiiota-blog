@@ -1,6 +1,7 @@
 ---
 title: "Menghubungkan ZeroTier ke Subnet Lokal via Gateway Ubuntu"
 date: 2025-09-05
+author: ["Ketut Kumajaya"]
 tags: ["Remote Access", "Practical Engineering", "Field Experience"]
 excerpt: "Integrasi ZeroTier ke subnet lokal industri kini makin modular. Artikel ini menyajikan struktur NAT dan redireksi VNC yang siap-pakai, lengkap dengan flowchart dan validasi runtime."
 feature_image: "/automation-blog/assets/media/photo-1544197150-b99a580bb7a8"

@@ -1,6 +1,7 @@
 ---
 title: "Arsitektur Edge-to-Server untuk Integrasi Data Industri"
 date: 2025-10-07
+author: ["Ketut Kumajaya"]
 tags: ["Edge Computing", "Distributed Control System", "Field Experience", "Practical Engineering"]
 excerpt: "Dengan perangkat sederhana dan software open source, sistem ini menghadirkan integrasi data industri yang aman, efisien, dan berkelanjutan."
 feature_image: "/automation-blog/assets/media/photo-1639117474926-9e22670f6bf8"

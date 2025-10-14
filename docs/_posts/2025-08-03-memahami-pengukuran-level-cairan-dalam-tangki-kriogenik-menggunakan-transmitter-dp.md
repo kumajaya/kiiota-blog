@@ -1,6 +1,7 @@
 ---
 title: "Memahami Pengukuran Level Cairan dalam Tangki Kriogenik Menggunakan Transmitter DP"
 date: 2025-08-03
+author: ["Ketut Kumajaya"]
 tags: ["Practical Engineering", "Field Experience", "Measurement Accuracy"]
 excerpt: "Dokumen ini menjelaskan metode pengukuran level cairan kriogenik dengan transmitter DP, menyoroti pengaruh suhu terhadap densitas serta kaitannya dengan tekanan dalam ruang tertutup. Disertai studi kasus dan rekomendasi teknis untuk evaluasi dan peningkatan akurasi."
 feature_image: "/automation-blog/assets/media/perpective_mermaid.png"

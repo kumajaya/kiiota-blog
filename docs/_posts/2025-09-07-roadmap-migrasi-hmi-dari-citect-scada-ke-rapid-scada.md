@@ -1,6 +1,7 @@
 ---
 title: "Roadmap Migrasi HMI dari Citect SCADA ke Rapid SCADA"
 date: 2025-09-07
+author: ["Ketut Kumajaya"]
 tags: ["SCADA", "Remote Access", "Practical Engineering", "Field Experience"]
 excerpt: "Strategi migrasi HMI yang memungkinkan monitoring remote tanpa mengganggu operasional lokal, dari read-only hingga full control."
 feature_image: "/automation-blog/assets/media/photo-1653907696247-cf7ecde77d83"

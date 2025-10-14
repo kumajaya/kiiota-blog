@@ -1,6 +1,7 @@
 ---
 title: "K_ACCUM: Solusi Presisi dan Efisien untuk Drift Akumulator di Modbus Controller"
 date: 2025-09-25
+author: ["Ketut Kumajaya"]
 tags: ["Distributed Control System", "Practical Engineering", "Field Experience"]
 excerpt: "K_ACCUM adalah function block custom untuk mengatasi drift akumulasi dan keterbatasan alamat komunikasi antar controller. Dengan akumulasi tipe data LONG dengan nilai desimal dalam SFLOAT, solusi ini lebih presisi, hemat alamat, dan mudah ditangani."
 feature_image: "/automation-blog/assets/media/photo-1633265486501-0cf524a07213"

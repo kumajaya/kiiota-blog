@@ -1,6 +1,7 @@
 ---
 title: "Menjaga Tulisan dari Ancaman Infrastruktur: Dari Ghost ke GitHub Pages"
 date: 2025-10-14
+author: ["Ketut Kumajaya"]
 tags: ["Practical Engineering", "Team Collaboration", "Open Source"]
 excerpt: "Dari Ghost ke GitHub, dari tulisan menjadi arsip pengetahuan. Sebuah perjalanan mencari cara agar dokumentasi teknis bertahan melampaui umur server dan penulisnya."
 feature_image: "/automation-blog/assets/media/photo-1647696945040-56de84f73f5c"

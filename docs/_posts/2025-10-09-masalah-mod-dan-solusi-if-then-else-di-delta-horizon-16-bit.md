@@ -1,6 +1,7 @@
 ---
 title: "Masalah MOD dan Solusi IF-THEN-ELSE di Delta Horizon 16-bit"
 date: 2025-10-09
+author: ["Ketut Kumajaya"]
 tags: ["Distributed Control System", "Field Experience", "Practical Engineering"]
 excerpt: "Pendekatan MOD sering dipakai untuk menghitung delta berbasis counter 16-bit di sistem DCS. Namun, metode ini rawan menghasilkan loncatan nilai saat terjadi anomali pembacaan."
 feature_image: "/automation-blog/assets/media/photo-1601397922721-4326ae07bbc5"
