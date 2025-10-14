@@ -38,7 +38,7 @@ function extractImages(html) {
 
 async function syncPosts() {
   try {
-    const res = await fetch(`${GHOST_API_URL}?key=${GHOST_API_KEY}&include=tags`);
+    const res = await fetch(`${GHOST_API_URL}?key=${GHOST_API_KEY}&include=authors,tags`);
     if (!res.ok) throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
     const data = await res.json();
 
@@ -51,6 +51,9 @@ async function syncPosts() {
 
       const title = sanitizeForYAML(post.title);
       const excerpt = sanitizeForYAML(post.custom_excerpt || post.excerpt || '');
+      const authors = post.authors && post.authors.length > 0
+        ? post.authors.map(t => `"${sanitizeForYAML(t.name)}"`).join(', ')
+        : '';
       const tags = post.tags && post.tags.length > 0
         ? post.tags.map(t => `"${sanitizeForYAML(t.name)}"`).join(', ')
         : '';
@@ -85,6 +88,7 @@ async function syncPosts() {
       const content = `---
 title: "${title}"
 date: ${post.published_at.substr(0,10)}
+author: [${authors}]
 tags: [${tags}]
 excerpt: "${excerpt}"
 feature_image: "${feature_image}"

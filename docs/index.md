@@ -16,7 +16,7 @@ title: "Technical & Sustainability Digest"
         {{ post.title }}
       </a>
       <div style="font-size:0.875rem; color:#4b5563; margin-top:0.25rem;">
-        {{ post.date | date: "%B %d, %Y" }} — {{ post.excerpt }}
+        {{ post.date | date: "%B %d, %Y" }}{% if post.author.size > 0 %} • {{ post.author | join: ", " }}{% endif %} — {{ post.excerpt }}
       </div>
     </div>
   </div>
