@@ -26,7 +26,7 @@ sass:
 
 # Minima Theme Configuration
 minima:
-  skin: classic
+  skin: auto
 
   # Navigation Pages
   nav_pages:
