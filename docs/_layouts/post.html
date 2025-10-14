@@ -34,6 +34,11 @@ layout: base
         {% endfor %}
       </div>
       {%- endif %}
+      {% if page.reading_time %}
+      <div class="{% unless page.modified_date %}force-inline {% endunless %}post-authors">
+        <span class="reading-time">{{ page.reading_time }} min read</span>
+      </div>
+      {% endif %}
     </div>
   </header>
 
