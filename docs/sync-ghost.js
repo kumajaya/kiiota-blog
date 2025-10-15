@@ -32,11 +32,11 @@ const GHOST_API_KEY = process.env.GHOST_API_KEY;
 const POSTS_PATH = path.join(__dirname, '_posts');
 const PAGES_PATH = path.join(__dirname, 'pages');
 const MEDIA_PATH = path.join(__dirname, 'assets/media');
-const BASE_URL = '/automation-blog';   // Base path untuk GitHub Pages
+const BASE_URL = '/kiiota-blog';   // Base path untuk GitHub Pages
 
 // Konstanta domain media internal yang diizinkan
 const INTERNAL_MEDIA_DOMAINS = [
-  'samatorgroup.com' // bisa ditambah jika ingin whitelist domain lain
+  'kiiota.com' // bisa ditambah jika ingin whitelist domain lain
 ];
 
 // Utility: sanitize string agar aman ditulis ke YAML frontmatter

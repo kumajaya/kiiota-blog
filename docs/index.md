@@ -1,14 +1,20 @@
 ---
 layout: base
-title: "Technical & Sustainability Digest"
+title: "Kiiota Blog"
 ---
+
+<h1 style="margin-bottom:1rem; color:#1e40af;">Kiiota Blog</h1>
+<p style="margin-bottom:2rem; color:#4b5563;">
+  Catatan teknis dan refleksi humanis dari dunia otomasi industri —
+  dokumentasi, eksperimen, dan narasi yang lahir dari lapangan.
+</p>
 
 <div class="posts-container">
 {% for post in site.posts %}
   <div class="post-item" style="display:flex; flex-wrap:wrap; margin-bottom:1.5rem; align-items:flex-start;">
     {% if post.image %}
     <a href="{{ site.baseurl }}{{ post.url }}" style="flex:0 0 200px; margin-right:1rem; margin-bottom:0.5rem;">
-      <img src="{{ post.image }}" alt="{{ post.title }}" style="width:100%; height:auto; object-fit:cover; border-radius:6px;">
+      <img src="{{ post.image }}" alt="{{ post.image_alt | default: post.title }}" style="width:100%; height:auto; object-fit:cover; border-radius:6px;">
     </a>
     {% endif %}
     <div class="post-text" style="flex:1 1 0; min-width:0;">
@@ -16,7 +22,9 @@ title: "Technical & Sustainability Digest"
         {{ post.title }}
       </a>
       <div style="font-size:0.875rem; color:#4b5563; margin-top:0.25rem;">
-        {{ post.date | date: "%B %d, %Y" }}{% if post.author.size > 0 %} • {{ post.author | join: ", " }}{% endif %} — {{ post.excerpt }}
+        {{ post.date | date: "%B %d, %Y" }}
+        {% if post.author and post.author.size > 0 %} • {{ post.author | join: ", " }}{% endif %}
+        — {{ post.excerpt }}
       </div>
     </div>
   </div>

@@ -4,24 +4,25 @@ title: "About"
 permalink: /about/
 ---
 
-## Tentang Technical & Sustainability Digest
+## Tentang Kiiota Blog
 
-**Technical & Sustainability Digest** adalah publikasi independen yang diluncurkan pada Juli 2025 oleh **Ketut Kumajaya**. Blog ini merupakan arsip konten internal Samator Group yang menyajikan wawasan teknis, perspektif keberlanjutan, dan solusi praktis berdasarkan pengalaman lapangan, ditujukan bagi para profesional, insinyur, dan pengambil keputusan di industri otomasi dan teknologi.
+**Kiiota Blog** adalah ruang catatan teknis dan refleksi humanis yang dikelola oleh **Ketut Kumajaya**. Blog ini lahir dari kebutuhan untuk mendokumentasikan eksperimen, troubleshooting, dan filosofi kerja di dunia otomasi industri, sekaligus menjadi arsip terbuka yang bisa dipelajari lintas generasi operator, insinyur, dan manajemen.
 
 ## Tujuan
 
-- Menyediakan **referensi pengetahuan industri dan praktik keberlanjutan**.  
-- Berbagi **solusi praktis dan pengalaman lapangan** yang relevan dengan dunia otomasi dan engineering.  
-- Memungkinkan **backup otomatis konten Ghost** ke repositori statis.  
+- Menyediakan **referensi praktis** tentang otomasi, integrasi sistem, dan audit energi.
+- Membagikan **eksperimen, simulasi, dan dokumentasi** yang bisa langsung diadopsi di lapangan.
+- Menjadi **backup otomatis konten Ghost** ke repositori statis.
 - Mendukung **publikasi via static site generator** (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+- Menghubungkan aspek teknis dengan **narasi manusiawi** agar budaya kerja lebih inklusif.
 
 ## Penulis
 
-- **Ketut Kumajaya** – Penulis dan kurator konten.  
-- Email: [ketut.kumajaya@gmail.com](mailto:ketut.kumajaya@gmail.com)  
-- Repositori GitHub: [kumajaya/automation-blog](https://github.com/kumajaya/automation-blog)  
+- **Ketut Kumajaya** – Penulis, arsitek troubleshooting, dan kurator konten.
+- Email: [ketut.kumajaya@gmail.com](mailto:ketut.kumajaya@gmail.com)
+- Repositori GitHub: [kumajaya/kiiota-blog](https://github.com/kumajaya/kiiota-blog)
 
 ## Filosofi
 
-> "Berbagi pengetahuan dan pengalaman praktis membangun fondasi bagi inovasi dan keberlanjutan di dunia teknis."
-> — Automation and Innovation Samator Group
+> "Menyederhanakan yang rumit, memperumit yang sederhana bila perlu — agar tidak diremehkan.
+> Dunia kontrol tidak selalu logis, tapi harus tetap dihadapi dengan logika."

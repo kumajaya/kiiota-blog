@@ -20,8 +20,8 @@ jobs:
       - name: Sync posts from Ghost CMS
         working-directory: docs
         env:
-          GHOST_API_URL: ${{ secrets.GHOST_AUTOMATION_API_URL }}
-          GHOST_API_KEY: ${{ secrets.GHOST_AUTOMATION_API_KEY }}
+          GHOST_API_URL: ${{ secrets.GHOST_KIIOTA_API_URL }}
+          GHOST_API_KEY: ${{ secrets.GHOST_KIIOTA_API_KEY }}
         run: node sync-ghost.js
 
       - name: Commit & push changes

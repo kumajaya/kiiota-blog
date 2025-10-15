@@ -1,14 +1,14 @@
 # Site Metadata
-title: Technical & Sustainability Digest
+title: Kiiota Blog
 author:
   name: Ketut Kumajaya
   email: ketut.kumajaya@gmail.com
 
 description: >
-  Technical & Sustainability Digest adalah arsip konten blog internal Samator Group
-  yang menampilkan wawasan teknis, perspektif keberlanjutan, dan solusi praktis
-  berdasarkan pengalaman lapangan. Repositori ini menyimpan konten dalam bentuk
-  statis, memungkinkan backup otomatis, publikasi via static site generator.
+  Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri.
+  Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan.
+  Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis,
+  serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
 
 # Theme
 remote_theme: "jekyll/minima@b3385fe"
@@ -40,9 +40,9 @@ minima:
 
   # Social Links
   social_links:
-    - title: Repositori Automation Blog di GitHub
+    - title: Repositori Kiiota Blog di GitHub
       icon: github
-      url: "https://github.com/kumajaya/automation-blog"
+      url: "https://github.com/kumajaya/kiiota-blog"
     - title: Ketut Kumajaya at X (formerly Twitter)
       icon: x-twitter
       url: "https://x.com/ketutkumajaya"
