@@ -5,6 +5,7 @@ slug: "menghubungkan-zerotier-ke-subnet-lokal-via-gateway-ubuntu"
 layout: "post"
 excerpt: "Integrasi ZeroTier ke subnet lokal industri kini makin modular. Artikel ini menyajikan struktur NAT dan redireksi VNC yang siap-pakai, lengkap dengan flowchart dan validasi runtime."
 image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI3fHxuZXR3b3JraW5nfGVufDB8fHx8MTc1NzA1MTE4NHww&ixlib=rb-4.1.0&q=80&w=2000"
+image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@jouwdan?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Jordan Harrison</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Kumajaya"
@@ -26,13 +27,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "Integrasi ZeroTier ke subnet lokal industri kini makin modular. Artikel ini menyajikan struktur NAT dan redireksi VNC yang siap-pakai, lengkap dengan flowchart dan validasi runtime."
 url: "https://automation.samatorgroup.com/blog/menghubungkan-zerotier-ke-subnet-lokal-via-gateway-ubuntu/"
 comment_id: "68ba9e23f80c480576839a6a"
 reading_time: 5
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 <h3 id="struktur-nat-modular-redireksi-vnc-dan-internet-gateway">Struktur NAT Modular, Redireksi VNC, dan Internet Gateway</h3>

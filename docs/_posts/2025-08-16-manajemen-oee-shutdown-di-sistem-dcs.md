@@ -5,6 +5,7 @@ slug: "manajemen-oee-shutdown-di-sistem-dcs"
 layout: "post"
 excerpt: "Panduan ringkas bagi operator untuk memahami cara kerja buffer timer—mengakumulasi waktu shutdown saat trip—serta kapan memindahkannya ke kategori yang tepat, bahkan setelah plant restart."
 image: "https://images.unsplash.com/photo-1748366416622-8bd7b3530dd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDYzfHxjb250cm9sJTIwcm9vbXxlbnwwfHx8fDE3NTUyODU5NDB8MA&ixlib=rb-4.1.0&q=80&w=2000"
+image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@alteredpoint?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Igor Saikin</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Kumajaya"
@@ -27,13 +28,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "Panduan ringkas bagi operator untuk memahami cara kerja buffer timer—mengakumulasi waktu shutdown saat trip—serta kapan memindahkannya ke kategori yang tepat, bahkan setelah plant restart."
 url: "https://automation.samatorgroup.com/blog/manajemen-oee-shutdown-di-sistem-dcs/"
 comment_id: "689f701d7eeef80609b3ce17"
 reading_time: 7
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 <h2 id="pendekatan-modular-dengan-buffer-timer-dan-klasifikasi-setelah-trip">Pendekatan Modular dengan Buffer Timer dan Klasifikasi Setelah Trip</h2>

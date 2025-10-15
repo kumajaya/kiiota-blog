@@ -5,6 +5,7 @@ slug: "optimizing-centrifugal-compressor-performance-the-role-of-performance-cur
 layout: "post"
 excerpt: "This article presents a diagnostic analysis revealing that a new centrifugal compressor underperforms due to misaligned operation—not equipment fault. Replotting vendor curves highlights excessive flow, inadequate pressure, and motor overload. Targeted corrections improve efficiency and reliability."
 image: "/automation-blog/assets/media/ZH1120-6_Flow_vs_Pressure_half.png"
+image_alt: ""
 image_caption: ""
 author:
   - "Ketut Kumajaya"
@@ -29,13 +30,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "This article presents a diagnostic analysis revealing that a new centrifugal compressor underperforms due to misaligned operation—not equipment fault. Replotting vendor curves highlights excessive flow, inadequate pressure, and motor overload. Targeted corrections improve efficiency and reliability."
 url: "https://automation.samatorgroup.com/blog/optimizing-centrifugal-compressor-performance-the-role-of-performance-curves-in-operational-diagnostics/"
 comment_id: "6891e08f547c702feb00b09a"
 reading_time: 5
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 

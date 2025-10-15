@@ -5,6 +5,7 @@ slug: "anchor-based-normalization-strategi-koreksi-drift-data-akumulator-di-dcs-
 layout: "post"
 excerpt: "Dari DCS ke ERP, data akumulasi sering “melenceng” tanpa kita sadari. Anchor‑Based Normalization menghadirkan cara sederhana namun kuat: satu anchor point, tiga zona deviasi, hasilnya data presisi dan transparan lintas sistem."
 image: "https://images.unsplash.com/photo-1505778276668-26b3ff7af103?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fEdQU3xlbnwwfHx8fDE3NTkwMDM3ODd8MA&ixlib=rb-4.1.0&q=80&w=2000"
+image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@jamie452?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Jamie Street</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Kumajaya"
@@ -26,13 +27,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "Dari DCS ke ERP, data akumulasi sering “melenceng” tanpa kita sadari. Anchor‑Based Normalization menghadirkan cara sederhana namun kuat: satu anchor point, tiga zona deviasi, hasilnya data presisi dan transparan lintas sistem."
 url: "https://automation.samatorgroup.com/blog/anchor-based-normalization-strategi-koreksi-drift-data-akumulator-di-dcs-scada/"
 comment_id: "68d838066d382e4b0503dd39"
 reading_time: 3
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 28 September 2025</em></p>

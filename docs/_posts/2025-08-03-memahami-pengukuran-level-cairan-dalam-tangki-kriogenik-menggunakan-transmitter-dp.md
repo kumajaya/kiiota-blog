@@ -5,6 +5,7 @@ slug: "memahami-pengukuran-level-cairan-dalam-tangki-kriogenik-menggunakan-trans
 layout: "post"
 excerpt: "Dokumen ini menjelaskan metode pengukuran level cairan kriogenik dengan transmitter DP, menyoroti pengaruh suhu terhadap densitas serta kaitannya dengan tekanan dalam ruang tertutup. Disertai studi kasus dan rekomendasi teknis untuk evaluasi dan peningkatan akurasi."
 image: "/automation-blog/assets/media/perpective_mermaid.png"
+image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Diagram hasil rendering </span><a href=\"https://www.mermaidchart.com/play?utm_source=mermaid_js#pako:eNqdkF9LwzAUxb_KpfbBgYWxIWrAP6jQIQNhFfpgRLImWUrTZKSJc4y97KP6Sez6Z1Rxinu8Ofd3zsldeYmmzENeEARYJVrxdIawApBkqZ1FQMnMMKwqmUu9SAQxFsaT7Q5A_Iw931_Fa99H8MQyooiCUUqNLiyxaVG-GZc5A8d5PvrYbB572HuBILiCictd8VrzMVyCAIwTqi1Eoe-XS7V_FNYBUVgl3DJDLDwwVTrfpxmzRLj0m2MNypoTO2xOYMzemIQ7khqirreNej-izdARRGUmypYYc0OS8r91o13PZq9iRDe6m1lWtix35ZHa8OaINysoBJkzBEY7RRldf2myT47CfYr83VHsk_cKhV1KBjHwVEp0RPtsyvlJYY3OGDoaJEN22m_GYJFSK9Bg_t4l25vWPO_zs__xUXhwtGxDOR9ODygtDi7dknTIL-j536S3_gSQRimc\" rel=\"noreferrer\"><span style=\"white-space: pre-wrap;\">Mermaid Live Editor</span></a><span style=\"white-space: pre-wrap;\"> dengan efek perspektif dari </span><a href=\"https://www1.lunapic.com/editor/\" rel=\"noreferrer\"><span style=\"white-space: pre-wrap;\">LunaPic</span></a>"
 author:
   - "Ketut Kumajaya"
@@ -26,13 +27,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "Dokumen ini menjelaskan metode pengukuran level cairan kriogenik dengan transmitter DP, menyoroti pengaruh suhu terhadap densitas serta kaitannya dengan tekanan dalam ruang tertutup. Disertai studi kasus dan rekomendasi teknis untuk evaluasi dan peningkatan akurasi."
 url: "https://automation.samatorgroup.com/blog/memahami-pengukuran-level-cairan-dalam-tangki-kriogenik-menggunakan-transmitter-dp/"
 comment_id: "6888a5c462601b27cbae6c34"
 reading_time: 13
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 

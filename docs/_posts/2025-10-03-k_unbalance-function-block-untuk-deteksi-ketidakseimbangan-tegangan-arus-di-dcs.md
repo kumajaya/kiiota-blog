@@ -5,6 +5,7 @@ slug: "k_unbalance-function-block-untuk-deteksi-ketidakseimbangan-tegangan-arus-
 layout: "post"
 excerpt: "Dirancang untuk menghitung ketidakseimbangan tegangan atau arus dari tiga input dalam sistem DCS, khususnya pada power meter yang tidak menyediakan informasi unbalance."
 image: "https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHxiYWxhbmNlfGVufDB8fHx8MTc1OTQ4MTQ3Nnww&ixlib=rb-4.1.0&q=80&w=2000"
+image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@coltonsturgeon?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Colton Sturgeon</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Kumajaya"
@@ -26,13 +27,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "Dirancang untuk menghitung ketidakseimbangan tegangan atau arus dari tiga input dalam sistem DCS, khususnya pada power meter yang tidak menyediakan informasi unbalance."
 url: "https://automation.samatorgroup.com/blog/k_unbalance-function-block-untuk-deteksi-ketidakseimbangan-tegangan-arus-di-dcs/"
 comment_id: "68df8d117f770e05777e0ca8"
 reading_time: 2
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 <p><strong>Oleh: Ketut P. Kumajaya — 3 Oktober 2025</strong></p>

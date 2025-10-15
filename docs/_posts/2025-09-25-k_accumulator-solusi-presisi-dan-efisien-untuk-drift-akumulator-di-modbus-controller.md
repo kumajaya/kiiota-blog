@@ -5,6 +5,7 @@ slug: "k_accumulator-solusi-presisi-dan-efisien-untuk-drift-akumulator-di-modbus
 layout: "post"
 excerpt: "K_ACCUM adalah function block custom untuk mengatasi drift akumulasi dan keterbatasan alamat komunikasi antar controller. Dengan akumulasi tipe data LONG dengan nilai desimal dalam SFLOAT, solusi ini lebih presisi, hemat alamat, dan mudah ditangani."
 image: "https://images.unsplash.com/photo-1633265486501-0cf524a07213?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDd8fHRpbWVyfGVufDB8fHx8MTc1ODc4NTc5NXww&ixlib=rb-4.1.0&q=80&w=2000"
+image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@towfiqu999999?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Towfiqu barbhuiya</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Kumajaya"
@@ -26,13 +27,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "K_ACCUM adalah function block custom untuk mengatasi drift akumulasi dan keterbatasan alamat komunikasi antar controller. Dengan akumulasi tipe data LONG dengan nilai desimal dalam SFLOAT, solusi ini lebih presisi, hemat alamat, dan mudah ditangani."
 url: "https://automation.samatorgroup.com/blog/k_accumulator-solusi-presisi-dan-efisien-untuk-drift-akumulator-di-modbus-controller/"
 comment_id: "68d4d6856d382e4b0503dca0"
 reading_time: 10
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 25 September 2025</em></p>

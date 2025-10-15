@@ -5,6 +5,7 @@ slug: "arsitektur-edge-to-server-untuk-integrasi-data-industri"
 layout: "post"
 excerpt: "Dengan perangkat sederhana dan software open source, sistem ini menghadirkan integrasi data industri yang aman, efisien, dan berkelanjutan."
 image: "https://images.unsplash.com/photo-1639117474926-9e22670f6bf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHx0cmVuZHxlbnwwfHx8fDE3NTk3MDU1ODB8MA&ixlib=rb-4.1.0&q=80&w=2000"
+image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@ayadighaith?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Ayadi Ghaith</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Kumajaya"
@@ -27,13 +28,11 @@ og_image: ""
 twitter_title: ""
 twitter_description: ""
 twitter_image: ""
-custom_excerpt: "Dengan perangkat sederhana dan software open source, sistem ini menghadirkan integrasi data industri yang aman, efisien, dan berkelanjutan."
 url: "https://automation.samatorgroup.com/blog/arsitektur-edge-to-server-untuk-integrasi-data-industri/"
 comment_id: "68e32bff66a8d70580909f7a"
 reading_time: 4
 access: true
 comments: false
-feature_image_alt: ""
 ---
 
 <p><em>Ditulis oleh Ketut Kumajaya | 6 Oktober 2025</em></p>
