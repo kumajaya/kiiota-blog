@@ -1,8 +1,8 @@
 /**
  * Script sinkronisasi Ghost → Jekyll/GitHub Pages
  * ------------------------------------------------
- * - Mengambil post dari Ghost API (dengan authors & tags)
- * - Menghasilkan file Markdown di folder `_posts`
+ * - Mengambil konten (posts/pages) dari Ghost API (dengan authors & tags)
+ * - Menghasilkan file Markdown di folder `_posts` atau `pages/`
  * - Mengunduh media internal (field `image` & <img> di konten) ke `assets/media`
  * - Menulis frontmatter YAML yang kaya metadata (SEO, sosial, dsb.)
  *
@@ -30,9 +30,9 @@ const GHOST_API_KEY = process.env.GHOST_API_KEY;
 
 // Path output
 const POSTS_PATH = path.join(__dirname, '_posts');
+const PAGES_PATH = path.join(__dirname, 'pages');
 const MEDIA_PATH = path.join(__dirname, 'assets/media');
 const BASE_URL = '/automation-blog';   // Base path untuk GitHub Pages
-const LAYOUT_DEFAULT = 'post';         // Default layout Jekyll
 
 // Konstanta domain media internal yang diizinkan
 const INTERNAL_MEDIA_DOMAINS = [
@@ -96,74 +96,76 @@ function isInternalMedia(url) {
   }
 }
 
-// Fungsi utama: sinkronisasi post Ghost → Markdown Jekyll
-async function syncPosts() {
+// Fungsi utama: sinkronisasi konten Ghost → Markdown Jekyll
+async function syncContent(type, layout, outputFolder) {
   try {
-    // 1. Fetch posts dari Ghost API
-    const res = await fetch(`${GHOST_API_URL}?key=${GHOST_API_KEY}&include=authors,tags`);
+    // 1. Fetch konten dari Ghost API (posts atau pages)
+    const endpoint = `${GHOST_API_URL.replace('/posts/', `/${type}/`)}?key=${GHOST_API_KEY}&include=authors,tags`;
+    const res = await fetch(endpoint);
     if (!res.ok) throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
     const data = await res.json();
+    const items = data[type];
 
     // 2. Pastikan folder output ada
-    if (!fs.existsSync(POSTS_PATH)) fs.mkdirSync(POSTS_PATH, { recursive: true });
+    if (!fs.existsSync(outputFolder)) fs.mkdirSync(outputFolder, { recursive: true });
     if (!fs.existsSync(MEDIA_PATH)) fs.mkdirSync(MEDIA_PATH, { recursive: true });
 
-    // 3. Loop setiap post → generate file Markdown
-    for (const post of data.posts) {
-      const datePrefix = post.published_at.substr(0, 10);
-      const fileName = `${datePrefix}-${post.slug}.md`;
-      const filePath = path.join(POSTS_PATH, fileName);
+    // 3. Loop setiap item → generate file Markdown
+    for (const item of items) {
+      const datePrefix = item.published_at?.substr(0, 10);
+      const fileName = layout === 'post' ? `${datePrefix}-${item.slug}.md` : `${item.slug}.md`;
+      const filePath = path.join(outputFolder, fileName);
 
       // 3a. Susun frontmatter standar
       const fm = {
-        title: sanitizeForYAML(post.title),
-        date: post.published_at, // ISO string (bisa dipotong ke YYYY-MM-DD jika perlu)
-        slug: post.slug,
-        layout: LAYOUT_DEFAULT,
-        excerpt: sanitizeForYAML(post.custom_excerpt || post.excerpt || ''),
+        title: sanitizeForYAML(item.title),
+        date: item.published_at || '',
+        slug: item.slug,
+        layout,
+        excerpt: sanitizeForYAML(item.custom_excerpt || item.excerpt || ''),
         image: '', // akan diisi jika ada feature_image
-        image_alt: sanitizeForYAML(post.feature_image_alt || ''),
-        image_caption: sanitizeForYAML(post.feature_image_caption || ''),
-        author: post.authors ? post.authors.map(a => sanitizeForYAML(a.name)) : [],
-        tags: post.tags ? post.tags.map(t => sanitizeForYAML(t.name)) : [],
-        categories: post.primary_tag ? [sanitizeForYAML(post.primary_tag.name)] : []
+        image_alt: sanitizeForYAML(item.feature_image_alt || ''),
+        image_caption: sanitizeForYAML(item.feature_image_caption || ''),
+        author: item.authors ? item.authors.map(a => sanitizeForYAML(a.name)) : [],
+        tags: item.tags ? item.tags.map(t => sanitizeForYAML(t.name)) : [],
+        categories: item.primary_tag ? [sanitizeForYAML(item.primary_tag.name)] : []
       };
 
       // 3b. Tambahkan field metadata Ghost (SEO, sosial, dsb.)
-      fm.featured = post.featured || false;
-      fm.visibility = post.visibility || '';
-      fm.primary_author = post.primary_author ? sanitizeForYAML(post.primary_author.name) : '';
-      fm.codeinjection_head = post.codeinjection_head || '';
-      fm.codeinjection_foot = post.codeinjection_foot || '';
-      fm.canonical_url = post.canonical_url || '';
-      fm.og_title = post.og_title || '';
-      fm.og_description = post.og_description || '';
-      fm.og_image = post.og_image || '';
-      fm.twitter_title = post.twitter_title || '';
-      fm.twitter_description = post.twitter_description || '';
-      fm.twitter_image = post.twitter_image || '';
-      fm.url = post.url || '';
-      fm.comment_id = post.comment_id || '';
-      fm.reading_time = post.reading_time || 0;
-      fm.access = post.access !== undefined ? post.access : true;
-      fm.comments = post.comments !== undefined ? post.comments : false;
+      fm.featured = item.featured || false;
+      fm.visibility = item.visibility || '';
+      fm.primary_author = item.primary_author ? sanitizeForYAML(item.primary_author.name) : '';
+      fm.codeinjection_head = item.codeinjection_head || '';
+      fm.codeinjection_foot = item.codeinjection_foot || '';
+      fm.canonical_url = item.canonical_url || '';
+      fm.og_title = item.og_title || '';
+      fm.og_description = item.og_description || '';
+      fm.og_image = item.og_image || '';
+      fm.twitter_title = item.twitter_title || '';
+      fm.twitter_description = item.twitter_description || '';
+      fm.twitter_image = item.twitter_image || '';
+      fm.url = item.url || '';
+      fm.comment_id = item.comment_id || '';
+      fm.reading_time = item.reading_time || 0;
+      fm.access = item.access !== undefined ? item.access : true;
+      fm.comments = item.comments !== undefined ? item.comments : false;
 
       // 3c. Download feature_image (jika ada & internal)
-      if (post.feature_image) {
-        if (isInternalMedia(post.feature_image)) {
-          const urlObj = new URL(post.feature_image);
+      if (item.feature_image) {
+        if (isInternalMedia(item.feature_image)) {
+          const urlObj = new URL(item.feature_image);
           const mediaFileName = path.basename(urlObj.pathname);
           const mediaPath = path.join(MEDIA_PATH, mediaFileName);
-          await downloadFile(post.feature_image, mediaPath);
+          await downloadFile(item.feature_image, mediaPath);
           fm.image = `${BASE_URL}/assets/media/${mediaFileName}`;
         } else {
           // eksternal → biarkan link asli
-          fm.image = post.feature_image;
+          fm.image = item.feature_image;
         }
       }
 
       // 3d. Download semua <img> di konten HTML → rewrite path hanya jika internal
-      let contentHtml = post.html || '';
+      let contentHtml = item.html || '';
       const imgUrls = extractImages(contentHtml);
       for (const imgUrl of imgUrls) {
         if (isInternalMedia(imgUrl)) {
@@ -196,17 +198,18 @@ async function syncPosts() {
       frontMatter += '---\n\n';
 
       fs.writeFileSync(filePath, frontMatter + contentHtml, 'utf-8');
-      console.log(`Synced post: ${fileName}`);
+      console.log(`Synced ${type.slice(0, -1)}: ${fileName}`);
     }
 
-    console.log(`Total posts synced: ${data.posts.length}`);
-    return data.posts.length;
+    console.log(`Total ${type} synced: ${items.length}`);
+    return items.length;
 
   } catch (err) {
-    console.error('Sync failed:', err);
+    console.error(`Sync failed for ${type}:`, err);
     process.exit(1);
   }
 }
 
-// Jalankan sinkronisasi
-syncPosts();
+// Jalankan sinkronisasi untuk posts dan pages
+syncContent('posts', 'post', POSTS_PATH);
+syncContent('pages', 'page', PAGES_PATH);
