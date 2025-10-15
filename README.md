@@ -47,6 +47,18 @@ Konten blog diambil dari Ghost CMS menggunakan **Ghost Content API** melalui `sy
 3. Unduh media internal ke `assets/media/`
 4. Commit & push otomatis ke repository
 
+## Konfigurasi Secrets & Permissions
+
+Agar workflow sinkronisasi berjalan dengan benar, pastikan menambahkan **GitHub Actions secrets** berikut:
+
+- `GHOST_KIIOTA_API_URL` → base URL Ghost Content API, contoh:
+  `https://blog.kiiota.com/ghost/api/content/`
+- `GHOST_KIIOTA_API_KEY` → Content API Key dari Ghost Admin → Integrations
+
+Selain itu, aktifkan izin **Read and write permissions** untuk `GITHUB_TOKEN`:
+- Masuk ke **Settings → Actions → General → Workflow permissions**
+- Pilih **Read and write permissions**
+
 Workflow juga dapat dijalankan manual melalui `workflow_dispatch`.
 
 ## Publikasi
@@ -54,6 +66,25 @@ Workflow juga dapat dijalankan manual melalui `workflow_dispatch`.
 Repositori dapat langsung digunakan untuk build Jekyll atau static site generator lain. Hasil build dapat dipublikasikan melalui **GitHub Pages**:
 
 [https://kumajaya.github.io/kiiota-blog/](https://kumajaya.github.io/kiiota-blog/)
+
+### Setup
+1. Masuk ke **Settings → Pages**.
+2. Pilih:
+   - **Branch**: `main`
+   - **Folder**: `/docs`
+3. Simpan. GitHub akan build Jekyll dari folder `docs/`.
+
+### Custom Domain (opsional)
+Jika ingin menggunakan domain khusus (`blog.kiiota.com`):
+- Buat file `docs/CNAME` berisi:
+  ```
+  blog.kiiota.com
+  ```
+- Arahkan DNS domain ke `kumajaya.github.io`.
+
+### Trigger Build
+- Setiap commit ke branch `main` yang menyentuh folder `docs/` akan memicu build GitHub Pages otomatis.
+- Build juga bisa dijalankan manual melalui **Actions → Pages build and deployment → Run workflow**.
 
 ## Setup Lokal
 
