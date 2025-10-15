@@ -3,14 +3,21 @@
  * ------------------------------------------------
  * - Mengambil post dari Ghost API (dengan authors & tags)
  * - Menghasilkan file Markdown di folder `_posts`
- * - Mengunduh semua media (feature_image & <img> di konten) ke `assets/media`
+ * - Mengunduh media internal (field `image` & <img> di konten) ke `assets/media`
  * - Menulis frontmatter YAML yang kaya metadata (SEO, sosial, dsb.)
  *
  * NOTE:
  * - Membutuhkan Node.js v18+ (karena `fetch` & `replaceAll` sudah built-in)
- * - Field `feature_image` diganti menjadi `image`
- * - Field `feature_image_caption` diganti menjadi `image_caption`
- *   → pastikan template Jekyll/Hugo membaca field baru ini
+ * - Field `feature_image` disimpan sebagai `image`
+ * - Field `feature_image_caption` disimpan sebagai `image_caption`
+ * - Field `feature_image_alt` disimpan sebagai `image_alt`
+ * - Field `excerpt` atau `custom_excerpt` disimpan sebagai `excerpt`
+ * - Field `primary_tag` disimpan sebagai `categories` (array, karena Jekyll)
+ * - Field `primary_author` tetap dipertahankan (string)
+ * - Domain media internal didefinisikan di konstanta `INTERNAL_MEDIA_DOMAINS`
+ * - Gambar dari domain non-whitelist tidak diunduh; link eksternal dibiarkan utuh
+ * - Unduhan media memakai retry + timeout untuk ketahanan jaringan
+ * - Nama file `_posts` memakai prefix tanggal (YYYY-MM-DD) dari `published_at`
  */
 
 const fs = require('fs');
@@ -26,6 +33,11 @@ const POSTS_PATH = path.join(__dirname, '_posts');
 const MEDIA_PATH = path.join(__dirname, 'assets/media');
 const BASE_URL = '/automation-blog';   // Base path untuk GitHub Pages
 const LAYOUT_DEFAULT = 'post';         // Default layout Jekyll
+
+// Konstanta domain media internal yang diizinkan
+const INTERNAL_MEDIA_DOMAINS = [
+  'samatorgroup.com' // bisa ditambah jika ingin whitelist domain lain
+];
 
 // Utility: sanitize string agar aman ditulis ke YAML frontmatter
 function sanitizeForYAML(str) {
@@ -78,7 +90,7 @@ function extractImages(html) {
 function isInternalMedia(url) {
   try {
     const u = new URL(url);
-    return u.hostname.endsWith('samatorgroup.com'); // sesuaikan domain Ghost Anda
+    return INTERNAL_MEDIA_DOMAINS.some(domain => u.hostname.endsWith(domain));
   } catch {
     return false;
   }
@@ -110,6 +122,7 @@ async function syncPosts() {
         layout: LAYOUT_DEFAULT,
         excerpt: sanitizeForYAML(post.custom_excerpt || post.excerpt || ''),
         image: '', // akan diisi jika ada feature_image
+        image_alt: sanitizeForYAML(post.feature_image_alt || ''),
         image_caption: sanitizeForYAML(post.feature_image_caption || ''),
         author: post.authors ? post.authors.map(a => sanitizeForYAML(a.name)) : [],
         tags: post.tags ? post.tags.map(t => sanitizeForYAML(t.name)) : [],
@@ -129,13 +142,11 @@ async function syncPosts() {
       fm.twitter_title = post.twitter_title || '';
       fm.twitter_description = post.twitter_description || '';
       fm.twitter_image = post.twitter_image || '';
-      fm.custom_excerpt = post.custom_excerpt || '';
       fm.url = post.url || '';
       fm.comment_id = post.comment_id || '';
       fm.reading_time = post.reading_time || 0;
       fm.access = post.access !== undefined ? post.access : true;
       fm.comments = post.comments !== undefined ? post.comments : false;
-      fm.feature_image_alt = post.feature_image_alt || '';
 
       // 3c. Download feature_image (jika ada & internal)
       if (post.feature_image) {
