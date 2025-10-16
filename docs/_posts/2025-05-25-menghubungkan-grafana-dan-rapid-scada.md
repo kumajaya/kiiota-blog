@@ -1,9 +1,25 @@
 ---
+ghost_uuid: "7b80b787-70ed-49b5-a228-9d154f76d335"
 title: "Menghubungkan Grafana dan Rapid SCADA"
 date: "2025-05-25T23:24:49.000+07:00"
 slug: "menghubungkan-grafana-dan-rapid-scada"
 layout: "post"
-excerpt: "Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana.    Arsitektur Singkat   Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA:   Grafana --> [Basic Auth] --> ScadaGrafanaProxy --> [Cookie Session] --> Rapid SCADA 6 API     * Grafana:"
+excerpt: |
+  Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana.
+  
+  
+  
+  Arsitektur Singkat
+  
+  
+  Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA:
+  
+  
+  Grafana --> [Basic Auth] --> ScadaGrafanaProxy --> [Cookie Session] --> Rapid SCADA 6 API
+  
+  
+  
+   * Grafana:
 image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "Photo by <a href=\"https://unsplash.com/@dawson2406?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Stephen Dawson</a> / <a href=\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Unsplash</a>"
@@ -13,7 +29,7 @@ tags:
   - "rapid-scada,"
   - "grafana"
 categories:
-  - "rapid-scada,"
+  - "rapid-scada"
 featured: false
 visibility: "public"
 primary_author: "Ketut Putu Kumajaya"

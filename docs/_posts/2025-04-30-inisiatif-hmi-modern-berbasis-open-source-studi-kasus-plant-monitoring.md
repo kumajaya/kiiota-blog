@@ -1,10 +1,21 @@
 ---
+ghost_uuid: "43df3233-1616-42ed-9f6b-a488982171a3"
 title: "Inisiatif HMI Modern Berbasis Open Source: Studi Kasus Plant Monitoring"
 date: "2025-04-30T11:24:55.000+07:00"
 slug: "inisiatif-hmi-modern-berbasis-open-source-studi-kasus-plant-monitoring"
 layout: "post"
-excerpt: "Pengantar   Di tengah tuntutan efisiensi dan fleksibilitas dalam dunia otomasi industri, sistem HMI (Human-Machine Interface) menjadi komponen yang sangat vital. HMI yang baik memungkinkan operator untuk memantau dan mengendalikan proses industri secara intuitif, dengan menyediakan visualisasi data dan kondisi sistem secara real-time. Namun, sistem HMI tradisional seringkali terjebak dalam keterbatasan perangkat keras dan perangkat lunak proprietary yang mahal dan kurang fleksibel.      \"HMI buk"
-image: "/kiiota-blog/assets/media/ss-1.png"
+excerpt: |
+  Pengantar
+  
+  
+  Di tengah tuntutan efisiensi dan fleksibilitas dalam dunia otomasi industri, sistem HMI (Human-Machine Interface) menjadi komponen yang sangat vital. HMI yang baik memungkinkan operator untuk memantau dan mengendalikan proses industri secara intuitif, dengan menyediakan visualisasi data dan kondisi sistem secara real-time. Namun, sistem HMI tradisional seringkali terjebak dalam keterbatasan perangkat keras dan perangkat lunak proprietary yang mahal dan kurang fleksibel.
+  
+  
+  
+  
+  
+  \"HMI buk
+image: "/kiiota-blog/assets/media/43df3233-1616-42ed-9f6b-a488982171a3-ss-1.png"
 image_alt: ""
 image_caption: ""
 author:
@@ -55,7 +66,7 @@ comments: true
 <p>Sistem ini dirancang dengan pendekatan modular, yang memungkinkan skalabilitas dan fleksibilitas tinggi sesuai dengan kebutuhan berbagai ukuran proyek industri. Arsitektur ini juga mendukung berbagai sistem operasi, baik itu Windows, Linux, maupun embedded Linux, sehingga dapat dengan mudah diimplementasikan pada perangkat keras yang ada di lapangan tanpa mengkhawatirkan keterbatasan platform.</p>
 <p>Salah satu keputusan penting dalam desain ini adalah penggunaan <strong>OPC UA (Unified Architecture)</strong> sebagai protokol komunikasi utama antara <strong>PLC Siemens S7-300</strong> dan <strong>Rapid SCADA</strong>. OPC UA dipilih karena kemampuannya untuk menjamin komunikasi yang aman, stabil, dan terstandarisasi antar perangkat yang berbeda. Selain itu, protokol ini memungkinkan pengelolaan data secara terstruktur dan real-time dengan menggunakan komunikasi berbasis objek yang dapat memperkaya informasi.</p>
 <p>Node-RED bertindak sebagai middleware yang menghubungkan antara PLC dan <strong>Rapid SCADA</strong>. <strong>Node-RED</strong> memungkinkan alur pengolahan data yang lebih fleksibel, termasuk penerapan logika kontrol sederhana, pemetaan data, dan pengolahan sinyal dari berbagai sensor dan perangkat. Node-RED juga memberikan keuntungan dalam hal pemrograman berbasis visual, mempermudah pengembangan, serta memungkinkan integrasi berbagai jenis protokol dan perangkat.</p>
-<p><img src="/kiiota-blog/assets/media/architecture.png" alt="System Architecture" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/43df3233-1616-42ed-9f6b-a488982171a3-architecture.png" alt="System Architecture" loading="lazy"></p>
 <p>Selain komunikasi utama antara PLC dan Node-RED, sistem ini juga memperluas akuisisi data analog menggunakan perangkat tambahan. <strong>MOXA E1242</strong> berfungsi sebagai <strong>remote I/O</strong> untuk membaca sinyal 4-20mA dari sensor-sensor seperti pressure transmitter dan level transmitter, dan mengirimkan data tersebut langsung ke Rapid SCADA melalui protokol <strong>Modbus TCP</strong>.</p>
 <blockquote>
 <p>&quot;Dengan memanfaatkan kombinasi dua protokol — OPC UA dan Modbus TCP — sistem ini mampu menjembatani dunia perangkat keras legacy dengan kebutuhan monitoring modern.&quot;</p>
@@ -81,7 +92,7 @@ comments: true
 <p>Untuk kenyamanan operator, antarmuka ini dijalankan dalam mode kiosk penuh (fullscreen kiosk mode) menggunakan browser Edge, memastikan fokus penuh pada tampilan proses tanpa gangguan elemen browser dan antarmuka sistem.</p>
 <h3 id="penggunaan-svg-dan-drawio">Penggunaan SVG dan draw.io</h3>
 <p>Untuk menjaga kualitas grafis yang tinggi, seluruh elemen visual HMI dibuat dalam format <strong>SVG (Scalable Vector Graphics)</strong>, sesuai dengan pedoman desain <strong>ISA-101</strong> yang mendorong penggunaan grafis yang bersih dan tajam. SVG memastikan bahwa gambar tetap jelas dan dapat diskalakan dengan sempurna tanpa kehilangan kualitas visual. Alat yang digunakan untuk desain ini adalah <strong>draw.io</strong>, yang memungkinkan pembuatan diagram dan grafik yang efisien, sekaligus memudahkan integrasi dengan HMI.</p>
-<p><img src="/kiiota-blog/assets/media/Screenshot-2025-05-05-090311.png" alt="Daraw.io multi tab" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/43df3233-1616-42ed-9f6b-a488982171a3-Screenshot-2025-05-05-090311.png" alt="Daraw.io multi tab" loading="lazy"></p>
 <p>Fitur common background dan multi-tab di draw.io membantu mempermudah pengelolaan layout dan mempercepat proses desain secara keseluruhan.</p>
 <blockquote>
 <p>&quot;Walaupun draw.io bukan dirancang khusus untuk pengembangan HMI, kreativitas dalam menggunakannya menjadi bukti bahwa alat sederhana bisa memberikan hasil profesional. Grafik 11 halaman HMI yang tidak terlalu sederhana hanya kurang dari 350 kB!&quot;</p>

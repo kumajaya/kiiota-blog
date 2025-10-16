@@ -1,9 +1,21 @@
 ---
+ghost_uuid: "b7ded0d4-eb23-4632-8265-da1e88cff84c"
 title: "Tentang situs ini"
 date: "2021-11-23T23:16:02.000+07:00"
 slug: "about"
 layout: "page"
-excerpt: "Tentang Kiiota   Kiiota bukan produk. Ini catatan.  Bukan sekadar catatan teknis, tapi kumpulan pemikiran, eksperimen, dan refleksi dari seorang integrator otomasi—seseorang yang lebih percaya pada realitas lapangan daripada janji brosur vendor.   Di balik tulisan-tulisan Kiiota, ada jam-jam panjang mengamati perilaku sistem, membongkar protokol, menakar ulang asumsi, dan kadang harus mengakui bahwa hal kecil bisa mengguncang sistem besar.  Ini bukan dokumentasi steril, tapi rekaman proses belaj"
+excerpt: |
+  Tentang Kiiota
+  
+  
+  Kiiota bukan produk. Ini catatan.
+  
+  Bukan sekadar catatan teknis, tapi kumpulan pemikiran, eksperimen, dan refleksi dari seorang integrator otomasi—seseorang yang lebih percaya pada realitas lapangan daripada janji brosur vendor.
+  
+  
+  Di balik tulisan-tulisan Kiiota, ada jam-jam panjang mengamati perilaku sistem, membongkar protokol, menakar ulang asumsi, dan kadang harus mengakui bahwa hal kecil bisa mengguncang sistem besar.
+  
+  Ini bukan dokumentasi steril, tapi rekaman proses belaj
 image: ""
 image_alt: ""
 image_caption: ""

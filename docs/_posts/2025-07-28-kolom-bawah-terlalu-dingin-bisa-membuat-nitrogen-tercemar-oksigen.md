@@ -1,9 +1,11 @@
 ---
+ghost_uuid: "d510a781-de17-4e42-b4a7-ff9ce0cd774f"
 title: "Kolom Bawah: Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?"
 date: "2025-07-28T01:57:54.000+07:00"
 slug: "kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen"
 layout: "post"
-excerpt: "Suhu di kolom bawah distilasi kriogenik menentukan pemisahan nitrogen & oksigen. Terlalu dingin, nitrogen gagal menguap, liquid air kaya nitrogen. Terlalu hangat, oksigen ikut naik, cemari nitrogen. Komposisi liquid air sebagai indikator: keseimbangan suhu, kunci kemurnian."
+excerpt: |
+  Suhu di kolom bawah distilasi kriogenik menentukan pemisahan nitrogen & oksigen. Terlalu dingin, nitrogen gagal menguap, liquid air kaya nitrogen. Terlalu hangat, oksigen ikut naik, cemari nitrogen. Komposisi liquid air sebagai indikator: keseimbangan suhu, kunci kemurnian.
 image: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@vlisidis?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Terry Vlisidis</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
@@ -130,7 +132,7 @@ Tray bekerja optimal — nitrogen naik, oksigen turun — pemisahan sempurna.</p
 </li>
 </ol>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/distillation_column.gif" alt="distillation_column.gif" style="max-width:75%; height:auto;">
+  <img src="/kiiota-blog/assets/media/d510a781-de17-4e42-b4a7-ff9ce0cd774f-distillation_column.gif" alt="distillation_column.gif" style="max-width:75%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 1. Animasi pemisahan oksigen dan nitrogen dalam kondisi terlalu dingin, normal, dan terlalu hangat.
   </figcaption>

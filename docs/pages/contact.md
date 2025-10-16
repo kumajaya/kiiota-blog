@@ -1,9 +1,15 @@
 ---
+ghost_uuid: "c54707ff-acb4-4e59-a540-717a155ee299"
 title: "Kontak"
 date: "2021-11-23T23:16:03.000+07:00"
 slug: "contact"
 layout: "page"
-excerpt: "Anda bisa menghubungi:   * @ketutkumajaya [https://twitter.com/ketutkumajaya] di Twitter  * @kumajaya [https://www.facebook.com/kumajaya] di Facebook  * @kumajaya [https://github.com/kumajaya] di Github"
+excerpt: |
+  Anda bisa menghubungi:
+  
+   * @ketutkumajaya [https://twitter.com/ketutkumajaya] di Twitter
+   * @kumajaya [https://www.facebook.com/kumajaya] di Facebook
+   * @kumajaya [https://github.com/kumajaya] di Github
 image: ""
 image_alt: ""
 image_caption: ""

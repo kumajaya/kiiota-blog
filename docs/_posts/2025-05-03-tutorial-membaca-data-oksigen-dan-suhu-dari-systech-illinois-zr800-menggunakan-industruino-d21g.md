@@ -1,10 +1,18 @@
 ---
+ghost_uuid: "45a5777b-7ed1-438a-89bd-9ffd1c30abbe"
 title: "📘 Tutorial: Membaca Data Oksigen dan Suhu dari Systech Illinois ZR800 Menggunakan Industruino D21G"
 date: "2025-05-03T18:06:12.000+07:00"
 slug: "tutorial-membaca-data-oksigen-dan-suhu-dari-systech-illinois-zr800-menggunakan-industruino-d21g"
 layout: "post"
-excerpt: "🔍 Pendahuluan   Dalam banyak sistem industri, pemantauan konsentrasi oksigen menjadi bagian penting dari proses keseluruhan. Systech Illinois ZR800 merupakan salah satu perangkat yang umum digunakan untuk tugas ini karena keandalannya dalam membaca kadar oksigen dengan sensor zirconia presisi tinggi.   Dalam proyek ini, kita akan mempelajari cara membaca data oksigen dan suhu sensor dari perangkat ZR800 melalui port serial menggunakan Industruino D21G. Data yang diambil akan ditampilkan pada la"
-image: "/kiiota-blog/assets/media/oxygen_analyzers_ZR810-1--1-.jpg"
+excerpt: |
+  🔍 Pendahuluan
+  
+  
+  Dalam banyak sistem industri, pemantauan konsentrasi oksigen menjadi bagian penting dari proses keseluruhan. Systech Illinois ZR800 merupakan salah satu perangkat yang umum digunakan untuk tugas ini karena keandalannya dalam membaca kadar oksigen dengan sensor zirconia presisi tinggi.
+  
+  
+  Dalam proyek ini, kita akan mempelajari cara membaca data oksigen dan suhu sensor dari perangkat ZR800 melalui port serial menggunakan Industruino D21G. Data yang diambil akan ditampilkan pada la
+image: "/kiiota-blog/assets/media/45a5777b-7ed1-438a-89bd-9ffd1c30abbe-oxygen_analyzers_ZR810-1--1-.jpg"
 image_alt: ""
 image_caption: ""
 author:
@@ -49,7 +57,7 @@ comments: true
 </ul>
 <p>PlatformIO cocok untuk pemula yang ingin naik kelas ke lingkungan pengembangan yang lebih profesional.</p>
 <h4 id="perangkat-keras">Perangkat Keras</h4>
-<p><img src="/kiiota-blog/assets/media/INDIOD21G_SPL-1-.jpg" alt="Industruino D21G" loading="lazy"><br>
+<p><img src="/kiiota-blog/assets/media/45a5777b-7ed1-438a-89bd-9ffd1c30abbe-INDIOD21G_SPL-1-.jpg" alt="Industruino D21G" loading="lazy"><br>
 <em>Gambar 1: Industruino D21G, gambar diperoleh dari <a href="https://www.mouser.com/c/?marcom=173724648&ref=blog.kiiota.com">Mouser Electronics</a>.</em></p>
 <p>Industruino D21G adalah mikrokontroler berbasis Arduino yang dirancang untuk aplikasi industri. Perangkat ini memiliki fitur seperti casing DIN-rail, layar LCD bawaan, terminal konektor yang solid, isolated digital input/output, isolated analog input/output presisi, chip serial RS-485, RTC, dan flash memory tertanam, dan kompatibilitas dengan modul komunikasi tambahan, menjadikannya cocok untuk proyek yang membutuhkan keandalan di lingkungan industri.</p>
 <ul>
@@ -58,7 +66,7 @@ comments: true
 <li><strong>Kabel USB</strong>: Untuk menghubungkan Industruino ke komputer untuk keperluan pemrograman.</li>
 <li><strong>Kabel Serial RS-485</strong>: Untuk menghubungkan ZR800 ke Industruino.</li>
 </ul>
-<p><img src="/kiiota-blog/assets/media/oxygen_analyzers_ZR810-1-.jpg" alt="Systech Illinois ZR800" loading="lazy"><br>
+<p><img src="/kiiota-blog/assets/media/45a5777b-7ed1-438a-89bd-9ffd1c30abbe-oxygen_analyzers_ZR810-1-.jpg" alt="Systech Illinois ZR800" loading="lazy"><br>
 <em>Gambar 2: Systech Illinois ZR800, gambar diperoleh dari <a href="https://industrialphysics.com/product/zr800-oxygen-analyzers/?ref=blog.kiiota.com">Industrial Physics</a>.</em></p>
 <p>ZR800 menggunakan komunikasi serial RS-485 untuk mengirimkan data pengukuran ke Industruino. Industruino D21G telah dilengkapi dengan port RS-485 secara default, sehingga tidak memerlukan modul tambahan untuk konektivitas ini. Konfigurasi wiring tetap perlu memperhatikan polaritas (A/B) dan kecepatan baudrate yang disesuaikan dengan pengaturan default dari ZR800.</p>
 <p>ZR800 dilengkapi dengan sensor berbasis zirconia, yang digunakan untuk mengukur konsentrasi oksigen secara presisi dalam berbagai aplikasi industri. Sensor zirconia bekerja berdasarkan prinsip elektrokimia padat dan mampu memberikan pembacaan yang stabil dan tahan terhadap lingkungan ekstrem, menjadikannya ideal untuk pemantauan gas proses, kontrol kualitas, dan sistem keamanan termasuk sebagai oxygen sensor pada sistem pembakaran kendaraan.</p>

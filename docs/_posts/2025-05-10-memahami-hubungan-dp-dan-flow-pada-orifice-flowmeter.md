@@ -1,10 +1,25 @@
 ---
+ghost_uuid: "6fc2c932-5ab0-4b12-8482-6e007c507923"
 title: "Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter"
 date: "2025-05-10T23:41:29.000+07:00"
 slug: "memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter"
 layout: "post"
-excerpt: "Pendahuluan   Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter.      \"Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?\"    Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebu"
-image: "/kiiota-blog/assets/media/dp_vs_flow_diff_range_perspective.png"
+excerpt: |
+  Pendahuluan
+  
+  
+  Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter.
+  
+  
+  
+  
+  
+  \"Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?\"
+  
+  
+  
+  Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebu
+image: "/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_diff_range_perspective.png"
 image_alt: ""
 image_caption: ""
 author:
@@ -54,10 +69,10 @@ comments: true
 </ul>
 <p>Hubungan antara DP dan flow pada orifice flowmeter bisa digambarkan seperti berikut:</p>
 <div align="center">
-<p><img src="/kiiota-blog/assets/media/orifice.svg" alt="orifice" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-orifice.svg" alt="orifice" loading="lazy"></p>
 </div>
 <p>Nilai konstanta <em><strong>C</strong></em> dipengaruhi oleh ukuran orifice, tipe fluida (gas atau cairan), dan kondisi operasi seperti suhu dan tekanan. Secara praktis, konstanta <em><strong>C</strong></em> dapat dihitung dari spesifikasi teknis flowmeter atau dikalibrasi langsung di lapangan. Hal penting yang perlu dipahami adalah bahwa karena hubungan ini bersifat kuadrat, maka kenaikan DP tidak selalu menghasilkan kenaikan flow yang sebanding. Sebagai contoh, jika DP meningkat empat kali lipat, flow hanya meningkat dua kali lipat.</p>
-<p><img src="/kiiota-blog/assets/media/dp_vs_flow.svg" alt="dp_vs_flow" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow.svg" alt="dp_vs_flow" loading="lazy"></p>
 <p>👇 Berikut script Python yang bisa dijalankan di <a href="https://python-fiddle.com/saved/091c3855-37dc-49f5-804b-cb6acc9243c4?ref=blog.kiiota.com">Python-Fiddle</a> untuk menggambarkan hubungan DP dan flow.</p>
 <details>
     <summary><b><i>Perlihatkan script di sini</i></b></summary>
@@ -115,11 +130,11 @@ if __name__ == &quot;__main__&quot;:
 <p>Misalnya, sebuah flowmeter dengan range 0 - 6000 Nm³/h didesain untuk suhu 25°C (298 K) dan tekanan 1 bar (2,01325 bar absolut). Jika kondisi operasi berubah menjadi 30°C (303 K) dan 1,2 bar (2,21325 bar absolut), maka flow yang misalnya terbaca 5000 Nm³/h harus dikompensasikan. Meskipun <strong>ISO 5167</strong> tidak memberikan rumus kompensasi secara langsung, standar ini menekankan pentingnya mempertimbangkan kondisi operasi aktual — termasuk tekanan dan suhu — dalam perhitungan aliran menggunakan orifice flowmeter.</p>
 <p>Beberapa vendor besar (Moore, Rosemount, Siemens) memberikan referensi berikut untuk kompensasi tekanan dan temperatur:</p>
 <div align="center">
-<p><img src="/kiiota-blog/assets/media/procidia.svg" alt="procidia" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-procidia.svg" alt="procidia" loading="lazy"></p>
 </div>
 <p>Berdasarkan referensi di atas, maka jika sinyal sudah mendapatkan akar kuadrat dari transmitter atau DCS, maka perhitungan kompensasi akan menjadi:</p>
 <div align="center">
-<p><img src="/kiiota-blog/assets/media/dcs.svg" alt="dcs" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dcs.svg" alt="dcs" loading="lazy"></p>
 </div>
 <p>Jika tekanan operasi (P) dan suhu operasi (T) berbeda dari kondisi desain (Pd, Td), maka flow aktual (Q) dapat dihitung sebagai berikut:</p>
 <p>\( Q = Q_d \times \sqrt{\frac{P}{P_d} \times \frac{T_d}{T}} \)</p>
@@ -209,7 +224,7 @@ print(f&quot;Flow yang telah dikompensasi: {Qa:.2f} Nm³/h&quot;)
 <blockquote>
 <p>&quot;Sizing ulang diperlukan jika flowmeter sering beroperasi di luar range desain, atau jika terjadi peningkatan kapasitas produksi.&quot;</p>
 </blockquote>
-<p><img src="/kiiota-blog/assets/media/dp_vs_flow_resizing.svg" alt="dp_vs_flow_resizing" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_resizing.svg" alt="dp_vs_flow_resizing" loading="lazy"></p>
 <p>👇 Berikut script Python yang bisa dijalankan di <a href="https://python-fiddle.com/saved/789596b8-3b57-4a34-beee-7dd8ce64407c?ref=blog.kiiota.com">Python-Fiddle</a> untuk menggambarkan DP dan flow di skala range berbeda.</p>
 <details>
     <summary><b><i>Perlihatkan script di sini</i></b></summary>
@@ -272,7 +287,7 @@ plt.show()
 </details>
 <h3 id="simulasi-pengukuran-dan-efek-kompensasi">Simulasi Pengukuran dan Efek Kompensasi</h3>
 <p>Untuk melihat efek dari kompensasi terhadap flowmeter yang diskalakan ulang, kita melakukan simulasi dan visualisasi seperti pada grafik berikut:</p>
-<p><img src="/kiiota-blog/assets/media/dp_vs_flow_interactive.svg" alt="dp_vs_flow_interactive" loading="lazy"></p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_interactive.svg" alt="dp_vs_flow_interactive" loading="lazy"></p>
 <ul>
 <li><strong>Garis biru</strong> menunjukkan hubungan antara DP dan flow tanpa kompensasi.</li>
 <li><strong>Garis hijau</strong> menunjukkan hubungan dengan kompensasi.</li>

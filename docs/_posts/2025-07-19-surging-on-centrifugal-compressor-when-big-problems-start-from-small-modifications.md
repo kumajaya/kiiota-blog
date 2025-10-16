@@ -1,9 +1,11 @@
 ---
+ghost_uuid: "d114ce4e-d082-4269-acdb-c0a67774d0f7"
 title: "Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications"
 date: "2025-07-19T02:23:19.000+07:00"
 slug: "surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications"
 layout: "post"
-excerpt: "This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance."
+excerpt: |
+  This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.
 image: "https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@chamooomile0?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Roman Melnychuk</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
@@ -188,7 +190,7 @@ Rung 9:
 </ul>
 <p>The most crucial finding came from one thing that had been overlooked from the start: <strong>the analog signal actually came from a 5V DC voltage source</strong>, not 24V DC as I had assumed. This was not just a numerical difference—but a fundamental difference in power capacity and tolerance to load. I discovered this when I brought home and read the old speed controller document.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/d114ce4e-d082-4269-acdb-c0a67774d0f7-surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Figure 1. Design Violation—analog signal overloaded by excessive output load
   </figcaption>
@@ -196,7 +198,7 @@ Rung 9:
 <p>Furthermore, <strong>the output was actually loaded with three devices</strong>, whereas in the original design it was only designed for two. The combination of low voltage and excessive load caused <strong>significant signal distortion</strong>. The higher the operating speed, the greater the current drawn, and <strong>the voltage began to drop</strong> due to voltage drop at each load.</p>
 <p>At a certain point, <strong>the 5V DC source could no longer maintain the minimum voltage level</strong>, and the analog signal suddenly plummeted. This is where the peak problem emerged—<strong>the anti-surge controller on the booster expander read this condition as a serious disturbance</strong>, and responded aggressively even though it was not actually necessary.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/d114ce4e-d082-4269-acdb-c0a67774d0f7-Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Figure 2. Design Violation—speed drop triggered unnecessary surge control
   </figcaption>
@@ -274,7 +276,7 @@ plt.show()
 </audio>
 <p>After successfully reconstructing the root cause, I prepared a brief presentation to explain what actually happened, along with a very simple solution: <strong>returning the circuit to its original design</strong>. I was confident this solution was safe and appropriate, as it did not involve changes to logic or devices, but merely corrected the proven faulty circuit modification.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/d114ce4e-d082-4269-acdb-c0a67774d0f7-surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Figure 3. Proposed Correction—conceptual signal splitting to mitigate analog overload risk
   </figcaption>
@@ -284,7 +286,7 @@ plt.show()
 <p>At this point, I began to feel that <strong>the obstacles I faced were no longer technical, but political</strong>. An irony, when deep understanding of the problem was not the basis of trust.</p>
 <p>Because vendor support remained uncertain, I had already decided in my heart: whenever the plant tripped again, the solution I had prepared would be immediately executed. And of course, that day truly came. Still following procedures, I asked for permission from my direct superior before acting. Fortunately, the speed controller I had recently replaced had two output channels—eliminating the need for the previously planned signal splitter. With a slight program modification, I set both to output identical signals—one for the anti-surge controller, and one shared for local display and signals to DCS. The circuit modification became <strong>much simpler—and safer</strong>.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/d114ce4e-d082-4269-acdb-c0a67774d0f7-surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Figure 4. Final Implementation—dual analog outputs resolve prior signal load distortion
   </figcaption>

@@ -1,9 +1,23 @@
 ---
+ghost_uuid: "96822c9d-2f78-41f3-9948-5cb539f6cc5f"
 title: "Pelajaran dari Ayah: Kepala Tetap Tegak"
 date: "2025-07-05T23:09:21.000+07:00"
 slug: "pelajaran-dari-ayah-kepala-tetap-tegak"
 layout: "post"
-excerpt: "   \"Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.\"  — Ayah    Tidak semua pelajaran hidup saya dapat dari sekolah. Bahkan sebagian yang paling berharga justru datang dari rumah—dari seorang lelaki gagah saat berkacamata hitam dengan jaket militernya: Ayah saya.   Beliau kadang banyak bicara, kadang diam saja tapi memperhatikan dengan seksama. Namun setiap ucapannya selalu punya makna. Pernah suatu kali saat saya terlihat terlalu rajin belajar di rumah, Ayah bertanya dengan nada s"
+excerpt: |
+  
+  
+  
+  \"Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.\"
+  
+  — Ayah
+  
+  
+  
+  Tidak semua pelajaran hidup saya dapat dari sekolah. Bahkan sebagian yang paling berharga justru datang dari rumah—dari seorang lelaki gagah saat berkacamata hitam dengan jaket militernya: Ayah saya.
+  
+  
+  Beliau kadang banyak bicara, kadang diam saja tapi memperhatikan dengan seksama. Namun setiap ucapannya selalu punya makna. Pernah suatu kali saat saya terlihat terlalu rajin belajar di rumah, Ayah bertanya dengan nada s
 image: "https://images.unsplash.com/photo-1619291905431-ed7a833b5756?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHxkYWQlMjBhbmQlMjBzb258ZW58MHx8fHwxNzUxNzMxOTU5fDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "Photo by <a href=\"https://unsplash.com/@parizanstudio?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Parizan Studio</a> / <a href=\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Unsplash</a>"

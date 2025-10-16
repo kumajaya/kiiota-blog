@@ -1,9 +1,17 @@
 ---
+ghost_uuid: "4fa12608-a32c-44d9-9ac2-191690cf93b0"
 title: "Membangun dan Menjalankan mbusd untuk Teltonika RUT906"
 date: "2025-06-25T13:35:13.000+07:00"
 slug: "membangun-dan-menjalankan-mbusd-untuk-teltonika-rut906"
 layout: "post"
-excerpt: "💡 Teltonika RUT906: Router Kecil, Kemampuan Besar   Teltonika RUT906 adalah router industri ringkas berbasis Linux (RutOS/OpenWrt) yang mendukung konektivitas seluler, ethernet, WiFi, GPS, dan I/O digital. Dirancang untuk otomasi industri, perangkat ini sering digunakan sebagai edge device dalam ekosistem IIoT, SCADA, dan sistem telemetri.   Salah satu kemungkinan RUT906 adalah kemampuannya menjalankan daemon pengguna seperti mbusd, untuk komunikasi Modbus TCP↔RTU. Namun, tidak semua daemon ter"
+excerpt: |
+  💡 Teltonika RUT906: Router Kecil, Kemampuan Besar
+  
+  
+  Teltonika RUT906 adalah router industri ringkas berbasis Linux (RutOS/OpenWrt) yang mendukung konektivitas seluler, ethernet, WiFi, GPS, dan I/O digital. Dirancang untuk otomasi industri, perangkat ini sering digunakan sebagai edge device dalam ekosistem IIoT, SCADA, dan sistem telemetri.
+  
+  
+  Salah satu kemungkinan RUT906 adalah kemampuannya menjalankan daemon pengguna seperti mbusd, untuk komunikasi Modbus TCP↔RTU. Namun, tidak semua daemon ter
 image: "https://images.unsplash.com/photo-1554098415-4052459dc340?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fHJvdXRlcnxlbnwwfHx8fDE3NTA3NTM0MjN8MA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "Photo by <a href=\"https://unsplash.com/@hostreviews?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Stephen Phillips - Hostreviews.co.uk</a> / <a href=\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Unsplash</a>"

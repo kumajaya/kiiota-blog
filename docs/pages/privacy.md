@@ -1,9 +1,11 @@
 ---
+ghost_uuid: "d94a61bd-d32f-4fe8-a520-7cddf9afda84"
 title: "Privasi"
 date: "2021-11-23T23:16:04.000+07:00"
 slug: "privacy"
 layout: "page"
-excerpt: "Situs ini tidak menggunakan pelacak apapun."
+excerpt: |
+  Situs ini tidak menggunakan pelacak apapun.
 image: ""
 image_alt: ""
 image_caption: ""

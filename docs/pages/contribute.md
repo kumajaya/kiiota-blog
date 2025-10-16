@@ -1,9 +1,18 @@
 ---
+ghost_uuid: "f3bb6e2e-375b-469c-a705-c019ad3dbc9f"
 title: "Kontribusi"
 date: "2021-11-23T23:16:05.000+07:00"
 slug: "contribute"
 layout: "page"
-excerpt: "Oh hei, Anda mengklik setiap tautan konten kami dan bahkan mengklik tautan kecil ini di bagian bawah! Jika Anda menyukai Ghost dan Anda menikmati produknya sejauh ini, kami akan sangat menghargai dukungan Anda dengan cara apa pun yang Anda pedulikan untuk menunjukkannya.  Ghost adalah organisasi nirlaba, dan kami memberikan semua kekayaan intelektual kami sebagai perangkat lunak sumber terbuka. Jika Anda percaya dengan apa yang kami lakukan, ada beberapa cara yang dapat Anda lakukan untuk memban"
+excerpt: |
+  Oh hei, Anda mengklik setiap tautan konten kami dan bahkan mengklik tautan kecil
+  ini di bagian bawah! Jika Anda menyukai Ghost dan Anda menikmati produknya
+  sejauh ini, kami akan sangat menghargai dukungan Anda dengan cara apa pun yang
+  Anda pedulikan untuk menunjukkannya.
+  
+  Ghost adalah organisasi nirlaba, dan kami memberikan semua kekayaan intelektual
+  kami sebagai perangkat lunak sumber terbuka. Jika Anda percaya dengan apa yang
+  kami lakukan, ada beberapa cara yang dapat Anda lakukan untuk memban
 image: ""
 image_alt: ""
 image_caption: ""

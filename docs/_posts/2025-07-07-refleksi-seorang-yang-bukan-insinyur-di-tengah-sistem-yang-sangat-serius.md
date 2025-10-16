@@ -1,9 +1,11 @@
 ---
+ghost_uuid: "f279d611-4e21-4378-83c9-f8fff40b889d"
 title: "Refleksi Seorang yang Bukan Insinyur di Tengah Sistem yang Sangat Serius"
 date: "2025-07-07T20:35:37.000+07:00"
 slug: "refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius"
 layout: "post"
-excerpt: "Saya memang bukan insinyur. Tapi saya hidup di dalam sistem yang menuntut kejelasan, presisi, dan tanggung jawab. Tulisan ini adalah upaya untuk tetap berpikir jernih—di tengah ruang yang sering terlalu serius untuk bertanya."
+excerpt: |
+  Saya memang bukan insinyur. Tapi saya hidup di dalam sistem yang menuntut kejelasan, presisi, dan tanggung jawab. Tulisan ini adalah upaya untuk tetap berpikir jernih—di tengah ruang yang sering terlalu serius untuk bertanya.
 image: "https://images.unsplash.com/photo-1660543228680-748e1abd1f9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyNHx8aW5kdXN0cmlhbHxlbnwwfHx8fDE3NTE4ODQwNTN8MA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "Photo by <a href=\"https://unsplash.com/@isawred?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">iSawRed</a> / <a href=\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Unsplash</a>"

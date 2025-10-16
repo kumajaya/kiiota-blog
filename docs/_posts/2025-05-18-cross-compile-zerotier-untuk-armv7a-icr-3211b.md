@@ -1,9 +1,21 @@
 ---
+ghost_uuid: "c765ead4-cedf-4223-969a-c72f381be987"
 title: "Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B"
 date: "2025-05-18T13:34:52.000+07:00"
 slug: "cross-compile-zerotier-untuk-armv7a-icr-3211b"
 layout: "post"
-excerpt: "Pendahuluan   ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan.   Beberapa fitur utama ZeroTier:    * Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat.  * Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama"
+excerpt: |
+  Pendahuluan
+  
+  
+  ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan.
+  
+  
+  Beberapa fitur utama ZeroTier:
+  
+  
+   * Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat.
+   * Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama
 image: "https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "Photo by <a href=\"https://unsplash.com/@privecstasy?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Privecstasy</a> / <a href=\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Unsplash</a>"

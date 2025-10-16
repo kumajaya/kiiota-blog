@@ -1,9 +1,17 @@
 ---
+ghost_uuid: "b61d6633-e441-4ed1-9cfd-eac89bb9c0c7"
 title: "Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit"
 date: "2025-05-16T01:09:04.000+07:00"
 slug: "dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit"
 layout: "post"
-excerpt: "Pendahuluan   Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap pressurizing dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon.   Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi ko"
+excerpt: |
+  Pendahuluan
+  
+  
+  Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap pressurizing dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon.
+  
+  
+  Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi ko
 image: "https://images.unsplash.com/photo-1582489853490-cd3a53eb4530?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGluZHVzdHJ5fGVufDB8fHx8MTc0NzMzMDgwMHww&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "Photo by <a href=\"https://unsplash.com/@umityildirim?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Ümit Yıldırım</a> / <a href=\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Unsplash</a>"
@@ -12,7 +20,7 @@ author:
 tags:
   - "air separation unit"
 categories:
-  - "air separation unit"
+  - "air-separation-unit"
 featured: false
 visibility: "public"
 primary_author: "Ketut Putu Kumajaya"

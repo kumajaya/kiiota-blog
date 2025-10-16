@@ -1,9 +1,11 @@
 ---
+ghost_uuid: "32366e33-4bed-43be-81c7-4c3f4af39fc4"
 title: "Oops, kelihatan Anda sedang offline!"
 date: "2021-11-29T20:55:51.000+07:00"
 slug: "offline"
 layout: "page"
-excerpt: "Coba kembali ke halaman awal → [https://blog.kiiota.com/]"
+excerpt: |
+  Coba kembali ke halaman awal → [https://blog.kiiota.com/]
 image: ""
 image_alt: ""
 image_caption: ""

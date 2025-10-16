@@ -1,9 +1,11 @@
 ---
+ghost_uuid: "fe18e9c7-d3ea-4542-b701-83a46cb36702"
 title: "Surging pada Kompresor Sentrifugal: Ketika Masalah Besar Berawal dari Modifikasi Kecil"
 date: "2025-07-21T22:56:15.000+07:00"
 slug: "surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil"
 layout: "post"
-excerpt: "Tulisan ini bukan hanya soal teknis, tapi juga tentang manajemen perubahan, analisis historis, dan ketangguhan menghadapi resistensi."
+excerpt: |
+  Tulisan ini bukan hanya soal teknis, tapi juga tentang manajemen perubahan, analisis historis, dan ketangguhan menghadapi resistensi.
 image: "https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@yosipri?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Yosi Prihantoro</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
@@ -188,7 +190,7 @@ Rung 9:
 </ul>
 <p>Temuan paling krusial datang dari satu hal yang luput sejak awal: <strong>sinyal analog ternyata berasal dari sumber tegangan 5 volt DC</strong>, bukan 24 volt DC seperti saya kira. Ini bukan sekadar perbedaan angka—melainkan perbedaan mendasar dalam kapasitas daya dan toleransi terhadap beban. Ini saya temukan saat dokumen perangkat kontrol kecepatan lama saya bawa pulang dan baca di rumah.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 1. Pelanggaran Desain—sinyal analog kelebihan beban
   </figcaption>
@@ -196,7 +198,7 @@ Rung 9:
 <p>Lebih lanjut, <strong>output tersebut ternyata dibebani tiga perangkat</strong>, padahal dalam desain awal hanya dirancang untuk dua. Kombinasi tegangan rendah dan jumlah beban berlebih ini menimbulkan <strong>distorsi sinyal</strong> yang nyata. Semakin tinggi kecepatan operasi, semakin besar arus yang ditarik, dan <strong>tegangan mulai merosot</strong> akibat drop tegangan di tiap beban.</p>
 <p>Hingga pada titik tertentu, <strong>sumber 5 volt DC tak mampu lagi mempertahankan level tegangan minimum</strong>, dan sinyal analog tiba-tiba anjlok. Di sinilah masalah puncaknya muncul—<strong>kontrol anti surging pada booster ekspander membaca kondisi ini sebagai gangguan serius</strong>, dan merespons secara agresif meski sebenarnya tidak diperlukan.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 2. Pelanggaran Desain—penurunan kecepatan memicu respon anti surge yang tidak perlu
   </figcaption>
@@ -274,7 +276,7 @@ plt.show()
 </audio>
 <p>Setelah berhasil merekonstruksi akar masalahnya, saya menyusun presentasi singkat untuk menjelaskan apa yang sebenarnya terjadi, disertai solusi yang sangat sederhana: <strong>mengembalikan rangkaian ke desain awalnya</strong>. Solusi ini saya yakini aman dan tepat, karena tidak melibatkan perubahan logika atau perangkat, melainkan hanya mengoreksi modifikasi rangkaian yang terbukti keliru.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 3. Koreksi yang Diusulkan—konsep pemisahan sinyal untuk mengurangi risiko kelebihan beban analog
   </figcaption>
@@ -284,7 +286,7 @@ plt.show()
 <p>Pada titik ini, saya mulai merasa bahwa <strong>hambatan yang saya hadapi bukan lagi teknis, tetapi politis</strong>. Sebuah ironi, ketika pemahaman yang mendalam terhadap masalah justru bukan menjadi dasar kepercayaan.</p>
 <p>Karena dukungan dari vendor tak kunjung pasti, saya sudah menetapkan dalam hati: kapan pun plant kembali trip, maka solusi yang saya siapkan akan langsung saya eksekusi. Dan tentu hari itu benar-benar datang. Tetap dengan prosedur, saya meminta izin kepada atasan langsung sebelum bertindak. Untungnya, perangkat kontrol kecepatan yang belum lama saya ganti memiliki dua kanal output–menghilangkan kebutuhan splitter sinyal yang sempat direncanakan sebelumnya. Dengan sedikit modifikasi program, saya set keduanya untuk mengeluarkan sinyal identik—satu untuk kontrol anti surging, dan satu lagi dipakai bersama untuk tampilan lokal serta sinyal ke DCS. Modifikasi rangkaian menjadi <strong>jauh lebih sederhana—dan lebih aman</strong>.</p>
 <div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;">
   <figcaption style="text-align:center; margin-top: 8px;">
     Gambar 4. Implementasi Final—output analog ganda menyelesaikan distorsi sinyal
   </figcaption>

@@ -1,9 +1,11 @@
 ---
+ghost_uuid: "35cace59-6e7f-4874-bc30-853b9c1944bd"
 title: "Mengapa Posisi dan Orientasi Flowmeter Cryogenic Itu Penting?"
 date: "2025-07-14T20:53:00.000+07:00"
 slug: "mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting"
 layout: "post"
-excerpt: "Akurasi pengukuran flowmeter sangat krusial. Namun, tahukah Anda bahwa lokasi dan orientasi fisik flowmeter juga bisa mempengaruhi keandalan datanya?"
+excerpt: |
+  Akurasi pengukuran flowmeter sangat krusial. Namun, tahukah Anda bahwa lokasi dan orientasi fisik flowmeter juga bisa mempengaruhi keandalan datanya?
 image: "https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "Photo by <a href=\"https://unsplash.com/@solenfeyissa?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Solen Feyissa</a> / <a href=\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\">Unsplash</a>"
@@ -91,7 +93,7 @@ comments: true
 — <em>Emerson Micro Motion Installation Manual</em> [6]</p>
 </blockquote>
 <div align="center">
-  <img src="/kiiota-blog/assets/media/Micro-Motion-ELITE-Two-phase.jpeg" alt="Micro Motion ELITE Two-phase" width="75%">
+  <img src="/kiiota-blog/assets/media/35cace59-6e7f-4874-bc30-853b9c1944bd-Micro-Motion-ELITE-Two-phase.jpeg" alt="Micro Motion ELITE Two-phase" width="75%">
   <p><em>Gambar 1. Saran instalasi Micro Motion ELITE jika terjadi potensi two-phase flow</em></p>
 </div>
 <hr>

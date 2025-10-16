@@ -1,9 +1,20 @@
 ---
+ghost_uuid: "ba453585-0b56-4766-897f-7993886a8a9e"
 title: "Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional"
 date: "2025-08-09T15:31:13.000+07:00"
 slug: "zero-cost-engineering-workflow-foss-untuk-hasil-profesional"
 layout: "post"
-excerpt: "Workflow FOSS untuk Hasil Profesional0:00/5.1841×   Pendahuluan   \"Apakah kita benar-benar perlu membayar mahal untuk perangkat lunak, jika hasil teknikal yang sama — bahkan lebih baik — bisa dicapai secara gratis?\"   Di banyak industri, optimalisasi performa peralatan sering diasosiasikan dengan perangkat lunak berbayar, lisensi berlapis, dan perangkat keras kelas atas. Namun kenyataannya, hasil profesional tidak selalu bergantung pada biaya lisensi. Melalui pendekatan Zero-Cost Engineering — r"
+excerpt: |
+  Workflow FOSS untuk Hasil Profesional0:00/5.1841×
+  
+  
+  Pendahuluan
+  
+  
+  \"Apakah kita benar-benar perlu membayar mahal untuk perangkat lunak, jika hasil teknikal yang sama — bahkan lebih baik — bisa dicapai secara gratis?\"
+  
+  
+  Di banyak industri, optimalisasi performa peralatan sering diasosiasikan dengan perangkat lunak berbayar, lisensi berlapis, dan perangkat keras kelas atas. Namun kenyataannya, hasil profesional tidak selalu bergantung pada biaya lisensi. Melalui pendekatan Zero-Cost Engineering — r
 image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@alexandermils?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Alexander Mils</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
@@ -99,7 +110,7 @@ comments: true
 <hr>
 <h2 id="diagram-alir-workflow-foss"><strong>Diagram Alir Workflow FOSS</strong></h2>
 <!--figure style="text-align: center; margin: 2em auto; max-width: 600px;">
-  <img src="/kiiota-blog/assets/media/zero_cost_workflow.svg" 
+  <img src="/kiiota-blog/assets/media/ba453585-0b56-4766-897f-7993886a8a9e-zero_cost_workflow.svg" 
        alt="Diagram alir Zero-Cost Engineering dari data ke publikasi" 
        style="width: 100%; height: auto;">
   <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">

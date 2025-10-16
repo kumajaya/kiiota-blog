@@ -1,10 +1,18 @@
 ---
+ghost_uuid: "02fd61df-9352-4aa1-b2cf-83b26a6050a7"
 title: "Mengenal Inlet Guide Vanes (IGV) pada Kompresor Sentrifugal: Fungsi, Cara Kerja, dan Dampaknya"
 date: "2025-04-18T23:14:37.000+07:00"
 slug: "mengenal-inlet-guide-vanes-igv-pada-kompresor-sentrifugal-fungsi-cara-kerja-dan-dampaknya"
 layout: "post"
-excerpt: "Pendahuluan: Dasar Kerja Kompresor Sentrifugal   Kompresor sentrifugal bekerja dengan mengubah energi mekanik menjadi tekanan. Impeller yang berputar cepat mendorong gas dari pusat ke arah luar melalui gaya sentrifugal. Energi kinetik gas meningkat, kecepatannya meningkat secara signifikan. Agar gas tersebut dapat mencapai tekanan yang diinginkan, aliran gas kemudian diperlambat oleh diffuser — ruang ekspansi yang memperlambat aliran dan mengubah energi kecepatan menjadi tekanan statis.   Namun,"
-image: "/kiiota-blog/assets/media/IGV-Valve-1643-2048x1629x35.jpg"
+excerpt: |
+  Pendahuluan: Dasar Kerja Kompresor Sentrifugal
+  
+  
+  Kompresor sentrifugal bekerja dengan mengubah energi mekanik menjadi tekanan. Impeller yang berputar cepat mendorong gas dari pusat ke arah luar melalui gaya sentrifugal. Energi kinetik gas meningkat, kecepatannya meningkat secara signifikan. Agar gas tersebut dapat mencapai tekanan yang diinginkan, aliran gas kemudian diperlambat oleh diffuser — ruang ekspansi yang memperlambat aliran dan mengubah energi kecepatan menjadi tekanan statis.
+  
+  
+  Namun,
+image: "/kiiota-blog/assets/media/02fd61df-9352-4aa1-b2cf-83b26a6050a7-IGV-Valve-1643-2048x1629x35.jpg"
 image_alt: ""
 image_caption: ""
 author:
