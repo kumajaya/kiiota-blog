@@ -30,7 +30,9 @@ minima:
 
   # Navigation Pages
   nav_pages:
-    - about.md
+    - pages/contact.md
+    - pages/about.md
+    - pages/privacy.md
 
   # Show excerpts on homepage
   show_excerpts: true
