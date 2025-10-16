@@ -32,4 +32,6 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <p>Situs ini tidak menggunakan pelacak apapun.</p>
+{% endraw %}

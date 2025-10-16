@@ -36,6 +36,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><blockquote>
 <p><em>&quot;Kita hidup dalam sistem—dan seringkali, sistem itu sangat rumit. Tapi manusia—dengan pikirannya—masih punya ruang untuk bernapas, meskipun sempit. Dan saya memilih untuk bernapas lewat cara saya sendiri.&quot;</em></p>
 </blockquote>
@@ -150,3 +151,4 @@ Asal kamu tahu bahwa kamu benar.</p>
 <p>Kiranya bisa menjadi inspirasi ringan bagi siapa pun yang juga mencoba berpikir jernih di tengah sistem yang rumit, serius, dan cenderung kaku. Kalau ada satu hal yang saya harap bisa tersampaikan dari tulisan ini, itu adalah:<br>
 Bahwa menjadi teknisi yang manusiawi bukan kelemahan—itu kekuatan yang jarang dimiliki atau mungkin sulit untuk dimiliki.</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

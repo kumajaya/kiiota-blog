@@ -41,6 +41,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><h3 id="pendahuluan-dasar-kerja-kompresor-sentrifugal">Pendahuluan: Dasar Kerja Kompresor Sentrifugal</h3>
 <p>Kompresor sentrifugal bekerja dengan mengubah energi mekanik menjadi tekanan. Impeller yang berputar cepat mendorong gas dari pusat ke arah luar melalui gaya sentrifugal. Energi kinetik gas meningkat, kecepatannya meningkat secara signifikan. Agar gas tersebut dapat mencapai tekanan yang diinginkan, aliran gas kemudian diperlambat oleh diffuser — ruang ekspansi yang memperlambat aliran dan mengubah energi kecepatan menjadi tekanan statis.</p>
 <p>Namun, tekanan akhir tidak hanya ditentukan oleh kerja internal kompresor (impeller dan diffuser), tetapi juga oleh seberapa baik sistem hilir mendukung pembentukan tekanan. Kondisi seperti valve yang terbuka terlalu lebar atau adanya kebocoran bisa membuat tekanan tidak tercapai meski IGV sudah dibuka penuh.</p>
@@ -118,3 +119,4 @@ IGV dapat mengarahkan aliran gas agar masuk ke impeller pada sudut yang sesuai. 
 <hr>
 <p><em>Artikel ini ditulis dengan bantuan kecerdasan buatan dengan arahan, penyesuaian, dan validasi oleh penulis.</em></p>
 <!--kg-card-end: markdown-->
+{% endraw %}

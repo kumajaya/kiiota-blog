@@ -48,6 +48,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><blockquote>
 <p><em>&quot;Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.&quot;</em><br>
 — Ayah</p>
@@ -77,3 +78,4 @@ Di mana pun engkau sekarang, semoga bangga melihat anakmu berjalan sesuai nilai-
 <h3 id="catatan-penulis"><em>Catatan penulis</em>:</h3>
 <p>Tulisan ini saya persembahkan untuk Ayah saya—dan untuk semua Ayah yang mungkin tidak sempurna, tapi tetap berusaha menjadi kompas yang diam-diam menuntun anak-anaknya ke arah yang benar.</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

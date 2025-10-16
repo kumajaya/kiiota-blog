@@ -49,6 +49,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><h2 id="pendahuluan">Pendahuluan</h2>
 <p>Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter.</p>
 <blockquote>
@@ -444,3 +445,4 @@ Informasi lebih lengkap tentang orifice plate, termasuk cara perhitungannya.<br>
 <h2 id="kesimpulan">Kesimpulan</h2>
 <p>Memahami hubungan antara differential pressure dan flow pada orifice flowmeter sangat penting untuk memastikan akurasi pengukuran. Dengan memahami prinsip dasar, cara perhitungan termasuk melakukan skala ulang, serta potensi kesalahan, pengguna dapat lebih percaya diri dalam menggunakan dan mengoptimalkannya. Script-script Python yang disertakan di sini diharapkan bisa menjadi tool praktis untuk melakukan analisa cepat dan interaktif terhadap masalah yang muncul terkait orifice flowmeter.</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

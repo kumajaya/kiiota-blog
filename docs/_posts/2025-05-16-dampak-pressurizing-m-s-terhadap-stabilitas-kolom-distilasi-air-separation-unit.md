@@ -40,6 +40,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
 <p>Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap <strong>pressurizing</strong> dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon.</p>
 <p>Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi kontrol gas nitrogen (GAN) dan waste gas untuk menjaga kestabilan sistem.</p>
@@ -98,3 +99,4 @@ comments: true
 ✅ Optimasi kontrol GAN berbasis pressure meningkatkan stabilitas sistem dan efisiensi pemisahan gas.</p>
 <p>Dengan penerapan <strong>strategi pressure control pada GAN</strong>, sistem ASU dapat lebih stabil dalam menghadapi <strong>efek regenerasi M/S</strong>, memastikan <strong>kualitas pemisahan gas tetap optimal dan efisiensi operasional meningkat</strong>. 🚀</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

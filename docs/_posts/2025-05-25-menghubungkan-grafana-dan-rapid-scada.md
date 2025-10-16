@@ -49,6 +49,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><p>Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana.</p>
 <h3 id="arsitektur-singkat">Arsitektur Singkat</h3>
 <p>Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA:</p>
@@ -416,3 +417,4 @@ A: Tidak langsung. Rapid SCADA v5 memiliki autentikasi berbeda dan tidak menggun
 <p><strong>Q: Bisakah ditambahkan endpoint untuk data realtime atau status channel?</strong><br>
 A: Ya, kamu bisa menambahkan rute baru dan menggunakan pendekatan serupa di <code>grafanaRouter.js</code>, lalu sesuaikan transformasi data sesuai kebutuhan.</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

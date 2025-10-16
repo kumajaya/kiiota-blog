@@ -45,6 +45,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><h2 id="pengantar">Pengantar</h2>
 <p>Di tengah tuntutan efisiensi dan fleksibilitas dalam dunia otomasi industri, sistem HMI (Human-Machine Interface) menjadi komponen yang sangat vital. HMI yang baik memungkinkan operator untuk memantau dan mengendalikan proses industri secara intuitif, dengan menyediakan visualisasi data dan kondisi sistem secara real-time. Namun, sistem HMI tradisional seringkali terjebak dalam keterbatasan perangkat keras dan perangkat lunak proprietary yang mahal dan kurang fleksibel.</p>
 <blockquote>
@@ -397,3 +398,4 @@ DllCall(&quot;SetClassLongPtr&quot;, &quot;Ptr&quot;, pic.Hwnd, &quot;Int&quot;,
 <hr>
 <p><strong>Catatan:</strong> Artikel ini menghindari penyebutan langsung informasi korporasi yang sensitif untuk menjaga kerahasiaan, namun tetap mengedepankan kekuatan inovasi yang diterapkan.</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

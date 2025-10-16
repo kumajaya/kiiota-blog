@@ -32,4 +32,6 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <p><a href="https://blog.kiiota.com/">Coba kembali ke halaman awal →</a></p>
+{% endraw %}

@@ -45,6 +45,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
 <p><strong>ZeroTier</strong> adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan.</p>
 <p><strong>Beberapa fitur utama ZeroTier:</strong></p>
@@ -305,3 +306,4 @@ Setelah reboot, periksa kembali log dan status jaringan melalui antarmuka web IC
 <p>Jika Anda ingin melakukan penyesuaian lebih lanjut—misalnya optimasi sumber daya atau penerapan kebijakan keamanan tambahan—artikel ini bisa menjadi dasar yang kuat. ZeroTier memungkinkan konektivitas fleksibel dan aman, sehingga cocok untuk berbagai implementasi di sistem embedded Linux lainnya.</p>
 <p><strong>Tetap eksplorasi dan selamat mencoba!</strong></p>
 <!--kg-card-end: markdown-->
+{% endraw %}

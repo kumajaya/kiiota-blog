@@ -38,6 +38,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><h2 id="%F0%9F%92%A1-teltonika-rut906-router-kecil-kemampuan-besar">💡 Teltonika RUT906: Router Kecil, Kemampuan Besar</h2>
 <p>Teltonika RUT906 adalah router industri ringkas berbasis Linux (RutOS/OpenWrt) yang mendukung konektivitas seluler, ethernet, WiFi, GPS, dan I/O digital. Dirancang untuk otomasi industri, perangkat ini sering digunakan sebagai edge device dalam ekosistem IIoT, SCADA, dan sistem telemetri.</p>
 <p>Salah satu kemungkinan RUT906 adalah kemampuannya menjalankan daemon pengguna seperti mbusd, untuk komunikasi Modbus TCP↔RTU. Namun, tidak semua daemon tersedia dalam firmware default-nya. Karena itu, kadang kita perlu menyusun sendiri binary yang sesuai—terutama untuk deployment ringan, statik, dan tanpa dependensi eksternal.</p>
@@ -181,3 +182,4 @@ service_triggers() {
 <p>Semoga dokumentasi ini bisa menjadi referensi bagi Anda yang ingin men-deploy layanan serupa di perangkat Teltonika lainnya, atau sekadar menambah wawasan mengenai proses kompilasi lintas platform. Motif sebenarnya di sini adalah mencegah akses <code>write</code> dari pihak lain ke perangkat Modbus yang terhubung.</p>
 <p>Jika Anda menemukan bagian yang bisa diperbaiki, atau ingin berdiskusi seputar integrasi layanan di RUT906, jangan ragu untuk menghubungi saya. Mari sama-sama kita dorong interoperabilitas di dunia IIoT! 🚀</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

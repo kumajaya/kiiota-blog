@@ -42,6 +42,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><h3 id="%F0%9F%94%8D-pendahuluan">🔍 Pendahuluan</h3>
 <p>Dalam banyak sistem industri, pemantauan konsentrasi oksigen menjadi bagian penting dari proses keseluruhan. Systech Illinois ZR800 merupakan salah satu perangkat yang umum digunakan untuk tugas ini karena keandalannya dalam membaca kadar oksigen dengan sensor <strong>zirconia</strong> presisi tinggi.</p>
 <p>Dalam proyek ini, kita akan mempelajari cara membaca data oksigen dan suhu sensor dari perangkat ZR800 melalui port serial menggunakan Industruino D21G. Data yang diambil akan ditampilkan pada layar LCD dan juga dikirimkan ke output analog untuk integrasi lebih lanjut. Proyek ini cocok bagi pemula yang ingin memahami dasar komunikasi serial dan pengolahan data sensor dalam konteks sistem industri terintegrasi.</p>
@@ -198,3 +199,4 @@ SerialRS485Class SerialRS485;
 <p>Silakan kunjungi <a href="https://github.com/kumajaya/zr800?ref=blog.kiiota.com">github.com/kumajaya/zr800</a> dan coba sendiri — mungkin Anda bisa mengembangkannya lebih jauh sesuai kebutuhan.</p>
 <p align="center"> <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://github.com/kumajaya/zr800&size=150x150" alt="QR Code to GitHub Repository"> </p>
 <!--kg-card-end: markdown-->
+{% endraw %}

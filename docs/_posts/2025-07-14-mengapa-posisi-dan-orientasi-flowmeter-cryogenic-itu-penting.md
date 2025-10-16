@@ -36,6 +36,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <!--kg-card-begin: markdown--><p>Dalam dunia pemrosesan gas industri, khususnya pada <strong>Air Separation Plant (ASP)</strong>, pengukuran aliran produk cair kriogenik seperti <em>liquid oxygen (LOX)</em>, <em>liquid nitrogen (LIN)</em>, dan <em>liquid argon (LAR)</em> bukan hanya sekadar angka. Data ini menjadi <strong>dasar untuk menghitung performa plant</strong>, <em>oxygen capture</em>, serta sebagai alat bantu penting dalam <em>monitoring</em> dan <em>control</em> proses produksi.</p>
 <p>Karena itu, <strong>akurasi pengukuran flowmeter sangat krusial</strong>. Namun, tahukah Anda bahwa <strong>lokasi dan orientasi fisik flowmeter</strong> juga bisa mempengaruhi keandalan datanya?</p>
 <hr>
@@ -173,3 +174,4 @@ Audit internal pada 12 fasilitas ASP menemukan rata-rata deviasi pengukuran mass
 <p>Spesifikasi tiap produk bisa berbeda, dan hanya dengan mengacu pada panduan resmi vendor, kita bisa memastikan bahwa instalasi memenuhi syarat teknis untuk akurasi dan keamanan jangka panjang.</p>
 <p>Jika Anda tertarik berdiskusi atau berbagi pengalaman seputar pemasangan flowmeter kriogenik, silakan hubungi kami.</p>
 <!--kg-card-end: markdown-->
+{% endraw %}

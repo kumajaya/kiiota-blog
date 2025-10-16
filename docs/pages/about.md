@@ -42,6 +42,7 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <h2 id="tentang-kiiota"><strong>Tentang Kiiota</strong></h2>
 <p><strong>Kiiota bukan produk. Ini catatan.</strong><br>
 Bukan sekadar catatan teknis, tapi kumpulan <strong>pemikiran, eksperimen, dan refleksi</strong> dari seorang integrator otomasi—seseorang yang lebih percaya pada <strong>realitas lapangan</strong> daripada janji brosur vendor.</p>
@@ -99,3 +100,5 @@ justru bisa <strong>berguna bagi orang lain</strong>.</p>
 <p>Jika ini terasa dekat dengan pengalamanmu,<br>
 <strong>selamat datang.</strong><br>
 <strong>Kiiota bukan solusi—tapi mungkin bisa menjadi teman berpikir.</strong></p>
+
+{% endraw %}

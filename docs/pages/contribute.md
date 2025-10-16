@@ -39,4 +39,6 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <p>Oh hei, Anda mengklik setiap tautan konten kami dan bahkan mengklik tautan kecil ini di bagian bawah! Jika Anda menyukai Ghost dan Anda menikmati produknya sejauh ini, kami akan sangat menghargai dukungan Anda dengan cara apa pun yang Anda pedulikan untuk menunjukkannya.</p><p>Ghost adalah organisasi nirlaba, dan kami memberikan semua kekayaan intelektual kami sebagai perangkat lunak sumber terbuka. Jika Anda percaya dengan apa yang kami lakukan, ada beberapa cara yang dapat Anda lakukan untuk membantu kami, dan kami sangat menghargai semuanya:</p><ul><li>Kontribusi kode melalui <a href="https://github.com/tryghost?ref=blog.kiiota.com">GitHub</a></li><li>Kontribusi finansial melalui <a href="https://github.com/sponsors/TryGhost?ref=blog.kiiota.com">GitHub Sponsors</a></li><li>Kontribusi finansial melalui <a href="https://opencollective.com/ghost?ref=blog.kiiota.com">Open Collective</a></li><li>Kontribusi ulasan melalui <strong>sebuah postingan blog</strong></li><li>Kontribusi cerita baik melalui <strong>memberi tahu teman Anda</strong> mengenai Ghost</li></ul><p>Terima kasih telah membaca ini!</p>
+{% endraw %}

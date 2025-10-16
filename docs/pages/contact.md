@@ -36,8 +36,10 @@ access: true
 comments: true
 ---
 
+{% raw %}
 <p>Anda bisa menghubungi:</p><!--kg-card-begin: html--><ul>
     <li><a href="https://twitter.com/ketutkumajaya?ref=blog.kiiota.com" target="_blank">@ketutkumajaya</a> di Twitter</li>
     <li><a href="https://www.facebook.com/kumajaya" target="_blank">@kumajaya</a> di Facebook</li>
     <li><a href="https://github.com/kumajaya?ref=blog.kiiota.com" target="_blank">@kumajaya</a> di Github</li>
 </ul><!--kg-card-end: html-->
+{% endraw %}
