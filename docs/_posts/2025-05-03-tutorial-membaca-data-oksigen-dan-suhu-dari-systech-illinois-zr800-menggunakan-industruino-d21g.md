@@ -18,9 +18,9 @@ image_caption: ""
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "microcontroller"
-  - "industrial"
-  - "automation"
+  - "Microcontroller"
+  - "Industrial"
+  - "Automation"
 categories:
   - "microcontroller"
 featured: false

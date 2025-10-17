@@ -12,9 +12,9 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@isawred?utm_source=ghos
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "technocratic-narrative"
-  - "life-lessons"
-  - "values"
+  - "Technocratic Narrative"
+  - "Life Lessons"
+  - "Values"
 categories:
   - "technocratic-narrative"
 featured: false

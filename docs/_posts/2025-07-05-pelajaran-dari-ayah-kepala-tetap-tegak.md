@@ -24,9 +24,9 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@parizanstudio?utm_sourc
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "ayah"
-  - "life-lessons"
-  - "values"
+  - "Ayah"
+  - "Life Lessons"
+  - "Values"
 categories:
   - "ayah"
 featured: false

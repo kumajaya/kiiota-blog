@@ -16,11 +16,10 @@ image_caption: ""
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "4diac"
-  - "forte"
-  - "vscode"
+  - "4diac Forte"
+  - "VSCode"
 categories:
-  - "4diac"
+  - "forte"
 featured: true
 visibility: "public"
 primary_author: "Ketut Putu Kumajaya"

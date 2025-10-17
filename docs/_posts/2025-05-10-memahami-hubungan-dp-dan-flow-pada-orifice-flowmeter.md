@@ -25,9 +25,9 @@ image_caption: ""
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "orifice"
-  - "flowmeter"
-  - "industrial"
+  - "Orifice"
+  - "Flowmeter"
+  - "Industrial"
 categories:
   - "orifice"
 featured: false

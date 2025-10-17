@@ -12,7 +12,7 @@ image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "cryogenic"
+  - "Cryogenic"
 categories:
   - "cryogenic"
 featured: false

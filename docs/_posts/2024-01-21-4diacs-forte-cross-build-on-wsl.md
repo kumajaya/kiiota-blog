@@ -14,12 +14,11 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@stefanbc?utm_source=gho
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "4diac"
-  - "forte"
-  - "industrial"
-  - "automation"
+  - "4diac Forte"
+  - "Industrial"
+  - "Automation"
 categories:
-  - "4diac"
+  - "forte"
 featured: true
 visibility: "public"
 primary_author: "Ketut Putu Kumajaya"

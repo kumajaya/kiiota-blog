@@ -18,7 +18,7 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@umityildirim?utm_source
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "air separation unit"
+  - "Air Separation Unit"
 categories:
   - "air-separation-unit"
 featured: false

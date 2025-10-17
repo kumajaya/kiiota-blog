@@ -12,8 +12,8 @@ image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "engineering-lessons"
-  - "troubleshooting"
+  - "Engineering Lessons"
+  - "Troubleshooting"
 categories:
   - "engineering-lessons"
 featured: true

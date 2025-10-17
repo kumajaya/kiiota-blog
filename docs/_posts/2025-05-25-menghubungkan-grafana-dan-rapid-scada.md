@@ -26,8 +26,8 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@dawson2406?utm_source=g
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "rapid-scada,"
-  - "grafana"
+  - "Rapid Scada"
+  - "Grafana"
 categories:
   - "rapid-scada"
 featured: false

@@ -18,8 +18,8 @@ image_caption: ""
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "compressor"
-  - "centrifugal"
+  - "Compressor"
+  - "Centrifugal"
 categories:
   - "compressor"
 featured: false

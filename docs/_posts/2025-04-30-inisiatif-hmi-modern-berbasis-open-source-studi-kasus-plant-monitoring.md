@@ -21,9 +21,9 @@ image_caption: ""
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "industrial"
-  - "automation"
-  - "hmi"
+  - "Industrial"
+  - "Automation"
+  - "HMI"
 categories:
   - "industrial"
 featured: false

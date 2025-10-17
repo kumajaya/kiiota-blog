@@ -12,9 +12,9 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@solenfeyissa?utm_source
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "flowmeter"
-  - "coriolis"
-  - "cryogenic"
+  - "Flowmeter"
+  - "Coriolis"
+  - "Cryogenic"
 categories:
   - "flowmeter"
 featured: false

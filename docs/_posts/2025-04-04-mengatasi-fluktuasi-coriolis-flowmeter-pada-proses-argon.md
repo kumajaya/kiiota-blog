@@ -19,8 +19,8 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@rgaleriacom?utm_source=
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "flowmeter"
-  - "coriolis"
+  - "Flowmeter"
+  - "Coriolis"
 categories:
   - "flowmeter"
 featured: false

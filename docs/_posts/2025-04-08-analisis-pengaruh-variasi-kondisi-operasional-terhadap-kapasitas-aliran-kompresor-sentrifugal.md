@@ -20,8 +20,8 @@ image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "compressor"
-  - "centrifugal"
+  - "Compressor"
+  - "Centrifugal"
 categories:
   - "compressor"
 featured: false

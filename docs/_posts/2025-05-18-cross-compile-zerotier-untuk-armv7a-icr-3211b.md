@@ -22,8 +22,8 @@ image_caption: "Photo by <a href=\"https://unsplash.com/@privecstasy?utm_source=
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "zerotier"
-  - "icr-3200"
+  - "Zerotier"
+  - "ICR-3200"
 categories:
   - "zerotier"
 featured: false

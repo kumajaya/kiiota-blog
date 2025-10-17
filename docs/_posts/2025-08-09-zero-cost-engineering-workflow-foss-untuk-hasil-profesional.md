@@ -5,23 +5,17 @@ date: "2025-08-09T15:31:13.000+07:00"
 slug: "zero-cost-engineering-workflow-foss-untuk-hasil-profesional"
 layout: "post"
 excerpt: |
-  Workflow FOSS untuk Hasil Profesional0:00/5.1841×
-  
-  
-  Pendahuluan
-  
-  
-  \"Apakah kita benar-benar perlu membayar mahal untuk perangkat lunak, jika hasil teknikal yang sama — bahkan lebih baik — bisa dicapai secara gratis?\"
-  
-  
-  Di banyak industri, optimalisasi performa peralatan sering diasosiasikan dengan perangkat lunak berbayar, lisensi berlapis, dan perangkat keras kelas atas. Namun kenyataannya, hasil profesional tidak selalu bergantung pada biaya lisensi. Melalui pendekatan Zero-Cost Engineering — r
+  Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.
 image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
 image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@alexandermils?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Alexander Mils</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Putu Kumajaya"
 tags:
+  - "Cost Optimization"
+  - "Engineering Lessons"
 categories:
+  - "cost-optimization"
 featured: false
 visibility: "public"
 primary_author: "Ketut Putu Kumajaya"
