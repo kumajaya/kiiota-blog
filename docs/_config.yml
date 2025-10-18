@@ -10,6 +10,9 @@ description: >
   Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis,
   serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
 
+url: "https://kumajaya.github.io"
+baseurl: "/kiiota-blog"
+
 # Theme
 remote_theme: "jekyll/minima@b3385fe"
 
