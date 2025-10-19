@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Kiiota Blog | Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Kiiota Blog" />
+<meta name="author" content="Ketut Kumajaya" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages." />
+<meta property="og:description" content="Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages." />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Kiiota Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Ketut Kumajaya"},"description":"Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.","headline":"Kiiota Blog","name":"Kiiota Blog","url":"https://kumajaya.github.io/kiiota-blog/"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <p class="intro-text">
+  Catatan teknis dan refleksi humanis dari dunia otomasi industri —
+  dokumentasi, eksperimen, dan narasi yang lahir dari lapangan.
+</p>
+
+<div class="posts-container">
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" class="post-title">
+        Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional
+      </a>
+      <div class="post-meta">
+        August 09, 2025
+         • Ketut Putu Kumajaya
+        — Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Kolom Bawah: Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen.html" class="post-title">
+        Kolom Bawah: Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?
+      </a>
+      <div class="post-meta">
+        July 27, 2025
+         • Ketut Putu Kumajaya
+        — Suhu di kolom bawah distilasi kriogenik menentukan pemisahan nitrogen &amp; oksigen. Terlalu dingin, nitrogen gagal menguap, liquid air kaya nitrogen. Terlalu hangat, oksigen ikut naik, cemari nitrogen. Komposisi liquid air sebagai indikator: keseimbangan suhu, kunci kemurnian.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Surging pada Kompresor Sentrifugal: Ketika Masalah Besar Berawal dari Modifikasi Kecil" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil.html" class="post-title">
+        Surging pada Kompresor Sentrifugal: Ketika Masalah Besar Berawal dari Modifikasi Kecil
+      </a>
+      <div class="post-meta">
+        July 21, 2025
+         • Ketut Putu Kumajaya
+        — Tulisan ini bukan hanya soal teknis, tapi juga tentang manajemen perubahan, analisis historis, dan ketangguhan menghadapi resistensi.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html" class="post-title">
+        Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications
+      </a>
+      <div class="post-meta">
+        July 18, 2025
+         • Ketut Putu Kumajaya
+        — This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Mengapa Posisi dan Orientasi Flowmeter Cryogenic Itu Penting?" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting.html" class="post-title">
+        Mengapa Posisi dan Orientasi Flowmeter Cryogenic Itu Penting?
+      </a>
+      <div class="post-meta">
+        July 14, 2025
+         • Ketut Putu Kumajaya
+        — Akurasi pengukuran flowmeter sangat krusial. Namun, tahukah Anda bahwa lokasi dan orientasi fisik flowmeter juga bisa mempengaruhi keandalan datanya?
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1660543228680-748e1abd1f9e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyNHx8aW5kdXN0cmlhbHxlbnwwfHx8fDE3NTE4ODQwNTN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Refleksi Seorang yang Bukan Insinyur di Tengah Sistem yang Sangat Serius" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius.html" class="post-title">
+        Refleksi Seorang yang Bukan Insinyur di Tengah Sistem yang Sangat Serius
+      </a>
+      <div class="post-meta">
+        July 07, 2025
+         • Ketut Putu Kumajaya
+        — Saya memang bukan insinyur. Tapi saya hidup di dalam sistem yang menuntut kejelasan, presisi, dan tanggung jawab. Tulisan ini adalah upaya untuk tetap berpikir jernih—di tengah ruang yang sering terlalu serius untuk bertanya.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/ayah/2025/07/05/pelajaran-dari-ayah-kepala-tetap-tegak.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1619291905431-ed7a833b5756?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHxkYWQlMjBhbmQlMjBzb258ZW58MHx8fHwxNzUxNzMxOTU5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Pelajaran dari Ayah: Kepala Tetap Tegak" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/ayah/2025/07/05/pelajaran-dari-ayah-kepala-tetap-tegak.html" class="post-title">
+        Pelajaran dari Ayah: Kepala Tetap Tegak
+      </a>
+      <div class="post-meta">
+        July 05, 2025
+         • Ketut Putu Kumajaya
+        — 
+
+
+\"Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.\"
+
+— Ayah
+
+
+
+Tidak semua pelajaran hidup saya dapat dari sekolah. Bahkan sebagian yang paling berharga justru datang dari rumah—dari seorang lelaki gagah saat berkacamata hitam dengan jaket militernya: Ayah saya.
+
+
+Beliau kadang banyak bicara, kadang diam saja tapi memperhatikan dengan seksama. Namun setiap ucapannya selalu punya makna. Pernah suatu kali saat saya terlihat terlalu rajin belajar di rumah, Ayah bertanya dengan nada s
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/2025/06/25/membangun-dan-menjalankan-mbusd-untuk-teltonika-rut906.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1554098415-4052459dc340?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fHJvdXRlcnxlbnwwfHx8fDE3NTA3NTM0MjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Membangun dan Menjalankan mbusd untuk Teltonika RUT906" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/2025/06/25/membangun-dan-menjalankan-mbusd-untuk-teltonika-rut906.html" class="post-title">
+        Membangun dan Menjalankan mbusd untuk Teltonika RUT906
+      </a>
+      <div class="post-meta">
+        June 25, 2025
+         • Ketut Putu Kumajaya
+        — 💡 Teltonika RUT906: Router Kecil, Kemampuan Besar
+
+
+Teltonika RUT906 adalah router industri ringkas berbasis Linux (RutOS/OpenWrt) yang mendukung konektivitas seluler, ethernet, WiFi, GPS, dan I/O digital. Dirancang untuk otomasi industri, perangkat ini sering digunakan sebagai edge device dalam ekosistem IIoT, SCADA, dan sistem telemetri.
+
+
+Salah satu kemungkinan RUT906 adalah kemampuannya menjalankan daemon pengguna seperti mbusd, untuk komunikasi Modbus TCP↔RTU. Namun, tidak semua daemon ter
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Menghubungkan Grafana dan Rapid SCADA" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html" class="post-title">
+        Menghubungkan Grafana dan Rapid SCADA
+      </a>
+      <div class="post-meta">
+        May 25, 2025
+         • Ketut Putu Kumajaya
+        — Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana.
+
+
+
+Arsitektur Singkat
+
+
+Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA:
+
+
+Grafana --&gt; [Basic Auth] --&gt; ScadaGrafanaProxy --&gt; [Cookie Session] --&gt; Rapid SCADA 6 API
+
+
+
+ * Grafana:
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html" class="post-title">
+        Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B
+      </a>
+      <div class="post-meta">
+        May 18, 2025
+         • Ketut Putu Kumajaya
+        — Pendahuluan
+
+
+ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan.
+
+
+Beberapa fitur utama ZeroTier:
+
+
+ * Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat.
+ * Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1582489853490-cd3a53eb4530?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGluZHVzdHJ5fGVufDB8fHx8MTc0NzMzMDgwMHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" alt="Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html" class="post-title">
+        Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit
+      </a>
+      <div class="post-meta">
+        May 15, 2025
+         • Ketut Putu Kumajaya
+        — Pendahuluan
+
+
+Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap pressurizing dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon.
+
+
+Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi ko
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_diff_range_perspective.png" alt="Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html" class="post-title">
+        Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter
+      </a>
+      <div class="post-meta">
+        May 10, 2025
+         • Ketut Putu Kumajaya
+        — Pendahuluan
+
+
+Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter.
+
+
+
+
+
+\"Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?\"
+
+
+
+Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebu
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/microcontroller/2025/05/03/tutorial-membaca-data-oksigen-dan-suhu-dari-systech-illinois-zr800-menggunakan-industruino-d21g.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/45a5777b-7ed1-438a-89bd-9ffd1c30abbe-oxygen_analyzers_ZR810-1--1-.jpg" alt="📘 Tutorial: Membaca Data Oksigen dan Suhu dari Systech Illinois ZR800 Menggunakan Industruino D21G" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/microcontroller/2025/05/03/tutorial-membaca-data-oksigen-dan-suhu-dari-systech-illinois-zr800-menggunakan-industruino-d21g.html" class="post-title">
+        📘 Tutorial: Membaca Data Oksigen dan Suhu dari Systech Illinois ZR800 Menggunakan Industruino D21G
+      </a>
+      <div class="post-meta">
+        May 03, 2025
+         • Ketut Putu Kumajaya
+        — 🔍 Pendahuluan
+
+
+Dalam banyak sistem industri, pemantauan konsentrasi oksigen menjadi bagian penting dari proses keseluruhan. Systech Illinois ZR800 merupakan salah satu perangkat yang umum digunakan untuk tugas ini karena keandalannya dalam membaca kadar oksigen dengan sensor zirconia presisi tinggi.
+
+
+Dalam proyek ini, kita akan mempelajari cara membaca data oksigen dan suhu sensor dari perangkat ZR800 melalui port serial menggunakan Industruino D21G. Data yang diambil akan ditampilkan pada la
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/industrial/2025/04/30/inisiatif-hmi-modern-berbasis-open-source-studi-kasus-plant-monitoring.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/43df3233-1616-42ed-9f6b-a488982171a3-ss-1.png" alt="Inisiatif HMI Modern Berbasis Open Source: Studi Kasus Plant Monitoring" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/industrial/2025/04/30/inisiatif-hmi-modern-berbasis-open-source-studi-kasus-plant-monitoring.html" class="post-title">
+        Inisiatif HMI Modern Berbasis Open Source: Studi Kasus Plant Monitoring
+      </a>
+      <div class="post-meta">
+        April 30, 2025
+         • Ketut Putu Kumajaya
+        — Pengantar
+
+
+Di tengah tuntutan efisiensi dan fleksibilitas dalam dunia otomasi industri, sistem HMI (Human-Machine Interface) menjadi komponen yang sangat vital. HMI yang baik memungkinkan operator untuk memantau dan mengendalikan proses industri secara intuitif, dengan menyediakan visualisasi data dan kondisi sistem secara real-time. Namun, sistem HMI tradisional seringkali terjebak dalam keterbatasan perangkat keras dan perangkat lunak proprietary yang mahal dan kurang fleksibel.
+
+
+
+
+
+\"HMI buk
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/compressor/2025/04/18/mengenal-inlet-guide-vanes-igv-pada-kompresor-sentrifugal-fungsi-cara-kerja-dan-dampaknya.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/02fd61df-9352-4aa1-b2cf-83b26a6050a7-IGV-Valve-1643-2048x1629x35.jpg" alt="Mengenal Inlet Guide Vanes (IGV) pada Kompresor Sentrifugal: Fungsi, Cara Kerja, dan Dampaknya" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/compressor/2025/04/18/mengenal-inlet-guide-vanes-igv-pada-kompresor-sentrifugal-fungsi-cara-kerja-dan-dampaknya.html" class="post-title">
+        Mengenal Inlet Guide Vanes (IGV) pada Kompresor Sentrifugal: Fungsi, Cara Kerja, dan Dampaknya
+      </a>
+      <div class="post-meta">
+        April 18, 2025
+         • Ketut Putu Kumajaya
+        — Pendahuluan: Dasar Kerja Kompresor Sentrifugal
+
+
+Kompresor sentrifugal bekerja dengan mengubah energi mekanik menjadi tekanan. Impeller yang berputar cepat mendorong gas dari pusat ke arah luar melalui gaya sentrifugal. Energi kinetik gas meningkat, kecepatannya meningkat secara signifikan. Agar gas tersebut dapat mencapai tekanan yang diinginkan, aliran gas kemudian diperlambat oleh diffuser — ruang ekspansi yang memperlambat aliran dan mengubah energi kecepatan menjadi tekanan statis.
+
+
+Namun,
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/compressor/2025/04/14/ketika-kompresor-sentrifugal-tidak-sesuai-harapan-peran-kurva-performa-dalam-evaluasi-operasional.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/055e65bc-73b2-4047-b9ea-8cf5ea988b5e-blog.png" alt="Ketika Kompresor Sentrifugal Tidak Sesuai Harapan: Peran Kurva Performa dalam Evaluasi Operasional" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/compressor/2025/04/14/ketika-kompresor-sentrifugal-tidak-sesuai-harapan-peran-kurva-performa-dalam-evaluasi-operasional.html" class="post-title">
+        Ketika Kompresor Sentrifugal Tidak Sesuai Harapan: Peran Kurva Performa dalam Evaluasi Operasional
+      </a>
+      <div class="post-meta">
+        April 14, 2025
+         • Ketut Putu Kumajaya
+        — 1. Pendahuluan
+
+
+Kompresor sentrifugal sering digunakan untuk aplikasi udara tekan dalam industri proses karena kemampuannya memberikan aliran kontinu dan efisiensi relatif tinggi. Namun, dalam beberapa kasus, meskipun peralatan baru dan sesuai spesifikasi, hasil operasional seperti tekanan buang dan aliran bisa saja tidak mencapai target yang diharapkan.
+
+
+Dalam kondisi seperti ini, langkah pertama yang penting dilakukan adalah memeriksa kembali kurva performa dari vendor. Kurva ini merupakan r
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/compressor/2025/04/08/analisis-pengaruh-variasi-kondisi-operasional-terhadap-kapasitas-aliran-kompresor-sentrifugal.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1518186233392-c232efbf2373?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDYxfHxhbmFseXNpc3xlbnwwfHx8fDE3NDQxMjA3NDZ8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt="Analisis Pengaruh Variasi Kondisi Operasional terhadap Kapasitas Aliran Kompresor Sentrifugal" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/compressor/2025/04/08/analisis-pengaruh-variasi-kondisi-operasional-terhadap-kapasitas-aliran-kompresor-sentrifugal.html" class="post-title">
+        Analisis Pengaruh Variasi Kondisi Operasional terhadap Kapasitas Aliran Kompresor Sentrifugal
+      </a>
+      <div class="post-meta">
+        April 08, 2025
+         • Ketut Putu Kumajaya
+        — Pendahuluan
+
+
+Kompresor sentrifugal merupakan peralatan vital dalam berbagai industri proses, termasuk pada unit pemisah udara (ASU). Dalam pengoperasiannya, kapasitas aliran kompresor dapat dipengaruhi oleh beberapa faktor seperti temperatur inlet, rasio kompresi, dan daya motor. Artikel ini membahas bagaimana variasi kondisi operasional tersebut mempengaruhi kapasitas aliran kompresor sentrifugal berdasarkan pendekatan isothermal dan efisiensi kompresor yang diasumsikan tetap.
+
+
+
+
+Contoh Spesi
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1620203853151-496c7228306c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fGluZHVzdHJ5fGVufDB8fHx8MTc0MzY5ODc1N3ww&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt="Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html" class="post-title">
+        Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat
+      </a>
+      <div class="post-meta">
+        April 03, 2025
+         • Ketut Putu Kumajaya
+        — Pendahuluan
+
+
+Coriolis flowmeter dikenal sebagai alat ukur aliran massa yang akurat dan tidak bergantung pada densitas atau komposisi fluida. Namun, dalam aplikasi kriogenik seperti pengukuran liquid argon (LAr) pada proses destilasi bertingkat, sering terjadi fluktuasi pengukuran yang mengganggu keandalan data. Salah satu faktor utama penyebab masalah ini adalah tekanan rendah di kolom destilasi. Artikel ini akan membahas tantangan tersebut serta solusi yang dapat diterapkan.
+
+
+
+Mengapa Tekanan
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/forte/2024/02/09/develop-forte-on-vscode.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/be9d91b4-2e4d-4f02-9832-3d43075a1a86-vscode-1.png" alt="Develop 4diac FORTE on Visual Studio Code" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/forte/2024/02/09/develop-forte-on-vscode.html" class="post-title">
+        Develop 4diac FORTE on Visual Studio Code
+      </a>
+      <div class="post-meta">
+        February 09, 2024
+         • Ketut Putu Kumajaya
+        — From Wikipedia:
+
+Visual Studio Code, also commonly referred to as VS Code,[9] is a source-code editor developed by Microsoft for Windows, Linux and macOS.[10] Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git. Users can change the theme, keyboard shortcuts, preferences, and install extensions that add functionality.
+
+Aside from the whole idea of being lightweight and starting quickly, Visual Studio Code has much
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/forte/2024/01/20/4diacs-forte-cross-build-on-wsl.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1587919057555-d728ff5beac3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTcwNTczMDQ2Mnww&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt="Build 4diac FORTE for Multiple Target on WSL" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/forte/2024/01/20/4diacs-forte-cross-build-on-wsl.html" class="post-title">
+        Build 4diac FORTE for Multiple Target on WSL
+      </a>
+      <div class="post-meta">
+        January 20, 2024
+         • Ketut Putu Kumajaya
+        — Eclipse 4diac™ provides an open source infrastructure for distributed industrial process measurement and control systems based on the IEC 61499 standard. 4diac includes: development environment (4diac IDE), runtime environment (4diac FORTE), function block library, and example projects.
+
+The 4diac FORTE is a small portable implementation of an IEC 61499 runtime environment targeting small embedded control devices (16/32 Bit), implemented in C++. It supports online-reconfiguration of its applicat
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHN0b3JhZ2UlMjB0YW5rfGVufDB8fHx8MTYzODAxNDg2NQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000" alt="Pengetahuan praktis pengukuran level menggunakan DP transmitter" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html" class="post-title">
+        Pengetahuan praktis pengukuran level menggunakan DP transmitter
+      </a>
+      <div class="post-meta">
+        November 28, 2021
+         • Ketut Putu Kumajaya
+        — Banyak referensi mengenai pengukuran level cairan dalam bejana bertekanan menggunakan DP transmitter di luar sana, di sini kita hanya akan membahas praktisnya saja untuk pemula. Pemula? Bahkan yang sudah puluhan tahun di gas industri masih banyak yang kebingungan.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/vessel-volume/2021/11/26/aplikasi-gas-conversion.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1631571772417-4585cb47814f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE1fHxnYXN8ZW58MHx8fHwxNjM3OTk0ODEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000" alt="Aplikasi Gas Conversion" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/vessel-volume/2021/11/26/aplikasi-gas-conversion.html" class="post-title">
+        Aplikasi Gas Conversion
+      </a>
+      <div class="post-meta">
+        November 26, 2021
+         • Ketut Putu Kumajaya
+        — Fitur dari aplikasi Vessel Volume yang dibuka untuk publik. Untuk melakukan konversi volume cairan ke volume gas dan berat, begitu juga sebaliknya. Produk yang didukung meliputi oksigen, nitrogen, argon, karbon dioksida, dan nitrous oksida.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/vessel-volume/2021/11/25/mencari-akar-sebuah-fungsi-menggunakan-metode-secant.html" class="post-image-link">
+      <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI1fHxtYXRofGVufDB8fHx8MTYzNzk5NDY0OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000" alt="Mencari akar sebuah fungsi menggunakan metode secant" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/vessel-volume/2021/11/25/mencari-akar-sebuah-fungsi-menggunakan-metode-secant.html" class="post-title">
+        Mencari akar sebuah fungsi menggunakan metode secant
+      </a>
+      <div class="post-meta">
+        November 25, 2021
+         • Ketut Putu Kumajaya
+        — Artikel ini untuk mengeksplorasi kemampuan Ghost menampilkan formula matematika \( {\LaTeX} \), menguji dukungan syntax highlighting dan line numbering kode sumber agar konten teknis lebih menarik.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/vessel-volume/2021/11/25/aplikasi-vessel-volume.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/a1215085-212d-4479-b1d8-0e1ac8f8a3c0-photo1638264139.jpeg" alt="Aplikasi Vessel Volume" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/vessel-volume/2021/11/25/aplikasi-vessel-volume.html" class="post-title">
+        Aplikasi Vessel Volume
+      </a>
+      <div class="post-meta">
+        November 25, 2021
+         • Ketut Putu Kumajaya
+        — Aplikasi ini adalah sebuah pencapaian, rangkuman dari riset bertahun-tahun bagaimana cara menghitung volume cairan cryogenic dan non-cryogenic di dalam tangki dengan penyimpangan yang rendah.
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/vessel-volume/2021/11/24/merekonstruksi-dimensi-tangki.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/b7e8c137-ce6b-45b8-bee0-b35e753f72bd-Screenshot-2021-11-24-at-17-26-29-pi-4-d-2--h-a-3--v-where-v-10-43-0-95--h-4-086--a-d-4---Wolfram-Alpha.png" alt="Merekonstruksi dimensi tangki" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/vessel-volume/2021/11/24/merekonstruksi-dimensi-tangki.html" class="post-title">
+        Merekonstruksi dimensi tangki
+      </a>
+      <div class="post-meta">
+        November 24, 2021
+         • Ketut Putu Kumajaya
+        — Jika informasi dimensi tangki tidak tersedia atau tidak terpercaya, maka perlu dilakukan rekonstruksi dimensi agar perhitungan volume tangki bisa dilakukan dengan benar
+
+      </div>
+    </div>
+  </div>
+
+  <div class="post-item">
+    
+    <a href="/kiiota-blog/kiiota/2021/11/23/kiiota-diperkuat-oleh-industruino.html" class="post-image-link">
+      <img src="/kiiota-blog/assets/media/1526a8a6-f65f-4ca8-be01-8e357fd669b0-ir_attachment_207.jpeg" alt="Kiiota ditenagai oleh Industruino, Arduino, VS Code, dan PlatformIO" loading="lazy" class="post-image" />
+    </a>
+    
+    <div class="post-text">
+      <a href="/kiiota-blog/kiiota/2021/11/23/kiiota-diperkuat-oleh-industruino.html" class="post-title">
+        Kiiota ditenagai oleh Industruino, Arduino, VS Code, dan PlatformIO
+      </a>
+      <div class="post-meta">
+        November 23, 2021
+         • Ketut Putu Kumajaya
+        — Kami memilih Industruino untuk membangun Kiiota remote terminal unit dengan alasan kemudahan integrasi, dukungan pustaka yang luas Arduino, dan jaminan kehandalan standar industri.
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.intro-text {
+  margin-bottom: 2rem;
+  color: #4b5563;
+}
+
+.post-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.post-image-link {
+  flex: 0 0 200px;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.post-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+a.post-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.post-meta {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .post-item {
+    flex-direction: column;
+  }
+  .post-item a img {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+}
+</style>
+
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>

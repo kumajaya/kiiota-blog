@@ -1,0 +1,2114 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2025-10-19T04:36:54+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional</title><link href="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" rel="alternate" type="text/html" title="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" /><published>2025-08-09T08:31:13+00:00</published><updated>2025-08-09T08:31:13+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/08/zero-cost_engineering.mp3" preload="metadata"></audio><div class="kg-audio-title">Workflow FOSS untuk Hasil Profesional</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">5.184</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
+<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
+<p>"<strong>Apakah kita benar-benar perlu membayar mahal untuk perangkat lunak, jika hasil teknikal yang sama — bahkan lebih baik — bisa dicapai secara gratis?</strong>"</p>
+<p>Di banyak industri, optimalisasi performa peralatan sering diasosiasikan dengan perangkat lunak berbayar, lisensi berlapis, dan perangkat keras kelas atas. Namun kenyataannya, <strong>hasil profesional tidak selalu bergantung pada biaya lisensi</strong>. Melalui pendekatan <strong>Zero-Cost Engineering</strong> — rekayasa berbasis FOSS (Free and Open Source Software) dan metodologi modular — kita dapat menghasilkan output teknis berkualitas tinggi tanpa biaya tambahan. Bayangkan: menyelesaikan analisis teknikal level industri tanpa mengeluarkan biaya lisensi perangkat lunak sama sekali. Ini bukan sekadar teori — studi kasus nyata telah membuktikannya.</p>
+<hr />
+
+<h2 id="filosofi-zero-cost-engineering"><strong>Filosofi Zero-Cost Engineering</strong></h2>
+<p>Zero-Cost Engineering bukan berarti kompromi terhadap kualitas. Yang dimaksud di sini adalah: <strong>maksimalkan alat yang tersedia, hilangkan biaya lisensi</strong>, dan investasikan waktu untuk memahami proses secara lebih mendalam.</p>
+<p>Prinsipnya:</p>
+<ul>
+<li><strong>Satu bahasa untuk semuanya</strong> → Python</li>
+<li><strong>Satu editor untuk semuanya</strong> → Visual Studio Code + Jupyter Notebook</li>
+<li><strong>Satu alur kerja yang terdokumentasi penuh</strong> → mudah direplikasi, modular, dan siap diuji ulang</li>
+<li><strong>Satu platform publikasi</strong> → Markdown + Joplin + Ghost CMS</li>
+</ul>
+<p>Dengan pendekatan ini, kita bukan hanya menghemat biaya — kita membangun ekosistem kerja yang transparan, audit-ready, dan siap dibagikan ke komunitas. Setelah memahami filosofinya, mari kita telusuri alur kerja end-to-end yang digunakan.</p>
+<hr />
+
+<h2 id="workflow-foss-end-to-end"><strong>Workflow FOSS End-to-End</strong></h2>
+<h3 id="digitalisasi-data"><strong>Digitalisasi Data</strong></h3>
+<ul>
+<li><strong>Input</strong>: Kurva performa vendor (PDF/JPEG/PNG)</li>
+<li><strong>Tool</strong>: <a href="https://automeris.io/?ref=blog.kiiota.com">WebPlotDigitizer</a> (gratis, berbasis web)</li>
+<li><strong>Hasil</strong>: Ekstraksi kurva performa dari gambar statis menjadi dataset numerik siap analisis</li>
+<li><strong>Alternatif berbayar</strong>: OriginLab Digitizer, MATLAB Toolbox</li>
+</ul>
+<h3 id="analisis-dan-visualisasi"><strong>Analisis dan Visualisasi</strong></h3>
+<ul>
+<li><strong>Tool</strong>: <a href="https://www.python.org/?ref=blog.kiiota.com">Python</a> (<code>pandas</code>, <code>numpy</code>, <code>matplotlib</code>)</li>
+<li><strong>Hasil</strong>: Grafik hubungan IGV vs. tekanan/flow, identifikasi zona efisiensi, dan titik operasi aktual</li>
+<li><strong>Alternatif berbayar</strong>: MATLAB, OriginPro, JMP</li>
+</ul>
+<h3 id="draft-konten-modular"><strong>Draft Konten Modular</strong></h3>
+<ul>
+<li><strong>Tool</strong>: Markdown di <a href="https://code.visualstudio.com/?ref=blog.kiiota.com">Visual Studio Code</a> atau <a href="https://joplinapp.org/?ref=blog.kiiota.com">Joplin</a>, diagram alir dengan <a href="https://mermaid.live/?ref=blog.kiiota.com">Mermaid</a>, diagram teknikal statis di <a href="https://www.drawio.com/?ref=blog.kiiota.com">draw.io</a></li>
+<li><strong>Hasil</strong>: Naskah teknis yang rapi, modular, dan siap dikonversi</li>
+<li><strong>Alternatif berbayar</strong>: MS Word + EndNote + Visio, Adobe FrameMaker</li>
+</ul>
+<h3 id="konversi-dan-layout-pdf"><strong>Konversi dan Layout PDF</strong></h3>
+<ul>
+<li><strong>Tool</strong>: <a href="https://pandoc.org/?ref=blog.kiiota.com">Pandoc</a> (Markdown → LaTeX) + <a href="https://www.overleaf.com/?ref=blog.kiiota.com">Overleaf</a></li>
+<li><strong>Hasil</strong>: Whitepaper PDF siap cetak dan distribusi, bahkan reproduksi</li>
+<li><strong>Alternatif berbayar</strong>: Adobe InDesign, Scientific Word</li>
+</ul>
+<h3 id="narasi-audio"><strong>Narasi Audio</strong></h3>
+<ul>
+<li><strong>Tool</strong>: Python TTS (<a href="https://github.com/nateshmbhat/pyttsx3/?ref=blog.kiiota.com"><code>pyttsx3</code></a>, <a href="https://github.com/pndurette/gTTS/?ref=blog.kiiota.com"><code>gTTS</code></a>)</li>
+<li><strong>Hasil</strong>: Narasi audio untuk presentasi atau podcast teknis</li>
+<li><strong>Alternatif berbayar</strong>: Adobe Audition + TTS API</li>
+</ul>
+<h3 id="distribusi"><strong>Distribusi</strong></h3>
+<ul>
+<li><strong>Tool</strong>: <a href="https://ghost.org/?ref=blog.kiiota.com">Ghost CMS</a> (self-hosted) + PDF distribusi</li>
+<li><strong>Hasil</strong>: Blog post untuk pembaca umum, whitepaper PDF untuk pembaca teknis</li>
+<li><strong>Alternatif berbayar</strong>: CMS enterprise + Adobe Acrobat Pro DC</li>
+</ul>
+<hr />
+
+<h2 id="hasil-nyata-studi-kasus-kompresor-sentrifugal"><strong>Hasil Nyata: Studi Kasus Kompresor Sentrifugal</strong></h2>
+<p>Workflow ini bukan sekadar teori — ia telah digunakan dalam proyek nyata untuk menganalisis performa kompresor sentrifugal yang gagal mencapai target tekanan. Dengan pendekatan berbasis FOSS, seluruh proses — dari data mentah hingga publikasi — dapat dijalankan secara mandiri, transparan, dan tanpa biaya lisensi.</p>
+<p>Hasilnya:</p>
+<ul>
+<li>Masalah operasional berhasil diidentifikasi tanpa bantuan perangkat lunak berbayar atau perangkat analisis khusus</li>
+<li>Rekomendasi teknis disusun berdasarkan kurva performa yang didigitalisasi dan divisualisasikan secara mandiri</li>
+<li>Output akhir berupa blog post yang komunikatif dan whitepaper PDF yang siap diuji ulang — semuanya dibuat dengan alat gratis dan terbuka</li>
+</ul>
+<p>Studi kasus ini membuktikan bahwa dengan workflow yang rapi dan alat yang tepat, <strong>kreativitas teknis dapat melampaui keterbatasan biaya</strong>. Dalam banyak kasus, biaya tidak perlu dialokasikan untuk perangkat lunak berbayar, melainkan lebih baik difokuskan pada perangkat keras, pelatihan operator, dan sumber daya lainnya yang berdampak langsung pada kualitas hasil.</p>
+<blockquote>
+<p>Studi kasus ini membuktikan bahwa hanya dengan satu laptop, satu bahasa, dan satu editor, kita tidak hanya menghemat biaya — kita membangun ekosistem kerja yang siap diuji ulang, dibagikan, dan dikembangkan bersama tim.</p>
+</blockquote>
+<hr />
+
+<h2 id="diagram-alir-workflow-foss"><strong>Diagram Alir Workflow FOSS</strong></h2>
+<!--figure style="text-align: center; margin: 2em auto; max-width: 600px;">
+  <img src="/kiiota-blog/assets/media/ba453585-0b56-4766-897f-7993886a8a9e-zero_cost_workflow.svg" 
+       alt="Diagram alir Zero-Cost Engineering dari data ke publikasi" 
+       style="width: 100%; height: auto;">
+  <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+    Gambar 1: Alur kerja Zero-Cost Engineering — dari data mentah hingga publikasi menggunakan FOSS tools (dirender menggunakan Mermaid)
+  </figcaption>
+</figure-->
+<p>Diagram berikut dirender langsung menggunakan Mermaid — bukan grafis hasil perangkat lunak eksternal apalagi berbayar, melainkan teks yang bisa direproduksi dan direvisi langsung.</p>
+<div style="text-align: center; margin: 0.5em auto; max-width: 600px;">
+  <div class="mermaid" style="width: 100%; max-width: 800px;">
+    flowchart TB
+      subgraph Workspace["Zero-Cost Engineering"]
+        direction TB
+          A["Digitalisasi Data<br />(WebPlotDigitizer)"]:::Sky
+          B["Analisis &amp; Visualisasi<br />(Python: matplotlib, numpy)"]:::Sky
+          C["Penulisan &amp; Naskah<br />(Joplin, Ghost, Mermaid, draw.io)"]:::Sky
+          D1["Blog Post<br />(Ghost CMS)"]:::Sky
+          D2["Whitepaper PDF<br />(Pandoc + Overleaf)"]:::Sky
+          D3["Narasi Audio<br />(Python TTS)"]:::Sky
+      end
+      A --&gt; B
+      B --&gt; C
+      C --&gt; D1 &amp; D2 &amp; D3
+      D1 --&gt; E["Distribusi Akhir"]:::Pine
+      D2 --&gt; E
+      D3 --&gt; E
+    classDef Sky fill:#F4F8FF,stroke:#2C3E50,color:#2C3E50,stroke-width:1.5px,rx:6px,ry:6px;
+    classDef Pine fill:#2E8B57,stroke:#1E5F3F,color:#FFFFFF,stroke-width:1.5px,rx:6px,ry:6px;
+    classDef Alert fill:#FFF5F5,stroke:#D32F2F,color:#D32F2F,stroke-width:1.5px,rx:6px,ry:6px;
+    style Workspace stroke:#757575,fill:#F5F5F5,rx:8px,ry:8px
+  </div>
+    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+    Gambar 1: Alur kerja Zero-Cost Engineering — dari data mentah hingga publikasi menggunakan FOSS tools
+    </figcaption>
+</div>
+<p>Salah satu kekuatan dari alur kerja ini adalah kemampuannya untuk mengintegrasikan ekspresi teknikal tingkat lanjut langsung ke dalam publikasi. Dengan menggunakan alat FOSS seperti \(\text{\LaTeX}\), rumus teknik yang kompleks dapat dirender dengan kualitas profesional.<br />
+Sebagai contoh:</p>
+<div style="text-align: center; margin: 0.5em auto; max-width: 600px;">
+    <figure style="text-align: center; margin: 2em auto; max-width: 800px;">
+      <div style="font-size: 1.0em; /*margin: 2.5rem auto; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.08);*/">$$ Q_{real} = Q_{design} \times \sqrt{\left( \frac{T_{design}}{T_{real}} \cdot \frac{P_{real}}{P_{design}} \right)} $$</div>
+    </figure>
+</div>
+<p>Ini memastikan bahwa dokumentasi ilmiah tetap presisi dan siap dipresentasikan tanpa bergantung pada editor persamaan komersial.</p>
+<hr />
+
+<h2 id="perbandingan-biaya-foss-vs-software-komersial"><strong>Perbandingan Biaya: FOSS vs Software Komersial</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Tahap</th>
+<th>FOSS</th>
+<th>Software Komersial</th>
+<th>Harga Lisensi / Tahun</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digitalisasi data</td>
+<td>WebPlotDigitizer</td>
+<td>OriginLab Digitizer, MATLAB Toolbox</td>
+<td>USD 500–2.000</td>
+</tr>
+<tr>
+<td>Analisis &amp; visualisasi</td>
+<td>Python</td>
+<td>MATLAB, OriginPro</td>
+<td>USD 1.000–2.500</td>
+</tr>
+<tr>
+<td>Draft konten</td>
+<td>Markdown + Joplin</td>
+<td>MS Word + Visio</td>
+<td>USD 150–1.000</td>
+</tr>
+<tr>
+<td>Konversi &amp; layout</td>
+<td>Pandoc + Overleaf</td>
+<td>Adobe InDesign</td>
+<td>USD 250–1.200</td>
+</tr>
+<tr>
+<td>Audio narasi</td>
+<td>Python TTS</td>
+<td>Adobe Audition + TTS API</td>
+<td>USD 200–1.000</td>
+</tr>
+<tr>
+<td>Distribusi</td>
+<td>Ghost CMS</td>
+<td>CMS enterprise + Acrobat Pro DC</td>
+<td>USD 200–600</td>
+</tr>
+<tr>
+<td><strong>Total Estimasi</strong></td>
+<td><strong>± USD 0</strong></td>
+<td><strong>USD 2.300–8.300</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Selisih Estimasi</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>± Rp 35–125 juta</strong></td>
+</tr>
+</tbody>
+</table>
+<figcaption style="text-align: left; font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+Catatan: Estimasi harga lisensi bersifat indikatif dan dapat berubah tergantung wilayah, diskon institusi, dan versi. Tidak termasuk biaya pelatihan, integrasi, atau perangkat keras.
+</figcaption>
+<hr />
+
+<h2 id="diagram-alur-keputusan"><strong>Diagram Alur Keputusan</strong></h2>
+<div style="width: 100%; text-align: center; margin: 0.5em auto; max-width: 800px;">
+  <div class="mermaid" style="width: 100%; max-width: 800px;">
+    flowchart TD
+        A["Mulai Proyek Teknikal"] --&gt; B{"Pilih Workflow"}
+        B -- FOSS --&gt; C["Zero-Cost Engineering"]
+        B -- Komersial --&gt; D["Software Berbayar"]
+        C --&gt; E1["Biaya Lisensi: ± USD 0"] &amp; G1["Investasi: Waktu, Dokumentasi, Pelatihan"] &amp; H1["Hasil: Whitepaper, Blog, Audio, Diagram"]
+        D --&gt; E2["Biaya Lisensi: USD 2.300–8.300"] &amp; G2["Investasi: Lisensi, Integrasi, Pelatihan"] &amp; H2["Hasil: Sama, tergantung lisensi &amp; platform"]
+        E2 --&gt; F["Rugi Potensial: Rp 35–125 juta"]
+        A@{ shape: rounded}
+        C@{ shape: rounded}
+        D@{ shape: rounded}
+        E1@{ shape: rounded}
+        G1@{ shape: rounded}
+        H1@{ shape: rounded}
+        E2@{ shape: rounded}
+        G2@{ shape: rounded}
+        H2@{ shape: rounded}
+        F@{ shape: rounded}
+         A:::Sky
+         A:::Sky
+         B:::Sky
+         C:::Aqua
+         C:::Pine
+         D:::Ash
+         E1:::Sky
+         G1:::Sky
+         H1:::Sky
+         E2:::Sky
+         G2:::Sky
+         H2:::Sky
+         F:::Rose
+        classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#999999, color:#FFFFFF
+        classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+        classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+        classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FF5978, color:#FFFFFF
+        classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+  </div>
+    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+    Gambar 2: Diagram alur keputusan teknikal — memilih antara workflow FOSS dan software komersial, beserta dampak biaya dan hasilnya
+    </figcaption>
+</div>
+<hr />
+
+<h2 id="kesimpulan"><strong>Kesimpulan</strong></h2>
+<p>Saat pertama kali menggunakan Linux di tahun 2000, saya membayangkan masa depan di mana alat open-source menjadi tulang punggung alur kerja industri dan rekayasa. Dua dekade kemudian, Zero-Cost Engineering membuktikan bahwa visi ini bukan hanya mungkin — tapi sedang terjadi.</p>
+<p><strong>Zero-Cost Engineering</strong> adalah filosofi bahwa <em>keterbatasan biaya tidak membatasi kualitas hasil</em> — bukan sekadar strategi hemat, melainkan pendekatan sistemik untuk membangun ekosistem kerja yang transparan, modular, dan siap diuji ulang. Hasil teknis yang kompleks bisa disampaikan dengan profesional — setara (bahkan melampaui) workflow berbasis solusi berbayar. Meskipun membutuhkan adaptasi bagi tim yang terbiasa dengan perangkat lunak berbayar, manfaat jangka panjangnya signifikan.</p>
+<p>Selain solusi yang digunakan di sini, saya juga mengandalkan Rapid SCADA untuk pemantauan industri, Node-RED untuk otomasi alur kerja, 4diac FORTE untuk kontrol IEC 61499, serta alat lain seperti ZeroTier untuk jaringan virtual yang aman, RutOS/OpenWrt untuk manajemen perangkat edge, mbusd untuk komunikasi Modbus TCP/RTU, dan sistem berbasis Ubuntu atau turunan Debian untuk integrasi IIoT. Semua ini memperkuat filosofi Zero-Cost Engineering — bahwa hasil profesional dapat dicapai tanpa lisensi berbayar, dengan ekosistem kerja yang terbuka, modular, dan siap diuji ulang.</p>
+<p>"<strong>Siap mencoba Zero-Cost Engineering? Gunakan alat FOSS ini dan mulai proyek Anda dengan efisiensi maksimal.</strong>"</p>
+<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cost-optimization" /><category term="Cost Optimization" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kolom Bawah: Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?</title><link href="https://kumajaya.github.io/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen.html" rel="alternate" type="text/html" title="Kolom Bawah: Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?" /><published>2025-07-27T18:57:54+00:00</published><updated>2025-07-27T18:57:54+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/07/kolom_bawah_id_ID.mp3" preload="metadata"></audio><div class="kg-audio-title">Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">5.064</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
+<p>Pernahkah kamu bertanya, bagaimana udara diubah menjadi oksigen murni atau nitrogen murni? Teknologi di baliknya disebut <strong>distilasi kriogenik</strong>. Tapi proses ini bukan cuma sekadar membekukan — ia harus dikendalikan dengan sangat presisi.</p>
+<p><strong>Distilasi kriogenik</strong> adalah jantung dari proses pemisahan udara menjadi oksigen, nitrogen, dan argon. Proses ini sangat bergantung pada <strong>suhu dan tekanan yang tepat</strong>, karena pemisahan terjadi berdasarkan <strong>perbedaan titik didih</strong> tiap komponen.</p>
+<p>Salah satu bagian paling penting dari proses distilasi kriogenik adalah <strong>kolom distilasi bagian bawah</strong>. Di sinilah udara cair dipisahkan menjadi dua komponen utama: <strong>nitrogen naik ke atas, dan oksigen terkonsentrasi turun ke bawah</strong>.</p>
+<p>Ya, kita sedang bicara <strong>kolom bawah</strong> — tempat pertama pemisahan terjadi sebelum masuk ke kolom atas untuk pemurnian lebih lanjut.</p>
+<blockquote>
+<p>Tapi di kolom bawah ini, ada satu hal yang sering membingungkan:<br />
+<strong>“Kenapa suhu yang terlalu rendah justru membuat produk nitrogen tetap tercemar oksigen?”</strong></p>
+</blockquote>
+<p>Mari kita bahas dengan cara yang masuk akal dan mudah diingat.</p>
+<hr />
+
+<h3 id="kolom-seperti-tangga">Kolom Seperti Tangga</h3>
+<p>Bayangkan kolom distilasi sebagai <strong>tangga vertikal</strong>:</p>
+<ul>
+<li><strong>Uap naik dari bawah</strong>, membawa nitrogen, karena nitrogen paling mudah menguap.</li>
+<li><strong>Cairan turun dari atas</strong>, membawa oksigen, karena oksigen lebih sulit menguap.</li>
+</ul>
+<p>Di setiap <strong>tray</strong> (semacam lantai kecil di dalam kolom), uap dan cairan bertemu dan saling bertukar komponen. Nitrogen cenderung menguap dan terus naik, sedangkan oksigen lebih mudah mengembun dan terus turun.</p>
+<hr />
+
+<h3 id="apa-yang-terjadi-jika-kolom-terlalu-dingin">Apa yang Terjadi Jika Kolom Terlalu Dingin?</h3>
+<p>Saat kolom bawah terlalu dingin:</p>
+<ul>
+<li><strong>Uap nitrogen tidak terbentuk cukup banyak</strong> karena terlalu banyak yang terkondensasi jadi cair.</li>
+<li>Aliran naik melemah — <strong>tidak ada dorongan uap yang cukup untuk menolak oksigen naik</strong>.</li>
+</ul>
+<p>Akibatnya:</p>
+<blockquote>
+<p><strong>Oksigen ikut naik ke bagian atas</strong>, dan mencemari produk nitrogen.</p>
+</blockquote>
+<hr />
+
+<h3 id="logika-tekanan-parsial">Logika Tekanan Parsial</h3>
+<p>Secara termodinamika:</p>
+<ul>
+<li>Di bagian atas kolom bawah, dominasi uap nitrogen menciptakan <strong>tekanan parsial nitrogen yang tinggi</strong>.</li>
+<li>Ini seperti “penghalang molekul” yang <strong>mencegah oksigen untuk ikut menguap dan naik</strong>.</li>
+</ul>
+<p>Namun, jika suhu terlalu rendah:</p>
+<ul>
+<li>Uap nitrogen tidak cukup kuat.</li>
+<li><strong>Penghalang itu melemah</strong>, dan oksigen bisa ikut naik ke atas.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Titik Didih @ 5.45 barA</th>
+<th>Fase pada −170 °C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nitrogen</td>
+<td>−177.97 °C</td>
+<td>Uap</td>
+</tr>
+<tr>
+<td>Argon</td>
+<td>−166.12 °C</td>
+<td>Campuran</td>
+</tr>
+<tr>
+<td>Oksigen</td>
+<td>−163.27 °C</td>
+<td>Cair</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Biasanya suhu operasi kolom bawah dijaga sedikit di bawah titik didih nitrogen, misalnya sekitar −175 °C, tergantung tekanan operasi (misalnya 5.45 barA), untuk memastikan nitrogen mendidih dan oksigen mengembun secara selektif.</p>
+</blockquote>
+<hr />
+
+<h3 id="bagaimana-jika-terlalu-hangat">Bagaimana Jika Terlalu Hangat?</h3>
+<p>Sebaliknya, jika kolom bawah terlalu hangat:</p>
+<ul>
+<li><strong>Oksigen tidak cukup mengembun ke bentuk cair</strong>, sehingga gagal tertahan di bawah.</li>
+<li><strong>Oksigen bisa tetap dalam fase uap</strong> dan ikut naik bersama nitrogen.</li>
+</ul>
+<p>Akibatnya:</p>
+<blockquote>
+<p>Produk nitrogen tetap tercemar oksigen — tapi kali ini karena <strong>oksigen gagal turun</strong>, bukan karena <strong>naik secara pasif</strong>.</p>
+</blockquote>
+<hr />
+
+<h3 id="visualisasi-sederhana">Visualisasi Sederhana</h3>
+<p>Bayangkan <strong>tiga kondisi suhu</strong> di kolom bawah:</p>
+<ol>
+<li>
+<p><strong>Terlalu Dingin</strong><br />
+Uap nitrogen lemah — oksigen ikut naik — nitrogen tidak murni.</p>
+</li>
+<li>
+<p><strong>Terlalu Hangat</strong><br />
+Oksigen gagal mengembun — tetap dalam uap — ikut naik — nitrogen tercemar.</p>
+</li>
+<li>
+<p><strong>Normal (Ideal)</strong><br />
+Tray bekerja optimal — nitrogen naik, oksigen turun — pemisahan sempurna.</p>
+</li>
+</ol>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/d510a781-de17-4e42-b4a7-ff9ce0cd774f-distillation_column.gif" alt="distillation_column.gif" style="max-width:75%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Gambar 1. Animasi pemisahan oksigen dan nitrogen dalam kondisi terlalu dingin, normal, dan terlalu hangat.
+  </figcaption>
+</div>
+<blockquote>
+<p>Keseimbangan suhu = pemisahan optimal.</p>
+</blockquote>
+<hr />
+
+<h3 id="mnemonik-mudah">Mnemonik Mudah</h3>
+<p>Jika kamu ingin mengingatnya dengan cepat, cukup ingat ini:</p>
+<blockquote>
+<p><strong>“Terlalu dingin, tak ada yang naik. Terlalu hangat, tak ada yang turun.”</strong></p>
+</blockquote>
+<hr />
+
+<h3 id="apa-yang-terjadi-pada-liquid-air">Apa yang Terjadi pada Liquid Air?</h3>
+<p>Cairan di dasar kolom bawah sering disebut sebagai <strong>liquid air</strong>, karena masih merupakan campuran oksigen, nitrogen, dan argon — belum sepenuhnya terpisah. Komposisinya mencerminkan seberapa baik proses pemisahan berlangsung di kolom bawah.</p>
+<p>Suhu dasar kolom sangat mempengaruhi <strong>jumlah nitrogen</strong> yang tertahan dalam cairan ini:</p>
+<ul>
+<li>
+<p><strong>Terlalu Dingin</strong><br />
+Terlalu banyak nitrogen ikut mengembun — <strong>volume liquid air meningkat</strong>, tapi kandungannya lebih kaya nitrogen. Ini pertanda bahwa <strong>nitrogen tidak sepenuhnya menguap</strong> dan malah tertahan di dasar kolom.</p>
+</li>
+<li>
+<p><strong>Terlalu Hangat</strong><br />
+Nitrogen sudah menguap sempurna, tapi <strong>oksigen dan argon belum cukup banyak yang mengembun</strong>.<br />
+Akibatnya: liquid air jadi lebih sedikit, tetap kaya oksigen, tapi miskin argon.<br />
+Sebagian oksigen ikut naik ke bagian atas, <strong>menurunkan kemurnian nitrogen</strong> di puncak kolom bawah.</p>
+</li>
+</ul>
+<p>Dalam praktik, <strong>komposisi liquid air</strong> (dari sensor inline atau analisis laboratorium) sering digunakan sebagai <strong>indikator tidak langsung</strong> apakah suhu dasar kolom sudah berada pada titik optimal.</p>
+<blockquote>
+<p>Jika cairan di bawah terlalu "encer" (kaya nitrogen), kolom bisa terlalu dingin.<br />
+Jika cairannya terlalu "berat" (kaya oksigen), kolom bisa terlalu hangat.</p>
+</blockquote>
+<hr />
+
+<h3 id="kesimpulan">Kesimpulan</h3>
+<ul>
+<li>Jangan kira semakin dingin itu semakin baik.</li>
+<li>Jangan juga membiarkan kolom terlalu hangat.</li>
+<li>Di kolom distilasi kriogenik, <strong>suhu yang terlalu ekstrem ke salah satu arah bisa membuat pemisahan gagal</strong>.</li>
+<li>Jaga keseimbangan antara <strong>penguapan dan kondensasi</strong> agar nitrogen dan oksigen tetap di jalur masing-masing.</li>
+</ul>
+<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cryogenic" /><category term="Cryogenic" /><summary type="html"><![CDATA[Suhu di kolom bawah distilasi kriogenik menentukan pemisahan nitrogen & oksigen. Terlalu dingin, nitrogen gagal menguap, liquid air kaya nitrogen. Terlalu hangat, oksigen ikut naik, cemari nitrogen. Komposisi liquid air sebagai indikator: keseimbangan suhu, kunci kemurnian.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Surging pada Kompresor Sentrifugal: Ketika Masalah Besar Berawal dari Modifikasi Kecil</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil.html" rel="alternate" type="text/html" title="Surging pada Kompresor Sentrifugal: Ketika Masalah Besar Berawal dari Modifikasi Kecil" /><published>2025-07-21T15:56:15+00:00</published><updated>2025-07-21T15:56:15+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/07/surging_id_ID.mp3" preload="metadata"></audio><div class="kg-audio-title">Ketika Masalah Besar Berawal dari Modifikasi Kecil</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">6.312</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
+<h2 id="pendahuluan">Pendahuluan</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/01_surging_pada_kompresor_sentrifugal_ketika_masalah_besar_berawal_dari_modifikasi_kecil.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Masalah kronis pada <strong>Kompresor Resirkulasi Nitrogen</strong> dan <strong>Booster Ekspander</strong> di unit <strong>Pabrik Pemisah Udara</strong> sudah muncul sejak commissioning, dipicu oleh modifikasi instalasi yang awalnya dimaksudkan untuk memberikan informasi kecepatan ekspander ke ruang kontrol untuk kepentingan operasional, namun berujung pada dampak teknis jangka panjang.</p>
+<p>Perlu hampir sepuluh tahun—sejak saya mulai bekerja di industri ini pada 2007 hingga akhirnya terpecahkan di 2017—untuk benar-benar memahami dan menyelesaikan masalah ini. Dalam kurun waktu tersebut dan pasti juga sebelumnya, berbagai upaya telah dilakukan, namun sebagian besar hanya menyentuh gejalanya—bukan akarnya. Dari perspektif saya, artikel ini merekam perjalanan panjang—dari kecurigaan awal, eksperimen lapangan, hingga penyelesaian yang akhirnya mengembalikan sistem ke logika desain aslinya. Silakan memberikan sanggahan jika dirasa ada yang kurang tepat.</p>
+<hr />
+
+<h2 id="awal-mula-masalah">Awal Mula Masalah</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/02_awal_mula_masalah.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Sejak awal, masalah ini seperti dipahami dengan premis yang keliru: hampir semua perhatian tertuju pada <strong>kompresor resirkulasi nitrogen</strong>, seolah-olah ia selalu menjadi biang keladi. Namun sejak awal, saya mencurigai ada yang tidak beres—terutama dalam urutan <em>shutdown</em> antara <strong>kompresor resirkulasi nitrogen</strong> dan <strong>booster ekspander</strong>.</p>
+<p><strong>DCS menunjukkan bahwa kompresor resirkulasi nitrogen trip terlebih dahulu</strong>, tetapi saya meragukan kebenaran data ini. Ada <strong>kabel interlock</strong> yang memungkinkan kompresor resirkulasi nitrogen trip <strong>atas permintaan dari booster ekspander</strong>, sementara DCS—yang memproses ratusan I/O—bisa mengalami latensi dalam mencatat urutan kejadian, terutama yang terjadi dalam skala milidetik. Ini karena DCS melakukan <em>siklus pemindaian</em> terhadap I/O secara sekuensial, sedangkan sinyal trip bisa muncul <em>tidak sinkron</em>, baik di depan maupun di belakang jalannya siklus.</p>
+<p>Demi memastikan urutan <em>shutdown</em> yang sebenarnya, saya merakit sendiri sebuah <strong>PLC Siemens S7</strong> sebagai <em>pencatan even</em> berkecepatan tinggi. Resolusi tinggi menjadi satu-satunya cara untuk secara obyektif membuktikan siapa yang benar-benar lebih dulu trip. Hasil pengujiannya <strong>konsisten</strong>: <strong>100% kejadian menunjukkan bahwa booster-lah yang lebih dulu trip</strong>. Ini disebabkan oleh <strong>pembukaan <em>bypass</em> booster secara mendadak</strong>, yang memicu <strong>surging pada kompresor resirkulasi nitrogen</strong>, akhirnya kompresor resirkulasi nitrogen ikut trip juga melalui perintah interlock. Tentu tidak semua langsung setuju dengan kesimpulan ini—karena memahami cara kerja DCS dan PLC memang memerlukan keahlian teknis yang mendalam.</p>
+<blockquote>
+<p><strong>Logika Ladder – Deteksi Trip yang Adil</strong></p>
+<p>Logika ladder di bawah ini menerapkan sistem deteksi trip yang deterministik dengan menggunakan deteksi <em>rising edge</em> dan penanda memori.<br />
+Sistem ini memastikan bahwa input mana pun—kompresor resirkulasi nitrogen atau booster ekspander—yang memicu trip pertama akan dicatat secara objektif, tanpa dipengaruhi oleh urutan pemindaian PLC.</p>
+</blockquote>
+<details>
+<summary>Klik untuk membuka Logika Ladder dan Tabel Simbol PLC</summary>
+<pre><code class="language-plaintext">// Detect rising edge of input C60
+Rung 1:
+|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 pulse
+
+Rung 2:
+|----[ I0.0 ]-----------------------------( M0.3 )  // Save C60 state
+
+// Detect rising edge of input CD10
+Rung 3:
+|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 pulse
+
+Rung 4:
+|----[ I0.1 ]-----------------------------( M0.4 )  // Save CD10 state
+
+// Status outputs
+Rung 5:
+|----[ I0.0 ]-----------------------------( Q0.2 )  // C60 has tripped
+
+Rung 6:
+|----[ I0.1 ]-----------------------------( Q0.3 )  // CD10 has tripped
+
+// Determine who tripped first
+Rung 7:
+|----[ M0.1 ]----[/ M0.0 ]----------------( Q0.0 )  // C60 tripped first
+|                                     ----( M0.0 )  // Lock trip detection
+
+Rung 8:
+|----[ M0.2 ]----[/ M0.0 ]----------------( Q0.1 )  // CD10 tripped first
+|                                     ----( M0.0 )  // Lock trip detection
+
+// Manual reset
+Rung 9:
+|----[ I0.2 ]---------------------------[RST M0.0]  // Reset trip flag
+|                                       [RST Q0.0]
+|                                       [RST Q0.1]
+|                                       [RST Q0.2]
+|                                       [RST Q0.3]
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><strong>Symbol</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Function Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>I0.0</code></td>
+<td>Digital Input</td>
+<td>Trip signal from compressor C60</td>
+</tr>
+<tr>
+<td><code>I0.1</code></td>
+<td>Digital Input</td>
+<td>Trip signal from booster expander CD10</td>
+</tr>
+<tr>
+<td><code>I0.2</code></td>
+<td>Digital Input</td>
+<td>Manual reset button to clear all trip flags</td>
+</tr>
+<tr>
+<td><code>Q0.0</code></td>
+<td>Digital Output</td>
+<td>Indicates C60 tripped first</td>
+</tr>
+<tr>
+<td><code>Q0.1</code></td>
+<td>Digital Output</td>
+<td>Indicates CD10 tripped first</td>
+</tr>
+<tr>
+<td><code>Q0.2</code></td>
+<td>Digital Output</td>
+<td>Status output: C60 has tripped</td>
+</tr>
+<tr>
+<td><code>Q0.3</code></td>
+<td>Digital Output</td>
+<td>Status output: CD10 has tripped</td>
+</tr>
+<tr>
+<td><code>M0.0</code></td>
+<td>Memory Bit</td>
+<td>Trip detection flag—only one trip allowed per scan</td>
+</tr>
+<tr>
+<td><code>M0.1</code></td>
+<td>Memory Bit</td>
+<td>Rising edge detected on C60</td>
+</tr>
+<tr>
+<td><code>M0.2</code></td>
+<td>Memory Bit</td>
+<td>Rising edge detected on CD10</td>
+</tr>
+<tr>
+<td><code>M0.3</code></td>
+<td>Memory Bit</td>
+<td>Previous input state of C60 (for edge detection)</td>
+</tr>
+<tr>
+<td><code>M0.4</code></td>
+<td>Memory Bit</td>
+<td>Previous input state of CD10 (for edge detection)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Sejak awal commissioning, untuk menurunkan risiko surging, <strong>kompresor resirkulasi nitrogen tidak pernah dijalankan pada performa maksimal</strong>. <em>Bypass</em>-nya cenderung tetap terbuka, dan demi menjaga kestabilan operasi, operator mengembangkan rutinitas harian: <strong>menurunkan kecepatan ekspander</strong> saat suhu lingkungan mulai naik di pagi hari, dan <strong>menaikkannya kembali ketika malam lebih sejuk</strong>—sebuah seni bertahan di antara batas aman desain dan realitas operasional yang terus berubah. Strategi ini cukup efektif: malam hari yang lebih dingin dimanfaatkan untuk meningkatkan performa booster. Sementara siang hari yang panas dijaga agar tetap stabil—karena pada suhu tinggi, risiko <strong>surging</strong> dan <strong>trip</strong> jauh lebih besar.</p>
+<p>Namun, mengoperasikan kompresor sentrifugal dengan <em>bypass</em> yang tidak sepenuhnya tertutup membuat seluruh plant menjadi <strong>sangat bising</strong>. Ini adalah kompromi performa yang mahal—menggerus efisiensi energi sekaligus menurunkan kenyamanan kerja akibat kebisingan konstan.</p>
+<hr />
+
+<h2 id="eksperimen-dan-investigasi">Eksperimen dan Investigasi</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/03_eksperimen_dan_investigasi.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Strategi operasional dinamis yang diterapkan berdasarkan penilaian terhadap kondisi lingkungan <strong>tidak selalu memberikan hasil yang diharapkan</strong>. Ketika penilaian lingkungan kurang tepat—terlalu cepat atau terlalu lambat dalam merespons perubahan—penyesuaian kecepatan ekspander berulang kali <strong>gagal mencegah surging maupun trip</strong> pada sistem.</p>
+<p>Masalah ini justru makin memburuk pada akhir 2016, meskipun sebelumnya telah dilakukan berbagai perbaikan, termasuk penggantian sejumlah komponen kontrol dan sensor. Upaya-upaya tersebut <strong>ternyata hanya menyentuh gejalanya, bukan akar permasalahannya</strong>. Situasinya seperti <strong>berkutat dengan penyakit yang tidak jelas diagnosanya, lalu mencoba berbagai obat yang tidak pernah benar-benar menyembuhkan</strong>.</p>
+<p>Manajemen kemudian memutuskan untuk melakukan overhaul total pada kedua mesin—<strong>kompresor resirkulasi nitrogen dan booster ekspander</strong>. Namun, karena keterbatasan personel dari pihak vendor, hanya kompresor resirkulasi nitrogen yang dikerjakan.</p>
+<p>Saat dilakukan uji coba pengoperasian kompresor resirkulasi nitrogen tanpa booster ekspander, <strong>mesin mampu berjalan hingga performa maksimal tanpa kendala</strong>. Hasil ini semakin memperkuat keyakinan saya bahwa <strong>kompresor resirkulasi nitrogen bukanlah akar dari permasalahan yang selama ini terjadi</strong>. Hanya beberapa hari setelah plant kembali beroperasi penuh, surging dan trip kembali terjadi—membawa kami kembali ke titik awal kebingungan.</p>
+<p>Saya kemudian memutuskan membentuk <strong>tim kecil</strong>, terdiri dari teknisi kontrol, instrumentasi, dan mekanik terpilih—hanya mereka yang boleh terlibat dan mereka hanya menerima perintah dari saya. Bersama-sama, kami menjalankan serangkaian investigasi intensif:</p>
+<ul>
+<li><strong>Perekaman local panel</strong> menggunakan video real-time secara bergantian, meski sangat tidak nyaman</li>
+<li><strong>Pemodelan ulang sinyal trip</strong>, setelah kami memperoleh rekaman berharga dari saat terjadinya gangguan</li>
+<li><strong>Evaluasi rangkaian sinyal 4–20</strong>, yang ternyata dibebani tiga perangkat, bukan dua seperti seharusnya</li>
+<li><strong>Simulasi dugaan</strong>, dan kami berhasil merekonstruksi ulang akar permasalahannya dengan presisi!</li>
+</ul>
+<p>Temuan paling krusial datang dari satu hal yang luput sejak awal: <strong>sinyal analog ternyata berasal dari sumber tegangan 5 volt DC</strong>, bukan 24 volt DC seperti saya kira. Ini bukan sekadar perbedaan angka—melainkan perbedaan mendasar dalam kapasitas daya dan toleransi terhadap beban. Ini saya temukan saat dokumen perangkat kontrol kecepatan lama saya bawa pulang dan baca di rumah.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Gambar 1. Pelanggaran Desain—sinyal analog kelebihan beban
+  </figcaption>
+</div>
+<p>Lebih lanjut, <strong>output tersebut ternyata dibebani tiga perangkat</strong>, padahal dalam desain awal hanya dirancang untuk dua. Kombinasi tegangan rendah dan jumlah beban berlebih ini menimbulkan <strong>distorsi sinyal</strong> yang nyata. Semakin tinggi kecepatan operasi, semakin besar arus yang ditarik, dan <strong>tegangan mulai merosot</strong> akibat drop tegangan di tiap beban.</p>
+<p>Hingga pada titik tertentu, <strong>sumber 5 volt DC tak mampu lagi mempertahankan level tegangan minimum</strong>, dan sinyal analog tiba-tiba anjlok. Di sinilah masalah puncaknya muncul—<strong>kontrol anti surging pada booster ekspander membaca kondisi ini sebagai gangguan serius</strong>, dan merespons secara agresif meski sebenarnya tidak diperlukan.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Gambar 2. Pelanggaran Desain—penurunan kecepatan memicu respon anti surge yang tidak perlu
+  </figcaption>
+</div>
+<details>
+<summary>Klik untuk membuka skrip plotting Python di atas</summary>
+<pre><code class="language-javascript">import numpy as np
+import matplotlib.pyplot as plt
+
+# Current range (mA)
+current_mA = np.linspace(4, 20, 1000)
+
+# Convert to RPM (0–45000 RPM)
+rpm = (current_mA - 4) / 16 * 45000
+
+# Load resistances (ohms)
+resistors = [125, 250, 350]
+colors = ['tab:blue', 'tab:orange', 'tab:red']
+
+# Output voltage for each resistance
+voltages = {R: current_mA / 1000 * R for R in resistors}
+
+plt.figure(figsize=(10, 6))
+
+for i, R in enumerate(resistors):
+    voltage = voltages[R]
+    label = f'{R} Ω Load' if R &lt; 350 else f'{R} Ω Load (design violation)'
+    linestyle = '-' if R &lt; 350 else '--'  # Dashed line indicates thermal shift or excessive load
+
+    plt.plot(rpm, voltage, label=label, color=colors[i], linestyle=linestyle)
+
+    # Find where voltage reaches 5V
+    idx_5 = np.argmin(np.abs(voltage - 5))
+    rpm_at_5V = rpm[idx_5]
+    plt.axvline(rpm_at_5V, color=colors[i], linestyle=':', alpha=0.6)
+    plt.text(rpm_at_5V, 5.3, f'{int(rpm_at_5V)} RPM', rotation=90,
+             verticalalignment='bottom', horizontalalignment='right',
+             fontsize=8, color=colors[i])
+
+# Find where voltage reaches 4.8V
+idx_4 = np.argmin(np.abs(voltage - 4.8))
+rpm_at_4 = rpm[idx_4]
+plt.axvline(rpm_at_4, color=colors[2], linestyle=':', alpha=0.6)
+plt.text(rpm_at_4, 5.3, f'{int(rpm_at_4)} RPM', rotation=90,
+            verticalalignment='bottom', horizontalalignment='right',
+            fontsize=8, color=colors[2])
+
+# Compliance limit line
+plt.axhline(5, color='black', linestyle='--', label='Maximum Voltage (5 V)')
+
+# Warning voltage line
+plt.axhline(4.8, color='red', linestyle='--', label='Voltage Drop Due to Load (4.8 V)')
+
+# Labels and titles
+plt.title('Analog Speed Signal Distortion Due to Voltage Drop')
+plt.xlabel('Expander Speed (RPM)')
+plt.ylabel('Analog Voltage (V)')
+plt.grid(True)
+plt.legend()
+plt.xlim(0, 45000)
+plt.ylim(0, 7)
+plt.tight_layout()
+
+# Export as SVG
+plt.savefig("Voltage_vs_Speed.svg", format='svg')
+plt.show()
+</code></pre>
+</details>
+<p>Akhirnya jelas: <strong>modifikasi rangkaian awal—yang niatnya hanya untuk menampilkan informasi di ruang kontrol—secara tidak sengaja menciptakan anomali pengukuran</strong>. Gangguan kecil ini, yang selama bertahun-tahun tersembunyi di balik asumsi dan rutinitas, justru menjadi penyebab utama gangguan sistemik yang kompleks dan mahal.</p>
+<hr />
+
+<h2 id="modifikasi-kecil-hasil-besar">Modifikasi Kecil, Hasil Besar</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/04_modifikasi_kecil_hasil_besar.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Setelah berhasil merekonstruksi akar masalahnya, saya menyusun presentasi singkat untuk menjelaskan apa yang sebenarnya terjadi, disertai solusi yang sangat sederhana: <strong>mengembalikan rangkaian ke desain awalnya</strong>. Solusi ini saya yakini aman dan tepat, karena tidak melibatkan perubahan logika atau perangkat, melainkan hanya mengoreksi modifikasi rangkaian yang terbukti keliru.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Gambar 3. Koreksi yang Diusulkan—konsep pemisahan sinyal untuk mengurangi risiko kelebihan beban analog
+  </figcaption>
+</div>
+<p>Dengan penuh keyakinan, saya sampaikan proposal ini dalam rapat manajemen. Namun, yang terjadi justru di luar dugaan: <strong>saya tidak diizinkan melakukan eksekusi</strong>, dan diarahkan untuk menunggu teknisi dari vendor datang melakukan klarifikasi dan perbaikan. Padahal, selama bertahun-tahun, pihak vendor maupun pihak lain tidak pernah berhasil menyelesaikan masalah ini secara tuntas.</p>
+<p>Saya mencoba kembali, kali ini lewat pendekatan personal setelah rapat, untuk menjelaskan duduk perkaranya secara teknis. Tetapi hasilnya tetap sama: tidak diberi ruang untuk bertindak.</p>
+<p>Pada titik ini, saya mulai merasa bahwa <strong>hambatan yang saya hadapi bukan lagi teknis, tetapi politis</strong>. Sebuah ironi, ketika pemahaman yang mendalam terhadap masalah justru bukan menjadi dasar kepercayaan.</p>
+<p>Karena dukungan dari vendor tak kunjung pasti, saya sudah menetapkan dalam hati: kapan pun plant kembali trip, maka solusi yang saya siapkan akan langsung saya eksekusi. Dan tentu hari itu benar-benar datang. Tetap dengan prosedur, saya meminta izin kepada atasan langsung sebelum bertindak. Untungnya, perangkat kontrol kecepatan yang belum lama saya ganti memiliki dua kanal output–menghilangkan kebutuhan splitter sinyal yang sempat direncanakan sebelumnya. Dengan sedikit modifikasi program, saya set keduanya untuk mengeluarkan sinyal identik—satu untuk kontrol anti surging, dan satu lagi dipakai bersama untuk tampilan lokal serta sinyal ke DCS. Modifikasi rangkaian menjadi <strong>jauh lebih sederhana—dan lebih aman</strong>.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Gambar 4. Implementasi Final—output analog ganda menyelesaikan distorsi sinyal
+  </figcaption>
+</div>
+<p>Hanya dengan <strong>seutas kabel 30 cm</strong> dan satu <strong>obeng kecil</strong>, saya menyambung ulang output analog yang selama ini menjadi sumber masalah tersembunyi.<br />
+Setelah diperbaiki, <em>kontrol anti surging</em> pada booster ekspander saya uji ulang — dan hasilnya tak terbantahkan: <strong>sistem pulih total</strong>, <strong>tanpa anomali</strong>.</p>
+<blockquote>
+<p>"Kadang, perbaikan besar dimulai dari hal yang tampak sepele—asal kita cukup gigih mencarinya dan tidak menganggap sebuah masalah pasti abadi."</p>
+</blockquote>
+<hr />
+
+<h2 id="efek-langsung-dan-tidak-langsung">Efek Langsung dan Tidak Langsung</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/05_efek_langsung_dan_tidak_langsung.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Modifikasi kecil ini membawa dampak besar terhadap performa plant, baik secara teknis maupun ekonomis:</p>
+<ul>
+<li><strong>Kompresor resirkulasi nitrogen kini dapat beroperasi dengan <em>bypass</em> tertutup sepenuhnya</strong>, memungkinkan sistem berjalan mendekati performa desain. Nitrogen tak lagi berputar-putar tanpa tujuan, sekaligus mengurangi beban pada sistem pendingin.</li>
+<li><strong>Kompresor sentrifugal menjadi senyap</strong>, tidak ada lagi suara khas peluit dari aliran <em>bypass</em>—sebuah <em>keheningan yang menandakan efisiensi</em>.</li>
+<li><strong>Konsumsi energi dan dengan demikian tagihan listrik menurun drastis</strong>, karena siklus nitrogen yang tidak efektif telah dieliminasi, dan kebutuhan untuk start ulang mesin jauh berkurang.</li>
+<li><strong>Produksi nitrogen dan argon meningkat</strong>, seiring proses yang berjalan lebih stabil dan optimal sesuai rancangan awal.</li>
+</ul>
+<p>Tentu saja, perubahan ini tidak langsung terasa seketika. Butuh waktu untuk <strong>membongkar pola operasi</strong> yang sudah terbentuk selama bertahun-tahun dan <strong>membangun keyakinan terhadap perubahan</strong> yang sudah dilakukan memerlukan perubahan lanjutan pada proses.</p>
+<p>Saya sendiri saat itu belum memiliki kemampuan untuk menghitung kapasitas plant secara independen. Tapi menurut informasi, modifikasi ini <em>disebut-sebut memberikan dampak nyata</em>:</p>
+<blockquote>
+<p><strong>Penghematan lebih dari 1 miliar rupiah per bulan</strong><br />
+Kombinasi dari penurunan konsumsi listrik dan peningkatan output produksi.</p>
+</blockquote>
+<p>Angka pastinya bisa diperdebatkan. Tapi suara kompresor yang tak lagi menjerit—itu bukti paling nyata bahwa perubahan sudah terjadi.</p>
+<hr />
+
+<h2 id="tantangan-budaya-dan-persepsi">Tantangan Budaya dan Persepsi</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/06_tantangan_budaya_dan_persepsi.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Tantangan terbesar dalam menyelesaikan masalah sering kali bukanlah teknis, melainkan budaya kerja dan struktur pengambilan keputusan. Dalam sistem yang kompleks dan telah lama beroperasi, tidak jarang <strong>tak ada satu pun individu yang benar-benar memahami persoalan secara utuh</strong>. Pemahaman tersebar dan terfragmentasi — sebagian ada di engineer, sebagian di operator, sebagian lagi tersembunyi dalam dokumentasi yang jarang disentuh kembali.</p>
+<p>Dalam kondisi seperti ini, arah <em>troubleshooting</em> lebih banyak ditentukan oleh siapa yang memiliki kewenangan, bukan oleh siapa yang paling memahami persoalan. Solusi pun kerap dibentuk oleh intuisi, kebiasaan, atau tekanan untuk segera “memulihkan operasi” — bukan oleh hasil diagnosa yang mendalam.</p>
+<p>Bukan karena sistem sengaja dibiarkan menyimpang dari desain, melainkan karena <strong>upaya-upaya menemukan akar masalah berulang kali menemui jalan buntu</strong>. Ketika berbagai pendekatan tak kunjung membuahkan hasil, organisasi akhirnya memilih jalan yang dianggap paling aman: bertahan pada konfigurasi yang stabil meskipun menyimpang. Selama sistem masih berjalan dan tidak terjadi kerusakan fatal, kondisi ini perlahan diterima sebagai kenormalan baru.</p>
+<p>Namun ketika gangguan makin sering terjadi, rutinitas penanganan tak lagi cukup. <strong>Diperlukan keberanian untuk mengajukan narasi tandingan</strong> — membuka kemungkinan bahwa akar masalah belum benar-benar tersentuh, bahwa ada sesuatu yang selama ini luput dari pemahaman kolektif kita.</p>
+<p>Perubahan sejati biasanya baru memiliki ruang ketika tekanan sudah cukup tinggi, data sudah cukup kuat, dan rasa frustrasi sudah cukup mendalam. Di titik ini, pendekatan baru akhirnya punya peluang untuk dicoba — dan perbaikan yang nyata bisa mulai terjadi.</p>
+<hr />
+
+<h2 id="penutup">Penutup</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/07_penutup.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Ini bukan semata urusan memperbaiki rangkaian atau logika kontrol, melainkan <strong>upaya menata ulang kepercayaan terhadap desain awal</strong>—dan lebih dari itu, <strong>keberanian untuk mengoreksi sistem yang selama ini dianggap sudah final</strong>.</p>
+<p>Saya bahkan sempat berpikir, <em>“Kalau saja output perangkat kontrol kecepatan baru kebetulan 12 volt atau 24 volt, mungkin masalah ini selesai dengan sendirinya.”</em> Tapi bisa jadi, saya tidak akan pernah tahu sumber masalah yang sebenarnya.</p>
+<p>Setelah dua dekade berjalan dalam kondisi yang menyimpang, akhirnya sistem ini bekerja sebagaimana mestinya. Bukan karena alatnya berubah, tapi karena cara kita memahaminya yang berubah. Sebuah proses panjang yang menghadirkan <strong>pembelajaran teknis sekaligus manajerial yang tak ternilai</strong>.</p>
+<hr />
+
+<p><strong>Catatan Penulis</strong></p>
+<p>Tulisan ini bukan hanya soal teknis, tapi juga tentang <strong>manajemen perubahan</strong>, <strong>analisis historis</strong>, dan <strong>ketangguhan menghadapi resistensi</strong>.</p>
+<blockquote>
+<p>Massa otot bukan segalanya —  neuronlah yang membuat otak bekerja lebih cepat. 🧠⚡</p>
+</blockquote>
+<p style="text-align:center; font-size:0.95em; color:#555; margin-top:2em;">
+  Dan jika semuanya gagal...
+</p>
+<p><a href="https://www.youtube.com/watch?v=BGednQsQ-h8&amp;ref=blog.kiiota.com" target="_blank" rel="noopener noreferrer" style="display:inline-block; position:relative; text-decoration:none; margin-top:2em;" onmouseover="this.firstElementChild.style.filter='brightness(0.8) contrast(1.2)'" onmouseout="this.firstElementChild.style.filter='none'">
+  <img src="https://img.youtube.com/vi/BGednQsQ-h8/hqdefault.jpg" alt="Limp Bizkit - The Truth" style="width:100%; max-width:200px; border:0; display:block; margin:0 auto; border-radius:8px;" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_play_button_icon_%282017%29.svg" alt="Play" style="position:absolute; top:50%; left:50%; width:36px; height:36px; transform:translate(-50%,-50%); opacity:0.85;" />
+</a></p>
+<figcaption style="text-align:center; font-size:0.9em; font-style:italic; margin-top:6px; color:#444;">
+  Terkadang, satu-satunya keadilan yang tersisa... adalah menyampaikan <strong>kebenaran</strong>.
+</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[Tulisan ini bukan hanya soal teknis, tapi juga tentang manajemen perubahan, analisis historis, dan ketangguhan menghadapi resistensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html" rel="alternate" type="text/html" title="Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications" /><published>2025-07-18T19:23:19+00:00</published><updated>2025-07-18T19:23:19+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/07/surging_en_US.mp3" preload="metadata"></audio><div class="kg-audio-title">When Big Problems Start from Small Modifications</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">6.84</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
+<h2 id="introduction">Introduction</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/01_surging_on_centrifugal_compressor_when_big_problems_start_from_small_modifications.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Chronic issues with the <strong>Recycle Nitrogen Compressor</strong> and <strong>Booster Expander</strong> in the <strong>Air Separation Plant</strong> unit have been present since commissioning, triggered by installation modifications initially intended to provide expander speed information to the control room for operational purposes, but ultimately leading to long-term technical impacts.</p>
+<p>It took nearly ten years—from when I started working in this industry in 2007 until the problem was finally resolved in 2017—to truly understand and solve this issue. During that time, and certainly before, various efforts were made, but most only addressed the symptoms—not the root cause. From my perspective, this article records a long journey—from initial suspicions, field experiments, to the resolution that finally restored the system to its original design logic. Please feel free to provide counterarguments if you feel there are inaccuracies.</p>
+<hr />
+
+<h2 id="the-beginning-of-the-problem">The Beginning of the Problem</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/02_the_beginning_of_the_problem.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>From the start, this problem seemed to be understood with a flawed premise: almost all attention was focused on the <strong>recycle nitrogen compressor</strong>, as if it was always the culprit. However, from the beginning, I suspected something was amiss—especially in the shutdown sequence between the <strong>recycle nitrogen compressor</strong> and <strong>booster expander</strong>.</p>
+<p><strong>DCS showed that the recycle nitrogen compressor tripped first</strong>, but I doubted the accuracy of this data. There was a <strong>hardwired interlock</strong> that allowed the recycle nitrogen compressor to trip <strong>upon request from the booster expander</strong>, while DCS—which processes hundreds of I/Os—could experience latency in recording the sequence of events, especially those occurring within milliseconds. This is because DCS performs a <em>cyclic scan</em> of I/Os sequentially, whereas trip signals can appear <em>asynchronously</em>, either ahead of or behind the <em>scan</em> cycle.</p>
+<p>To ensure the actual shutdown sequence, I assembled a <strong>Siemens S7 PLC</strong> as a high-speed <em>event logger</em>. High resolution was the only way to objectively prove who actually tripped first. The test results were <strong>consistent</strong>: <strong>100% of events showed that the booster tripped first</strong>. This was caused by the <strong>sudden opening of the booster bypass</strong>, which triggered <strong>surging on the recycle nitrogen compressor</strong>, eventually causing the recycle nitrogen compressor to trip as well through interlock commands. Of course, not everyone immediately agreed with this conclusion—because understanding how DCS and PLC work requires deep technical expertise.</p>
+<blockquote>
+<p><strong>Ladder Logic – Fair Trip Detection</strong></p>
+<p>The ladder logic below implements a deterministic trip detection system using rising edge recognition and memory flags.<br />
+It ensures that whichever input (recycle nitrogen compressor or booster expander) triggers a trip first is recorded objectively—regardless of PLC scan order.</p>
+</blockquote>
+<details>
+<summary>Click to reveal for Ladder Logic and PLC Symbol Table</summary>
+<pre><code class="language-plaintext">// Detect rising edge of input C60
+Rung 1:
+|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 pulse
+
+Rung 2:
+|----[ I0.0 ]-----------------------------( M0.3 )  // Save C60 state
+
+// Detect rising edge of input CD10
+Rung 3:
+|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 pulse
+
+Rung 4:
+|----[ I0.1 ]-----------------------------( M0.4 )  // Save CD10 state
+
+// Status outputs
+Rung 5:
+|----[ I0.0 ]-----------------------------( Q0.2 )  // C60 has tripped
+
+Rung 6:
+|----[ I0.1 ]-----------------------------( Q0.3 )  // CD10 has tripped
+
+// Determine who tripped first
+Rung 7:
+|----[ M0.1 ]----[/ M0.0 ]----------------( Q0.0 )  // C60 tripped first
+|                                     ----( M0.0 )  // Lock trip detection
+
+Rung 8:
+|----[ M0.2 ]----[/ M0.0 ]----------------( Q0.1 )  // CD10 tripped first
+|                                     ----( M0.0 )  // Lock trip detection
+
+// Manual reset
+Rung 9:
+|----[ I0.2 ]---------------------------[RST M0.0]  // Reset trip flag
+|                                       [RST Q0.0]
+|                                       [RST Q0.1]
+|                                       [RST Q0.2]
+|                                       [RST Q0.3]
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><strong>Symbol</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Function Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>I0.0</code></td>
+<td>Digital Input</td>
+<td>Trip signal from compressor C60</td>
+</tr>
+<tr>
+<td><code>I0.1</code></td>
+<td>Digital Input</td>
+<td>Trip signal from booster expander CD10</td>
+</tr>
+<tr>
+<td><code>I0.2</code></td>
+<td>Digital Input</td>
+<td>Manual reset button to clear all trip flags</td>
+</tr>
+<tr>
+<td><code>Q0.0</code></td>
+<td>Digital Output</td>
+<td>Indicates C60 tripped first</td>
+</tr>
+<tr>
+<td><code>Q0.1</code></td>
+<td>Digital Output</td>
+<td>Indicates CD10 tripped first</td>
+</tr>
+<tr>
+<td><code>Q0.2</code></td>
+<td>Digital Output</td>
+<td>Status output: C60 has tripped</td>
+</tr>
+<tr>
+<td><code>Q0.3</code></td>
+<td>Digital Output</td>
+<td>Status output: CD10 has tripped</td>
+</tr>
+<tr>
+<td><code>M0.0</code></td>
+<td>Memory Bit</td>
+<td>Trip detection flag—only one trip allowed per scan</td>
+</tr>
+<tr>
+<td><code>M0.1</code></td>
+<td>Memory Bit</td>
+<td>Rising edge detected on C60</td>
+</tr>
+<tr>
+<td><code>M0.2</code></td>
+<td>Memory Bit</td>
+<td>Rising edge detected on CD10</td>
+</tr>
+<tr>
+<td><code>M0.3</code></td>
+<td>Memory Bit</td>
+<td>Previous input state of C60 (for edge detection)</td>
+</tr>
+<tr>
+<td><code>M0.4</code></td>
+<td>Memory Bit</td>
+<td>Previous input state of CD10 (for edge detection)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Since commissioning, to reduce the risk of surging, <strong>the recycle nitrogen compressor has never been operated at maximum performance</strong>. Its bypass tends to remain open, and to maintain operational stability, operators developed a daily routine: <strong>reducing expander speed</strong> when ambient temperatures began to rise in the morning, and <strong>increasing it again when the night was cooler</strong>—an art of survival between the safe design limits and the ever-changing operational realities. This strategy was quite effective: cooler nights were utilized to boost booster performance. Meanwhile, hot days were kept stable—because at high temperatures, the risk of <strong>surging</strong> and <strong>tripping</strong> was much greater.</p>
+<p>However, operating a centrifugal compressor with a bypass that is not fully closed made the entire plant <strong>very noisy</strong>. This was a costly performance compromise—eroding energy efficiency while reducing work comfort due to constant noise.</p>
+<hr />
+
+<h2 id="experiments-and-investigations">Experiments and Investigations</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/03_experiments_and_investigations.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>The dynamic operational strategy applied based on environmental condition assessments <strong>did not always yield the expected results</strong>. When environmental assessments were inaccurate—too early or too late in responding to changes—adjustments to expander speed repeatedly <strong>failed to prevent surging or tripping</strong> in the system.</p>
+<p>This problem worsened at the end of 2016, despite various improvements previously made, including replacing several control components and sensors. These efforts <strong>turned out to only address the symptoms, not the root cause</strong>. The situation was like <strong>dealing with a disease with an unclear diagnosis, then trying various medications that never truly cured it</strong>.</p>
+<p>Management then decided to conduct a total overhaul of both machines—<strong>recycle nitrogen compressor and booster expander</strong>. However, due to personnel limitations from the vendor, only the recycle nitrogen compressor was worked on.</p>
+<p>When testing the operation of the recycle nitrogen compressor without the booster expander, <strong>the machine was able to run at maximum performance without any issues</strong>. This result further strengthened my belief that <strong>the recycle nitrogen compressor was not the root cause of the problems that had been occurring</strong>. Just a few days after the plant resumed full operation, surging and tripping occurred again—bringing us back to the initial confusion.</p>
+<p>I then decided to form a <strong>small team</strong>, consisting of selected control, instrumentation, and mechanical technicians—only those who were allowed to be involved and they only received orders from me. Together, we conducted a series of intensive investigations:</p>
+<ul>
+<li><strong>Recording local panels</strong> using real-time video alternately, although very uncomfortable</li>
+<li><strong>Remodeling trip signals</strong>, after we obtained valuable recordings from the time of the disturbance</li>
+<li><strong>Evaluating 4–20 mA signal wiring</strong>, which turned out to be loaded with three devices, not two as it should have been</li>
+<li><strong>Simulating assumptions</strong>, and we successfully reconstructed the root cause with precision!</li>
+</ul>
+<p>The most crucial finding came from one thing that had been overlooked from the start: <strong>the analog signal actually came from a 5V DC voltage source</strong>, not 24V DC as I had assumed. This was not just a numerical difference—but a fundamental difference in power capacity and tolerance to load. I discovered this when I brought home and read the old speed controller document.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 1. Design Violation—analog signal overloaded by excessive output load
+  </figcaption>
+</div>
+<p>Furthermore, <strong>the output was actually loaded with three devices</strong>, whereas in the original design it was only designed for two. The combination of low voltage and excessive load caused <strong>significant signal distortion</strong>. The higher the operating speed, the greater the current drawn, and <strong>the voltage began to drop</strong> due to voltage drop at each load.</p>
+<p>At a certain point, <strong>the 5V DC source could no longer maintain the minimum voltage level</strong>, and the analog signal suddenly plummeted. This is where the peak problem emerged—<strong>the anti-surge controller on the booster expander read this condition as a serious disturbance</strong>, and responded aggressively even though it was not actually necessary.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 2. Design Violation—speed drop triggered unnecessary surge control
+  </figcaption>
+</div>
+<details>
+<summary>Click to reveal for above Python plotting script</summary>
+<pre><code class="language-javascript">import numpy as np
+import matplotlib.pyplot as plt
+
+# Current range (mA)
+current_mA = np.linspace(4, 20, 1000)
+
+# Convert to RPM (0–45000 RPM)
+rpm = (current_mA - 4) / 16 * 45000
+
+# Load resistances (ohms)
+resistors = [125, 250, 350]
+colors = ['tab:blue', 'tab:orange', 'tab:red']
+
+# Output voltage for each resistance
+voltages = {R: current_mA / 1000 * R for R in resistors}
+
+plt.figure(figsize=(10, 6))
+
+for i, R in enumerate(resistors):
+    voltage = voltages[R]
+    label = f'{R} Ω Load' if R &lt; 350 else f'{R} Ω Load (design violation)'
+    linestyle = '-' if R &lt; 350 else '--'  # Dashed line indicates thermal shift or excessive load
+
+    plt.plot(rpm, voltage, label=label, color=colors[i], linestyle=linestyle)
+
+    # Find where voltage reaches 5V
+    idx_5 = np.argmin(np.abs(voltage - 5))
+    rpm_at_5V = rpm[idx_5]
+    plt.axvline(rpm_at_5V, color=colors[i], linestyle=':', alpha=0.6)
+    plt.text(rpm_at_5V, 5.3, f'{int(rpm_at_5V)} RPM', rotation=90,
+             verticalalignment='bottom', horizontalalignment='right',
+             fontsize=8, color=colors[i])
+
+# Find where voltage reaches 4.8V
+idx_4 = np.argmin(np.abs(voltage - 4.8))
+rpm_at_4 = rpm[idx_4]
+plt.axvline(rpm_at_4, color=colors[2], linestyle=':', alpha=0.6)
+plt.text(rpm_at_4, 5.3, f'{int(rpm_at_4)} RPM', rotation=90,
+            verticalalignment='bottom', horizontalalignment='right',
+            fontsize=8, color=colors[2])
+
+# Compliance limit line
+plt.axhline(5, color='black', linestyle='--', label='Maximum Voltage (5 V)')
+
+# Warning voltage line
+plt.axhline(4.8, color='red', linestyle='--', label='Voltage Drop Due to Load (4.8 V)')
+
+# Labels and titles
+plt.title('Analog Speed Signal Distortion Due to Voltage Drop')
+plt.xlabel('Expander Speed (RPM)')
+plt.ylabel('Analog Voltage (V)')
+plt.grid(True)
+plt.legend()
+plt.xlim(0, 45000)
+plt.ylim(0, 7)
+plt.tight_layout()
+
+# Export as SVG
+plt.savefig("Voltage_vs_Speed.svg", format='svg')
+plt.show()
+</code></pre>
+</details>
+<p>Finally, it became clear: <strong>the initial circuit modification—which was intended only to display information in the control room—accidentally created measurement anomalies</strong>. This small disturbance, which for years was hidden behind assumptions and routines, turned out to be the main cause of complex and costly systemic disturbances.</p>
+<hr />
+
+<h2 id="small-modifications-big-results">Small Modifications, Big Results</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/04_small_modifications_big_results.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>After successfully reconstructing the root cause, I prepared a brief presentation to explain what actually happened, along with a very simple solution: <strong>returning the circuit to its original design</strong>. I was confident this solution was safe and appropriate, as it did not involve changes to logic or devices, but merely corrected the proven faulty circuit modification.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 3. Proposed Correction—conceptual signal splitting to mitigate analog overload risk
+  </figcaption>
+</div>
+<p>With full confidence, I presented this proposal in a management meeting. However, what happened was beyond expectations: <strong>I was not allowed to execute</strong>, and was directed to wait for vendor technicians to come for clarification and repairs. Yet, for years, neither the vendor nor others had ever successfully resolved this issue completely.</p>
+<p>I tried again, this time through a personal approach after the meeting, to explain the situation technically. But the result was the same: no room to act.</p>
+<p>At this point, I began to feel that <strong>the obstacles I faced were no longer technical, but political</strong>. An irony, when deep understanding of the problem was not the basis of trust.</p>
+<p>Because vendor support remained uncertain, I had already decided in my heart: whenever the plant tripped again, the solution I had prepared would be immediately executed. And of course, that day truly came. Still following procedures, I asked for permission from my direct superior before acting. Fortunately, the speed controller I had recently replaced had two output channels—eliminating the need for the previously planned signal splitter. With a slight program modification, I set both to output identical signals—one for the anti-surge controller, and one shared for local display and signals to DCS. The circuit modification became <strong>much simpler—and safer</strong>.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 4. Final Implementation—dual analog outputs resolve prior signal load distortion
+  </figcaption>
+</div>
+<p>With just <strong>a 30 cm cable</strong> and one <strong>small screwdriver</strong>, I reconnected the analog output that had been the source of the hidden problem. After the repair, the booster expander's <em>anti-surge controller</em> was retested—and the results were undeniable: <strong>the system fully recovered</strong>, <strong>without anomalies</strong>.</p>
+<blockquote>
+<p>"Sometimes, major repairs start from things that seem trivial—as long as we are persistent enough to find them and do not assume a problem is eternal."</p>
+</blockquote>
+<hr />
+
+<h2 id="direct-and-indirect-effects">Direct and Indirect Effects</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/05_direct_and_indirect_effects.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>This small modification brought significant impacts on plant performance, both technically and economically:</p>
+<ul>
+<li><strong>The recycle nitrogen compressor can now operate with its bypass fully closed</strong>, allowing the system to run close to design performance. Nitrogen no longer circulates aimlessly, while also reducing the load on the cooling system.</li>
+<li><strong>The centrifugal compressor became silent</strong>, no longer producing the characteristic whistle sound from bypass flow—a <em>silence that signifies efficiency</em>.</li>
+<li><strong>Energy consumption—and as a result, electricity bills—have dropped drastically</strong>, as ineffective nitrogen cycles were eliminated, and the need for machine restarts was greatly reduced.</li>
+<li><strong>LIN and LAR production increased</strong>, as processes ran more stably and optimally according to the original design.</li>
+</ul>
+<p>Of course, these changes were not immediately felt. It took time to <strong>dismantle operational patterns</strong> that had been formed over years and <strong>build confidence in the changes</strong> that had been made, requiring further changes to the process.</p>
+<p>At that time, I did not yet have the ability to independently calculate plant capacity. But according to information, this modification <em>was said to have a tangible impact</em>:</p>
+<blockquote>
+<p><strong>Savings of over 1 billion rupiah per month</strong> A combination of reduced electricity consumption and increased production output.</p>
+</blockquote>
+<p>The exact figures can be debated. But the compressor's silence—no longer screaming—that is the most tangible proof that change has occurred.</p>
+<hr />
+
+<h2 id="cultural-and-perception-challenges">Cultural and Perception Challenges</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/06_cultural_and_perception_challenges.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>The biggest challenge in solving problems is often not technical, but work culture and decision-making structures. In complex systems that have been operating for a long time, it is not uncommon for <strong>no single individual to truly understand the problem completely</strong>. Understanding is scattered and fragmented—some lies with engineers, some with operators, and some hidden in documentation that is rarely revisited.</p>
+<p>In such conditions, the direction of troubleshooting is more often determined by who has authority, not by who understands the problem best. Solutions are often shaped by intuition, habits, or pressure to quickly “restore operations”—not by deep diagnostic results.</p>
+<p>Not because the system is deliberately left to deviate from the design, but because <strong>efforts to find the root cause repeatedly hit dead ends</strong>. When various approaches fail to yield results, the organization eventually chooses the path considered safest: sticking to a stable configuration even if it deviates. As long as the system is still running and no fatal damage occurs, this condition is gradually accepted as the new normal.</p>
+<p>But when disturbances become more frequent, routine handling is no longer sufficient. <strong>Courage is needed to propose a counter-narrative</strong>—opening the possibility that the root cause has not been truly addressed, that there is something that has been overlooked in our collective understanding.</p>
+<p>True change usually only has room when the pressure is high enough, the data is strong enough, and the frustration is deep enough. At this point, a new approach finally has a chance to be tried—and real improvements can begin to happen.</p>
+<hr />
+
+<h2 id="closing">Closing</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/07_closing.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>This is not merely about repairing circuits or control logic, but <strong>an effort to reorganize trust in the original design</strong>—and more than that, <strong>the courage to correct a system that has long been considered final</strong>.</p>
+<p>I even thought to myself, <em>“If the output of the new speed controller had just happened to be 12V or 24V, maybe the issue would’ve resolved itself.”</em> But then again, I might never have discovered the real root cause.</p>
+<p>After two decades of operating in a deviated condition, this system finally works as it should. Not because the tools changed, but because our understanding of them changed. A long process that brought <strong>invaluable technical and managerial lessons</strong>.</p>
+<hr />
+
+<p><strong>Author's Note</strong></p>
+<p>This writing is not just about technical matters, but also about <strong>change management</strong>, <strong>historical analysis</strong>, and <strong>resilience in facing resistance</strong>.</p>
+<blockquote>
+<p>Muscle mass isn't everything —  neurons fire faster. 🧠⚡</p>
+</blockquote>
+<p style="text-align:center; font-size:0.95em; color:#555; margin-top:2em;">
+  And if all else fails...
+</p>
+<p><a href="https://www.youtube.com/watch?v=BGednQsQ-h8&amp;ref=blog.kiiota.com" target="_blank" rel="noopener noreferrer" style="display:inline-block; position:relative; text-decoration:none; margin-top:2em;" onmouseover="this.firstElementChild.style.filter='brightness(0.8) contrast(1.2)'" onmouseout="this.firstElementChild.style.filter='none'">
+  <img src="https://img.youtube.com/vi/BGednQsQ-h8/hqdefault.jpg" alt="Limp Bizkit - The Truth" style="width:100%; max-width:200px; border:0; display:block; margin:0 auto; border-radius:8px;" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_play_button_icon_%282017%29.svg" alt="Play" style="position:absolute; top:50%; left:50%; width:36px; height:36px; transform:translate(-50%,-50%); opacity:0.85;" />
+</a></p>
+<figcaption style="text-align:center; font-size:0.9em; font-style:italic; margin-top:6px; color:#444;">
+  Sometimes, the only justice left... is to tell <strong>the truth</strong>.
+</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Mengapa Posisi dan Orientasi Flowmeter Cryogenic Itu Penting?</title><link href="https://kumajaya.github.io/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting.html" rel="alternate" type="text/html" title="Mengapa Posisi dan Orientasi Flowmeter Cryogenic Itu Penting?" /><published>2025-07-14T13:53:00+00:00</published><updated>2025-07-14T13:53:00+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting.html"><![CDATA[<!--kg-card-begin: markdown-->
+<p>Dalam dunia pemrosesan gas industri, khususnya pada <strong>Air Separation Plant (ASP)</strong>, pengukuran aliran produk cair kriogenik seperti <em>liquid oxygen (LOX)</em>, <em>liquid nitrogen (LIN)</em>, dan <em>liquid argon (LAR)</em> bukan hanya sekadar angka. Data ini menjadi <strong>dasar untuk menghitung performa plant</strong>, <em>oxygen capture</em>, serta sebagai alat bantu penting dalam <em>monitoring</em> dan <em>control</em> proses produksi.</p>
+<p>Karena itu, <strong>akurasi pengukuran flowmeter sangat krusial</strong>. Namun, tahukah Anda bahwa <strong>lokasi dan orientasi fisik flowmeter</strong> juga bisa mempengaruhi keandalan datanya?</p>
+<hr />
+
+<h2 id="apa-masalahnya">Apa Masalahnya?</h2>
+<p>Meski bukan praktik umum, beberapa fasilitas memasang flowmeter coriolis untuk produk kriogenik <strong>di jalur keluar menuju storage</strong>, tepat <strong>setelah vacuum-jacketed (VJ) line</strong>. Secara operasional, pendekatan ini memang praktis—aksesnya mudah, dekat titik distribusi, dan mempermudah perawatan.</p>
+<p>Namun ada satu hal penting yang kerap terlewat:</p>
+<blockquote>
+<p><strong>Di titik ini, fluida kriogenik mulai kehilangan perlindungan termalnya dan terpapar panas lingkungan sekitar.</strong></p>
+</blockquote>
+<p>Akibatnya, terjadi <strong>flashing</strong>, yaitu perubahan sebagian cairan menjadi gas. Ini menghasilkan <strong>aliran dua fase</strong> yang membuat sinyal flowmeter menjadi <strong>tidak stabil, menurun akurasinya, dan rentan menghasilkan error sistematis</strong>.</p>
+<p>Vendor besar seperti <strong>Emerson, Endress+Hauser, Yokogawa</strong>, hingga <strong>Linde Engineering</strong>, secara konsisten mengingatkan bahwa <strong>paparan panas sekecil apa pun</strong> pada segmen pipa kriogenik terakhir dapat menyebabkan <strong>penurunan integritas pengukuran</strong>, terutama bila flowmeter ditempatkan <strong>di luar zona dingin</strong> (<em>cold zone</em>).</p>
+<hr />
+
+<h2 id="apakah-selalu-salah">Apakah Selalu Salah?</h2>
+<p>Tidak selalu. Dalam praktik industri, beberapa konfigurasi instalasi memang <strong>masih dimungkinkan di luar cold zone</strong>, <strong>selama disertai mitigasi teknis yang memadai</strong>, seperti:</p>
+<ul>
+<li><strong>Pemilihan teknologi flowmeter</strong> yang tahan terhadap dua fase atau dilengkapi kompensasi densitas dinamis,</li>
+<li><strong>Monitoring sinyal densitas</strong> secara real-time untuk mendeteksi indikasi flashing,</li>
+<li><strong>Desain kontrol valve dan layout pipa</strong> yang meminimalkan penurunan tekanan mendadak,</li>
+<li><strong>Validasi temperatur lokal</strong> secara berkala pada housing flowmeter dan upstream-nya,</li>
+<li><strong>Perbaikan kualitas insulasi</strong> pada segmen non-VJ, seperti dengan multi-layer insulation atau enclosure tambahan.</li>
+</ul>
+<p>Penempatan flowmeter kriogenik sebaiknya tidak hanya ditentukan dari kemudahan operasional, tetapi melalui <strong>evaluasi menyeluruh berbasis data</strong>, mempertimbangkan keseimbangan antara <strong>aksesibilitas</strong>, <strong>kualitas pengukuran</strong>, dan <strong>resiko proses</strong>.</p>
+<hr />
+
+<h2 id="apa-kata-vendor">Apa Kata Vendor?</h2>
+<blockquote>
+<p>“Coriolis meters for cryogenic liquids should be located as close as possible to the cold box outlet, upstream of any control valve or piping that might allow flashing or phase separation.”<br />
+— <em>Emerson Micro Motion, AN-001203</em> [1]</p>
+</blockquote>
+<blockquote>
+<p>“Always avoid installing mass flow meters downstream of a vacuum-insulated line. Even well-insulated lines allow enough heat ingress over time to induce partial vaporization.”<br />
+— <em>Endress+Hauser, Cryogenic Measurement Guide</em> [2]</p>
+</blockquote>
+<blockquote>
+<p>“Installing Coriolis meters in cryogenic service after pressure-reducing elements or long ambient-exposed lines may result in gas pockets and false high flow readings due to flashing.”<br />
+— <em>Yokogawa Flow Handbook</em> [3]</p>
+</blockquote>
+<blockquote>
+<p>“Where multiple cryogenic products are routed through VJ lines to storage, all flowmeters should be installed in the cold zone, before any temperature rise. Positioning all meters outside this zone introduces process measurement error for each product stream.”<br />
+— <em>Linde Engineering Best Practice Guide</em> [4]</p>
+</blockquote>
+<hr />
+
+<h2 id="orientasi-juga-tidak-kalah-penting">Orientasi Juga Tidak Kalah Penting</h2>
+<p>Selain lokasi pemasangan, <strong>orientasi flowmeter</strong> turut berperan dalam menjaga kestabilan pengukuran.</p>
+<p>Rekomendasi umum dari berbagai produsen adalah:</p>
+<ul>
+<li><strong>Vertikal upward (aliran dari bawah ke atas)</strong> untuk menjaga kondisi pipa penuh (<em>full-pipe</em>) dan mencegah terjebaknya gelembung gas,</li>
+<li><strong>Hindari orientasi horizontal panjang</strong> tanpa slope memadai atau orientasi vertikal downward yang bisa menyebabkan kantong gas.</li>
+</ul>
+<blockquote>
+<p>“Vertical orientation with upward flow helps ensure stable measurement and minimizes vapor lock. Avoid downward vertical installations in cryogenic service.”<br />
+— <em>Endress+Hauser Installation Best Practice</em> [5]</p>
+</blockquote>
+<blockquote>
+<p>“If the sensor is installed in a vertical pipeline, liquids and slurries should flow upward through the sensor. Keep the sensor tubes full of process fluid. For halting flow through the sensor with a single valve, install the valve downstream from the sensor.”<br />
+— <em>Emerson Micro Motion Installation Manual</em> [6]</p>
+</blockquote>
+<div align="center">
+  <img src="/kiiota-blog/assets/media/35cace59-6e7f-4874-bc30-853b9c1944bd-Micro-Motion-ELITE-Two-phase.jpeg" alt="Micro Motion ELITE Two-phase" width="75%" />
+  <p><em>Gambar 1. Saran instalasi Micro Motion ELITE jika terjadi potensi two-phase flow</em></p>
+</div>
+<hr />
+
+<h2 id="apa-yang-bisa-dilakukan">Apa yang Bisa Dilakukan?</h2>
+<p>Jadi, apa langkah praktis yang bisa dilakukan oleh tim di lapangan?</p>
+<ol>
+<li><strong>Cek ulang lokasi pemasangan</strong>, apakah masih dalam <em>cold zone</em> atau sudah di area berisiko flashing,</li>
+<li><strong>Amati sinyal flowmeter</strong>, apakah stabil atau menunjukkan fluktuasi tidak wajar,</li>
+<li><strong>Evaluasi orientasi flowmeter</strong>, apakah vertikal upward atau belum optimal,</li>
+<li><strong>Tinjau ulang spesifikasi teknologi dan insulasi</strong>, apakah sesuai kebutuhan proses,</li>
+<li><strong>Diskusikan lintas fungsi</strong>, untuk menyusun standar pemasangan antar plant.</li>
+</ol>
+<hr />
+
+<h2 id="kenapa-ini-penting">Kenapa Ini Penting?</h2>
+<ol>
+<li><strong>Studi Emerson</strong> tentang pengukuran LOX dengan flashing: Error bisa mencapai <strong>1.2-4.7%</strong> tergantung tingkat vaporisasi [7]</li>
+<li><strong>Audit Linde Engineering</strong>: Pemasangan setelah VJ line tanpa mitigasi menyebabkan <strong>deviasi sampai 3.2%</strong> pada neraca massa LIN [8]</li>
+</ol>
+<p>Karena setiap data yang salah bisa berujung pada:</p>
+<ul>
+<li>Kesalahan dalam neraca massa,</li>
+<li>Keputusan proses yang meleset,</li>
+<li>Penilaian performa produksi yang bias.</li>
+</ul>
+<p><strong>Flowmeter bukan hanya alat ukur. Ia adalah bagian dari sistem kepercayaan terhadap data.</strong></p>
+<hr />
+
+<h2 id="referensi-dokumen-vendor">Referensi Dokumen Vendor</h2>
+<ol>
+<li>
+<p><strong>Emerson Micro Motion.</strong> <em>Cryogenic Liquid Measurement – Application Note AN-001203.</em><br />
+Dokumen ini menjelaskan praktik terbaik pemasangan flowmeter coriolis pada aplikasi kriogenik.<br />
+<em>Dapat diperoleh melalui perwakilan Emerson atau mitra distribusi resmi.</em></p>
+</li>
+<li>
+<p><strong>Endress+Hauser.</strong> <em>Cryogenic Liquids Measurement Guide</em>, 2020 Edition.<br />
+Panduan pengukuran cairan kriogenik, mencakup efek flashing dan pemilihan lokasi flowmeter.<br />
+<a href="https://www.endress.com/en/field-instruments-overview/flow-measurement-product-overview/cryogenic-flow-measurement?ref=blog.kiiota.com">Cuplikan panduan tersedia di situs Endress+Hauser</a>.</p>
+</li>
+<li>
+<p><strong>Yokogawa.</strong> <em>Flow Handbook, Section 8 – Cryogenic Applications.</em><br />
+Menjelaskan tantangan pengukuran kriogenik dan solusi berbasis sensor massa.<br />
+<em>Tersedia dalam handbook cetak dan beberapa presentasi aplikasi industri.</em></p>
+</li>
+<li>
+<p><strong>Linde Engineering.</strong> <em>Best Practice Guide: Cryogenic Transfer Systems</em>, 2021.<br />
+Merinci prinsip desain jalur kriogenik dan pengaruh instalasi terhadap akurasi pengukuran.<br />
+<em>Dokumen terbatas, sering dibagikan dalam forum teknis dan kerja sama industri.</em></p>
+</li>
+<li>
+<p><strong>Endress+Hauser.</strong> <em>Flowmeter Installation Best Practices – Cryogenic Section.</em><br />
+Sorotan instalasi flowmeter dalam posisi vertikal upward dan pentingnya full-pipe.<br />
+<em>Tersedia sebagian dalam dokumentasi online produk.</em></p>
+</li>
+<li>
+<p><strong>Emerson Micro Motion.</strong> <em>Installation Manual 20002158 – ELITE Coriolis Flow and Density Sensors</em>, Rev DQ, 2024.<br />
+Panduan teknis resmi instalasi sensor ELITE, termasuk penempatan valve dan orientasi.<br />
+<a href="https://www.emerson.com/en-us/catalog/micro-motion?ref=blog.kiiota.com">Unduh langsung dari situs Emerson</a>.</p>
+</li>
+<li>
+<p><strong>Emerson Micro Motion.</strong> <em>Cryogenic Flow Measurement Challenges – Vapor Phase Disruption Analysis</em>, 2023.<br />
+White paper ini menyajikan hasil uji lapangan selama 18 bulan yang menunjukkan pengaruh signifikan dari flashing dan paparan panas terhadap performa sensor coriolis. Dibahas secara teknis bagaimana flashing (5–15%) dapat menyebabkan deviasi pengukuran 1.2–4.7%, bahkan melebihi 8% bila flashing makin parah. Disertakan pula rekomendasi instalasi seperti menjaga ∆T &lt;2°C dan lokasi sensor di dekat cold box.<br />
+<em>Tersedia atas permintaan kepada tim aplikasi Emerson.</em></p>
+</li>
+<li>
+<p><strong>Linde Engineering.</strong> <em>Cryogenic Mass Balance Report: Internal Plant Audit Findings</em>, 2022.<br />
+Audit internal pada 12 fasilitas ASP menemukan rata-rata deviasi pengukuran massa mencapai <strong>2.1% ±0.8%</strong> ketika flowmeter dipasang di lokasi yang tidak dioptimalkan. Deviasi terburuk tercatat sebesar <strong>3.2% pada pengukuran LIN</strong>. Penyebab utama antara lain: heat ingress di segmen non-VJ (<strong>68%</strong>), orientasi meter tidak sesuai (<strong>24%</strong>), dan efek aliran dua fase (<strong>8%</strong>).<br />
+<em>Disampaikan sebagai memorandum teknis internal, tidak dipublikasikan secara terbuka.</em></p>
+</li>
+</ol>
+<hr />
+
+<h2 id="penutup">Penutup</h2>
+<p>Evaluasi ulang terhadap <strong>posisi dan orientasi flowmeter cryogenic</strong> adalah bentuk investasi terhadap <strong>kualitas data dan integritas sistem</strong>. Semakin baik penempatannya, semakin kecil risiko <em>flashing</em>, dan semakin andal data produksi kriogenik yang menjadi dasar banyak keputusan penting.</p>
+<p>Namun yang paling krusial:</p>
+<blockquote>
+<p><strong>Setiap instalasi flowmeter harus merujuk dan mengikuti rekomendasi teknis dari vendor masing-masing.</strong></p>
+</blockquote>
+<p>Spesifikasi tiap produk bisa berbeda, dan hanya dengan mengacu pada panduan resmi vendor, kita bisa memastikan bahwa instalasi memenuhi syarat teknis untuk akurasi dan keamanan jangka panjang.</p>
+<p>Jika Anda tertarik berdiskusi atau berbagi pengalaman seputar pemasangan flowmeter kriogenik, silakan hubungi kami.</p>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="flowmeter" /><category term="Flowmeter" /><category term="Coriolis" /><category term="Cryogenic" /><summary type="html"><![CDATA[Akurasi pengukuran flowmeter sangat krusial. Namun, tahukah Anda bahwa lokasi dan orientasi fisik flowmeter juga bisa mempengaruhi keandalan datanya?]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Refleksi Seorang yang Bukan Insinyur di Tengah Sistem yang Sangat Serius</title><link href="https://kumajaya.github.io/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius.html" rel="alternate" type="text/html" title="Refleksi Seorang yang Bukan Insinyur di Tengah Sistem yang Sangat Serius" /><published>2025-07-07T13:35:37+00:00</published><updated>2025-07-07T13:35:37+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius.html"><![CDATA[<!--kg-card-begin: markdown-->
+<blockquote>
+<p><em>&quot;Kita hidup dalam sistem—dan seringkali, sistem itu sangat rumit. Tapi manusia—dengan pikirannya—masih punya ruang untuk bernapas, meskipun sempit. Dan saya memilih untuk bernapas lewat cara saya sendiri.&quot;</em></p>
+</blockquote>
+<p>Sebagai seseorang yang terlibat dalam dunia teknis, saya terbiasa dengan angka. Tapi saya belajar, tidak semua kebenaran bisa diringkas dalam digit. Tidak semua pemahaman harus linier.</p>
+<p>Dunia teknis bukan hanya ruang logika—ia juga bisa menjadi ruang kontemplatif. Saya bisa merasakannya saat berdiri di depan monitor DCS, dengan desingan mesin yang menembus pintu dan jendela. Di sana, saya menyaksikan flowrate argon yang hanya setitik dibanding nitrogen—tapi justru itulah yang paling jujur menggambarkan jalannya proses.</p>
+<p>Saya percaya, pemahaman sejati harus bekerja di semua kondisi. Kalau masih banyak syarat dan ketentuan, berarti masih ada hal yang belum kita pahami. Itulah sebabnya saya sering mengingatkan diri:</p>
+<blockquote>
+<p><em>&quot;Pemahaman bukan sekadar hafalan prosedur. Pemahaman adalah kemampuan menghadapi anomali dengan logis dan kepala tegak.&quot;</em></p>
+</blockquote>
+<hr />
+
+<h3 id="pelajaran-dari-lelaki-yang-tidak-selalu-benar-tapi-selalu-saya-hormati">Pelajaran dari Lelaki yang Tidak Selalu Benar, Tapi Selalu Saya Hormati</h3>
+<p>Dulu Ayah saya berkata:</p>
+<blockquote>
+<p><em>&quot;Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.&quot;</em></p>
+</blockquote>
+<p>Itu bukan sekadar nasihat moral. Bagi saya, itu adalah pondasi bersikap dalam setiap analisis dan keputusan yang bertanggungjawab dan terhormat.</p>
+<p>Bahkan saat saya menang taruhan kecil, lalu uangnya dilempar ke sawah, saya belajar bahwa tidak semua hasil pantas disimpan. Bahwa niat dan cara jauh lebih penting daripada sekadar hasil. Bahwa martabat kadang harus dibangun dari sebuah keputusan yang berat.</p>
+<hr />
+
+<h3 id="filter-ripple-dan-ketulusan">Filter, Ripple, dan Ketulusan</h3>
+<p>Saat berhadapan dengan transmitter, flowmeter, atau DCS, saya belajar: filter analog bisa menghaluskan ripple, tapi terlalu banyak smoothing membuat sinyal menjadi tangga. Terlalu rapi—seperti ingin menenangkan semua orang—tapi malah kehilangan kebenaran.</p>
+<p>Sama halnya dengan laporan. Terlalu rapi bisa jadi menutupi realitas.</p>
+<p>Maka saya tambahkan sedikit humor. Sedikit kontemplasi. Karena kita bukan sekadar operator data—kita adalah manusia yang merasa dan berpikir.</p>
+<hr />
+
+<h3 id="di-tengah-sistem-yang-penuh-hierarki">Di Tengah Sistem yang Penuh Hierarki</h3>
+<p>Saya sadar, gaya ini mungkin terasa asing di ruang-ruang penuh struktur. Tapi saya tidak menulis untuk menyenangkan semua orang. Saya menulis untuk menyelaraskan pikiran dan nilai.</p>
+<p>Untuk mengingatkan bahwa:</p>
+<blockquote>
+<p><strong>Leadership bukan tentang menjadi &quot;yang paling tahu&quot;, tapi tentang menghidupkan arah.</strong><br />
+Dengan komunikasi yang jernih, dan keberanian mengambil tanggung jawab jika tidak ada yang melakukannya.</p>
+</blockquote>
+<p>Kalau hari ini saya bicara soal teknis sambil menyelipkan filosofi, itu bukan karena ingin tampil beda atau <em>nyeleneh</em>. Tapi karena saya sadar, integritas tidak dibangun dari hasil—melainkan dari cara berpikir logis dan berinteraksi. Dari bagaimana kita menjelaskan konsep ke operator. Dari bagaimana kita membalas pesan rekan kerja. Dari bagaimana kita tetap menghargai orang yang bahkan tidak kita sukai. Dan keberhasilan organisasi jauh lebih penting daripada keberhasilan pribadi-pribadi di dalamnya.</p>
+<p>Selalu ada ruang untuk mempertimbangkan ulang, untuk menyempurnakan, atau sekadar membuka kembali wacana yang dianggap selesai. Justru di situlah ruang hidup bagi pemahaman yang sejati. Dan kalau ada yang bertanya, “Apakah semua yang saya tulis ini sudah benar?”—jawabannya: belum tentu. Tapi itulah gunanya ruang berpikir. Saya lebih nyaman hidup dalam kemungkinan yang terbuka, daripada terjebak dalam kesimpulan yang prematur.</p>
+<p>Dalam dunia teknik, kita sering cepat menjawab—tapi lambat mendengarkan. Kita piawai menyusun angka, tapi kerap canggung menyusun kata. Padahal, merawat bahasa bukan sekadar soal estetika—tapi soal akurasi makna dan kejujuran komunikasi. Mungkin ini waktu yang tepat untuk menumbuhkan sebuah gaya baru: <strong>technocratic narrative</strong>—gaya yang menjembatani presisi teknis dan kejujuran manusiawi</p>
+<hr />
+
+<h2 id="technocratic-narrative-style-menjembatani-teknik-dan-kemanusiaan">Technocratic Narrative Style: Menjembatani Teknik dan Kemanusiaan</h2>
+<p>Dalam dunia teknik, kita terbiasa menyusun argumen seperti menyusun wiring diagram: jelas, logis, dan presisi. Tapi manusia tidak hidup dari logika saja. Di ruang kontrol, di ruang rapat, bahkan di ruang pikiran kita sendiri, selalu ada keraguan, intuisi, dan pertimbangan nilai.</p>
+<p>Dan di situlah lahir sebuah pendekatan komunikasi yang tidak hanya menjelaskan, tapi juga menyentuh. Kita menyebutnya:</p>
+<blockquote>
+<p><strong>Technocratic Narrative Style</strong><br />
+<em>Gaya komunikasi teknis yang memadukan keakuratan data, kedalaman nilai, dan kehangatan narasi.</em><br />
+<em>Ia menjadikan setiap penjelasan bukan hanya masuk akal, tapi juga masuk hati.</em></p>
+</blockquote>
+<h3 id="mengapa-gaya-ini-muncul">Mengapa Gaya Ini Muncul?</h3>
+<p>Karena sistem terlalu kaku.<br />
+Karena data tidak selalu cukup.<br />
+Karena komunikasi di dunia teknik sering gagal bukan karena salah data—tapi karena kurang rasa.</p>
+<p>Gaya ini lahir dari kebutuhan untuk berkomunikasi secara utuh: agar laporan bukan sekadar formalitas, presentasi bukan sekadar slide, dan diskusi bukan sekadar debat menang-menangan.</p>
+<h3 id="inti-dari-technocratic-narrative-style">Inti dari Technocratic Narrative Style</h3>
+<p><strong>1. Ketegasan Teknis</strong></p>
+<ul>
+<li>Tetap berpijak pada data dan fakta.</li>
+<li>Tidak mengorbankan akurasi demi dramatisasi.</li>
+</ul>
+<p><strong>2. Refleksi Filosofis</strong></p>
+<ul>
+<li>Menyisipkan renungan di balik angka.</li>
+<li>Mengajak berpikir lebih dalam, bukan hanya lebih cepat.</li>
+</ul>
+<p><strong>3. Kedekatan Emosional</strong></p>
+<ul>
+<li>Menghargai konteks manusia: operator, rekan kerja, bahkan diri sendiri.</li>
+<li>Menghindari jargon saat tak perlu, memilih metafora yang menghubungkan.</li>
+</ul>
+<h3 id="gaya-komunikasi-saya-sebagai-contoh">Gaya Komunikasi Saya sebagai Contoh</h3>
+<p>Beberapa prinsip khas dalam komunikasi saya yang kini saya pahami sebagai bagian dari pendekatan ini:</p>
+<ul>
+<li>
+<p><strong>Nilai mendahului hasil.</strong><br />
+Seperti kisah &quot;uang dilempar ke sawah&quot;—keputusan etis lebih penting daripada hasil teknis.</p>
+</li>
+<li>
+<p><strong>Grafik tidak boleh menipu rasa.</strong><br />
+Filter analog boleh menghaluskan sinyal, tapi jangan sampai menipu kenyataan.</p>
+</li>
+<li>
+<p><strong>Laporan harus jujur, bukan hanya rapi.</strong></p>
+</li>
+<li>
+<p><strong>Keberanian tidak selalu berarti paling tahu, tapi paling siap bertanggung jawab.</strong></p>
+</li>
+</ul>
+<h3 id="apa-gunanya-gaya-ini">Apa Gunanya Gaya Ini?</h3>
+<ul>
+<li>Memperkuat leadership di dunia teknik yang sering terlalu kaku.</li>
+<li>Menjembatani tim teknis dan non-teknis.</li>
+<li>Menjadikan komunikasi sebagai alat perubahan budaya kerja—bukan hanya alat transfer informasi.</li>
+</ul>
+<hr />
+
+<h2 id="apa-itu">Apa Itu?</h2>
+<blockquote>
+<p>Bukan aliran. Ia bukan ajaran baru.<br />
+Ia hanyalah gaya berpikir dari seseorang yang dibesarkan oleh Ayah yang melarang berkata kasar—tapi membolehkan benturan fisik kalau memang tidak ada jalan lain.<br />
+Asal kamu tahu bahwa kamu benar.</p>
+</blockquote>
+<p>Itu bukan anjuran menjadi keras. Itu pelajaran tentang martabat—bahwa menjaga kepala tetap tegak tidak harus membuat orang lain menunduk. Mengabaikan nilai orang lain, atau menganulir pencapaiannya, tidak akan pernah membuat kita menjadi lebih besar. Justru sebaliknya, martabat tumbuh saat kita mampu menghargai tanpa harus sepakat, dan mengakui tanpa merasa terancam.</p>
+<p>Martabat yang tetap utuh meski dikelilingi alarm, tekanan kerja, dan sistem yang tak selalu masuk akal.</p>
+<p>Dan kalau hari ini saya bisa tetap berpikir jernih di tengah sistem yang bising, itu karena dulu saya pernah diajarkan: diam yang jujur lebih penting daripada menang yang salah.</p>
+<blockquote>
+<p>Oleh lelaki yang tak selalu benar, tapi selalu saya hormati.</p>
+</blockquote>
+<p>Dunia teknik butuh lebih banyak manusia yang tidak kehilangan rasa. Bukan untuk menjadi lembek, tapi untuk menjadi lentur. Bukan untuk melemahkan presisi, tapi untuk menguatkan empati.</p>
+<p>Saya tidak mengklaim bahwa ini gaya terbaik. Tapi saya percaya, gaya ini bisa ditumbuhkan. Ia dimulai dari kebiasaan bertanya sebelum menilai, dari latihan mendengar sebelum merumuskan solusi. Dan dari keberanian untuk tetap manusiawi, bahkan saat sedang memegang tanggung jawab teknis yang berat.</p>
+<hr />
+
+<h3 id="tidak-ada-yang-mutlak-benar">Tidak Ada yang Mutlak Benar</h3>
+<p>Saya tidak menulis sebagai orang yang paling tahu. Bahkan, saya tidak tahu apakah ini akan dianggap penting. Tapi saya menulis karena saya percaya bahwa ada cara lain menyampaikan hal teknis—tanpa kehilangan nurani, tanpa mematikan rasa.</p>
+<p>Saya tahu tulisan ini tidak akan menjawab semua pertanyaan. Bahkan bisa jadi akan memunculkan pertanyaan baru—dan itu baik. Karena ruang berpikir yang sehat bukan tentang mengunci pendapat, tapi membuka percakapan. Dan saya percaya, selama kita masih mau bertanya dengan jujur, kita sedang berjalan ke arah yang tepat.</p>
+<p>Mungkin gaya ini bukan untuk semua orang. Tapi jika satu-dua orang merasa tercerahkan atau tergerak untuk mulai bicara lebih jujur, lebih hangat, lebih manusiawi—maka tulisan ini sudah cukup.</p>
+<hr />
+
+<h3 id="catatan-penulis">Catatan Penulis</h3>
+<p>Tulisan ini merupakan refleksi pribadi saya. Setiap nilai, perenungan, dan nuansa di dalamnya berasal dari perjalanan saya sendiri.</p>
+<p>Saya tidak selalu benar. Bahkan, sering kali saya menulis untuk menguji cara berpikir saya sendiri, menguji konsistensi. Karena itu, saya terbuka untuk koreksi, untuk diskusi, dan untuk melihat bahwa mungkin ada jalan lain yang lebih baik. Ini bukan kesimpulan—melainkan undangan berpikir bersama.</p>
+<p>Kiranya bisa menjadi inspirasi ringan bagi siapa pun yang juga mencoba berpikir jernih di tengah sistem yang rumit, serius, dan cenderung kaku. Kalau ada satu hal yang saya harap bisa tersampaikan dari tulisan ini, itu adalah:<br />
+Bahwa menjadi teknisi yang manusiawi bukan kelemahan—itu kekuatan yang jarang dimiliki atau mungkin sulit untuk dimiliki.</p>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="technocratic-narrative" /><category term="Technocratic Narrative" /><category term="Life Lessons" /><category term="Values" /><summary type="html"><![CDATA[Saya memang bukan insinyur. Tapi saya hidup di dalam sistem yang menuntut kejelasan, presisi, dan tanggung jawab. Tulisan ini adalah upaya untuk tetap berpikir jernih—di tengah ruang yang sering terlalu serius untuk bertanya.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1660543228680-748e1abd1f9e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyNHx8aW5kdXN0cmlhbHxlbnwwfHx8fDE3NTE4ODQwNTN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1660543228680-748e1abd1f9e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyNHx8aW5kdXN0cmlhbHxlbnwwfHx8fDE3NTE4ODQwNTN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pelajaran dari Ayah: Kepala Tetap Tegak</title><link href="https://kumajaya.github.io/kiiota-blog/ayah/2025/07/05/pelajaran-dari-ayah-kepala-tetap-tegak.html" rel="alternate" type="text/html" title="Pelajaran dari Ayah: Kepala Tetap Tegak" /><published>2025-07-05T16:09:21+00:00</published><updated>2025-07-05T16:09:21+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/ayah/2025/07/05/pelajaran-dari-ayah-kepala-tetap-tegak</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/ayah/2025/07/05/pelajaran-dari-ayah-kepala-tetap-tegak.html"><![CDATA[<!--kg-card-begin: markdown-->
+<blockquote>
+<p><em>&quot;Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.&quot;</em><br />
+— Ayah</p>
+</blockquote>
+<p>Tidak semua pelajaran hidup saya dapat dari sekolah. Bahkan sebagian yang paling berharga justru datang dari rumah—dari seorang lelaki gagah saat berkacamata hitam dengan jaket militernya: <strong>Ayah saya</strong>.</p>
+<p>Beliau kadang banyak bicara, kadang diam saja tapi memperhatikan dengan seksama. Namun setiap ucapannya selalu punya makna. Pernah suatu kali saat saya terlihat terlalu rajin belajar di rumah, Ayah bertanya dengan nada serius,<br />
+<em>&quot;Apa waktu belajarmu di sekolah kurang?&quot;</em></p>
+<p>Saya tertegun. Tapi itu bukan kritik tanpa makna. Itu dorongan agar saya <strong>menggunakan waktu seefisien mungkin</strong>: belajar dengan fokus saat di sekolah, mengulang sebentar sepulang sekolah saat materi masih segar, dan setelah itu? Bermainlah.</p>
+<p>Kebiasaan itu membentuk cara saya bekerja hingga hari ini: <strong>fokus, efisien, dan tetap memberi ruang untuk bernapas.</strong></p>
+<p>Saya juga masih ingat momen saat saya dipergoki menang bermain dadu. Hadiahnya uang. Tapi Ayah mengambil uang itu dan melemparkannya ke sawah.<br />
+Tidak ada bentakan, hanya tindakan:<br />
+<em>&quot;Tidak semua kemenangan layak disimpan. Tidak semua hasil perlu dirayakan.&quot;</em></p>
+<p>Dari situ saya belajar bahwa ada nilai yang lebih besar dari sekadar menang—yakni <strong>kemurnian niat dan cara.</strong></p>
+<p>Dan satu lagi yang tak pernah saya lupa: <strong>Ayah melarang keras berbicara kasar kepada siapapun</strong>. Itu bukan hanya nasihat, tapi perintah. Saya bisa dihukum jika melanggarnya. Dari situlah saya belajar bahwa menjaga lisan adalah <strong>bentuk paling nyata dari penghormatan terhadap sesama</strong>. Bahwa keberanian bukan soal bicara keras, tapi soal <strong>menyampaikan pendapat dengan cara yang elegan.</strong></p>
+<p>Tapi ada satu pengecualian yang beliau tanamkan kuat: <strong>&quot;Kalau terpaksa harus terjadi benturan fisik, ambillah. Tapi hanya jika tidak ada lagi cara lain, dan kamu yakin kamu benar.&quot;</strong> Itu bukan ajaran untuk jadi bengal. Itu pelajaran tentang keberanian menjaga martabat. Tentang prinsip yang tidak boleh dijual meski harus menanggung resiko. Tentang tetap tenang, tapi jangan membiarkan nilai diinjak-injak.</p>
+<p>Ayah bukan sosok sempurna. Tapi dari beliau saya belajar banyak tentang <strong>disiplin, integritas, dan ketegasan tanpa perlu kasar</strong>. Tentang tahu waktu, tahu tempat, dan tahu kapan harus berhenti. Tentang tidak menyusahkan orang lain hanya karena kita sedang menginginkan sesuatu.</p>
+<p>Hari ini, ketika saya memimpin tim atau mengambil keputusan sulit, saya tidak pernah benar-benar sendirian. Ada jejak-jejak Ayah yang menuntun. Tidak selalu jelas, kadang hanya berupa kebiasaan lama yang diam-diam melekat. Tapi nyata.</p>
+<blockquote>
+<p><strong>Kalau hari ini saya masih bisa berdiri dengan kepala tegak, itu karena saya pernah diajarkan caranya.</strong></p>
+</blockquote>
+<p>Terima kasih, Ayah.<br />
+Di mana pun engkau sekarang, semoga bangga melihat anakmu berjalan sesuai nilai-nilai yang kau tanamkan.</p>
+<hr />
+
+<h3 id="penutup"><em>Penutup</em>:</h3>
+<p>Karena saya percaya, warisan terbaik dari seorang Ayah bukanlah harta, tapi <strong>cara hidup</strong>. Dan saya akan terus hidup dengan kepala tegak — bukan karena tak pernah kalah, tapi karena tahu caranya bangkit dengan hormat.</p>
+<hr />
+
+<h3 id="catatan-penulis"><em>Catatan penulis</em>:</h3>
+<p>Tulisan ini saya persembahkan untuk Ayah saya—dan untuk semua Ayah yang mungkin tidak sempurna, tapi tetap berusaha menjadi kompas yang diam-diam menuntun anak-anaknya ke arah yang benar.</p>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="ayah" /><category term="Ayah" /><category term="Life Lessons" /><category term="Values" /><summary type="html"><![CDATA[\"Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.\" — Ayah Tidak semua pelajaran hidup saya dapat dari sekolah. Bahkan sebagian yang paling berharga justru datang dari rumah—dari seorang lelaki gagah saat berkacamata hitam dengan jaket militernya: Ayah saya. Beliau kadang banyak bicara, kadang diam saja tapi memperhatikan dengan seksama. Namun setiap ucapannya selalu punya makna. Pernah suatu kali saat saya terlihat terlalu rajin belajar di rumah, Ayah bertanya dengan nada s]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1619291905431-ed7a833b5756?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHxkYWQlMjBhbmQlMjBzb258ZW58MHx8fHwxNzUxNzMxOTU5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1619291905431-ed7a833b5756?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHxkYWQlMjBhbmQlMjBzb258ZW58MHx8fHwxNzUxNzMxOTU5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Membangun dan Menjalankan mbusd untuk Teltonika RUT906</title><link href="https://kumajaya.github.io/kiiota-blog/2025/06/25/membangun-dan-menjalankan-mbusd-untuk-teltonika-rut906.html" rel="alternate" type="text/html" title="Membangun dan Menjalankan mbusd untuk Teltonika RUT906" /><published>2025-06-25T06:35:13+00:00</published><updated>2025-06-25T06:35:13+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/2025/06/25/membangun-dan-menjalankan-mbusd-untuk-teltonika-rut906</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/2025/06/25/membangun-dan-menjalankan-mbusd-untuk-teltonika-rut906.html"><![CDATA[<!--kg-card-begin: markdown-->
+<h2 id="%F0%9F%92%A1-teltonika-rut906-router-kecil-kemampuan-besar">💡 Teltonika RUT906: Router Kecil, Kemampuan Besar</h2>
+<p>Teltonika RUT906 adalah router industri ringkas berbasis Linux (RutOS/OpenWrt) yang mendukung konektivitas seluler, ethernet, WiFi, GPS, dan I/O digital. Dirancang untuk otomasi industri, perangkat ini sering digunakan sebagai edge device dalam ekosistem IIoT, SCADA, dan sistem telemetri.</p>
+<p>Salah satu kemungkinan RUT906 adalah kemampuannya menjalankan daemon pengguna seperti mbusd, untuk komunikasi Modbus TCP↔RTU. Namun, tidak semua daemon tersedia dalam firmware default-nya. Karena itu, kadang kita perlu menyusun sendiri binary yang sesuai—terutama untuk deployment ringan, statik, dan tanpa dependensi eksternal.</p>
+<hr />
+
+<h2 id="%F0%9F%94%A7-persiapan-environment">🔧 Persiapan Environment</h2>
+<p><strong>Asumsi:</strong> Anda telah melakukan kompilasi awal SDK RUT906 sesuai dengan petunjuk resmi dari Teltonika, sehingga direktori <code>staging_dir</code> telah tersedia dan terisi lengkap.</p>
+<pre><code class="language-sh">cd ~/rut906
+export STAGING_DIR=~/rut906/rutos-ramips-rut9m-sdk/staging_dir
+export PATH=$STAGING_DIR/toolchain-mipsel_24kc_gcc-8.4.0_musl/bin:$PATH
+</code></pre>
+<hr />
+
+<h2 id="%E2%9A%99%EF%B8%8F-toolchaincmake">⚙️ toolchain.cmake</h2>
+<p><code>nano toolchain.cmake</code>:</p>
+<pre><code class="language-cmake">set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_C_COMPILER   mipsel-openwrt-linux-gcc)
+set(CMAKE_CXX_COMPILER mipsel-openwrt-linux-g++)
+set(CMAKE_FIND_ROOT_PATH ~/rut906/rutos-ramips-rut9m-sdk/staging_dir/toolchain-mipsel_24kc_gcc-8.4.0_musl)
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -static-libgcc -static-libstdc++&quot;)
+</code></pre>
+<hr />
+
+<h2 id="%F0%9F%94%A8-build-steps">🔨 Build Steps</h2>
+<pre><code class="language-sh">git clone https://github.com/kumajaya/mbusd.git --depth=1
+mkdir -p mbusd/build
+cd mbusd/build
+cmake -DCMAKE_TOOLCHAIN_FILE=../../toolchain.cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+make
+mipsel-openwrt-linux-strip mbusd
+</code></pre>
+<p>Verifikasi output:</p>
+<pre><code class="language-sh">file mbusd
+# Hasil yang diharapkan: statically linked, stripped MIPS ELF
+</code></pre>
+<hr />
+
+<h2 id="%F0%9F%8E%81-instalasi-nano-dan-mbusd">🎁 Instalasi <code>nano</code> dan <code>mbusd</code></h2>
+<p>Sebagian pengguna mungkin nyaman dengan <code>vi</code>, tapi saya pribadi lebih cocok dengan <code>nano</code>. Sayangnya, <code>nano</code> tidak tersedia secara default di RutOS. Berikut langkah-langkah yang saya lakukan untuk memasangnya di RUT906 yang berbasis OpenWrt 21.02.0 (<code>mipsel_24kc</code>):</p>
+<h3 id="1-salin-mbusd-kemudian-login-ke-rut906-via-ssh">1. Salin <code>mbusd</code> kemudian login ke RUT906 via <code>ssh</code></h3>
+<pre><code class="language-sh">scp mbusd root@192.168.1.1:/home/root/
+ssh root@192.168.1.1
+</code></pre>
+<p>Gunakan password yang sama dengan akses WebUI.</p>
+<h3 id="2-periksa-arsitektur-sistem-dan-versi">2. Periksa arsitektur sistem dan versi</h3>
+<pre><code class="language-sh">cat /etc/os-release
+</code></pre>
+<p>Pastikan nilai <code>OPENWRT_ARCH</code> dan <code>VERSION</code> sesuai.</p>
+<h3 id="3-unduh-dan-pasang-nano">3. Unduh dan pasang <code>nano</code></h3>
+<p>Saya menggunakan paket dari repositori OpenWrt 21.02.0:</p>
+<pre><code class="language-sh">wget https://downloads.openwrt.org/releases/21.02.0/packages/mipsel_24kc/packages/nano-full_7.2-2_mipsel_24kc.ipk
+opkg install nano-full_7.2-2_mipsel_24kc.ipk
+</code></pre>
+<h3 id="4-atasi-error-xterm-256color">4. Atasi error <code>xterm-256color</code></h3>
+<p>Saat pertama kali dijalankan, muncul error:</p>
+<pre><code>Error opening terminal: xterm-256color.
+</code></pre>
+<p>Solusinya, tambahkan environment variable berikut:</p>
+<pre><code class="language-sh">export TERMINFO=/usr/local/usr/share/terminfo
+</code></pre>
+<p>Agar permanen, tambahkan ke <code>/etc/profile</code>.</p>
+<h3 id="5-perbaiki-error-nanorc">5. Perbaiki error <code>nanorc</code></h3>
+<p><code>nano</code> juga mengeluh soal file highlight yang tidak ditemukan:</p>
+<pre><code>Error in /etc/nanorc on line 6: Error expanding /usr/share/nano/*.nanorc
+</code></pre>
+<p>Solusinya: ubah baris <code>/usr/share/nano/*.nanorc</code> menjadi <code>/usr/local/usr/share/nano/*.nanorc</code> di <code>/etc/nanorc</code>.</p>
+<hr />
+
+<p>Setelah semua beres, <code>nano</code> bisa digunakan dengan nyaman tanpa perlu mengingat kombinasi <code>:wq</code>. Editor favorit saya kini resmi bisa dipakai di RUT906.</p>
+<blockquote>
+<p><code>vi</code> boleh tetap tinggal di sistem, tapi saya tidak akan memanggilnya lagi 😄</p>
+</blockquote>
+<hr />
+
+<h2 id="%F0%9F%A7%A9-konfigurasi-uci">🧩 Konfigurasi UCI</h2>
+<p><code>nano /etc/config/mbusd</code>:</p>
+<pre><code class="language-sh">config instance '1'
+    option enabled '1'
+    option config_file '/etc/mbusd/mbusd-rs485.conf'
+    option log_output '-'
+    option readonly '-o'
+config instance '2'
+    option enabled '0'
+    option config_file '/etc/mbusd/mbusd-rs232.conf'
+    option log_output '-'
+    option readonly '-o'
+</code></pre>
+<p>Tambahkan instance lain jika diperlukan.</p>
+<hr />
+
+<h2 id="%F0%9F%97%B3%EF%B8%8F-skrip-init-etcinitdmbusd">🗳️ Skrip Init <code>/etc/init.d/mbusd</code></h2>
+<p><code>nano /etc/init.d/mbusd</code>:</p>
+<pre><code class="language-sh">#!/bin/sh /etc/rc.common
+
+USE_PROCD=1
+START=99
+STOP=10
+
+CONFIG=&quot;mbusd&quot;
+APP=&quot;/usr/local/usr/bin/mbusd&quot;
+
+set_service() {
+    local section=&quot;$1&quot;
+
+    config_get ENABLED &quot;$section&quot; &quot;enabled&quot; &quot;0&quot;
+    [ &quot;$ENABLED&quot; != &quot;1&quot; ] &amp;&amp; return 1
+
+    config_get config_file &quot;$section&quot; &quot;config_file&quot; &quot;/etc/mbusd/mbusd-rs485.conf&quot;
+    config_get log_output &quot;$section&quot; &quot;log_output&quot; &quot;-&quot;
+    config_get readonly &quot;$section&quot; &quot;readonly&quot; &quot; &quot;
+
+    procd_open_instance &quot;$section&quot;
+    procd_set_param command &quot;$APP&quot; -d -v2 -L &quot;$log_output&quot; -c &quot;$config_file&quot; &quot;$readonly&quot;
+    procd_set_param respawn ${respawn_threshold:-0} ${respawn_timeout:-6} ${respawn_retry:-0}
+    procd_close_instance
+}
+
+start_service() {
+    config_load &quot;$CONFIG&quot;
+    config_foreach set_service
+}
+
+service_triggers() {
+    procd_add_reload_trigger &quot;$CONFIG&quot;
+}
+</code></pre>
+<hr />
+
+<h2 id="%F0%9F%9A%80-aktivasi-service">🚀 Aktivasi Service</h2>
+<pre><code class="language-sh">chmod +x /etc/init.d/mbusd
+/etc/init.d/mbusd enable
+/etc/init.d/mbusd start
+</code></pre>
+<hr />
+
+<h2 id="%F0%9F%93%A6-status-final">📦 Status Final</h2>
+<ul>
+<li>✅ Binary: statically linked, stripped, MIPS32 R2</li>
+<li>✅ Multi-instance UCI support</li>
+<li>✅ Init-script terintegrasi dengan <code>procd</code></li>
+<li>✅ Akses Modbus dibatasi <code>read-only</code></li>
+</ul>
+<hr />
+
+<h2 id="%E2%9C%8D%EF%B8%8F-penutup">✍️ Penutup</h2>
+<p>Proses membangun <code>mbusd</code> untuk RUT906 ini bukan sekadar soal kompilasi, tapi juga tentang memahami ekosistem perangkat embedded dan menyesuaikan build agar benar-benar sesuai dengan kebutuhan sistem target.</p>
+<p>Dengan toolchain yang tepat, konfigurasi CMake yang presisi, dan sedikit intuisi teknikal, kita dapat menghasilkan binary statik yang siap digunakan tanpa dependensi tambahan, cocok untuk perangkat industri yang mengutamakan keandalan.</p>
+<p>Semoga dokumentasi ini bisa menjadi referensi bagi Anda yang ingin men-deploy layanan serupa di perangkat Teltonika lainnya, atau sekadar menambah wawasan mengenai proses kompilasi lintas platform. Motif sebenarnya di sini adalah mencegah akses <code>write</code> dari pihak lain ke perangkat Modbus yang terhubung.</p>
+<p>Jika Anda menemukan bagian yang bisa diperbaiki, atau ingin berdiskusi seputar integrasi layanan di RUT906, jangan ragu untuk menghubungi saya. Mari sama-sama kita dorong interoperabilitas di dunia IIoT! 🚀</p>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><summary type="html"><![CDATA[💡 Teltonika RUT906: Router Kecil, Kemampuan Besar Teltonika RUT906 adalah router industri ringkas berbasis Linux (RutOS/OpenWrt) yang mendukung konektivitas seluler, ethernet, WiFi, GPS, dan I/O digital. Dirancang untuk otomasi industri, perangkat ini sering digunakan sebagai edge device dalam ekosistem IIoT, SCADA, dan sistem telemetri. Salah satu kemungkinan RUT906 adalah kemampuannya menjalankan daemon pengguna seperti mbusd, untuk komunikasi Modbus TCP↔RTU. Namun, tidak semua daemon ter]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1554098415-4052459dc340?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fHJvdXRlcnxlbnwwfHx8fDE3NTA3NTM0MjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1554098415-4052459dc340?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fHJvdXRlcnxlbnwwfHx8fDE3NTA3NTM0MjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Menghubungkan Grafana dan Rapid SCADA</title><link href="https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html" rel="alternate" type="text/html" title="Menghubungkan Grafana dan Rapid SCADA" /><published>2025-05-25T16:24:49+00:00</published><updated>2025-05-25T16:24:49+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html"><![CDATA[<!--kg-card-begin: markdown-->
+<p>Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana.</p>
+<h3 id="arsitektur-singkat">Arsitektur Singkat</h3>
+<p>Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA:</p>
+<pre><code>Grafana --&gt; [Basic Auth] --&gt; ScadaGrafanaProxy --&gt; [Cookie Session] --&gt; Rapid SCADA 6 API
+</code></pre>
+<ul>
+<li><strong>Grafana</strong>: Mengirim permintaan data historis.</li>
+<li><strong>ScadaGrafanaProxy</strong>: Middleware berbasis Node.js yang mengautentikasi pengguna dan meneruskan permintaan ke Rapid SCADA.</li>
+<li><strong>Rapid SCADA 6</strong>: Menyediakan endpoint <code>/Api/Main/GetHistData</code> dengan autentikasi berbasis sesi.</li>
+</ul>
+<h3 id="struktur-file-utama">Struktur File Utama</h3>
+<pre><code>.
+├── server.js          # Entrypoint dan autentikasi dasar
+├── grafanaRouter.js   # Routing permintaan Grafana
+├── scadaClient.js     # Login SCADA &amp; manajemen cookie
+├── config.js          # Konfigurasi aplikasi
+├── .env               # Variabel lingkungan untuk konfigurasi
+</code></pre>
+<h3 id="penjelasan-tiap-komponen">Penjelasan Tiap Komponen</h3>
+<ul>
+<li>
+<p><strong><code>server.js</code></strong><br />
+Titik masuk utama aplikasi. Menginisialisasi Express dan menggunakan middleware Basic Auth untuk membatasi akses dari klien seperti Grafana. Semua permintaan kemudian diteruskan ke <code>grafanaRouter.js</code>.</p>
+</li>
+<li>
+<p><strong><code>grafanaRouter.js</code></strong><br />
+Menangani rute <code>/Api/Main/GetHistData</code>. Modul ini bertanggung jawab untuk:</p>
+<ul>
+<li>Memastikan sesi login SCADA masih valid.</li>
+<li>Melakukan permintaan ke SCADA.</li>
+<li>Mengubah format respons SCADA menjadi array of objects <code>{ timestamp, channel, value }</code> agar cocok dengan format Grafana.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>scadaClient.js</code></strong><br />
+Berisi fungsi untuk login ke Rapid SCADA dan menyimpan cookie sesi yang valid. Cookie hanya diperbarui jika dibutuhkan.</p>
+</li>
+<li>
+<p><strong><code>config.js</code> dan <code>.env</code></strong><br />
+Semua informasi konfigurasi diambil dari <code>.env</code>, seperti kredensial dan URL. File <code>config.js</code> hanya membaca dari environment variable menggunakan <code>dotenv</code>.</p>
+</li>
+</ul>
+<h3 id="contoh-isi-env">Contoh Isi <code>.env</code></h3>
+<pre><code class="language-env">PROXY_PORT=3000
+PROXY_USER=admin
+PROXY_PASS=secret
+SCADA_BASE_URL=http://localhost:10008
+SCADA_USERNAME=admin
+SCADA_PASSWORD=secret
+</code></pre>
+<h3 id="kode-serverjs">Kode <code>server.js</code></h3>
+<pre><code class="language-javascript">const express = require('express');
+const bodyParser = require('body-parser');
+const basicAuth = require('basic-auth');
+const grafanaRouter = require('./grafanaRouter');
+const config = require('./config');
+
+const app = express();
+
+// Basic Auth middleware
+app.use((req, res, next) =&gt; {
+  const user = basicAuth(req);
+  if (!user || user.name !== config.proxy.username || user.pass !== config.proxy.password) {
+    res.set('WWW-Authenticate', 'Basic realm=&quot;GrafanaDataProxy&quot;');
+    return res.status(401).send('Authentication required.');
+  }
+  next();
+});
+
+app.use(bodyParser.json());
+app.use('/', grafanaRouter);
+
+// Error handling middleware
+app.use((err, req, res, next) =&gt; {
+  console.error(err.stack);
+  res.status(500).send('Internal Server Error');
+});
+
+app.listen(config.proxy.port, () =&gt; {
+  console.log(`SCADA Grafana Proxy listening on port ${config.proxy.port}`);
+});
+</code></pre>
+<h3 id="kode-scadaclientjs">Kode <code>scadaClient.js</code></h3>
+<pre><code class="language-javascript">const axios = require('axios');
+const config = require('./config');
+
+let cookieJar = [];
+
+async function login() {
+  const url = `${config.scada.baseUrl}/Api/Auth/Login`;
+  const payload = {
+    Username: config.scada.username,
+    Password: config.scada.password,
+  };
+
+  try {
+    const response = await axios.post(url, payload, {
+      headers: {
+        Accept: 'application/json;charset=utf-8',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+
+    console.log(`[CLIENT] Login status: ${response.status}`);
+    const setCookieHeaders = response.headers['set-cookie'];
+    if (!setCookieHeaders) {
+      throw new Error('[CLIENT] No set-cookie header received from SCADA.');
+    }
+
+    if (response.data?.success === false) {
+      throw new Error('[CLIENT] SCADA login failed: ' + (response.data?.message || 'Unknown error'));
+    }
+
+    cookieJar = setCookieHeaders.map(cookie =&gt; cookie.split(';')[0]);
+  } catch (err) {
+    console.error('[CLIENT] Login to SCADA failed:', err.message);
+    throw err;
+  }
+}
+
+function getSessionCookies() {
+  return cookieJar;
+}
+
+async function ensureLogin() {
+  if (!cookieJar.length) {
+    await login();
+  }
+}
+
+async function forceLogin() {
+  cookieJar = [];
+  await login();
+}
+
+module.exports = {
+  login,
+  getSessionCookies,
+  ensureLogin,
+  forceLogin,
+};
+</code></pre>
+<h3 id="kode-grafanarouterjs">Kode <code>grafanaRouter.js</code></h3>
+<pre><code class="language-javascript">const express = require('express');
+const axios = require('axios');
+const router = express.Router();
+const config = require('./config');
+const { getSessionCookies, ensureLogin, forceLogin } = require('./scadaClient');
+
+router.get('/Api/Main/GetHistData', async (req, res) =&gt; {
+  if (!req.query || !req.query.cnlNums || !req.query.startTime || !req.query.endTime) {
+    return res.status(400).json({ message: '[ROUTER] Missing required query parameters' });
+  }
+
+  const url = `${config.scada.baseUrl}/Api/Main/GetHistData`;
+
+  try {
+    await ensureLogin();
+    const cookies = getSessionCookies();
+
+    const response = await axios.get(url, {
+      headers: {
+        Accept: 'application/json;charset=utf-8',
+        Cookie: cookies.join('; '),
+        'User-Agent': 'Mozilla/5.0',
+      },
+      params: req.query,
+    });
+
+    console.log('[ROUTER] Fetching data from SCADA with params:', req.query);
+    try {
+      const transformed = transformSCADAResponse(response);
+      return res.json(transformed);
+    } catch (transformError) {
+      return res.status(500).json({
+        message: '[ROUTER] Error transforming SCADA response',
+        details: transformError.message,
+      });
+    }
+  } catch (error) {
+    if (error.response?.status === 401) {
+      console.warn(`[ROUTER] Session expired. Re-authenticating...`);
+      await forceLogin();
+      const cookies = getSessionCookies();
+
+      try {
+        const retryResponse = await axios.get(url, {
+          headers: {
+            Accept: 'application/json;charset=utf-8',
+            Cookie: cookies.join('; '),
+            'User-Agent': 'Mozilla/5.0',
+          },
+          params: req.query,
+        });
+
+        return res.json(transformSCADAResponse(retryResponse));
+      } catch (retryError) {
+        return res.status(retryError.response?.status || 500).json({
+          message: '[ROUTER] Error after retrying login',
+          details: retryError.response?.data || retryError.message,
+        });
+      }
+    }
+
+    res.status(error.response?.status || 500).json({
+      message: '[ROUTER] Error forwarding request to SCADA',
+      details: error.response?.data || error.message,
+    });
+  }
+});
+
+router.get('/health', (req, res) =&gt; res.send('SCADA Grafana Proxy is running'));
+
+function transformSCADAResponse(response) {
+  const { data } = response;
+  if (!data?.data?.timestamps || !data?.data?.trends || !data?.data?.cnlNums) {
+    console.error('[ROUTER] SCADA response format invalid:', data);
+    throw new Error('[ROUTER] Invalid SCADA response format');
+  }
+
+  const timestamps = data.data.timestamps.map(ts =&gt; ts.ms);
+
+  return (data.data.trends || []).flatMap((trendValues, index) =&gt; {
+    const channel = data.data.cnlNums?.[index] ?? null;
+    return (trendValues || []).map((item, i) =&gt; ({
+      timestamp: timestamps?.[i] ?? null,
+      channel,
+      value: item?.d?.val ?? null,
+    }));
+});
+
+}
+
+module.exports = router;
+</code></pre>
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Proxy ini memungkinkan Grafana untuk mengambil data historis dari Rapid SCADA dengan cara yang lebih mudah, aman, dan terstruktur. Pendekatan cookie session Rapid SCADA 6 lebih andal dibanding basic auth, serta format JSON hasilnya dapat digunakan langsung oleh plugin data source seperti Infinity atau JSON API.</p>
+<p>Dengan desain modular, kita dapat memperluas proxy ini untuk endpoint Rapid SCADA lainnya atau menambahkan fitur autentikasi tambahan jika diperlukan.</p>
+<p>👉 Kode sumber lengkap tersedia di: <a href="https://github.com/kumajaya/scada-grafana-proxy?ref=blog.kiiota.com">https://github.com/kumajaya/scada-grafana-proxy</a></p>
+<h3 id="konfigurasi-infinity-datasource-di-grafana">Konfigurasi Infinity Datasource di Grafana</h3>
+<p>Untuk menghubungkan Grafana dengan <code>ScadaGrafanaProxy</code>, kita bisa menggunakan plugin <a href="https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/?ref=blog.kiiota.com">Infinity Datasource</a>, yang mendukung permintaan HTTP ke endpoint JSON/REST.</p>
+<h4 id="langkah-langkah">Langkah-langkah:</h4>
+<ol>
+<li>
+<p><strong>Install Infinity Plugin</strong><br />
+Di Grafana, buka menu <strong>Plugins</strong>, cari <strong>Infinity</strong>, dan install.</p>
+</li>
+<li>
+<p><strong>Tambahkan Datasource Baru</strong></p>
+<ul>
+<li>
+<p>Masuk ke <strong>Configuration &gt; Data Sources</strong>.</p>
+</li>
+<li>
+<p>Pilih <strong>Infinity</strong>.</p>
+</li>
+<li>
+<p>Atur sebagai berikut:</p>
+<ul>
+<li><strong>Name</strong>: Beri nama unik, misalnya <code>bekasi-infinity-datasource</code></li>
+<li><strong>Authentication</strong>: Pilih <em>Basic Auth</em>, dan masukkan <code>admin:secret</code> (atau sesuai <code>.env</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Membuat Panel di Dashboard</strong></p>
+<h5 id="konfigurasi-untuk-rapid-scada-6">Konfigurasi Untuk <strong>Rapid SCADA 6</strong>:</h5>
+<ul>
+<li>
+<p>Pilih <strong>bekasi-infinity-datasource</strong> sebagai datasource.</p>
+</li>
+<li>
+<p>Pilih <strong>Type</strong>: JSON</p>
+</li>
+<li>
+<p><strong>Method</strong>: <code>GET</code></p>
+</li>
+<li>
+<p><strong>URL</strong>: <code>http://&lt;ip_proxy&gt;:3000/Api/Main/GetHistData</code></p>
+<ul>
+<li>
+<p><strong>URL Query Params</strong>:</p>
+<ul>
+<li><code>archiveBit</code>: Tipe arsip Rapid SCADA (1: minutes data, 2: hours data), bisa juga diatur dengan variabel kustom misalnya <code>${_archiveBit}</code></li>
+<li><code>startTime</code>: Tanggal mulai dalam format ISO (<code>${__from:date:iso}</code>)</li>
+<li><code>endTime</code>: Tanggal akhir dalam format ISO (<code>${__to:date:iso}</code>)</li>
+<li><code>endInclusive</code>: Untuk menyertakan batas waktu di dalam range atau tidak (<code>true</code> atau <code>false</code>)</li>
+<li><code>cnlNums</code>: Daftar channel number (misalnya: <code>101,102</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Untuk <strong>Root selector</strong> dikosongkan.</p>
+</li>
+<li>
+<p>Tambahkan <strong>Columns selector</strong>:</p>
+<ul>
+<li><code>timestamp</code>: Time field format sebagai <code>Time (UNIX ms)</code> agar Grafana dapat mengenali timestamp</li>
+<li><code>value</code>: Nilai pengukuran sebagai <code>Number</code></li>
+<li><code>channel</code>: Channel pengukuran (untuk group by) sebagai <code>String</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="konfigurasi-untuk-rapid-scada-5-dengan-grafanadataprovider-plugin">Konfigurasi Untuk <strong>Rapid SCADA 5</strong> dengan <strong><code>GrafanaDataProvider</code></strong> plugin:</h5>
+<ul>
+<li>Pilih <code>bekasi-infinity-datasource</code> sebagai datasource.</li>
+<li>Pilih <strong>Type</strong>: JSON</li>
+<li><strong>Method</strong>: <code>POST</code></li>
+<li><strong>URL</strong>: <code>http://&lt;ip_proxy&gt;:3000/api/trends/query</code>
+<ul>
+<li><strong>Body Content Type</strong>: JSON</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>{
+    &quot;range&quot;: {
+        &quot;from&quot;: &quot;${__from:date:iso}&quot;,
+        &quot;to&quot;: &quot;${__to:date:iso}&quot;
+    },
+    &quot;intervalMs&quot;: &quot;${__interval_ms}&quot;,
+    &quot;targets&quot;: [
+        {
+            &quot;target&quot;: &quot;101&quot;
+        },
+        {
+            &quot;target&quot;: &quot;102&quot;
+        }
+    ]
+}
+</code></pre>
+<ul>
+<li>
+<p>Untuk <strong>Root selector</strong> dikosongkan.</p>
+</li>
+<li>
+<p>Tambahkan <strong>Columns selector</strong>:</p>
+<ul>
+<li><code>timestamp</code>: Time field format sebagai <code>Time (UNIX ms)</code> agar Grafana dapat mengenali timestamp</li>
+<li><code>value</code>: Nilai pengukuran sebagai <code>Number</code></li>
+<li><code>target</code>: Target pengukuran (untuk group by) sebagai <code>String</code></li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><strong>Transformation</strong><br />
+Tambahkan <strong>Prepare time series</strong> dengan format <code>Multi-frame time series</code>.</li>
+</ol>
+<h4 id="contoh-url-dengan-parameter-tanpa-url-encode">Contoh URL dengan parameter (tanpa URL encode):</h4>
+<pre><code>http://localhost:3000/Api/Main/GetHistData?archiveBit=2&amp;startTime=2025-05-25T00:00:00.000Z&amp;endTime=2025-05-25T23:59:59.000Z&amp;endInclusive=true&amp;cnlNums=101,102&amp;
+</code></pre>
+<h3 id="faq-singkat">FAQ Singkat</h3>
+<p><strong>Q: Apakah proxy ini aman digunakan di jaringan publik?</strong><br />
+A: Proxy ini mengimplementasikan Basic Auth untuk membatasi akses, namun disarankan untuk menggunakannya di belakang VPN atau reverse proxy dengan HTTPS jika digunakan di jaringan terbuka.</p>
+<p><strong>Q: Apa yang terjadi jika session cookie kedaluwarsa?</strong><br />
+A: Proxy akan secara otomatis melakukan login ulang ke SCADA dan mencoba kembali permintaan dari Grafana.</p>
+<p><strong>Q: Format data seperti apa yang dikembalikan oleh endpoint <code>/Api/Main/GetHistData</code>?</strong><br />
+A: Format data asli berbasis timestamp array, channel number array, dan nilai tren. Proxy mengubahnya menjadi array objek <code>{ timestamp, channel, value }</code> agar lebih mudah digunakan di Grafana.</p>
+<p><strong>Q: Apakah bisa digunakan untuk SCADA versi 5?</strong><br />
+A: Tidak langsung. Rapid SCADA v5 memiliki autentikasi berbeda dan tidak menggunakan endpoint REST seperti versi 6.</p>
+<p><strong>Q: Bisakah ditambahkan endpoint untuk data realtime atau status channel?</strong><br />
+A: Ya, kamu bisa menambahkan rute baru dan menggunakan pendekatan serupa di <code>grafanaRouter.js</code>, lalu sesuaikan transformasi data sesuai kebutuhan.</p>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="rapid-scada" /><category term="Rapid Scada" /><category term="Grafana" /><summary type="html"><![CDATA[Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana. Arsitektur Singkat Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA: Grafana --> [Basic Auth] --> ScadaGrafanaProxy --> [Cookie Session] --> Rapid SCADA 6 API * Grafana:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B</title><link href="https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html" rel="alternate" type="text/html" title="Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B" /><published>2025-05-18T06:34:52+00:00</published><updated>2025-05-18T06:34:52+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html"><![CDATA[<!--kg-card-begin: markdown-->
+<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
+<p><strong>ZeroTier</strong> adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan.</p>
+<p><strong>Beberapa fitur utama ZeroTier:</strong></p>
+<ul>
+<li><strong>Koneksi Peer-to-Peer</strong>: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat.</li>
+<li><strong>Keamanan Tinggi</strong>: Data dienkripsi end-to-end, memastikan privasi dan keamanan komunikasi.</li>
+<li><strong>Kemudahan Penggunaan</strong>: Instalasi ringan dan dapat digunakan di berbagai sistem operasi serta perangkat.</li>
+<li><strong>Manajemen Jaringan</strong>: Memungkinkan pengguna untuk mengontrol dan mengelola jaringan mereka melalui antarmuka web yang intuitif.</li>
+</ul>
+<blockquote>
+<p>&quot;Jika Anda ingin mencoba atau mempelajari lebih lanjut, kunjungi <a href="https://www.zerotier.com/?ref=blog.kiiota.com">situs resmi ZeroTier</a>.&quot;</p>
+</blockquote>
+<p>Artikel ini menjelaskan <strong>cara melakukan cross-compile ZeroTier client untuk perangkat ICR-3211B dari Advantech</strong>, khususnya berbasis <strong>ARMv7a 32-bit</strong>. Metode ini berguna untuk perangkat seperti router atau sistem berbasis embedded Linux lainnya.</p>
+<hr />
+
+<h2 id="persiapan-cross-compile"><strong>Persiapan Cross-Compile</strong></h2>
+<ul>
+<li><strong>Host Linux atau WSL (Windows Subsystem for Linux)</strong>: Menggunakan distribusi Ubuntu, Debian, atau sejenisnya.</li>
+<li><strong>Toolchain khusus ICR-3211B</strong>: Dapat diunduh dari <a href="https://bitbucket.org/bbsmartworx/toolchains/src/master/?ref=blog.kiiota.com">Advantech Toolchains Repository</a>, lebih spesifik <a href="https://bitbucket.org/bbsmartworx/toolchains/raw/ca59bfd00eacd7c86e3d9d9560c01dade4198503/deb/gcc-icr-v3-armv7-linux-gnueabi-7.4.0-3.x86_64.deb?ref=blog.kiiota.com">V3 routers (ARM Cortex-A8)</a> untuk target keluarga ICR-3200.</li>
+<li><strong>Koneksi internet</strong> untuk mengunduh dependensi.</li>
+</ul>
+<h3 id="1-instalasi-toolchain-cross-compiler"><strong>1. Instalasi Toolchain Cross-Compiler</strong></h3>
+<pre><code class="language-bash">sudo apt-get install git make pkg-config build-essential  
+sudo dpkg -i gcc-icr-v3-armv7-linux-gnueabi-7.4.0-3.x86_64.deb  
+</code></pre>
+<p>Toolchain akan terinstal di <strong><code>/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/</code></strong>.</p>
+<h3 id="2-clone-kode-sumber-zerotier"><strong>2. Clone Kode Sumber ZeroTier</strong></h3>
+<pre><code class="language-bash">git clone https://github.com/zerotier/ZeroTierOne.git --depth=1  
+cd ZeroTierOne  
+</code></pre>
+<p>Opsi <strong><code>--depth=1</code></strong> memastikan hanya commit terbaru yang diunduh untuk menghemat bandwidth.</p>
+<h3 id="3-patch-untuk-perbaikan-deteksi-arsitektur-dan-optimasi"><strong>3. Patch untuk Perbaikan Deteksi Arsitektur dan Optimasi</strong></h3>
+<p>Patch berikut disiapkan untuk memperbaiki deteksi arsitektur saat kompilasi dan optimasi ARM Cortex-A8 ICR-3211B. ARMv7a tidak memiliki dukungan native penuh untuk operasi atomic di semua prosesor, sehingga beberapa operasi seperti <strong><code>std::atomic</code></strong> pada C++ atau <strong><code>__atomic_</code></strong> pada GCC memerlukan pustaka tambahan untuk bekerja dengan benar. Untuk menghindari error saat linking, <strong><code>override LDFLAGS+=-latomic</code></strong> ditambahkan. Simpan patch berikut sebagai <strong><code>make-linux-Fix-architecture-detection.patch</code></strong>:</p>
+<pre><code class="language-patch">From 0a82874f6d1170205fa50400b3904bcab1e7da56 Mon Sep 17 00:00:00 2001
+From: Ketut Kumajaya &lt;ketut.kumajaya@gmail.com&gt;
+Date: Sat, 17 May 2025 21:19:46 +0700
+Subject: [PATCH] make-linux: Fix architecture detection
+
+---
+ make-linux.mk | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/make-linux.mk b/make-linux.mk
+index efc1bad..e47397b 100644
+--- a/make-linux.mk
++++ b/make-linux.mk
+@@ -334,7 +334,12 @@ endif
+
+ # ARM32 hell -- use conservative CFLAGS
+ ifeq ($(ZT_ARCHITECTURE),3)
+-       ifeq ($(shell if [ -e /usr/bin/dpkg ]; then dpkg --print-architecture; fi),armel)
++       ifeq ($(shell $(CC) -dM -E - &lt;/dev/null | grep -q __ARM_ARCH_7A__ &amp;&amp; echo 1),1)
++               override CFLAGS+=-march=armv7-a -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=vfpv3 -O2
++               override CXXFLAGS+=-march=armv7-a -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=vfpv3 -O2
++               override LDFLAGS+=-latomic
++               ZT_USE_ARM32_NEON_ASM_CRYPTO=0
++       else ifeq ($(shell $(CC) -dM -E - &lt;/dev/null | grep -q __ARMEL__ &amp;&amp; echo 1),1)
+                override CFLAGS+=-march=armv5t -mfloat-abi=soft -msoft-float -mno-unaligned-access -marm
+                override CXXFLAGS+=-march=armv5t -mfloat-abi=soft -msoft-float -mno-unaligned-access -marm
+                ZT_USE_ARM32_NEON_ASM_CRYPTO=0
+--
+2.43.0
+</code></pre>
+<p>kemudian terapkan ke kode sumber ZeroTier:</p>
+<pre><code class="language-bash">git apply make-linux-Fix-architecture-detection.patch
+</code></pre>
+<h3 id="4-konfigurasi-cross-compile"><strong>4. Konfigurasi Cross Compile</strong></h3>
+<p>Konfigurasi toolchain cross compile sebagai berikut:</p>
+<pre><code class="language-bash">export CC=/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-gcc
+export CXX=/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-g++
+export LD=/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-ld
+</code></pre>
+<h3 id="5-kompilasi-zerotier"><strong>5. Kompilasi ZeroTier</strong></h3>
+<p>Kompilasi ZeroTier dengan sejumlah thread prosesor yang tersedia agar prosesnya berlangsung cepat. Bila perlu, lakukan <strong><code>strip</code></strong> setelah kompilasi agar ukuran binary ZeroTier menjadi sangat kecil:</p>
+<pre><code class="language-bash">make -j$(nproc)
+/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-strip --strip-all zerotier-one
+</code></pre>
+<h3 id="6-menyalin-binary-ke-target"><strong>6. Menyalin Binary ke Target</strong></h3>
+<p>Setelah kompilasi selesai, binary ZeroTier yang dihasilkan dapat ditemukan di direktori <em><code>ZeroTierOne/</code></em>. Anda bisa menyalinnya ke perangkat menggunakan SCP atau metode lain:</p>
+<pre><code class="language-bash">scp zerotier-one root@ip-target:/usr/sbin/
+</code></pre>
+<h3 id="7-verifikasi"><strong>7. Verifikasi</strong></h3>
+<p>Login ke perangkat ARMv7a dan jalankan binary untuk memastikan berhasil:</p>
+<pre><code class="language-bash">ssh root@ip-target
+cd /usr/sbin
+ln -sf zerotier-one zerotier-idtool
+ln -sf zerotier-one zerotier-cli
+zerotier-one -h
+</code></pre>
+<hr />
+
+<h2 id="menjalankan-zerotier-di-icr-3211b"><strong>Menjalankan ZeroTier di ICR-3211B</strong></h2>
+<p>Pada <strong>sistem minimalis seperti ICR-3211B</strong>, layanan <strong>systemd</strong> tidak tersedia, sehingga tidak bisa menggunakan <strong><code>systemctl</code></strong>. Sebagai solusi, kita akan menggunakan <strong>skrip init</strong> untuk mengelola ZeroTier secara langsung dan memastikan layanan tetap berjalan setelah reboot atau jika mengalami crash.</p>
+<h3 id="1-menambahkan-skrip-startup-dan-monitoring-ke-sistem"><strong>1. Menambahkan Skrip Startup dan Monitoring ke Sistem</strong></h3>
+<p>Simpan skrip berikut sebagai <strong><code>/etc/rc.d/init.d/zerotier-one</code></strong>:</p>
+<pre><code class="language-bash">#!/bin/sh
+
+DAEMON=&quot;zerotier-one&quot;
+DATADIR=&quot;/var/data/zerotier-one&quot;
+PIDFILE=&quot;$DATADIR/$DAEMON.pid&quot;
+WALL_CHAIN=&quot;srv_$DAEMON&quot;
+LOCAL_PORT=9993
+EXTRA_OPTS=&quot;-d -p$LOCAL_PORT $DATADIR&quot;
+
+. /etc/rc.d/init.d/functions
+
+start() {
+    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
+        echo &quot;$DAEMON is already running.&quot;
+    else
+        echo &quot;Starting $DAEMON...&quot;
+        mkdir -p &quot;$DATADIR&quot; /var/lib
+        ln -sf &quot;$DATADIR&quot; /var/lib/zerotier-one
+        add_chain $WALL_CHAIN
+        add_rule $WALL_CHAIN udp $LOCAL_PORT
+        add_chain6 $WALL_CHAIN
+        add_rule6 $WALL_CHAIN udp $LOCAL_PORT
+        logger -t &quot;$DAEMON&quot; &quot;$DAEMON service start&quot;
+        nohup &quot;$DAEMON&quot; $EXTRA_OPTS &amp;&gt; /dev/null &amp;
+        echo $! &gt; &quot;$PIDFILE&quot;
+        echo &quot;Started.&quot;
+    fi
+}
+
+stop() {
+    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
+        echo &quot;Stopping $DAEMON...&quot;
+        kill -9 &quot;$(cat $PIDFILE)&quot; &amp;&amp; rm -f &quot;$PIDFILE&quot;
+        sleep 2
+        del_chain $WALL_CHAIN
+        del_chain6 $WALL_CHAIN
+        logger -t &quot;$DAEMON&quot; &quot;$DAEMON service stop&quot;
+        echo &quot;Stopped.&quot;
+    else
+        echo &quot;$DAEMON is not running.&quot;
+    fi
+}
+
+status() {
+    echo -n &quot;$DAEMON is &quot;
+    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
+        echo &quot;running (PID: $(cat $PIDFILE))&quot;
+    else
+        echo &quot;not running.&quot;
+    fi
+}
+
+restart() {
+    echo &quot;Restarting $DAEMON...&quot;
+    stop
+    sleep 3
+    start
+}
+
+case &quot;$1&quot; in
+    start) start ;;
+    stop) stop ;;
+    restart) restart ;;
+    status) status ;;
+    *) echo &quot;Usage: $0 {start|stop|restart|status}&quot; ;;
+esac
+
+exit 0
+</code></pre>
+<p>Simpan skrip berikut sebagai <strong><code>/usr/sbin/zerotier-watchdog</code></strong> untuk memastikan layanan selalu tetap berjalan:</p>
+<pre><code class="language-bash">#!/bin/sh
+
+DAEMON=&quot;zerotier-one&quot;
+PIDFILE=&quot;/var/data/zerotier-one/$DAEMON.pid&quot;
+CHECK_INTERVAL=15  # Check every 15 seconds
+
+while true; do
+    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
+        echo &quot;$DAEMON is running.&quot;
+    else
+        logger -t &quot;$DAEMON&quot; &quot;$DAEMON stopped. Restarting...&quot;
+        service $DAEMON start
+    fi
+    sleep &quot;$CHECK_INTERVAL&quot;
+done
+</code></pre>
+<h3 id="2-mengaktifkan-skrip-startup"><strong>2. Mengaktifkan Skrip Startup</strong></h3>
+<p>Setelah menyimpan skrip di <strong><code>/etc/rc.d/init.d/zerotier</code></strong>, jalankan perintah berikut untuk <strong>mengaktifkan startup otomatis</strong>:</p>
+<pre><code class="language-bash">chmod +x /etc/rc.d/init.d/zerotier-one
+cd /etc/rc.d/rc.start
+ln -sf /etc/rc.d/init.d/zerotier-one rc.99.zerotier-one
+</code></pre>
+<p>Di halaman web ICR-3211B, ubah <strong>startup script</strong> menjadi:</p>
+<pre><code class="language-bash">#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here.
+chmod 777 /dev/net/tun
+
+nohup zerotier-watchdog &amp;&gt; /dev/null &amp;
+</code></pre>
+<h3 id="3-verifikasi-debugging"><strong>3. Verifikasi &amp; Debugging</strong></h3>
+<ul>
+<li><strong>Pastikan layanan berjalan:</strong></li>
+</ul>
+<pre><code class="language-bash">service zerotier-one start
+service zerotier-one status
+ip a
+</code></pre>
+<ul>
+<li><strong>Periksa log jika ada masalah:</strong><br />
+Setelah reboot, periksa kembali log dan status jaringan melalui antarmuka web ICR-3211B untuk memastikan ZeroTier berjalan normal.</li>
+</ul>
+<hr />
+
+<h2 id="bergabung-ke-jaringan-zerotier"><strong>Bergabung ke Jaringan ZeroTier</strong></h2>
+<p>Setelah ZeroTier berhasil berjalan di ICR-3211B, langkah berikutnya adalah <strong>bergabung ke jaringan ZeroTier</strong> agar perangkat dapat berkomunikasi dengan sistem lain.</p>
+<h3 id="1-dapatkan-network-id"><strong>1. Dapatkan Network ID</strong></h3>
+<p>Sebelum menghubungkan perangkat, pastikan Anda memiliki <strong>Network ID</strong> dari jaringan yang telah dibuat di <strong>ZeroTier Central</strong>.</p>
+<ul>
+<li>Login ke <strong>ZeroTier Central</strong>: <a href="https://my.zerotier.com/?ref=blog.kiiota.com">https://my.zerotier.com</a></li>
+<li>Buat atau pilih jaringan yang ingin digunakan.</li>
+<li>Catat <strong>Network ID</strong> (biasanya berupa string angka, misalnya <code>abcdef1234567890</code>).</li>
+</ul>
+<p>Anda bisa meminta <strong>Network ID</strong> ke administrator jaringan jika menggunakan jaringan ZeroTier private self hosted.</p>
+<h3 id="2-bergabung-ke-jaringan-dari-icr-3211b"><strong>2. Bergabung ke Jaringan dari ICR-3211B</strong></h3>
+<p>Gunakan perintah berikut di perangkat ICR-3211B:</p>
+<pre><code class="language-bash">zerotier-cli join &lt;NETWORK_ID&gt;
+</code></pre>
+<p>Contoh:</p>
+<pre><code class="language-bash">zerotier-cli join abcdef1234567890 
+</code></pre>
+<h3 id="3-verifikasi-koneksi"><strong>3. Verifikasi Koneksi</strong></h3>
+<p>Setelah bergabung ke jaringan, pastikan perangkat telah berhasil terkoneksi:</p>
+<pre><code class="language-bash">zerotier-cli info 
+</code></pre>
+<p>Jika berhasil, output akan menunjukkan <strong>status jaringan aktif</strong>, seperti:</p>
+<pre><code class="language-bash">200 info &lt;ztaddr&gt; &lt;ver&gt; ONLINE
+</code></pre>
+<p>Jika jaringan memerlukan <strong>persetujuan manual</strong>, masuk ke ZeroTier Central, lalu <strong>izinkan perangkat bergabung</strong> ke jaringan atau minta persetujuan ke administrator jaringan private yang digunakan.</p>
+<h3 id="4-cek-ip-address-di-zerotier"><strong>4. Cek IP Address di ZeroTier</strong></h3>
+<p>Gunakan perintah berikut untuk melihat IP yang diberikan oleh jaringan ZeroTier:</p>
+<pre><code class="language-bash">zerotier-cli listnetworks
+</code></pre>
+<p>Hasilnya akan menunjukkan <strong>IP yang diberikan</strong>, misalnya:</p>
+<pre><code class="language-bash">200 listnetworks abcdef1234567890 &lt;name&gt; &lt;mac&gt; OK PRIVATE &lt;dev&gt; 10.10.10.15/24
+</code></pre>
+<h3 id="5-uji-koneksi-antar-perangkat"><strong>5. Uji Koneksi Antar Perangkat</strong></h3>
+<p>Gunakan <strong>ping</strong> untuk menguji konektivitas antar perangkat yang terhubung ke ZeroTier:</p>
+<pre><code class="language-bash">ping &lt;IP_DEVICE_LAIN&gt;
+</code></pre>
+<p>Misalnya jika perangkat lain memiliki IP <strong>10.10.10.20</strong>:</p>
+<pre><code class="language-bash">ping 10.10.10.20
+</code></pre>
+<p>Jika ping berhasil, berarti koneksi melalui <strong>ZeroTier</strong> sudah aktif!</p>
+<p>Sekarang, <strong>ICR-3211B telah terhubung ke jaringan ZeroTier</strong> dan siap digunakan untuk komunikasi dengan perangkat lain.</p>
+<hr />
+
+<h2 id="penutup"><strong>Penutup</strong></h2>
+<p>Dengan langkah-langkah yang telah dijelaskan, ZeroTier-One kini dapat berjalan optimal di ICR-3211B, meskipun tanpa dukungan systemd. Cross-compiling, penerapan patch arsitektur, serta skrip startup dan monitoring layanan memastikan bahwa sistem tetap stabil dan terhubung tanpa perlu intervensi manual.</p>
+<p>Keunggulan dari pendekatan ini:</p>
+<ul>
+<li><strong>Portabilitas:</strong> Dapat digunakan pada perangkat ARMv7a lainnya dengan sedikit modifikasi.</li>
+<li><strong>Keamanan:</strong> Firewall diaktifkan untuk melindungi komunikasi jaringan.</li>
+<li><strong>Reliabilitas:</strong> Layanan otomatis restart jika ada kegagalan proses.</li>
+</ul>
+<p>Jika Anda ingin melakukan penyesuaian lebih lanjut—misalnya optimasi sumber daya atau penerapan kebijakan keamanan tambahan—artikel ini bisa menjadi dasar yang kuat. ZeroTier memungkinkan konektivitas fleksibel dan aman, sehingga cocok untuk berbagai implementasi di sistem embedded Linux lainnya.</p>
+<p><strong>Tetap eksplorasi dan selamat mencoba!</strong></p>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="zerotier" /><category term="Zerotier" /><category term="ICR-3200" /><summary type="html"><![CDATA[Pendahuluan ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan. Beberapa fitur utama ZeroTier: * Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat. * Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

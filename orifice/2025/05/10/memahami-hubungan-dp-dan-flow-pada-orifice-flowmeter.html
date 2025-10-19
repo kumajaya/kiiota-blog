@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Pendahuluan Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter. &quot;Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?&quot; Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebu" />
+<meta property="og:description" content="Pendahuluan Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter. &quot;Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?&quot; Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebu" />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://kumajaya.github.io/kiiota-blog/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_diff_range_perspective.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-10T16:41:29+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://kumajaya.github.io/kiiota-blog/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_diff_range_perspective.png" />
+<meta property="twitter:title" content="Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-05-10T16:41:29+00:00","datePublished":"2025-05-10T16:41:29+00:00","description":"Pendahuluan Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter. &quot;Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?&quot; Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebu","headline":"Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter","image":"https://kumajaya.github.io/kiiota-blog/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_diff_range_perspective.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html"},"url":"https://kumajaya.github.io/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/orifice">
+        Orifice
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2025-05-10T16:41:29+00:00" itemprop="datePublished">
+        May 10, 2025
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">12 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Pendahuluan
+
+
+Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter.
+
+
+
+
+
+\"Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?\"
+
+
+
+Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebu
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_diff_range_perspective.png" alt="Memahami Hubungan Differential Pressure dan Flow pada Orifice Flowmeter" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<!--kg-card-begin: markdown-->
+<h2 id="pendahuluan">Pendahuluan</h2>
+<p>Flowmeter adalah alat yang digunakan untuk mengukur laju aliran fluida, baik itu cairan, gas, maupun uap. Salah satu jenis flowmeter yang banyak digunakan di industri adalah orifice flowmeter.</p>
+<blockquote>
+<p>&quot;Mengukur aliran fluida dengan akurat adalah hal krusial di industri. Salah satu metode yang paling umum adalah menggunakan orifice flowmeter. Tapi, bagaimana sebenarnya alat ini bekerja?&quot;</p>
+</blockquote>
+<p>Orifice flowmeter bekerja dengan prinsip yang sederhana namun efektif. Alat ini menggunakan sebuah pelat dengan lubang di tengahnya (disebut orifice plate) yang dipasang di dalam pipa. Ketika fluida mengalir melalui pipa dan melewati orifice plate, terjadi penyempitan aliran yang menyebabkan perubahan kecepatan dan tekanan fluida.</p>
+<p>Perubahan tekanan ini dikenal sebagai <strong>differential pressure (DP)</strong> atau tekanan beda. Secara teknis, prinsip ini didasarkan pada <strong>Hukum Bernoulli</strong>, yang menyatakan bahwa energi total fluida dalam sebuah sistem tertutup adalah konstan. Saat fluida melewati penyempitan (orifice), kecepatannya meningkat dan tekanannya menurun, menciptakan perbedaan tekanan antara sisi sebelum dan sesudah orifice.</p>
+<p>Secara sederhana, semakin besar laju aliran (flow) yang melewati orifice, semakin besar pula perbedaan tekanan yang terjadi.</p>
+<p>Dalam artikel ini, kita akan menjelajahi lebih jauh tentang hubungan antara differential pressure dan flow pada orifice flowmeter, dimulai dari konsep dasar hingga cara praktis untuk memahami dan menggunakannya.</p>
+<h2 id="teori-dasar-hubungan-dp-dan-flow">Teori Dasar Hubungan DP dan Flow</h2>
+<p>Hubungan antara differential pressure dan flow pada orifice flowmeter didasarkan pada prinsip Bernoulli dan persamaan kontinuitas. Pada dasarnya, laju aliran (Q) melalui sebuah orifice berbanding lurus dengan akar kuadrat dari differential pressure. Ini dapat dinyatakan dalam persamaan berikut:</p>
+<p>\( Q = C \times \sqrt{DP} \)</p>
+<p>Di mana:</p>
+<ul>
+<li><em><strong>Q</strong></em> adalah laju aliran (flow rate).</li>
+<li><em><strong>C</strong></em> adalah konstanta yang bergantung pada desain orifice dan sifat fluida.</li>
+<li><em><strong>DP</strong></em> adalah differential pressure, yaitu selisih tekanan antara sisi hulu (upstream) dan hilir (downstream) orifice.</li>
+</ul>
+<p>Hubungan antara DP dan flow pada orifice flowmeter bisa digambarkan seperti berikut:</p>
+<div align="center">
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-orifice.svg" alt="orifice" loading="lazy" /></p>
+</div>
+<p>Nilai konstanta <em><strong>C</strong></em> dipengaruhi oleh ukuran orifice, tipe fluida (gas atau cairan), dan kondisi operasi seperti suhu dan tekanan. Secara praktis, konstanta <em><strong>C</strong></em> dapat dihitung dari spesifikasi teknis flowmeter atau dikalibrasi langsung di lapangan. Hal penting yang perlu dipahami adalah bahwa karena hubungan ini bersifat kuadrat, maka kenaikan DP tidak selalu menghasilkan kenaikan flow yang sebanding. Sebagai contoh, jika DP meningkat empat kali lipat, flow hanya meningkat dua kali lipat.</p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow.svg" alt="dp_vs_flow" loading="lazy" /></p>
+<p>👇 Berikut script Python yang bisa dijalankan di <a href="https://python-fiddle.com/saved/091c3855-37dc-49f5-804b-cb6acc9243c4?ref=blog.kiiota.com">Python-Fiddle</a> untuk menggambarkan hubungan DP dan flow.</p>
+<details>
+    <summary><b><i>Perlihatkan script di sini</i></b></summary>
+<pre><code class="language-js">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Fungsi untuk menghitung flow berdasarkan DP
+def calculate_flow(dp_values, C=1.0):
+    return C * np.sqrt(dp_values)
+
+# Fungsi untuk menggambar grafik hubungan DP dan Flow
+def plot_flow_vs_dp(C=1.0, dp_max=100, num_points=500):
+    dp_values = np.linspace(0, dp_max, num_points)
+    flow_values = calculate_flow(dp_values, C)
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(dp_values, flow_values, label=f'C = {C}')
+    plt.title('Hubungan Differential Pressure (DP) dan Flow pada Orifice Flowmeter')
+    plt.xlabel('Differential Pressure (DP)')
+    plt.ylabel('Flow Rate (Q)')
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.legend()
+    # Simpan grafik jika diperlukan
+    # plt.savefig('dp_vs_flow.svg', dpi=300)
+    plt.show()
+
+# Contoh penggunaan
+if __name__ == &quot;__main__&quot;:
+    # Anda dapat mengubah nilai C dan dp_max
+    plot_flow_vs_dp(C=1.0, dp_max=100)
+</code></pre>
+</details>
+<h2 id="penerapan-praktis-dan-contoh-perhitungan">Penerapan Praktis dan Contoh Perhitungan</h2>
+<p>Untuk memahami hubungan antara DP dan flow dalam aplikasi nyata, kita akan menggunakan sebuah contoh sederhana.</p>
+<h3 id="contoh-perhitungan">Contoh Perhitungan</h3>
+<p>Misalkan kita memiliki sebuah orifice flowmeter dengan konstanta <em><strong>C = 0,8</strong></em> dan kita ingin mengetahui flow saat DP terbaca 25 kPa.</p>
+<p>\( Q = C \times \sqrt{DP} \)</p>
+<p>\( Q = 0,8 \times \sqrt{25} \)</p>
+<p>\( Q = 0,8 \times 5 = 4 \text{ unit aliran } \)</p>
+<p>Jika DP meningkat menjadi 100 kPa, maka:</p>
+<p>\( Q = 0,8 \times \sqrt{100} \)</p>
+<p>\( Q = 0,8 \times 10 = 8 \text{ unit aliran } \)</p>
+<p>Perhatikan bahwa ketika DP meningkat 4 kali lipat (dari 25 menjadi 100), flow hanya meningkat 2 kali lipat.</p>
+<blockquote>
+<p>&quot;Contoh ini menunjukkan bahwa hubungan antara DP dan flow bersifat non-linear, artinya peningkatan DP tidak selalu menghasilkan peningkatan flow yang sebanding.&quot;</p>
+</blockquote>
+<h3 id="range-dp-dan-flow-dari-vendor">Range DP dan Flow dari Vendor</h3>
+<p>Biasanya, vendor flowmeter akan menyediakan dokumen teknis yang menyebutkan range DP dan range flow secara langsung. Misalnya, sebuah orifice flowmeter dapat memiliki range DP 0-5 kPa yang berkorelasi dengan range flow 0-4000 Nm³/h.</p>
+<p>Dokumen ini biasanya sudah dikalibrasi berdasarkan karakteristik fisik orifice, sifat fluida, dan kondisi operasi. Pengguna cukup mengacu pada range tersebut tanpa perlu menghitung ulang konstanta <em><strong>C</strong></em>. Namun, orifice flowmeter sering kali dioperasikan pada kondisi yang berbeda dari desain (design pressure dan temperature). Hal ini menyebabkan perbedaan densitas fluida dari kondisi desain. Oleh karena itu, untuk menjaga akurasi pengukuran, dilakukan kompensasi flow dengan memperhitungkan kondisi operasi aktual.</p>
+<blockquote>
+<p>&quot;Penting untuk selalu memeriksa dokumen spesifikasi vendor sebelum melakukan perhitungan, karena range desain flowmeter ditentukan oleh karakteristik fisik orifice dan kondisi operasi.&quot;</p>
+</blockquote>
+<h3 id="kompensasi-flow-untuk-kondisi-operasi">Kompensasi Flow untuk Kondisi Operasi</h3>
+<p>Misalnya, sebuah flowmeter dengan range 0 - 6000 Nm³/h didesain untuk suhu 25°C (298 K) dan tekanan 1 bar (2,01325 bar absolut). Jika kondisi operasi berubah menjadi 30°C (303 K) dan 1,2 bar (2,21325 bar absolut), maka flow yang misalnya terbaca 5000 Nm³/h harus dikompensasikan. Meskipun <strong>ISO 5167</strong> tidak memberikan rumus kompensasi secara langsung, standar ini menekankan pentingnya mempertimbangkan kondisi operasi aktual — termasuk tekanan dan suhu — dalam perhitungan aliran menggunakan orifice flowmeter.</p>
+<p>Beberapa vendor besar (Moore, Rosemount, Siemens) memberikan referensi berikut untuk kompensasi tekanan dan temperatur:</p>
+<div align="center">
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-procidia.svg" alt="procidia" loading="lazy" /></p>
+</div>
+<p>Berdasarkan referensi di atas, maka jika sinyal sudah mendapatkan akar kuadrat dari transmitter atau DCS, maka perhitungan kompensasi akan menjadi:</p>
+<div align="center">
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dcs.svg" alt="dcs" loading="lazy" /></p>
+</div>
+<p>Jika tekanan operasi (P) dan suhu operasi (T) berbeda dari kondisi desain (Pd, Td), maka flow aktual (Q) dapat dihitung sebagai berikut:</p>
+<p>\( Q = Q_d \times \sqrt{\frac{P}{P_d} \times \frac{T_d}{T}} \)</p>
+<p>Di mana:</p>
+<ul>
+<li><em><strong>Q</strong></em> adalah flow aktual.</li>
+<li><em><strong>Qd</strong></em> adalah flow desain.</li>
+<li><em><strong>P</strong></em> adalah tekanan absolut operasi.</li>
+<li><em><strong>Pd</strong></em> adalah tekanan absolut desain.</li>
+<li><em><strong>T</strong></em> adalah suhu operasi dalam Kelvin.</li>
+<li><em><strong>Td</strong></em> adalah suhu desain dalam Kelvin.</li>
+</ul>
+<p>\( \begin{aligned}
+Q &amp;= 5000 \times \sqrt{\frac{2.21325}{2.01325} \times \frac{298}{303}} \\
+Q &amp;= 5000 \times \sqrt{1.09934 \times 0.9835} \\
+Q &amp;= 5000 \times \sqrt{1.0812} \\
+Q &amp;\approx 5199 \text{ Nm}^3/\text{h}
+\end{aligned} \)</p>
+<p>Flow yang terbaca sebesar <strong>5000 Nm³/h</strong> perlu dikompensasi berdasarkan perubahan tekanan dan suhu. Setelah koreksi, flow sebenarnya <strong>5199 Nm³/h</strong>. Kenaikan tekanan menyebabkan flow meningkat, tetapi kenaikan suhu sedikit mengurangi densitas gas, sehingga peningkatan tidak sepenuhnya proporsional.</p>
+<p>Dengan memahami konsep ini, pengguna dapat memastikan bahwa pembacaan flow pada orifice flowmeter tetap akurat meskipun kondisi operasi berubah.</p>
+<p>👇 Berikut script Python yang bisa dijalankan di <a href="https://python-fiddle.com/saved/9a89900b-5e51-4692-aaa5-a0ba87250379?ref=blog.kiiota.com">Python-Fiddle</a> untuk melakukan koreksi flow.</p>
+<details>
+    <summary><b><i>Perlihatkan script di sini</i></b></summary>
+<pre><code class="language-js">
+from math import sqrt
+
+# Fungsi untuk menghitung kompensasi flow
+def kompensasi_flow(Qd, Pd, Td, P, T):
+    &quot;&quot;&quot; 
+    Menghitung flow aktual berdasarkan kondisi operasi
+    
+    Qd : Flow desain (Nm³/h)
+    Pd : Tekanan desain (barA)
+    Td : Suhu desain (K)
+    P  : Tekanan operasi (barA)
+    T  : Suhu operasi (K)
+    
+    Output: Flow aktual yang telah dikompensasi (Nm³/h)
+    &quot;&quot;&quot;
+    Qa = Qd * sqrt((P / Pd) * (Td / T))
+    return Qa
+
+# Contoh penggunaan
+Qd = 5000  # Flow desain dalam Nm³/h
+Pd = 1 + 1.01325   # Tekanan desain dalam bar absolut
+Td = 25 + 273.15   # Suhu desain dalam Kelvin (25°C)
+
+P_actual = 1.2 + 1.01325   # Tekanan operasi dalam bar absolut
+T_actual = 30 + 273.15   # Suhu operasi dalam Kelvin (30°C)
+
+Qa = kompensasi_flow(Qd, Pd, Td, P_actual, T_actual)
+
+print(f&quot;Flow yang telah dikompensasi: {Qa:.2f} Nm³/h&quot;)
+</code></pre>
+</details>
+<h2 id="kesalahan-umum-dan-solusi">Kesalahan Umum dan Solusi</h2>
+<p>Penggunaan orifice flowmeter tidak terlepas dari potensi kesalahan. Berikut adalah beberapa kesalahan umum dan solusinya:</p>
+<ol>
+<li>
+<p><strong>Pemasangan Tidak Tepat:</strong> Orifice plate harus dipasang sesuai arah aliran dan posisi yang benar. <strong>Solusi</strong>: Pastikan arah aliran sesuai dengan tanda pada flowmeter, gasket tidak menutupi lubang orifice.</p>
+</li>
+<li>
+<p><strong>Panjang Pipa Lurus Tidak Tepat:</strong> Panjang pipa lurus sisi upstream dan downstream yang tidak sesuai mengakibatkan distorsi, turbulensi, dan kecepatan aliran yang tidak merata. <strong>Solusi</strong>: Sesuai dengan <strong>ISO 5167-2</strong>, sisi upstream minimal <strong>10D</strong> (10 kali diameter pipa) dan sisi downstream minimal <strong>5D</strong> (5 kali diameter pipa).</p>
+</li>
+<li>
+<p><strong>Pemilihan Ukuran Tidak Tepat:</strong> Ukuran orifice yang terlalu kecil atau besar dapat menyebabkan pembacaan DP yang tidak akurat, atau bahkan menyebabkan DP over range (DP yang melebihi batas pengukuran), yang akan membuat flowmeter tidak dapat memberikan pembacaan yang valid. <strong>Solusi</strong>: Gunakan ukuran orifice yang sesuai dengan range flow yang diinginkan dan pastikan DP berada dalam batas pengukuran.</p>
+</li>
+<li>
+<p><strong>Perubahan Kondisi Operasi:</strong> Perubahan suhu atau tekanan tanpa kompensasi akan mengakibatkan pembacaan flow tidak akurat. <strong>Solusi</strong>: Gunakan kompensasi flow seperti yang dijelaskan pada bagian sebelumnya.</p>
+</li>
+<li>
+<p><strong>Kontaminasi atau Kotoran:</strong> Kotoran yang menumpuk pada orifice plate akan mengganggu aliran. <strong>Solusi</strong>: Bersihkan orifice plate secara berkala menggunakan air bersih dan kain lembut, hindari bahan kimia atau alat tajam yang dapat merusak permukaan.</p>
+</li>
+<li>
+<p><strong>Kerusakan pada DP Transmitter:</strong> Jika transmitter tidak berfungsi dengan baik, pembacaan DP menjadi tidak akurat. <strong>Solusi</strong>: Lakukan kalibrasi dan pengujian berkala.</p>
+</li>
+</ol>
+<h3 id="kasus-sizing-ulang-karena-dp-over-range">Kasus Sizing Ulang karena DP Over Range</h3>
+<p>Jika differential pressure orifice flowmeter melebihi batas desain, misalnya DP yang dirancang hanya 0-5 kPa untuk flow 0-4000 Nm³/h, dan ternyata DP beroperasi di melebihi kisaran 5 kPa, maka diperlukan sizing ulang untuk menentukan range flow yang sesuai.</p>
+<p><strong>Contoh Perhitungan:</strong></p>
+<p>Misalkan range DP desain awal adalah 0-5 kPa, dan range flow adalah 0-4000 Nm³/h. Jika DP diubah menjadi 0-10 kPa, maka range flow baru dapat dihitung menggunakan hubungan antara DP dan flow yang berbanding lurus dengan akar kuadrat DP.</p>
+<p>Menggunakan rumus:</p>
+<p>\( Q₂ = Q₁ \times \sqrt{\frac{DP₂}{DP₁}} \)</p>
+<p>Dengan memasukkan nilai-nilai yang diketahui:</p>
+<p>\( Q₂ = 4000 \times \sqrt{\frac{10}{5}} = 4000 \times \sqrt{2} \approx 4000 \times 1.414 = 5657 \, \text{Nm}^3/\text{h} \)</p>
+<p>Jadi, jika range DP diubah dari 0-5 kPa menjadi 0-10 kPa, maka range flow yang baru adalah sekitar <strong>5657 Nm³/h</strong>. Hal ini menunjukkan bahwa jika DP meningkat, maka range flow juga akan meningkat, dan penting untuk memilih orifice dengan ukuran yang tepat untuk memastikan alat beroperasi dalam range yang optimal.</p>
+<blockquote>
+<p>&quot;Sizing ulang diperlukan jika flowmeter sering beroperasi di luar range desain, atau jika terjadi peningkatan kapasitas produksi.&quot;</p>
+</blockquote>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_resizing.svg" alt="dp_vs_flow_resizing" loading="lazy" /></p>
+<p>👇 Berikut script Python yang bisa dijalankan di <a href="https://python-fiddle.com/saved/789596b8-3b57-4a34-beee-7dd8ce64407c?ref=blog.kiiota.com">Python-Fiddle</a> untuk menggambarkan DP dan flow di skala range berbeda.</p>
+<details>
+    <summary><b><i>Perlihatkan script di sini</i></b></summary>
+<pre><code class="language-js">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definisikan nilai DP dan Flow awal
+DP1 = 5  # DP desain lama (kPa)
+Flow1 = 4000  # Flow desain lama (Nm³/h)
+
+# Rentang DP baru yang diinginkan
+DP2 = 10  # DP desain baru (kPa)
+
+# Hitung flow baru berdasarkan rumus Q2 = Q1 * sqrt(DP2/DP1)
+Flow2 = Flow1 * np.sqrt(DP2 / DP1)
+
+# Menampilkan hasil perhitungan
+print(f&quot;Flow desain lama (Q1): {Flow1} Nm³/h&quot;)
+print(f&quot;Flow desain baru (Q2) setelah DP diubah menjadi {DP2} kPa: {Flow2:.2f} Nm³/h&quot;)
+
+# Membuat grafik untuk menggambarkan hubungan DP dan Flow
+DP_values = np.linspace(0.1, 10, 100)  # Range DP dari 0.1 kPa hingga 10 kPa
+Flow_values = Flow1 * np.sqrt(DP_values / DP1)  # Menghitung flow untuk berbagai nilai DP
+
+# Plot grafik
+plt.figure(figsize=(10, 6))
+plt.plot(DP_values, Flow_values, label=&quot;Hubungan DP dan Flow&quot;, linewidth=2)
+
+# Tambahkan garis vertikal dan horizontal
+plt.axvline(DP1, color='r', linestyle='--', label=f&quot;DP1 = {DP1} kPa&quot;)
+plt.axvline(DP2, color='g', linestyle='--', label=f&quot;DP2 = {DP2} kPa&quot;)
+plt.axhline(Flow1, color='r', linestyle=':', label=f&quot;Flow1 = {Flow1} Nm³/h&quot;)
+plt.axhline(Flow2, color='g', linestyle=':', label=f&quot;Flow2 = {Flow2:.2f} Nm³/h&quot;)
+
+# Tambahkan teks di tengah garis horizontal (Flow)
+plt.text(DP_values[-1] * 0.375, Flow1, f&quot;{Flow1} Nm³/h&quot;, color='r', fontsize=10, verticalalignment='bottom', horizontalalignment='center')
+plt.text(DP_values[-1] * 0.85, Flow2, f&quot;{Flow2:.2f} Nm³/h&quot;, color='g', fontsize=10, verticalalignment='bottom', horizontalalignment='center')
+
+# Tambahkan teks di tengah garis vertikal (DP) dengan rotasi vertikal
+plt.text(DP1, Flow_values[-1] * 0.575, f&quot;{DP1} kPa&quot;, color='r', fontsize=10, verticalalignment='center', horizontalalignment='right', rotation=90)
+plt.text(DP2, Flow_values[-1] * 0.85, f&quot;{DP2} kPa&quot;, color='g', fontsize=10, verticalalignment='center', horizontalalignment='right', rotation=90)
+
+# Tambahkan judul dan label sumbu
+plt.title(&quot;Hubungan Differential Pressure (DP) dan Flow pada Orifice Flowmeter&quot;)
+plt.xlabel(&quot;Differential Pressure (DP) [kPa]&quot;)
+plt.ylabel(&quot;Flow Rate [Nm³/h]&quot;)
+
+# Atur grid dan legenda
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend()
+plt.tight_layout()
+
+# Simpan grafik sebagai file jika diperlukan
+# plt.savefig('dp_vs_flow_resizing.svg', dpi=300)
+
+# Tampilkan grafik
+plt.show()
+</code></pre>
+</details>
+<h3 id="simulasi-pengukuran-dan-efek-kompensasi">Simulasi Pengukuran dan Efek Kompensasi</h3>
+<p>Untuk melihat efek dari kompensasi terhadap flowmeter yang diskalakan ulang, kita melakukan simulasi dan visualisasi seperti pada grafik berikut:</p>
+<p><img src="/kiiota-blog/assets/media/6fc2c932-5ab0-4b12-8482-6e007c507923-dp_vs_flow_interactive.svg" alt="dp_vs_flow_interactive" loading="lazy" /></p>
+<ul>
+<li><strong>Garis biru</strong> menunjukkan hubungan antara DP dan flow tanpa kompensasi.</li>
+<li><strong>Garis hijau</strong> menunjukkan hubungan dengan kompensasi.</li>
+<li><strong>Titik merah</strong> menunjukkan hasil pengukuran aktual tanpa kompensasi.</li>
+<li><strong>Titik ungu</strong> menunjukkan hasil pengukuran setelah dikompensasi.</li>
+</ul>
+<p>Hasil ini menggambarkan bahwa flow rate aktual tanpa kompensasi lebih tinggi dibandingkan flow rate terkoreksi. Hal ini disebabkan oleh tekanan operasi yang lebih rendah dari desain, sehingga massa gas yang mengalir sebenarnya lebih sedikit.</p>
+<p>👇 Berikut script Python yang bisa dijalankan di <a href="https://python-fiddle.com/saved/43b6d02a-ec3a-4a9b-9921-06ee90cafc1b?ref=blog.kiiota.com">Python-Fiddle</a> untuk menggambarkan efek kompensasi. Secara interaktif script meminta user memilih mode perhitungan berdasarkan DP atau flow.</p>
+<details>
+    <summary><b><i>Perlihatkan script di sini</i></b></summary>
+<pre><code class="language-js">import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter desain dari dokumen orifice FE-106
+DP_design = 10  # kPa
+Flow_design = 5656.85  # Nm³/h
+P_design_gauge = 700  # kPa
+T_design = 37 + 273.15  # K
+
+# Parameter operasi
+P_actual_gauge = 200  # kPa
+T_actual = 35 + 273.15  # K
+
+# Konversi ke tekanan absolut (dalam kPa)
+P_design_abs = P_design_gauge + 101.325  # kPa (700 kPa gauge + 101.325 kPa atmosfer)
+P_actual_abs = P_actual_gauge + 101.325  # kPa (200 kPa gauge + 101.325 kPa atmosfer)
+
+# Formula dalam format LaTeX
+formula_dp = r&quot;$DP = \left(\frac{Q}{Q_{\text{design}}}\right)^2 \times DP_{\text{design}}$&quot;
+formula_flow = r&quot;$Q = Q_{\text{design}} \times \sqrt{\frac{DP}{DP_{\text{design}}}}$&quot;
+formula_corrected_flow = r&quot;$Q_{\text{corrected}} = Q \times \sqrt{\frac{P}{P_{\text{design}}} \times \frac{T_{\text{design}}}{T}}$&quot;
+
+# Fungsi untuk perhitungan utama
+def calculate_dp(flow, flow_design, dp_design):
+    return (flow / flow_design) ** 2 * dp_design
+
+def calculate_flow(dp, flow_design, dp_design):
+    return flow_design * np.sqrt(dp / dp_design)
+
+def calculate_corrected_flow(flow, p_actual_abs, p_design_abs, t_actual, t_design):
+    return flow * np.sqrt((p_actual_abs / p_design_abs) * (t_design / t_actual))
+
+# Meminta input dari pengguna
+mode = input(&quot;Masukkan mode (flow/DP): &quot;).strip().lower()
+
+if mode == &quot;flow&quot;:
+    Flow_actual = float(input(&quot;Masukkan flow aktual (Nm³/h): &quot;))
+    DP_actual = calculate_dp(Flow_actual, Flow_design, DP_design)
+elif mode == &quot;dp&quot;:
+    DP_actual = float(input(&quot;Masukkan DP aktual (kPa): &quot;))
+    Flow_actual = calculate_flow(DP_actual, Flow_design, DP_design)
+else:
+    print(&quot;Mode tidak dikenali. Pilih 'flow' atau 'DP'.&quot;)
+    exit()
+
+# Koreksi flow untuk kondisi operasi
+Flow_corrected = calculate_corrected_flow(Flow_actual, P_actual_abs, P_design_abs, T_actual, T_design)
+
+# Menampilkan hasil perhitungan
+print(&quot;\nHasil Perhitungan:&quot;)
+print(f&quot;DP aktual: {DP_actual:.2f} kPa&quot;)
+print(f&quot;Flow aktual tanpa kompensasi: {Flow_actual:.2f} Nm³/h&quot;)
+print(f&quot;Flow terkoreksi untuk kondisi operasi: {Flow_corrected:.2f} Nm³/h\n&quot;)
+
+# Plotting dengan numpy untuk visualisasi lebih halus
+dp_values = np.linspace(0, DP_design, 500)
+flow_values = calculate_flow(dp_values, Flow_design, DP_design)
+flow_corrected_values = calculate_corrected_flow(flow_values, P_actual_abs, P_design_abs, T_actual, T_design)
+
+plt.figure(figsize=(10, 6))
+
+# Plot imajiner transparan untuk formula
+plt.plot(dp_values, dp_values, label=rf'{formula_dp}', color='white', alpha=0, zorder=-1)
+
+# Plot utama
+plt.plot(dp_values, flow_values, label=f'{formula_flow}', color='blue')
+plt.plot(dp_values, flow_corrected_values, label=f'{formula_corrected_flow}', color='green')
+
+plt.legend(fontsize=10, loc=&quot;best&quot;, frameon=True, framealpha=0.8, bbox_to_anchor=(1.05, 1))
+
+# Titik data aktual
+plt.scatter(DP_actual, Flow_actual, color='red')
+plt.scatter(DP_actual, Flow_corrected, color='purple')
+
+# Garis referensi
+plt.axhline(y=Flow_actual, color='gray', linestyle='--', alpha=0.7)
+plt.axhline(y=Flow_corrected, color='gray', linestyle='--', alpha=0.7)
+plt.axvline(x=DP_actual, color='gray', linestyle='--', alpha=0.7)
+
+# Fungsi anotasi dinamis
+def place_annotation(x, y, text, color, x_offset):
+    y_offset = 500 if y &lt; (Flow_design * 0.85) else -500  # Penyesuaian posisi
+    plt.annotate(
+        text,
+        xy=(x, y),
+        xytext=(x + x_offset, y + y_offset),
+        arrowprops=dict(facecolor=color, arrowstyle=&quot;-&gt;&quot;),
+        fontsize=10,
+        color=color,
+        bbox=dict(facecolor=&quot;white&quot;, edgecolor=color, alpha=0.8, boxstyle=&quot;round,pad=0.3&quot;),
+    )
+
+# Anotasi dengan posisi dinamis
+design_text = r&quot;${_{\text{design}}}$&quot;
+corrected_text = r&quot;${_{\text{corrected}}}$&quot;
+
+place_annotation(
+    DP_actual, Flow_actual,
+    f'DP{design_text}: {DP_design:.2f} kPa\nQ{design_text}: {Flow_design:.2f} Nm³/h\nDP: {DP_actual:.2f} kPa\nQ: {Flow_actual:.2f} Nm³/h',
+    'red', x_offset=-2
+)
+
+place_annotation(
+    DP_actual, Flow_corrected,
+    f'P{design_text}: {P_design_gauge:.2f} kPa\nT{design_text}: {T_design:.2f} K\nP: {P_actual_gauge:.2f} kPa\nT: {T_actual:.2f} K\nQ{corrected_text}: {Flow_corrected:.2f} Nm³/h',
+    'purple', x_offset=0.5
+)
+
+# Pengaturan tampilan plot
+plt.title('Flow vs Differential Pressure Dengan dan Tanpa Kompensasi')
+plt.xlabel('Differential Pressure (kPa)')
+plt.ylabel('Flow (Nm³/h)')
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend()
+plt.tight_layout()
+
+# Simpan grafik jika diperlukan
+# plt.savefig('dp_vs_flow_interactive.svg', dpi=300)
+
+# Tampilkan grafik
+plt.show()
+</code></pre>
+</details>
+<h2 id="referensi-tambahan">Referensi Tambahan</h2>
+<p>Jika ingin lebih memahami tentang orifice flowmeter dan cara kerja pengukuran aliran menggunakan perbedaan tekanan, Anda bisa membaca artikel berikut:</p>
+<ul>
+<li>
+<p><strong>Emerson</strong> - Pengukuran Flow dengan Differential Pressure<br />
+Penjelasan dasar tentang metode pengukuran aliran menggunakan perbedaan tekanan.<br />
+<a href="https://www.emerson.com/en-us/automation/measurement-instrumentation/pressure-measurement/about-differential-pressure-dp-flow-measurement?ref=blog.kiiota.com">Baca di sini</a></p>
+</li>
+<li>
+<p><strong>Dwyer Instruments</strong> - Dasar Flowmeter Differential Pressure<br />
+Memahami prinsip kerja flowmeter DP dengan bahasa sederhana.<br />
+<a href="https://www.dwyeromega.com/en-us/resources/differential-pressure-flow-meter?ref=blog.kiiota.com">Baca di sini</a></p>
+</li>
+<li>
+<p><strong>Wikipedia</strong> - Orifice Plate<br />
+Informasi lebih lengkap tentang orifice plate, termasuk cara perhitungannya.<br />
+<a href="https://en.wikipedia.org/wiki/Orifice_plate?ref=blog.kiiota.com">Baca di sini</a></p>
+</li>
+</ul>
+<h2 id="kesimpulan">Kesimpulan</h2>
+<p>Memahami hubungan antara differential pressure dan flow pada orifice flowmeter sangat penting untuk memastikan akurasi pengukuran. Dengan memahami prinsip dasar, cara perhitungan termasuk melakukan skala ulang, serta potensi kesalahan, pengguna dapat lebih percaya diri dalam menggunakan dan mengoptimalkannya. Script-script Python yang disertakan di sini diharapkan bisa menjadi tool praktis untuk melakukan analisa cepat dan interaktif terhadap masalah yang muncul terkait orifice flowmeter.</p>
+<!--kg-card-end: markdown-->
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/orifice/2025/05/10/memahami-hubungan-dp-dan-flow-pada-orifice-flowmeter.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>

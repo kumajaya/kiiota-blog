@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Pengetahuan praktis pengukuran level menggunakan DP transmitter | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Pengetahuan praktis pengukuran level menggunakan DP transmitter" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Banyak referensi mengenai pengukuran level cairan dalam bejana bertekanan menggunakan DP transmitter di luar sana, di sini kita hanya akan membahas praktisnya saja untuk pemula. Pemula? Bahkan yang sudah puluhan tahun di gas industri masih banyak yang kebingungan." />
+<meta property="og:description" content="Banyak referensi mengenai pengukuran level cairan dalam bejana bertekanan menggunakan DP transmitter di luar sana, di sini kita hanya akan membahas praktisnya saja untuk pemula. Pemula? Bahkan yang sudah puluhan tahun di gas industri masih banyak yang kebingungan." />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHN0b3JhZ2UlMjB0YW5rfGVufDB8fHx8MTYzODAxNDg2NQ&ixlib=rb-1.2.1&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-28T06:04:21+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHN0b3JhZ2UlMjB0YW5rfGVufDB8fHx8MTYzODAxNDg2NQ&ixlib=rb-1.2.1&q=80&w=2000" />
+<meta property="twitter:title" content="Pengetahuan praktis pengukuran level menggunakan DP transmitter" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-11-28T06:04:21+00:00","datePublished":"2021-11-28T06:04:21+00:00","description":"Banyak referensi mengenai pengukuran level cairan dalam bejana bertekanan menggunakan DP transmitter di luar sana, di sini kita hanya akan membahas praktisnya saja untuk pemula. Pemula? Bahkan yang sudah puluhan tahun di gas industri masih banyak yang kebingungan.","headline":"Pengetahuan praktis pengukuran level menggunakan DP transmitter","image":"https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHN0b3JhZ2UlMjB0YW5rfGVufDB8fHx8MTYzODAxNDg2NQ&ixlib=rb-1.2.1&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html"},"url":"https://kumajaya.github.io/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/vessel-volume">
+        Vessel Volume
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Pengetahuan praktis pengukuran level menggunakan DP transmitter</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2021-11-28T06:04:21+00:00" itemprop="datePublished">
+        November 28, 2021
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">4 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Banyak referensi mengenai pengukuran level cairan dalam bejana bertekanan menggunakan DP transmitter di luar sana, di sini kita hanya akan membahas praktisnya saja untuk pemula. Pemula? Bahkan yang sudah puluhan tahun di gas industri masih banyak yang kebingungan.
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHN0b3JhZ2UlMjB0YW5rfGVufDB8fHx8MTYzODAxNDg2NQ&ixlib=rb-1.2.1&q=80&w=2000" alt="Pengetahuan praktis pengukuran level menggunakan DP transmitter" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p>Photo by <a href="https://unsplash.com/@kmitchhodge?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">K. Mitch Hodge</a> / <a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Unsplash</a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<p>Mari kita mulai dengan sebuah gambar penggunaan differential pressure transmitter untuk mengukur misalnya cairan oksigen dalam sebuah bejana tertutup/bertekanan. Karena oksigen cair termasuk cryogenic liquid, maka diperlukan bejana berdinding ganda dengan ruang sangat vacuum di antaranya untuk meminimalisir transfer panas dari luar. Untuk menyederhanakan, bejana sisi luar tidak digambarkan di sini.</p>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="/kiiota-blog/assets/media/1219c62b-8d56-4045-8170-ffda99da4a32-level_measurement.svg" class="kg-image" alt="" loading="lazy" width="450" height="600" /><figcaption>Pengukuran Level Bejana Bertekanan</figcaption></figure>
+<p>Pengukuran level cairan di dalam bejana yang bertekanan di atas tekanan atmosfir memanfaat sepenuhnya kemampuan DP <em>transmitter </em>dengan menghubungkan kedua sisi H dan L seperti ditunjukkan gambar di atas.</p>
+<p>DP <em>transmitter </em>memungkinkan penghilangan otomatis tekanan yang muncul di sisi L dari tekanan total yang terbaca di sisi H. Seperti yang digambarkan di atas, L dihubungkan ke sisi paling atas dan H dihubungkan ke sisi paling bawah bejana. Setiap kenaikan tekanan di atas permukaan cairan (P) akan diteruskan ke segala arah termasuk menuju ke kedua sisi DP <em>transmitter</em>, baik L maupun H. Karena tekanan keduanya saling berlawanan arah, maka selisihnya menjadi nol. Hanya tekanan hidrostatis cairan (W) yang muncul di sisi H yang berpengaruh terhadap DP transmitter, proportional dengan kenaikan level cairan.</p>
+<blockquote>Kondisi tekanan permukaan tidak mempengaruhi pengukuran level cairan DP<em> transmitter</em>. DP transmitter hanya mengukur level cairan dan hanya level cairan yang terukur.</blockquote>
+<p>Jadi, nilai yang terbaca di DP <em>transmitter</em> hanyalah tekanan hidrostatis cairan – misalnya dalam mmH<sub>2</sub>O – yang besarnya merupakan hasil perkalian level (h) dengan <em>specific gravity</em> (SG) sehingga untuk menentukan level di dalam bejana menjadi: $$ \small W=h\times SG\Rightarrow h=\frac{W}{SG} $$ SG adalah <em>specific gravity</em> atau <em>relative density</em> yang maksudnya adalah rasio <em>density</em> suatu bahan dibandingkan dengan <em>density</em> referensi, dalam hal ini air pada 4°C. Untuk memudahkan, <em>density</em> air yang digunakan diambil dari satuan kg/liter karena nilainya tepat 1.0 sehingga SG cairan yang digunakan adalah: $$ \small SG=\frac{\textit{density}}{\textit{1.0}} $$ Jadi, SG yang digunakan adalah <i>density</i> cairan itu sendiri yang dari dalam satuan kg/liter seperti referensi tetapi kehilangan satuannya karena pembagian di atas.</p>
+<!--kg-card-begin: markdown-->
+<p><strong>Contoh:</strong></p>
+<ol>
+<li>Sebuah bejana yang berisi cairan yang <i>density</i>-nya 1.141 kg/liter menunjukkan pengukuran pada DP <i>transmitter</i> sebesar 10000 mmH<sub>2</sub>O. Berapa level cairan di dalam bejana? $$ \small h=\frac{10000}{1.141}=8764.2\text{ mm}=8.8\text{ m} $$</li>
+<li>Sebuah bejana yang berisi cairan yang <i>density</i>-nya 0.808 kg/liter menunjukkan pengukuran pada DP <i>transmitter</i> sebesar 10000 mmH<sub>2</sub>O. Berapa level cairan di dalam bejana? $$ \small h=\frac{10000}{0.808}=12376.2\text{ mm}=12.4\text{ m} $$</li>
+</ol>
+<!--kg-card-end: markdown-->
+<p>Penggunaan <em>density </em>cairan yang benar menjadi penting untuk bisa menentukan nilai level dengan tepat. Untuk beberapa cairan diketahui sebagai berikut, tetapi ingat itu pada kondisi tertentu:</p>
+<!--kg-card-begin: markdown-->
+<table>
+<thead>
+<tr>
+<th>Cairan</th>
+<th>Density (kg/lt)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Oksigen</strong></td>
+<td>1.141 @ 1 atm</td>
+</tr>
+<tr>
+<td><strong>Nitrogen</strong></td>
+<td>0.808 @ 1 atm</td>
+</tr>
+<tr>
+<td><strong>Argon</strong></td>
+<td>1.395 @ 1 atm</td>
+</tr>
+<tr>
+<td><strong>Karbon Dioksida</strong></td>
+<td>1.014 @ 21.4 atm</td>
+</tr>
+<tr>
+<td><strong>Nitrous Oksida</strong></td>
+<td>1.216 @ 1 atm</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown-->
+<p>Pada kondisi berbeda – misalnya bejana beroperasi pada tekanan 7 barg atau bahkan 27 barg – maka density juga akan berbeda atau bahkan sangat jauh berbeda. Anda bisa menggunakan aplikasi <a href="https://blog.kiiota.com/aplikasi-gas-conversion/">Gas Conversion</a> untuk menemukan density yang tepat untuk berbagai macam kondisi tekanan.</p>
+<!--kg-card-begin: markdown-->
+<table>
+<thead>
+<tr>
+<th>Cairan</th>
+<th>Density (kg/lt)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Oksigen</strong></td>
+<td>1.000 @ 7 barg</td>
+</tr>
+<tr>
+<td><strong>Nitrogen</strong></td>
+<td>0.687 @ 7 barg</td>
+</tr>
+<tr>
+<td><strong>Nitrogen</strong></td>
+<td>0.492 @ 27 barg</td>
+</tr>
+<tr>
+<td><strong>Argon</strong></td>
+<td>1.222 @ 7 barg</td>
+</tr>
+<tr>
+<td><strong>Karbon Dioksida</strong></td>
+<td>1.035 @ 18 barg</td>
+</tr>
+<tr>
+<td><strong>Nitrous Oksida</strong></td>
+<td>1.035 @ 12 barg</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown-->
+<p>Di sini diberikan contoh ekstrim nitrogen pada 1 atm (0 barg), pada 7 barg, dan pada 27 barg. Mari kita aplikasikan hal tersebut pada sebuah tangki yang diketahui dari dokumen tangki <em>full trycock</em> pada 8.837 m, 8837 mm. Mulai di sini kita akan menyebut tangki saja dibandingkan bejana yang formal.</p>
+<!--kg-card-begin: markdown-->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Tekanan (barg)</th>
+<th style="text-align:center">W (mmH<sub>2</sub>O)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0 (-195.7°C)</td>
+<td style="text-align:center">$$ 8837\times 0.808=7140.3 $$</td>
+</tr>
+<tr>
+<td style="text-align:center">7 (-172.7°C)</td>
+<td style="text-align:center">$$ 8837\times 0.687=6071.0 $$</td>
+</tr>
+<tr>
+<td style="text-align:center">27 (-151.0°C)</td>
+<td style="text-align:center">$$ 8837\times 0.492=4347.8 $$</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown-->
+<p>Pada kondisi <em>density </em>(berat dibandingkan volume) yang semakin rendah, maka pembacaan <em>full trycock</em> di DP <em>transmitter </em>tangki yang dimaksud akan semakin rendah pula. Itu bukanlah misteri! Penjelasan praktisnya, liquid semakin mengembang dan membutuhkan ruang semakin besar jika semakin menghangat. Nilai <em>full trycock</em> pada 7140 mmH<sub>2</sub>O seperti tercantum dalam tabel konversi dari pembuat tangki tidak akan pernah tercapai karena temperatur cairan hampir tidak mungkin mencapai temperatur standar nitrogen -195.7°C saat sudah sekian waktu di tangki produksi, melewati pompa transfer, sekian waktu di tangki transporter, melewati lagi pompa transfer. Saat dibutuhkan tekanan kerja misalnya ke 27 barg, maka cairan perlu dihangatkan melewati <em>pressure building system</em> (PB) agar menciptakan tekanan permukaan 27 barg itu. Semakin hangat cairan, semakin besar ruang yang dibutuhkan, semakin besar tekanan permukaan, semakin kecil <em>density</em>.</p>
+<blockquote>Tidaklah tepat jika masih menggunakan tabel konversi yang pada 1 atm dari pembuat tangki jika kemudian tangki dioperasikan pada kondisi <em>medium/high pressure</em>. Hubungi kami jika membutuhkan tabel konversi pada tekanan kerja berbeda.</blockquote>
+<p>Mari kita lihat kembali contoh tangki di atas yang dimensi keseluruhan <em>inner vessel</em> diketahui dari dokumen tangki. Aplikasi <a href="https://blog.kiiota.com/aplikasi-vessel-volume/">Vessel Volume</a> dengan mudah menghitung kapasitas keseluruhannya sebagai berikut:</p>
+<!--kg-card-begin: markdown-->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Tekanan (barg)</th>
+<th style="text-align:center">Volume (lt)</th>
+<th style="text-align:center">Weight (kg)</th>
+<th style="text-align:center">Gas (m<sup>3</sup>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">30000</td>
+<td style="text-align:center">24225</td>
+<td style="text-align:center">21498</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">30000</td>
+<td style="text-align:center">20594</td>
+<td style="text-align:center">18276</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:center">30000</td>
+<td style="text-align:center">14773</td>
+<td style="text-align:center">13110</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown-->
+<p>Volume tangki yang tersedia tentu tetap sesuai dengan spesifikasi fisik 30000 liter, mampu menampung cairan sebanyak 30000 liter tetapi berat cairan tersebut dan konversinya ke gas (pada 1 atm, 30°C) sangat jauh berbeda untuk kondisi yang berbeda. Jadi, tidak mungkin kita memaksakan 24.2 ton produk masuk ke tangki saat kita akan operasikan tangki itu pada tekanan 27 barg! Untuk target kondisi tersebut, jika pengisian dari posisi kosong cukup isi tangki sebanyak 14.8 ton saja atau jika tidak dari posisi kosong cukup pada penunjukan DP <em>transmitter </em>sampai 4348 mmH<sub>2</sub>O saja. Ingat, DP <em>transmitter </em>proportional terhadap berat, pengisian sampai 4348 mmH<sub>2</sub>O pada tekanan berapapun di bawah 27 barg dipastikan tidak akan melewati <em>full trycock</em> tangki saat kondisi nantinya cairan mengembang untuk mencapai tekanan 27 barg.</p>
+<p>Bagaimana? Mendapatkan pencerahan? Sementara tulisan ini akan saya terbitkan dahulu, akan ada <em>update </em>lagi di kesempatan berikutnya sekiranya masih ada misteri yang perlu penjelasan praktis.</p>
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/vessel-volume/2021/11/28/pengetahuan-praktis-pengukuran-level-menggunakan-dp-transmitter.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>

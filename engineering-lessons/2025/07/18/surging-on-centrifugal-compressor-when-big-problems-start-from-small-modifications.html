@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance." />
+<meta property="og:description" content="This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance." />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-18T19:23:19+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="twitter:title" content="Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-18T19:23:19+00:00","datePublished":"2025-07-18T19:23:19+00:00","description":"This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.","headline":"Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications","image":"https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&ixlib=rb-4.1.0&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html"},"url":"https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/engineering-lessons">
+        Engineering Lessons
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2025-07-18T19:23:19+00:00" itemprop="datePublished">
+        July 18, 2025
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">11 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&ixlib=rb-4.1.0&q=80&w=2000" alt="Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@chamooomile0?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Roman Melnychuk</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/07/surging_en_US.mp3" preload="metadata"></audio><div class="kg-audio-title">When Big Problems Start from Small Modifications</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">6.84</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
+<h2 id="introduction">Introduction</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/01_surging_on_centrifugal_compressor_when_big_problems_start_from_small_modifications.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>Chronic issues with the <strong>Recycle Nitrogen Compressor</strong> and <strong>Booster Expander</strong> in the <strong>Air Separation Plant</strong> unit have been present since commissioning, triggered by installation modifications initially intended to provide expander speed information to the control room for operational purposes, but ultimately leading to long-term technical impacts.</p>
+<p>It took nearly ten years—from when I started working in this industry in 2007 until the problem was finally resolved in 2017—to truly understand and solve this issue. During that time, and certainly before, various efforts were made, but most only addressed the symptoms—not the root cause. From my perspective, this article records a long journey—from initial suspicions, field experiments, to the resolution that finally restored the system to its original design logic. Please feel free to provide counterarguments if you feel there are inaccuracies.</p>
+<hr />
+
+<h2 id="the-beginning-of-the-problem">The Beginning of the Problem</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/02_the_beginning_of_the_problem.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>From the start, this problem seemed to be understood with a flawed premise: almost all attention was focused on the <strong>recycle nitrogen compressor</strong>, as if it was always the culprit. However, from the beginning, I suspected something was amiss—especially in the shutdown sequence between the <strong>recycle nitrogen compressor</strong> and <strong>booster expander</strong>.</p>
+<p><strong>DCS showed that the recycle nitrogen compressor tripped first</strong>, but I doubted the accuracy of this data. There was a <strong>hardwired interlock</strong> that allowed the recycle nitrogen compressor to trip <strong>upon request from the booster expander</strong>, while DCS—which processes hundreds of I/Os—could experience latency in recording the sequence of events, especially those occurring within milliseconds. This is because DCS performs a <em>cyclic scan</em> of I/Os sequentially, whereas trip signals can appear <em>asynchronously</em>, either ahead of or behind the <em>scan</em> cycle.</p>
+<p>To ensure the actual shutdown sequence, I assembled a <strong>Siemens S7 PLC</strong> as a high-speed <em>event logger</em>. High resolution was the only way to objectively prove who actually tripped first. The test results were <strong>consistent</strong>: <strong>100% of events showed that the booster tripped first</strong>. This was caused by the <strong>sudden opening of the booster bypass</strong>, which triggered <strong>surging on the recycle nitrogen compressor</strong>, eventually causing the recycle nitrogen compressor to trip as well through interlock commands. Of course, not everyone immediately agreed with this conclusion—because understanding how DCS and PLC work requires deep technical expertise.</p>
+<blockquote>
+<p><strong>Ladder Logic – Fair Trip Detection</strong></p>
+<p>The ladder logic below implements a deterministic trip detection system using rising edge recognition and memory flags.<br />
+It ensures that whichever input (recycle nitrogen compressor or booster expander) triggers a trip first is recorded objectively—regardless of PLC scan order.</p>
+</blockquote>
+<details>
+<summary>Click to reveal for Ladder Logic and PLC Symbol Table</summary>
+<pre><code class="language-plaintext">// Detect rising edge of input C60
+Rung 1:
+|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 pulse
+
+Rung 2:
+|----[ I0.0 ]-----------------------------( M0.3 )  // Save C60 state
+
+// Detect rising edge of input CD10
+Rung 3:
+|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 pulse
+
+Rung 4:
+|----[ I0.1 ]-----------------------------( M0.4 )  // Save CD10 state
+
+// Status outputs
+Rung 5:
+|----[ I0.0 ]-----------------------------( Q0.2 )  // C60 has tripped
+
+Rung 6:
+|----[ I0.1 ]-----------------------------( Q0.3 )  // CD10 has tripped
+
+// Determine who tripped first
+Rung 7:
+|----[ M0.1 ]----[/ M0.0 ]----------------( Q0.0 )  // C60 tripped first
+|                                     ----( M0.0 )  // Lock trip detection
+
+Rung 8:
+|----[ M0.2 ]----[/ M0.0 ]----------------( Q0.1 )  // CD10 tripped first
+|                                     ----( M0.0 )  // Lock trip detection
+
+// Manual reset
+Rung 9:
+|----[ I0.2 ]---------------------------[RST M0.0]  // Reset trip flag
+|                                       [RST Q0.0]
+|                                       [RST Q0.1]
+|                                       [RST Q0.2]
+|                                       [RST Q0.3]
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><strong>Symbol</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Function Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>I0.0</code></td>
+<td>Digital Input</td>
+<td>Trip signal from compressor C60</td>
+</tr>
+<tr>
+<td><code>I0.1</code></td>
+<td>Digital Input</td>
+<td>Trip signal from booster expander CD10</td>
+</tr>
+<tr>
+<td><code>I0.2</code></td>
+<td>Digital Input</td>
+<td>Manual reset button to clear all trip flags</td>
+</tr>
+<tr>
+<td><code>Q0.0</code></td>
+<td>Digital Output</td>
+<td>Indicates C60 tripped first</td>
+</tr>
+<tr>
+<td><code>Q0.1</code></td>
+<td>Digital Output</td>
+<td>Indicates CD10 tripped first</td>
+</tr>
+<tr>
+<td><code>Q0.2</code></td>
+<td>Digital Output</td>
+<td>Status output: C60 has tripped</td>
+</tr>
+<tr>
+<td><code>Q0.3</code></td>
+<td>Digital Output</td>
+<td>Status output: CD10 has tripped</td>
+</tr>
+<tr>
+<td><code>M0.0</code></td>
+<td>Memory Bit</td>
+<td>Trip detection flag—only one trip allowed per scan</td>
+</tr>
+<tr>
+<td><code>M0.1</code></td>
+<td>Memory Bit</td>
+<td>Rising edge detected on C60</td>
+</tr>
+<tr>
+<td><code>M0.2</code></td>
+<td>Memory Bit</td>
+<td>Rising edge detected on CD10</td>
+</tr>
+<tr>
+<td><code>M0.3</code></td>
+<td>Memory Bit</td>
+<td>Previous input state of C60 (for edge detection)</td>
+</tr>
+<tr>
+<td><code>M0.4</code></td>
+<td>Memory Bit</td>
+<td>Previous input state of CD10 (for edge detection)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Since commissioning, to reduce the risk of surging, <strong>the recycle nitrogen compressor has never been operated at maximum performance</strong>. Its bypass tends to remain open, and to maintain operational stability, operators developed a daily routine: <strong>reducing expander speed</strong> when ambient temperatures began to rise in the morning, and <strong>increasing it again when the night was cooler</strong>—an art of survival between the safe design limits and the ever-changing operational realities. This strategy was quite effective: cooler nights were utilized to boost booster performance. Meanwhile, hot days were kept stable—because at high temperatures, the risk of <strong>surging</strong> and <strong>tripping</strong> was much greater.</p>
+<p>However, operating a centrifugal compressor with a bypass that is not fully closed made the entire plant <strong>very noisy</strong>. This was a costly performance compromise—eroding energy efficiency while reducing work comfort due to constant noise.</p>
+<hr />
+
+<h2 id="experiments-and-investigations">Experiments and Investigations</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/03_experiments_and_investigations.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>The dynamic operational strategy applied based on environmental condition assessments <strong>did not always yield the expected results</strong>. When environmental assessments were inaccurate—too early or too late in responding to changes—adjustments to expander speed repeatedly <strong>failed to prevent surging or tripping</strong> in the system.</p>
+<p>This problem worsened at the end of 2016, despite various improvements previously made, including replacing several control components and sensors. These efforts <strong>turned out to only address the symptoms, not the root cause</strong>. The situation was like <strong>dealing with a disease with an unclear diagnosis, then trying various medications that never truly cured it</strong>.</p>
+<p>Management then decided to conduct a total overhaul of both machines—<strong>recycle nitrogen compressor and booster expander</strong>. However, due to personnel limitations from the vendor, only the recycle nitrogen compressor was worked on.</p>
+<p>When testing the operation of the recycle nitrogen compressor without the booster expander, <strong>the machine was able to run at maximum performance without any issues</strong>. This result further strengthened my belief that <strong>the recycle nitrogen compressor was not the root cause of the problems that had been occurring</strong>. Just a few days after the plant resumed full operation, surging and tripping occurred again—bringing us back to the initial confusion.</p>
+<p>I then decided to form a <strong>small team</strong>, consisting of selected control, instrumentation, and mechanical technicians—only those who were allowed to be involved and they only received orders from me. Together, we conducted a series of intensive investigations:</p>
+<ul>
+<li><strong>Recording local panels</strong> using real-time video alternately, although very uncomfortable</li>
+<li><strong>Remodeling trip signals</strong>, after we obtained valuable recordings from the time of the disturbance</li>
+<li><strong>Evaluating 4–20 mA signal wiring</strong>, which turned out to be loaded with three devices, not two as it should have been</li>
+<li><strong>Simulating assumptions</strong>, and we successfully reconstructed the root cause with precision!</li>
+</ul>
+<p>The most crucial finding came from one thing that had been overlooked from the start: <strong>the analog signal actually came from a 5V DC voltage source</strong>, not 24V DC as I had assumed. This was not just a numerical difference—but a fundamental difference in power capacity and tolerance to load. I discovered this when I brought home and read the old speed controller document.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 1. Design Violation—analog signal overloaded by excessive output load
+  </figcaption>
+</div>
+<p>Furthermore, <strong>the output was actually loaded with three devices</strong>, whereas in the original design it was only designed for two. The combination of low voltage and excessive load caused <strong>significant signal distortion</strong>. The higher the operating speed, the greater the current drawn, and <strong>the voltage began to drop</strong> due to voltage drop at each load.</p>
+<p>At a certain point, <strong>the 5V DC source could no longer maintain the minimum voltage level</strong>, and the analog signal suddenly plummeted. This is where the peak problem emerged—<strong>the anti-surge controller on the booster expander read this condition as a serious disturbance</strong>, and responded aggressively even though it was not actually necessary.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 2. Design Violation—speed drop triggered unnecessary surge control
+  </figcaption>
+</div>
+<details>
+<summary>Click to reveal for above Python plotting script</summary>
+<pre><code class="language-javascript">import numpy as np
+import matplotlib.pyplot as plt
+
+# Current range (mA)
+current_mA = np.linspace(4, 20, 1000)
+
+# Convert to RPM (0–45000 RPM)
+rpm = (current_mA - 4) / 16 * 45000
+
+# Load resistances (ohms)
+resistors = [125, 250, 350]
+colors = ['tab:blue', 'tab:orange', 'tab:red']
+
+# Output voltage for each resistance
+voltages = {R: current_mA / 1000 * R for R in resistors}
+
+plt.figure(figsize=(10, 6))
+
+for i, R in enumerate(resistors):
+    voltage = voltages[R]
+    label = f'{R} Ω Load' if R &lt; 350 else f'{R} Ω Load (design violation)'
+    linestyle = '-' if R &lt; 350 else '--'  # Dashed line indicates thermal shift or excessive load
+
+    plt.plot(rpm, voltage, label=label, color=colors[i], linestyle=linestyle)
+
+    # Find where voltage reaches 5V
+    idx_5 = np.argmin(np.abs(voltage - 5))
+    rpm_at_5V = rpm[idx_5]
+    plt.axvline(rpm_at_5V, color=colors[i], linestyle=':', alpha=0.6)
+    plt.text(rpm_at_5V, 5.3, f'{int(rpm_at_5V)} RPM', rotation=90,
+             verticalalignment='bottom', horizontalalignment='right',
+             fontsize=8, color=colors[i])
+
+# Find where voltage reaches 4.8V
+idx_4 = np.argmin(np.abs(voltage - 4.8))
+rpm_at_4 = rpm[idx_4]
+plt.axvline(rpm_at_4, color=colors[2], linestyle=':', alpha=0.6)
+plt.text(rpm_at_4, 5.3, f'{int(rpm_at_4)} RPM', rotation=90,
+            verticalalignment='bottom', horizontalalignment='right',
+            fontsize=8, color=colors[2])
+
+# Compliance limit line
+plt.axhline(5, color='black', linestyle='--', label='Maximum Voltage (5 V)')
+
+# Warning voltage line
+plt.axhline(4.8, color='red', linestyle='--', label='Voltage Drop Due to Load (4.8 V)')
+
+# Labels and titles
+plt.title('Analog Speed Signal Distortion Due to Voltage Drop')
+plt.xlabel('Expander Speed (RPM)')
+plt.ylabel('Analog Voltage (V)')
+plt.grid(True)
+plt.legend()
+plt.xlim(0, 45000)
+plt.ylim(0, 7)
+plt.tight_layout()
+
+# Export as SVG
+plt.savefig("Voltage_vs_Speed.svg", format='svg')
+plt.show()
+</code></pre>
+</details>
+<p>Finally, it became clear: <strong>the initial circuit modification—which was intended only to display information in the control room—accidentally created measurement anomalies</strong>. This small disturbance, which for years was hidden behind assumptions and routines, turned out to be the main cause of complex and costly systemic disturbances.</p>
+<hr />
+
+<h2 id="small-modifications-big-results">Small Modifications, Big Results</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/04_small_modifications_big_results.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>After successfully reconstructing the root cause, I prepared a brief presentation to explain what actually happened, along with a very simple solution: <strong>returning the circuit to its original design</strong>. I was confident this solution was safe and appropriate, as it did not involve changes to logic or devices, but merely corrected the proven faulty circuit modification.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 3. Proposed Correction—conceptual signal splitting to mitigate analog overload risk
+  </figcaption>
+</div>
+<p>With full confidence, I presented this proposal in a management meeting. However, what happened was beyond expectations: <strong>I was not allowed to execute</strong>, and was directed to wait for vendor technicians to come for clarification and repairs. Yet, for years, neither the vendor nor others had ever successfully resolved this issue completely.</p>
+<p>I tried again, this time through a personal approach after the meeting, to explain the situation technically. But the result was the same: no room to act.</p>
+<p>At this point, I began to feel that <strong>the obstacles I faced were no longer technical, but political</strong>. An irony, when deep understanding of the problem was not the basis of trust.</p>
+<p>Because vendor support remained uncertain, I had already decided in my heart: whenever the plant tripped again, the solution I had prepared would be immediately executed. And of course, that day truly came. Still following procedures, I asked for permission from my direct superior before acting. Fortunately, the speed controller I had recently replaced had two output channels—eliminating the need for the previously planned signal splitter. With a slight program modification, I set both to output identical signals—one for the anti-surge controller, and one shared for local display and signals to DCS. The circuit modification became <strong>much simpler—and safer</strong>.</p>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;" />
+  <figcaption style="text-align:center; margin-top: 8px;">
+    Figure 4. Final Implementation—dual analog outputs resolve prior signal load distortion
+  </figcaption>
+</div>
+<p>With just <strong>a 30 cm cable</strong> and one <strong>small screwdriver</strong>, I reconnected the analog output that had been the source of the hidden problem. After the repair, the booster expander's <em>anti-surge controller</em> was retested—and the results were undeniable: <strong>the system fully recovered</strong>, <strong>without anomalies</strong>.</p>
+<blockquote>
+<p>"Sometimes, major repairs start from things that seem trivial—as long as we are persistent enough to find them and do not assume a problem is eternal."</p>
+</blockquote>
+<hr />
+
+<h2 id="direct-and-indirect-effects">Direct and Indirect Effects</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/05_direct_and_indirect_effects.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>This small modification brought significant impacts on plant performance, both technically and economically:</p>
+<ul>
+<li><strong>The recycle nitrogen compressor can now operate with its bypass fully closed</strong>, allowing the system to run close to design performance. Nitrogen no longer circulates aimlessly, while also reducing the load on the cooling system.</li>
+<li><strong>The centrifugal compressor became silent</strong>, no longer producing the characteristic whistle sound from bypass flow—a <em>silence that signifies efficiency</em>.</li>
+<li><strong>Energy consumption—and as a result, electricity bills—have dropped drastically</strong>, as ineffective nitrogen cycles were eliminated, and the need for machine restarts was greatly reduced.</li>
+<li><strong>LIN and LAR production increased</strong>, as processes ran more stably and optimally according to the original design.</li>
+</ul>
+<p>Of course, these changes were not immediately felt. It took time to <strong>dismantle operational patterns</strong> that had been formed over years and <strong>build confidence in the changes</strong> that had been made, requiring further changes to the process.</p>
+<p>At that time, I did not yet have the ability to independently calculate plant capacity. But according to information, this modification <em>was said to have a tangible impact</em>:</p>
+<blockquote>
+<p><strong>Savings of over 1 billion rupiah per month</strong> A combination of reduced electricity consumption and increased production output.</p>
+</blockquote>
+<p>The exact figures can be debated. But the compressor's silence—no longer screaming—that is the most tangible proof that change has occurred.</p>
+<hr />
+
+<h2 id="cultural-and-perception-challenges">Cultural and Perception Challenges</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/06_cultural_and_perception_challenges.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>The biggest challenge in solving problems is often not technical, but work culture and decision-making structures. In complex systems that have been operating for a long time, it is not uncommon for <strong>no single individual to truly understand the problem completely</strong>. Understanding is scattered and fragmented—some lies with engineers, some with operators, and some hidden in documentation that is rarely revisited.</p>
+<p>In such conditions, the direction of troubleshooting is more often determined by who has authority, not by who understands the problem best. Solutions are often shaped by intuition, habits, or pressure to quickly “restore operations”—not by deep diagnostic results.</p>
+<p>Not because the system is deliberately left to deviate from the design, but because <strong>efforts to find the root cause repeatedly hit dead ends</strong>. When various approaches fail to yield results, the organization eventually chooses the path considered safest: sticking to a stable configuration even if it deviates. As long as the system is still running and no fatal damage occurs, this condition is gradually accepted as the new normal.</p>
+<p>But when disturbances become more frequent, routine handling is no longer sufficient. <strong>Courage is needed to propose a counter-narrative</strong>—opening the possibility that the root cause has not been truly addressed, that there is something that has been overlooked in our collective understanding.</p>
+<p>True change usually only has room when the pressure is high enough, the data is strong enough, and the frustration is deep enough. At this point, a new approach finally has a chance to be tried—and real improvements can begin to happen.</p>
+<hr />
+
+<h2 id="closing">Closing</h2>
+<audio controls="">
+  <source src="https://blog.kiiota.com/content/media/2025/07/07_closing.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<p>This is not merely about repairing circuits or control logic, but <strong>an effort to reorganize trust in the original design</strong>—and more than that, <strong>the courage to correct a system that has long been considered final</strong>.</p>
+<p>I even thought to myself, <em>“If the output of the new speed controller had just happened to be 12V or 24V, maybe the issue would’ve resolved itself.”</em> But then again, I might never have discovered the real root cause.</p>
+<p>After two decades of operating in a deviated condition, this system finally works as it should. Not because the tools changed, but because our understanding of them changed. A long process that brought <strong>invaluable technical and managerial lessons</strong>.</p>
+<hr />
+
+<p><strong>Author's Note</strong></p>
+<p>This writing is not just about technical matters, but also about <strong>change management</strong>, <strong>historical analysis</strong>, and <strong>resilience in facing resistance</strong>.</p>
+<blockquote>
+<p>Muscle mass isn't everything —  neurons fire faster. 🧠⚡</p>
+</blockquote>
+<p style="text-align:center; font-size:0.95em; color:#555; margin-top:2em;">
+  And if all else fails...
+</p>
+<p><a href="https://www.youtube.com/watch?v=BGednQsQ-h8&amp;ref=blog.kiiota.com" target="_blank" rel="noopener noreferrer" style="display:inline-block; position:relative; text-decoration:none; margin-top:2em;" onmouseover="this.firstElementChild.style.filter='brightness(0.8) contrast(1.2)'" onmouseout="this.firstElementChild.style.filter='none'">
+  <img src="https://img.youtube.com/vi/BGednQsQ-h8/hqdefault.jpg" alt="Limp Bizkit - The Truth" style="width:100%; max-width:200px; border:0; display:block; margin:0 auto; border-radius:8px;" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_play_button_icon_%282017%29.svg" alt="Play" style="position:absolute; top:50%; left:50%; width:36px; height:36px; transform:translate(-50%,-50%); opacity:0.85;" />
+</a></p>
+<figcaption style="text-align:center; font-size:0.9em; font-style:italic; margin-top:6px; color:#444;">
+  Sometimes, the only justice left... is to tell <strong>the truth</strong>.
+</figcaption>
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Menghubungkan Grafana dan Rapid SCADA | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Menghubungkan Grafana dan Rapid SCADA" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana. Arsitektur Singkat Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA: Grafana –&gt; [Basic Auth] –&gt; ScadaGrafanaProxy –&gt; [Cookie Session] –&gt; Rapid SCADA 6 API Grafana:" />
+<meta property="og:description" content="Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana. Arsitektur Singkat Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA: Grafana –&gt; [Basic Auth] –&gt; ScadaGrafanaProxy –&gt; [Cookie Session] –&gt; Rapid SCADA 6 API Grafana:" />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-25T16:24:49+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="twitter:title" content="Menghubungkan Grafana dan Rapid SCADA" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-05-25T16:24:49+00:00","datePublished":"2025-05-25T16:24:49+00:00","description":"Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana. Arsitektur Singkat Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA: Grafana –&gt; [Basic Auth] –&gt; ScadaGrafanaProxy –&gt; [Cookie Session] –&gt; Rapid SCADA 6 API Grafana:","headline":"Menghubungkan Grafana dan Rapid SCADA","image":"https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&ixlib=rb-4.1.0&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html"},"url":"https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/rapid-scada">
+        Rapid Scada
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Menghubungkan Grafana dan Rapid SCADA</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2025-05-25T16:24:49+00:00" itemprop="datePublished">
+        May 25, 2025
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">5 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana.
+
+
+
+Arsitektur Singkat
+
+
+Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA:
+
+
+Grafana --> [Basic Auth] --> ScadaGrafanaProxy --> [Cookie Session] --> Rapid SCADA 6 API
+
+
+
+ * Grafana:
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&ixlib=rb-4.1.0&q=80&w=2000" alt="Menghubungkan Grafana dan Rapid SCADA" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p>Photo by <a href="https://unsplash.com/@dawson2406?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Stephen Dawson</a> / <a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Unsplash</a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<!--kg-card-begin: markdown-->
+<p>Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana.</p>
+<h3 id="arsitektur-singkat">Arsitektur Singkat</h3>
+<p>Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA:</p>
+<pre><code>Grafana --&gt; [Basic Auth] --&gt; ScadaGrafanaProxy --&gt; [Cookie Session] --&gt; Rapid SCADA 6 API
+</code></pre>
+<ul>
+<li><strong>Grafana</strong>: Mengirim permintaan data historis.</li>
+<li><strong>ScadaGrafanaProxy</strong>: Middleware berbasis Node.js yang mengautentikasi pengguna dan meneruskan permintaan ke Rapid SCADA.</li>
+<li><strong>Rapid SCADA 6</strong>: Menyediakan endpoint <code>/Api/Main/GetHistData</code> dengan autentikasi berbasis sesi.</li>
+</ul>
+<h3 id="struktur-file-utama">Struktur File Utama</h3>
+<pre><code>.
+├── server.js          # Entrypoint dan autentikasi dasar
+├── grafanaRouter.js   # Routing permintaan Grafana
+├── scadaClient.js     # Login SCADA &amp; manajemen cookie
+├── config.js          # Konfigurasi aplikasi
+├── .env               # Variabel lingkungan untuk konfigurasi
+</code></pre>
+<h3 id="penjelasan-tiap-komponen">Penjelasan Tiap Komponen</h3>
+<ul>
+<li>
+<p><strong><code>server.js</code></strong><br />
+Titik masuk utama aplikasi. Menginisialisasi Express dan menggunakan middleware Basic Auth untuk membatasi akses dari klien seperti Grafana. Semua permintaan kemudian diteruskan ke <code>grafanaRouter.js</code>.</p>
+</li>
+<li>
+<p><strong><code>grafanaRouter.js</code></strong><br />
+Menangani rute <code>/Api/Main/GetHistData</code>. Modul ini bertanggung jawab untuk:</p>
+<ul>
+<li>Memastikan sesi login SCADA masih valid.</li>
+<li>Melakukan permintaan ke SCADA.</li>
+<li>Mengubah format respons SCADA menjadi array of objects <code>{ timestamp, channel, value }</code> agar cocok dengan format Grafana.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>scadaClient.js</code></strong><br />
+Berisi fungsi untuk login ke Rapid SCADA dan menyimpan cookie sesi yang valid. Cookie hanya diperbarui jika dibutuhkan.</p>
+</li>
+<li>
+<p><strong><code>config.js</code> dan <code>.env</code></strong><br />
+Semua informasi konfigurasi diambil dari <code>.env</code>, seperti kredensial dan URL. File <code>config.js</code> hanya membaca dari environment variable menggunakan <code>dotenv</code>.</p>
+</li>
+</ul>
+<h3 id="contoh-isi-env">Contoh Isi <code>.env</code></h3>
+<pre><code class="language-env">PROXY_PORT=3000
+PROXY_USER=admin
+PROXY_PASS=secret
+SCADA_BASE_URL=http://localhost:10008
+SCADA_USERNAME=admin
+SCADA_PASSWORD=secret
+</code></pre>
+<h3 id="kode-serverjs">Kode <code>server.js</code></h3>
+<pre><code class="language-javascript">const express = require('express');
+const bodyParser = require('body-parser');
+const basicAuth = require('basic-auth');
+const grafanaRouter = require('./grafanaRouter');
+const config = require('./config');
+
+const app = express();
+
+// Basic Auth middleware
+app.use((req, res, next) =&gt; {
+  const user = basicAuth(req);
+  if (!user || user.name !== config.proxy.username || user.pass !== config.proxy.password) {
+    res.set('WWW-Authenticate', 'Basic realm=&quot;GrafanaDataProxy&quot;');
+    return res.status(401).send('Authentication required.');
+  }
+  next();
+});
+
+app.use(bodyParser.json());
+app.use('/', grafanaRouter);
+
+// Error handling middleware
+app.use((err, req, res, next) =&gt; {
+  console.error(err.stack);
+  res.status(500).send('Internal Server Error');
+});
+
+app.listen(config.proxy.port, () =&gt; {
+  console.log(`SCADA Grafana Proxy listening on port ${config.proxy.port}`);
+});
+</code></pre>
+<h3 id="kode-scadaclientjs">Kode <code>scadaClient.js</code></h3>
+<pre><code class="language-javascript">const axios = require('axios');
+const config = require('./config');
+
+let cookieJar = [];
+
+async function login() {
+  const url = `${config.scada.baseUrl}/Api/Auth/Login`;
+  const payload = {
+    Username: config.scada.username,
+    Password: config.scada.password,
+  };
+
+  try {
+    const response = await axios.post(url, payload, {
+      headers: {
+        Accept: 'application/json;charset=utf-8',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+
+    console.log(`[CLIENT] Login status: ${response.status}`);
+    const setCookieHeaders = response.headers['set-cookie'];
+    if (!setCookieHeaders) {
+      throw new Error('[CLIENT] No set-cookie header received from SCADA.');
+    }
+
+    if (response.data?.success === false) {
+      throw new Error('[CLIENT] SCADA login failed: ' + (response.data?.message || 'Unknown error'));
+    }
+
+    cookieJar = setCookieHeaders.map(cookie =&gt; cookie.split(';')[0]);
+  } catch (err) {
+    console.error('[CLIENT] Login to SCADA failed:', err.message);
+    throw err;
+  }
+}
+
+function getSessionCookies() {
+  return cookieJar;
+}
+
+async function ensureLogin() {
+  if (!cookieJar.length) {
+    await login();
+  }
+}
+
+async function forceLogin() {
+  cookieJar = [];
+  await login();
+}
+
+module.exports = {
+  login,
+  getSessionCookies,
+  ensureLogin,
+  forceLogin,
+};
+</code></pre>
+<h3 id="kode-grafanarouterjs">Kode <code>grafanaRouter.js</code></h3>
+<pre><code class="language-javascript">const express = require('express');
+const axios = require('axios');
+const router = express.Router();
+const config = require('./config');
+const { getSessionCookies, ensureLogin, forceLogin } = require('./scadaClient');
+
+router.get('/Api/Main/GetHistData', async (req, res) =&gt; {
+  if (!req.query || !req.query.cnlNums || !req.query.startTime || !req.query.endTime) {
+    return res.status(400).json({ message: '[ROUTER] Missing required query parameters' });
+  }
+
+  const url = `${config.scada.baseUrl}/Api/Main/GetHistData`;
+
+  try {
+    await ensureLogin();
+    const cookies = getSessionCookies();
+
+    const response = await axios.get(url, {
+      headers: {
+        Accept: 'application/json;charset=utf-8',
+        Cookie: cookies.join('; '),
+        'User-Agent': 'Mozilla/5.0',
+      },
+      params: req.query,
+    });
+
+    console.log('[ROUTER] Fetching data from SCADA with params:', req.query);
+    try {
+      const transformed = transformSCADAResponse(response);
+      return res.json(transformed);
+    } catch (transformError) {
+      return res.status(500).json({
+        message: '[ROUTER] Error transforming SCADA response',
+        details: transformError.message,
+      });
+    }
+  } catch (error) {
+    if (error.response?.status === 401) {
+      console.warn(`[ROUTER] Session expired. Re-authenticating...`);
+      await forceLogin();
+      const cookies = getSessionCookies();
+
+      try {
+        const retryResponse = await axios.get(url, {
+          headers: {
+            Accept: 'application/json;charset=utf-8',
+            Cookie: cookies.join('; '),
+            'User-Agent': 'Mozilla/5.0',
+          },
+          params: req.query,
+        });
+
+        return res.json(transformSCADAResponse(retryResponse));
+      } catch (retryError) {
+        return res.status(retryError.response?.status || 500).json({
+          message: '[ROUTER] Error after retrying login',
+          details: retryError.response?.data || retryError.message,
+        });
+      }
+    }
+
+    res.status(error.response?.status || 500).json({
+      message: '[ROUTER] Error forwarding request to SCADA',
+      details: error.response?.data || error.message,
+    });
+  }
+});
+
+router.get('/health', (req, res) =&gt; res.send('SCADA Grafana Proxy is running'));
+
+function transformSCADAResponse(response) {
+  const { data } = response;
+  if (!data?.data?.timestamps || !data?.data?.trends || !data?.data?.cnlNums) {
+    console.error('[ROUTER] SCADA response format invalid:', data);
+    throw new Error('[ROUTER] Invalid SCADA response format');
+  }
+
+  const timestamps = data.data.timestamps.map(ts =&gt; ts.ms);
+
+  return (data.data.trends || []).flatMap((trendValues, index) =&gt; {
+    const channel = data.data.cnlNums?.[index] ?? null;
+    return (trendValues || []).map((item, i) =&gt; ({
+      timestamp: timestamps?.[i] ?? null,
+      channel,
+      value: item?.d?.val ?? null,
+    }));
+});
+
+}
+
+module.exports = router;
+</code></pre>
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Proxy ini memungkinkan Grafana untuk mengambil data historis dari Rapid SCADA dengan cara yang lebih mudah, aman, dan terstruktur. Pendekatan cookie session Rapid SCADA 6 lebih andal dibanding basic auth, serta format JSON hasilnya dapat digunakan langsung oleh plugin data source seperti Infinity atau JSON API.</p>
+<p>Dengan desain modular, kita dapat memperluas proxy ini untuk endpoint Rapid SCADA lainnya atau menambahkan fitur autentikasi tambahan jika diperlukan.</p>
+<p>👉 Kode sumber lengkap tersedia di: <a href="https://github.com/kumajaya/scada-grafana-proxy?ref=blog.kiiota.com">https://github.com/kumajaya/scada-grafana-proxy</a></p>
+<h3 id="konfigurasi-infinity-datasource-di-grafana">Konfigurasi Infinity Datasource di Grafana</h3>
+<p>Untuk menghubungkan Grafana dengan <code>ScadaGrafanaProxy</code>, kita bisa menggunakan plugin <a href="https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/?ref=blog.kiiota.com">Infinity Datasource</a>, yang mendukung permintaan HTTP ke endpoint JSON/REST.</p>
+<h4 id="langkah-langkah">Langkah-langkah:</h4>
+<ol>
+<li>
+<p><strong>Install Infinity Plugin</strong><br />
+Di Grafana, buka menu <strong>Plugins</strong>, cari <strong>Infinity</strong>, dan install.</p>
+</li>
+<li>
+<p><strong>Tambahkan Datasource Baru</strong></p>
+<ul>
+<li>
+<p>Masuk ke <strong>Configuration &gt; Data Sources</strong>.</p>
+</li>
+<li>
+<p>Pilih <strong>Infinity</strong>.</p>
+</li>
+<li>
+<p>Atur sebagai berikut:</p>
+<ul>
+<li><strong>Name</strong>: Beri nama unik, misalnya <code>bekasi-infinity-datasource</code></li>
+<li><strong>Authentication</strong>: Pilih <em>Basic Auth</em>, dan masukkan <code>admin:secret</code> (atau sesuai <code>.env</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Membuat Panel di Dashboard</strong></p>
+<h5 id="konfigurasi-untuk-rapid-scada-6">Konfigurasi Untuk <strong>Rapid SCADA 6</strong>:</h5>
+<ul>
+<li>
+<p>Pilih <strong>bekasi-infinity-datasource</strong> sebagai datasource.</p>
+</li>
+<li>
+<p>Pilih <strong>Type</strong>: JSON</p>
+</li>
+<li>
+<p><strong>Method</strong>: <code>GET</code></p>
+</li>
+<li>
+<p><strong>URL</strong>: <code>http://&lt;ip_proxy&gt;:3000/Api/Main/GetHistData</code></p>
+<ul>
+<li>
+<p><strong>URL Query Params</strong>:</p>
+<ul>
+<li><code>archiveBit</code>: Tipe arsip Rapid SCADA (1: minutes data, 2: hours data), bisa juga diatur dengan variabel kustom misalnya <code>${_archiveBit}</code></li>
+<li><code>startTime</code>: Tanggal mulai dalam format ISO (<code>${__from:date:iso}</code>)</li>
+<li><code>endTime</code>: Tanggal akhir dalam format ISO (<code>${__to:date:iso}</code>)</li>
+<li><code>endInclusive</code>: Untuk menyertakan batas waktu di dalam range atau tidak (<code>true</code> atau <code>false</code>)</li>
+<li><code>cnlNums</code>: Daftar channel number (misalnya: <code>101,102</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Untuk <strong>Root selector</strong> dikosongkan.</p>
+</li>
+<li>
+<p>Tambahkan <strong>Columns selector</strong>:</p>
+<ul>
+<li><code>timestamp</code>: Time field format sebagai <code>Time (UNIX ms)</code> agar Grafana dapat mengenali timestamp</li>
+<li><code>value</code>: Nilai pengukuran sebagai <code>Number</code></li>
+<li><code>channel</code>: Channel pengukuran (untuk group by) sebagai <code>String</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="konfigurasi-untuk-rapid-scada-5-dengan-grafanadataprovider-plugin">Konfigurasi Untuk <strong>Rapid SCADA 5</strong> dengan <strong><code>GrafanaDataProvider</code></strong> plugin:</h5>
+<ul>
+<li>Pilih <code>bekasi-infinity-datasource</code> sebagai datasource.</li>
+<li>Pilih <strong>Type</strong>: JSON</li>
+<li><strong>Method</strong>: <code>POST</code></li>
+<li><strong>URL</strong>: <code>http://&lt;ip_proxy&gt;:3000/api/trends/query</code>
+<ul>
+<li><strong>Body Content Type</strong>: JSON</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>{
+    &quot;range&quot;: {
+        &quot;from&quot;: &quot;${__from:date:iso}&quot;,
+        &quot;to&quot;: &quot;${__to:date:iso}&quot;
+    },
+    &quot;intervalMs&quot;: &quot;${__interval_ms}&quot;,
+    &quot;targets&quot;: [
+        {
+            &quot;target&quot;: &quot;101&quot;
+        },
+        {
+            &quot;target&quot;: &quot;102&quot;
+        }
+    ]
+}
+</code></pre>
+<ul>
+<li>
+<p>Untuk <strong>Root selector</strong> dikosongkan.</p>
+</li>
+<li>
+<p>Tambahkan <strong>Columns selector</strong>:</p>
+<ul>
+<li><code>timestamp</code>: Time field format sebagai <code>Time (UNIX ms)</code> agar Grafana dapat mengenali timestamp</li>
+<li><code>value</code>: Nilai pengukuran sebagai <code>Number</code></li>
+<li><code>target</code>: Target pengukuran (untuk group by) sebagai <code>String</code></li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><strong>Transformation</strong><br />
+Tambahkan <strong>Prepare time series</strong> dengan format <code>Multi-frame time series</code>.</li>
+</ol>
+<h4 id="contoh-url-dengan-parameter-tanpa-url-encode">Contoh URL dengan parameter (tanpa URL encode):</h4>
+<pre><code>http://localhost:3000/Api/Main/GetHistData?archiveBit=2&amp;startTime=2025-05-25T00:00:00.000Z&amp;endTime=2025-05-25T23:59:59.000Z&amp;endInclusive=true&amp;cnlNums=101,102&amp;
+</code></pre>
+<h3 id="faq-singkat">FAQ Singkat</h3>
+<p><strong>Q: Apakah proxy ini aman digunakan di jaringan publik?</strong><br />
+A: Proxy ini mengimplementasikan Basic Auth untuk membatasi akses, namun disarankan untuk menggunakannya di belakang VPN atau reverse proxy dengan HTTPS jika digunakan di jaringan terbuka.</p>
+<p><strong>Q: Apa yang terjadi jika session cookie kedaluwarsa?</strong><br />
+A: Proxy akan secara otomatis melakukan login ulang ke SCADA dan mencoba kembali permintaan dari Grafana.</p>
+<p><strong>Q: Format data seperti apa yang dikembalikan oleh endpoint <code>/Api/Main/GetHistData</code>?</strong><br />
+A: Format data asli berbasis timestamp array, channel number array, dan nilai tren. Proxy mengubahnya menjadi array objek <code>{ timestamp, channel, value }</code> agar lebih mudah digunakan di Grafana.</p>
+<p><strong>Q: Apakah bisa digunakan untuk SCADA versi 5?</strong><br />
+A: Tidak langsung. Rapid SCADA v5 memiliki autentikasi berbeda dan tidak menggunakan endpoint REST seperti versi 6.</p>
+<p><strong>Q: Bisakah ditambahkan endpoint untuk data realtime atau status channel?</strong><br />
+A: Ya, kamu bisa menambahkan rute baru dan menggunakan pendekatan serupa di <code>grafanaRouter.js</code>, lalu sesuaikan transformasi data sesuai kebutuhan.</p>
+<!--kg-card-end: markdown-->
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/rapid-scada/2025/05/25/menghubungkan-grafana-dan-rapid-scada.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>

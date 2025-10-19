@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi." />
+<meta property="og:description" content="Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi." />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-09T08:31:13+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="twitter:title" content="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-09T08:31:13+00:00","datePublished":"2025-08-09T08:31:13+00:00","description":"Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.","headline":"Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional","image":"https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&ixlib=rb-4.1.0&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html"},"url":"https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/cost-optimization">
+        Cost Optimization
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2025-08-09T08:31:13+00:00" itemprop="datePublished">
+        August 09, 2025
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">6 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&ixlib=rb-4.1.0&q=80&w=2000" alt="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@alexandermils?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Alexander Mils</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/08/zero-cost_engineering.mp3" preload="metadata"></audio><div class="kg-audio-title">Workflow FOSS untuk Hasil Profesional</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">5.184</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
+<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
+<p>"<strong>Apakah kita benar-benar perlu membayar mahal untuk perangkat lunak, jika hasil teknikal yang sama — bahkan lebih baik — bisa dicapai secara gratis?</strong>"</p>
+<p>Di banyak industri, optimalisasi performa peralatan sering diasosiasikan dengan perangkat lunak berbayar, lisensi berlapis, dan perangkat keras kelas atas. Namun kenyataannya, <strong>hasil profesional tidak selalu bergantung pada biaya lisensi</strong>. Melalui pendekatan <strong>Zero-Cost Engineering</strong> — rekayasa berbasis FOSS (Free and Open Source Software) dan metodologi modular — kita dapat menghasilkan output teknis berkualitas tinggi tanpa biaya tambahan. Bayangkan: menyelesaikan analisis teknikal level industri tanpa mengeluarkan biaya lisensi perangkat lunak sama sekali. Ini bukan sekadar teori — studi kasus nyata telah membuktikannya.</p>
+<hr />
+
+<h2 id="filosofi-zero-cost-engineering"><strong>Filosofi Zero-Cost Engineering</strong></h2>
+<p>Zero-Cost Engineering bukan berarti kompromi terhadap kualitas. Yang dimaksud di sini adalah: <strong>maksimalkan alat yang tersedia, hilangkan biaya lisensi</strong>, dan investasikan waktu untuk memahami proses secara lebih mendalam.</p>
+<p>Prinsipnya:</p>
+<ul>
+<li><strong>Satu bahasa untuk semuanya</strong> → Python</li>
+<li><strong>Satu editor untuk semuanya</strong> → Visual Studio Code + Jupyter Notebook</li>
+<li><strong>Satu alur kerja yang terdokumentasi penuh</strong> → mudah direplikasi, modular, dan siap diuji ulang</li>
+<li><strong>Satu platform publikasi</strong> → Markdown + Joplin + Ghost CMS</li>
+</ul>
+<p>Dengan pendekatan ini, kita bukan hanya menghemat biaya — kita membangun ekosistem kerja yang transparan, audit-ready, dan siap dibagikan ke komunitas. Setelah memahami filosofinya, mari kita telusuri alur kerja end-to-end yang digunakan.</p>
+<hr />
+
+<h2 id="workflow-foss-end-to-end"><strong>Workflow FOSS End-to-End</strong></h2>
+<h3 id="digitalisasi-data"><strong>Digitalisasi Data</strong></h3>
+<ul>
+<li><strong>Input</strong>: Kurva performa vendor (PDF/JPEG/PNG)</li>
+<li><strong>Tool</strong>: <a href="https://automeris.io/?ref=blog.kiiota.com">WebPlotDigitizer</a> (gratis, berbasis web)</li>
+<li><strong>Hasil</strong>: Ekstraksi kurva performa dari gambar statis menjadi dataset numerik siap analisis</li>
+<li><strong>Alternatif berbayar</strong>: OriginLab Digitizer, MATLAB Toolbox</li>
+</ul>
+<h3 id="analisis-dan-visualisasi"><strong>Analisis dan Visualisasi</strong></h3>
+<ul>
+<li><strong>Tool</strong>: <a href="https://www.python.org/?ref=blog.kiiota.com">Python</a> (<code>pandas</code>, <code>numpy</code>, <code>matplotlib</code>)</li>
+<li><strong>Hasil</strong>: Grafik hubungan IGV vs. tekanan/flow, identifikasi zona efisiensi, dan titik operasi aktual</li>
+<li><strong>Alternatif berbayar</strong>: MATLAB, OriginPro, JMP</li>
+</ul>
+<h3 id="draft-konten-modular"><strong>Draft Konten Modular</strong></h3>
+<ul>
+<li><strong>Tool</strong>: Markdown di <a href="https://code.visualstudio.com/?ref=blog.kiiota.com">Visual Studio Code</a> atau <a href="https://joplinapp.org/?ref=blog.kiiota.com">Joplin</a>, diagram alir dengan <a href="https://mermaid.live/?ref=blog.kiiota.com">Mermaid</a>, diagram teknikal statis di <a href="https://www.drawio.com/?ref=blog.kiiota.com">draw.io</a></li>
+<li><strong>Hasil</strong>: Naskah teknis yang rapi, modular, dan siap dikonversi</li>
+<li><strong>Alternatif berbayar</strong>: MS Word + EndNote + Visio, Adobe FrameMaker</li>
+</ul>
+<h3 id="konversi-dan-layout-pdf"><strong>Konversi dan Layout PDF</strong></h3>
+<ul>
+<li><strong>Tool</strong>: <a href="https://pandoc.org/?ref=blog.kiiota.com">Pandoc</a> (Markdown → LaTeX) + <a href="https://www.overleaf.com/?ref=blog.kiiota.com">Overleaf</a></li>
+<li><strong>Hasil</strong>: Whitepaper PDF siap cetak dan distribusi, bahkan reproduksi</li>
+<li><strong>Alternatif berbayar</strong>: Adobe InDesign, Scientific Word</li>
+</ul>
+<h3 id="narasi-audio"><strong>Narasi Audio</strong></h3>
+<ul>
+<li><strong>Tool</strong>: Python TTS (<a href="https://github.com/nateshmbhat/pyttsx3/?ref=blog.kiiota.com"><code>pyttsx3</code></a>, <a href="https://github.com/pndurette/gTTS/?ref=blog.kiiota.com"><code>gTTS</code></a>)</li>
+<li><strong>Hasil</strong>: Narasi audio untuk presentasi atau podcast teknis</li>
+<li><strong>Alternatif berbayar</strong>: Adobe Audition + TTS API</li>
+</ul>
+<h3 id="distribusi"><strong>Distribusi</strong></h3>
+<ul>
+<li><strong>Tool</strong>: <a href="https://ghost.org/?ref=blog.kiiota.com">Ghost CMS</a> (self-hosted) + PDF distribusi</li>
+<li><strong>Hasil</strong>: Blog post untuk pembaca umum, whitepaper PDF untuk pembaca teknis</li>
+<li><strong>Alternatif berbayar</strong>: CMS enterprise + Adobe Acrobat Pro DC</li>
+</ul>
+<hr />
+
+<h2 id="hasil-nyata-studi-kasus-kompresor-sentrifugal"><strong>Hasil Nyata: Studi Kasus Kompresor Sentrifugal</strong></h2>
+<p>Workflow ini bukan sekadar teori — ia telah digunakan dalam proyek nyata untuk menganalisis performa kompresor sentrifugal yang gagal mencapai target tekanan. Dengan pendekatan berbasis FOSS, seluruh proses — dari data mentah hingga publikasi — dapat dijalankan secara mandiri, transparan, dan tanpa biaya lisensi.</p>
+<p>Hasilnya:</p>
+<ul>
+<li>Masalah operasional berhasil diidentifikasi tanpa bantuan perangkat lunak berbayar atau perangkat analisis khusus</li>
+<li>Rekomendasi teknis disusun berdasarkan kurva performa yang didigitalisasi dan divisualisasikan secara mandiri</li>
+<li>Output akhir berupa blog post yang komunikatif dan whitepaper PDF yang siap diuji ulang — semuanya dibuat dengan alat gratis dan terbuka</li>
+</ul>
+<p>Studi kasus ini membuktikan bahwa dengan workflow yang rapi dan alat yang tepat, <strong>kreativitas teknis dapat melampaui keterbatasan biaya</strong>. Dalam banyak kasus, biaya tidak perlu dialokasikan untuk perangkat lunak berbayar, melainkan lebih baik difokuskan pada perangkat keras, pelatihan operator, dan sumber daya lainnya yang berdampak langsung pada kualitas hasil.</p>
+<blockquote>
+<p>Studi kasus ini membuktikan bahwa hanya dengan satu laptop, satu bahasa, dan satu editor, kita tidak hanya menghemat biaya — kita membangun ekosistem kerja yang siap diuji ulang, dibagikan, dan dikembangkan bersama tim.</p>
+</blockquote>
+<hr />
+
+<h2 id="diagram-alir-workflow-foss"><strong>Diagram Alir Workflow FOSS</strong></h2>
+<!--figure style="text-align: center; margin: 2em auto; max-width: 600px;">
+  <img src="/kiiota-blog/assets/media/ba453585-0b56-4766-897f-7993886a8a9e-zero_cost_workflow.svg" 
+       alt="Diagram alir Zero-Cost Engineering dari data ke publikasi" 
+       style="width: 100%; height: auto;">
+  <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+    Gambar 1: Alur kerja Zero-Cost Engineering — dari data mentah hingga publikasi menggunakan FOSS tools (dirender menggunakan Mermaid)
+  </figcaption>
+</figure-->
+<p>Diagram berikut dirender langsung menggunakan Mermaid — bukan grafis hasil perangkat lunak eksternal apalagi berbayar, melainkan teks yang bisa direproduksi dan direvisi langsung.</p>
+<div style="text-align: center; margin: 0.5em auto; max-width: 600px;">
+  <div class="mermaid" style="width: 100%; max-width: 800px;">
+    flowchart TB
+      subgraph Workspace["Zero-Cost Engineering"]
+        direction TB
+          A["Digitalisasi Data<br />(WebPlotDigitizer)"]:::Sky
+          B["Analisis &amp; Visualisasi<br />(Python: matplotlib, numpy)"]:::Sky
+          C["Penulisan &amp; Naskah<br />(Joplin, Ghost, Mermaid, draw.io)"]:::Sky
+          D1["Blog Post<br />(Ghost CMS)"]:::Sky
+          D2["Whitepaper PDF<br />(Pandoc + Overleaf)"]:::Sky
+          D3["Narasi Audio<br />(Python TTS)"]:::Sky
+      end
+      A --&gt; B
+      B --&gt; C
+      C --&gt; D1 &amp; D2 &amp; D3
+      D1 --&gt; E["Distribusi Akhir"]:::Pine
+      D2 --&gt; E
+      D3 --&gt; E
+    classDef Sky fill:#F4F8FF,stroke:#2C3E50,color:#2C3E50,stroke-width:1.5px,rx:6px,ry:6px;
+    classDef Pine fill:#2E8B57,stroke:#1E5F3F,color:#FFFFFF,stroke-width:1.5px,rx:6px,ry:6px;
+    classDef Alert fill:#FFF5F5,stroke:#D32F2F,color:#D32F2F,stroke-width:1.5px,rx:6px,ry:6px;
+    style Workspace stroke:#757575,fill:#F5F5F5,rx:8px,ry:8px
+  </div>
+    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+    Gambar 1: Alur kerja Zero-Cost Engineering — dari data mentah hingga publikasi menggunakan FOSS tools
+    </figcaption>
+</div>
+<p>Salah satu kekuatan dari alur kerja ini adalah kemampuannya untuk mengintegrasikan ekspresi teknikal tingkat lanjut langsung ke dalam publikasi. Dengan menggunakan alat FOSS seperti \(\text{\LaTeX}\), rumus teknik yang kompleks dapat dirender dengan kualitas profesional.<br />
+Sebagai contoh:</p>
+<div style="text-align: center; margin: 0.5em auto; max-width: 600px;">
+    <figure style="text-align: center; margin: 2em auto; max-width: 800px;">
+      <div style="font-size: 1.0em; /*margin: 2.5rem auto; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.08);*/">$$ Q_{real} = Q_{design} \times \sqrt{\left( \frac{T_{design}}{T_{real}} \cdot \frac{P_{real}}{P_{design}} \right)} $$</div>
+    </figure>
+</div>
+<p>Ini memastikan bahwa dokumentasi ilmiah tetap presisi dan siap dipresentasikan tanpa bergantung pada editor persamaan komersial.</p>
+<hr />
+
+<h2 id="perbandingan-biaya-foss-vs-software-komersial"><strong>Perbandingan Biaya: FOSS vs Software Komersial</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Tahap</th>
+<th>FOSS</th>
+<th>Software Komersial</th>
+<th>Harga Lisensi / Tahun</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digitalisasi data</td>
+<td>WebPlotDigitizer</td>
+<td>OriginLab Digitizer, MATLAB Toolbox</td>
+<td>USD 500–2.000</td>
+</tr>
+<tr>
+<td>Analisis &amp; visualisasi</td>
+<td>Python</td>
+<td>MATLAB, OriginPro</td>
+<td>USD 1.000–2.500</td>
+</tr>
+<tr>
+<td>Draft konten</td>
+<td>Markdown + Joplin</td>
+<td>MS Word + Visio</td>
+<td>USD 150–1.000</td>
+</tr>
+<tr>
+<td>Konversi &amp; layout</td>
+<td>Pandoc + Overleaf</td>
+<td>Adobe InDesign</td>
+<td>USD 250–1.200</td>
+</tr>
+<tr>
+<td>Audio narasi</td>
+<td>Python TTS</td>
+<td>Adobe Audition + TTS API</td>
+<td>USD 200–1.000</td>
+</tr>
+<tr>
+<td>Distribusi</td>
+<td>Ghost CMS</td>
+<td>CMS enterprise + Acrobat Pro DC</td>
+<td>USD 200–600</td>
+</tr>
+<tr>
+<td><strong>Total Estimasi</strong></td>
+<td><strong>± USD 0</strong></td>
+<td><strong>USD 2.300–8.300</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Selisih Estimasi</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>± Rp 35–125 juta</strong></td>
+</tr>
+</tbody>
+</table>
+<figcaption style="text-align: left; font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+Catatan: Estimasi harga lisensi bersifat indikatif dan dapat berubah tergantung wilayah, diskon institusi, dan versi. Tidak termasuk biaya pelatihan, integrasi, atau perangkat keras.
+</figcaption>
+<hr />
+
+<h2 id="diagram-alur-keputusan"><strong>Diagram Alur Keputusan</strong></h2>
+<div style="width: 100%; text-align: center; margin: 0.5em auto; max-width: 800px;">
+  <div class="mermaid" style="width: 100%; max-width: 800px;">
+    flowchart TD
+        A["Mulai Proyek Teknikal"] --&gt; B{"Pilih Workflow"}
+        B -- FOSS --&gt; C["Zero-Cost Engineering"]
+        B -- Komersial --&gt; D["Software Berbayar"]
+        C --&gt; E1["Biaya Lisensi: ± USD 0"] &amp; G1["Investasi: Waktu, Dokumentasi, Pelatihan"] &amp; H1["Hasil: Whitepaper, Blog, Audio, Diagram"]
+        D --&gt; E2["Biaya Lisensi: USD 2.300–8.300"] &amp; G2["Investasi: Lisensi, Integrasi, Pelatihan"] &amp; H2["Hasil: Sama, tergantung lisensi &amp; platform"]
+        E2 --&gt; F["Rugi Potensial: Rp 35–125 juta"]
+        A@{ shape: rounded}
+        C@{ shape: rounded}
+        D@{ shape: rounded}
+        E1@{ shape: rounded}
+        G1@{ shape: rounded}
+        H1@{ shape: rounded}
+        E2@{ shape: rounded}
+        G2@{ shape: rounded}
+        H2@{ shape: rounded}
+        F@{ shape: rounded}
+         A:::Sky
+         A:::Sky
+         B:::Sky
+         C:::Aqua
+         C:::Pine
+         D:::Ash
+         E1:::Sky
+         G1:::Sky
+         H1:::Sky
+         E2:::Sky
+         G2:::Sky
+         H2:::Sky
+         F:::Rose
+        classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#999999, color:#FFFFFF
+        classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+        classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+        classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FF5978, color:#FFFFFF
+        classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+  </div>
+    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+    Gambar 2: Diagram alur keputusan teknikal — memilih antara workflow FOSS dan software komersial, beserta dampak biaya dan hasilnya
+    </figcaption>
+</div>
+<hr />
+
+<h2 id="kesimpulan"><strong>Kesimpulan</strong></h2>
+<p>Saat pertama kali menggunakan Linux di tahun 2000, saya membayangkan masa depan di mana alat open-source menjadi tulang punggung alur kerja industri dan rekayasa. Dua dekade kemudian, Zero-Cost Engineering membuktikan bahwa visi ini bukan hanya mungkin — tapi sedang terjadi.</p>
+<p><strong>Zero-Cost Engineering</strong> adalah filosofi bahwa <em>keterbatasan biaya tidak membatasi kualitas hasil</em> — bukan sekadar strategi hemat, melainkan pendekatan sistemik untuk membangun ekosistem kerja yang transparan, modular, dan siap diuji ulang. Hasil teknis yang kompleks bisa disampaikan dengan profesional — setara (bahkan melampaui) workflow berbasis solusi berbayar. Meskipun membutuhkan adaptasi bagi tim yang terbiasa dengan perangkat lunak berbayar, manfaat jangka panjangnya signifikan.</p>
+<p>Selain solusi yang digunakan di sini, saya juga mengandalkan Rapid SCADA untuk pemantauan industri, Node-RED untuk otomasi alur kerja, 4diac FORTE untuk kontrol IEC 61499, serta alat lain seperti ZeroTier untuk jaringan virtual yang aman, RutOS/OpenWrt untuk manajemen perangkat edge, mbusd untuk komunikasi Modbus TCP/RTU, dan sistem berbasis Ubuntu atau turunan Debian untuk integrasi IIoT. Semua ini memperkuat filosofi Zero-Cost Engineering — bahwa hasil profesional dapat dicapai tanpa lisensi berbayar, dengan ekosistem kerja yang terbuka, modular, dan siap diuji ulang.</p>
+<p>"<strong>Siap mencoba Zero-Cost Engineering? Gunakan alat FOSS ini dan mulai proyek Anda dengan efisiensi maksimal.</strong>"</p>
+<hr />
+
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>

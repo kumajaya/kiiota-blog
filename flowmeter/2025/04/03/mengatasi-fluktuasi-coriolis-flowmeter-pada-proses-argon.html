@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Pendahuluan Coriolis flowmeter dikenal sebagai alat ukur aliran massa yang akurat dan tidak bergantung pada densitas atau komposisi fluida. Namun, dalam aplikasi kriogenik seperti pengukuran liquid argon (LAr) pada proses destilasi bertingkat, sering terjadi fluktuasi pengukuran yang mengganggu keandalan data. Salah satu faktor utama penyebab masalah ini adalah tekanan rendah di kolom destilasi. Artikel ini akan membahas tantangan tersebut serta solusi yang dapat diterapkan. Mengapa Tekanan" />
+<meta property="og:description" content="Pendahuluan Coriolis flowmeter dikenal sebagai alat ukur aliran massa yang akurat dan tidak bergantung pada densitas atau komposisi fluida. Namun, dalam aplikasi kriogenik seperti pengukuran liquid argon (LAr) pada proses destilasi bertingkat, sering terjadi fluktuasi pengukuran yang mengganggu keandalan data. Salah satu faktor utama penyebab masalah ini adalah tekanan rendah di kolom destilasi. Artikel ini akan membahas tantangan tersebut serta solusi yang dapat diterapkan. Mengapa Tekanan" />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1620203853151-496c7228306c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fGluZHVzdHJ5fGVufDB8fHx8MTc0MzY5ODc1N3ww&ixlib=rb-4.0.3&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-03T17:50:59+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1620203853151-496c7228306c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fGluZHVzdHJ5fGVufDB8fHx8MTc0MzY5ODc1N3ww&ixlib=rb-4.0.3&q=80&w=2000" />
+<meta property="twitter:title" content="Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-04-03T17:50:59+00:00","datePublished":"2025-04-03T17:50:59+00:00","description":"Pendahuluan Coriolis flowmeter dikenal sebagai alat ukur aliran massa yang akurat dan tidak bergantung pada densitas atau komposisi fluida. Namun, dalam aplikasi kriogenik seperti pengukuran liquid argon (LAr) pada proses destilasi bertingkat, sering terjadi fluktuasi pengukuran yang mengganggu keandalan data. Salah satu faktor utama penyebab masalah ini adalah tekanan rendah di kolom destilasi. Artikel ini akan membahas tantangan tersebut serta solusi yang dapat diterapkan. Mengapa Tekanan","headline":"Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat","image":"https://images.unsplash.com/photo-1620203853151-496c7228306c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fGluZHVzdHJ5fGVufDB8fHx8MTc0MzY5ODc1N3ww&ixlib=rb-4.0.3&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html"},"url":"https://kumajaya.github.io/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/flowmeter">
+        Flowmeter
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2025-04-03T17:50:59+00:00" itemprop="datePublished">
+        April 03, 2025
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">3 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Pendahuluan
+
+
+Coriolis flowmeter dikenal sebagai alat ukur aliran massa yang akurat dan tidak bergantung pada densitas atau komposisi fluida. Namun, dalam aplikasi kriogenik seperti pengukuran liquid argon (LAr) pada proses destilasi bertingkat, sering terjadi fluktuasi pengukuran yang mengganggu keandalan data. Salah satu faktor utama penyebab masalah ini adalah tekanan rendah di kolom destilasi. Artikel ini akan membahas tantangan tersebut serta solusi yang dapat diterapkan.
+
+
+
+Mengapa Tekanan
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1620203853151-496c7228306c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fGluZHVzdHJ5fGVufDB8fHx8MTc0MzY5ODc1N3ww&ixlib=rb-4.0.3&q=80&w=2000" alt="Mengatasi Fluktuasi Coriolis Flowmeter pada Proses Argon Destilasi Bertingkat" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p>Photo by <a href="https://unsplash.com/@rgaleriacom?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Ricardo Gomez Angel</a> / <a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Unsplash</a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<!--kg-card-begin: markdown-->
+<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
+<p>Coriolis flowmeter dikenal sebagai alat ukur aliran massa yang akurat dan tidak bergantung pada densitas atau komposisi fluida. Namun, dalam aplikasi kriogenik seperti pengukuran <strong>liquid argon (LAr) pada proses destilasi bertingkat</strong>, sering terjadi <strong>fluktuasi pengukuran</strong> yang mengganggu keandalan data. Salah satu faktor utama penyebab masalah ini adalah <strong>tekanan rendah di kolom destilasi</strong>. Artikel ini akan membahas tantangan tersebut serta solusi yang dapat diterapkan.</p>
+<!--kg-card-end: markdown-->
+<!--kg-card-begin: markdown-->
+<h2 id="mengapa-tekanan-rendah-di-kolom-destilasi-menjadi-masalah"><strong>Mengapa Tekanan Rendah di Kolom Destilasi Menjadi Masalah?</strong></h2>
+<p>Kolom destilasi bertingkat bekerja dengan memisahkan komponen berdasarkan titik didihnya. Pada kolom <strong>pemurnian argon</strong>, tekanan sering kali lebih rendah dibandingkan bagian lain dalam sistem. Tekanan rendah ini dapat menyebabkan <strong>flashing</strong>, yaitu perubahan sebagian liquid argon menjadi gas sebelum mencapai flowmeter. Akibatnya, Coriolis flowmeter yang dirancang untuk mengukur fluida dalam <strong>fase cair</strong> akan membaca nilai yang tidak stabil karena adanya <strong>dua fase (liquid + gas)</strong> dalam aliran.</p>
+<!--kg-card-end: markdown-->
+<!--kg-card-begin: markdown-->
+<h2 id="perbandingan-destilasi-konvensional-vs-hydrogen-deoxidation-process"><strong>Perbandingan: Destilasi Konvensional vs. Hydrogen Deoxidation Process</strong></h2>
+<p>Menariknya, beberapa proses destilasi yang menggunakan <strong>hydrogen deoxidation process</strong> dapat menjaga tekanan kolom argon lebih tinggi. Berikut beberapa perbedaannya:</p>
+<!--kg-card-end: markdown-->
+<!--kg-card-begin: html-->
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Destilasi Konvensional</th>
+<th>Hydrogen Deoxidation Process</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sumber Energi</td>
+<td>Panas dari sistem pendingin</td>
+<td>Reaksi hidrogen dengan oksigen</td>
+</tr>
+<tr>
+<td>Tekanan di Kolom Argon</td>
+<td>Cenderung lebih rendah</td>
+<td>Lebih tinggi, lebih stabil</td>
+</tr>
+<tr>
+<td>Risiko Flashing</td>
+<td>Tinggi</td>
+<td>Lebih kecil</td>
+</tr>
+<tr>
+<td>Stabilitas Flowmeter</td>
+<td>Fluktuatif</td>
+<td>Lebih stabil</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: html-->
+<!--kg-card-begin: markdown-->
+<p>Hydrogen deoxidation process memberikan energi tambahan yang meningkatkan <strong>laju evaporasi nitrogen dan oksigen</strong>, memungkinkan argon untuk terkonsentrasi lebih cepat dan menjaga tekanan lebih tinggi, sehingga mengurangi risiko flashing sebelum masuk ke Coriolis flowmeter. Selain itu, dalam beberapa sistem, <strong>reciprocating compressor</strong> digunakan untuk membantu mempertahankan tekanan yang lebih tinggi di kolom destilasi dengan cara <strong>meningkatkan tekanan gas yang dihasilkan dalam proses ini</strong>.</p>
+<!--kg-card-end: markdown-->
+<!--kg-card-begin: markdown-->
+<h2 id="solusi-untuk-menstabilkan-pengukuran-coriolis-flowmeter"><strong>Solusi untuk Menstabilkan Pengukuran Coriolis Flowmeter</strong></h2>
+<p>Jika peningkatan tekanan kolom argon tidak memungkinkan, beberapa solusi berikut dapat diterapkan:</p>
+<ol>
+<li><strong>Memasang Back Pressure Regulator (BPR)</strong>
+<ul>
+<li>BPR dipasang <strong>setelah Coriolis flowmeter</strong> untuk menjaga tekanan upstream tetap cukup tinggi agar menghindari flashing sebelum flowmeter.</li>
+<li>Gunakan <strong>BPR kriogenik</strong> yang dirancang untuk <strong>menangani temperatur rendah dan gas inert</strong>.</li>
+</ul>
+</li>
+<li><strong>Menambahkan Buffer Tank atau Phase Separator</strong>
+<ul>
+<li>Buffer tank dapat meredam fluktuasi tekanan dan memastikan <strong>argon tetap dalam fase cair</strong> saat melewati flowmeter.</li>
+<li>Phase separator dapat membantu mengeluarkan gas sebelum fluida mencapai sensor pengukuran.</li>
+</ul>
+</li>
+<li><strong>Optimasi Jalur Pipa dan Insulasi</strong>
+<ul>
+<li>Pastikan <strong>jalur pipa sebelum flowmeter tidak mengalami ekspansi tiba-tiba</strong> yang dapat menyebabkan flashing.</li>
+<li>Gunakan <strong>vacuum jacketed piping</strong> untuk menjaga suhu dan mencegah pemanasan yang bisa memicu penguapan.</li>
+<li>Jika vacuum jacketed line sulit dimodifikasi, pertimbangkan <strong>loop bypass vertikal atau phase separator sebelum flowmeter</strong> untuk memisahkan gas lebih awal.</li>
+</ul>
+</li>
+<li><strong>Pemasangan Coriolis Flowmeter di Jalur Vertikal</strong>
+<ul>
+<li><strong>Jika memungkinkan</strong>, pemasangan flowmeter pada <strong>jalur vertikal dengan aliran ke atas</strong> bisa membantu mengeluarkan gas yang mungkin terbentuk dalam aliran.</li>
+<li>Jika flowmeter harus dipasang di jalur menurun, pastikan <strong>ada venting atau separator sebelum flowmeter</strong> agar hanya cairan yang masuk.</li>
+</ul>
+</li>
+<li><strong>Mengubah Range Coriolis Flowmeter untuk Mengatasi Lonjakan Flow</strong>
+<ul>
+<li>Jika fluktuasi pengukuran disebabkan oleh <strong>lonjakan tiba-tiba dalam aliran yang menyebabkan terpancung (cutoff flow)</strong>, memperlebar turndown ratio flowmeter bisa membantu menjaga data akumulasi tetap berjalan.</li>
+<li><strong>Keuntungan</strong>:
+<ul>
+<li>Menghindari hilangnya data akibat flow yang sesekali keluar dari range sensor.</li>
+<li>Meningkatkan fleksibilitas dalam kondisi operasional yang bervariasi.</li>
+</ul>
+</li>
+<li><strong>Batasan</strong>:
+<ul>
+<li>Jika fluktuasi berasal dari flashing atau gangguan tekanan, pelebaran range tidak akan mengatasi masalah inti.</li>
+<li>Pastikan <strong>akurasi di flow rendah tetap terjaga</strong>, karena beberapa Coriolis flowmeter bisa mengalami penurunan akurasi di area low flow.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Monitoring dan Adjusting Tekanan Kolom Destilasi</strong>
+<ul>
+<li>Jika memungkinkan, <strong>sesuaikan parameter operasional</strong> untuk menjaga tekanan kolom lebih stabil.</li>
+<li>Pastikan sistem <strong>venting storage tank</strong> bekerja optimal agar tidak menyebabkan backpressure berlebih.</li>
+</ul>
+</li>
+</ol>
+<!--kg-card-end: markdown-->
+<!--kg-card-begin: markdown-->
+<h2 id="kesimpulan"><strong>Kesimpulan</strong></h2>
+<p>Fluktuasi pengukuran Coriolis flowmeter dalam aplikasi liquid argon sering kali disebabkan oleh tekanan rendah yang memicu flashing. Jika sistem destilasi tidak menggunakan hydrogen deoxidation process yang dapat membantu menjaga tekanan, solusi seperti <strong>BPR, buffer tank, loop bypass vertikal, atau optimasi jalur pipa</strong> dapat diterapkan untuk meningkatkan stabilitas pengukuran. <strong>Jika perubahan pada vacuum jacketed line sulit</strong>, maka solusi berbasis peralatan tambahan seperti <strong>phase separator atau pemasangan flowmeter pada jalur vertikal</strong> dapat membantu meningkatkan reliabilitas sistem.</p>
+<!--kg-card-end: markdown-->
+<!--kg-card-begin: markdown-->
+<p>Jika lonjakan flow menyebabkan pembacaan tidak stabil atau terpancung, memperlebar range Coriolis flowmeter bisa menjadi solusi sementara untuk menjaga kualitas data akumulasi. Namun, jika lonjakan terus terjadi, perlu dilakukan analisis lebih lanjut terhadap <strong>flashing, back pressure, atau pengaruh sistem downstream</strong>.</p>
+<!--kg-card-end: markdown-->
+<!--kg-card-begin: markdown-->
+<p>Dengan pemahaman yang lebih baik tentang efek tekanan rendah dan cara mengatasinya, reliabilitas pengukuran dalam sistem kriogenik dapat ditingkatkan secara signifikan.</p>
+<!--kg-card-end: markdown-->
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/flowmeter/2025/04/03/mengatasi-fluktuasi-coriolis-flowmeter-pada-proses-argon.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>

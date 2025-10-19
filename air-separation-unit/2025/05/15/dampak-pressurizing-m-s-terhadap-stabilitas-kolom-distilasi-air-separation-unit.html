@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Pendahuluan Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap pressurizing dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon. Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi ko" />
+<meta property="og:description" content="Pendahuluan Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap pressurizing dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon. Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi ko" />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1582489853490-cd3a53eb4530?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGluZHVzdHJ5fGVufDB8fHx8MTc0NzMzMDgwMHww&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-15T18:09:04+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1582489853490-cd3a53eb4530?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGluZHVzdHJ5fGVufDB8fHx8MTc0NzMzMDgwMHww&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="twitter:title" content="Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-05-15T18:09:04+00:00","datePublished":"2025-05-15T18:09:04+00:00","description":"Pendahuluan Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap pressurizing dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon. Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi ko","headline":"Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit","image":"https://images.unsplash.com/photo-1582489853490-cd3a53eb4530?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGluZHVzdHJ5fGVufDB8fHx8MTc0NzMzMDgwMHww&ixlib=rb-4.1.0&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html"},"url":"https://kumajaya.github.io/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/air-separation-unit">
+        Air Separation Unit
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2025-05-15T18:09:04+00:00" itemprop="datePublished">
+        May 15, 2025
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">2 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Pendahuluan
+
+
+Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap pressurizing dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon.
+
+
+Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi ko
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1582489853490-cd3a53eb4530?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGluZHVzdHJ5fGVufDB8fHx8MTc0NzMzMDgwMHww&ixlib=rb-4.1.0&q=80&w=2000" alt="Dampak Pressurizing M/S terhadap Stabilitas Kolom Distilasi Air Separation Unit" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p>Photo by <a href="https://unsplash.com/@umityildirim?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Ümit Yıldırım</a> / <a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit">Unsplash</a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<!--kg-card-begin: markdown-->
+<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
+<p>Proses regenerasi molecular sieve (M/S) dalam air separation unit (ASU) memiliki peran penting dalam menjaga efisiensi adsorpsi dan pemurnian awal pasokan gas. Namun, tahap <strong>pressurizing</strong> dalam proses ini sering kali menyebabkan fluktuasi tekanan dalam kolom distilasi, yang dapat memengaruhi pemisahan fraksional nitrogen, oksigen, dan argon.</p>
+<p>Tulisan ini akan menguraikan bagaimana pressurizing M/S memengaruhi stabilitas tekanan kolom distilasi, serta menjelaskan strategi optimasi kontrol gas nitrogen (GAN) dan waste gas untuk menjaga kestabilan sistem.</p>
+<hr />
+
+<h2 id="dampak-pressurizing-terhadap-kolom-distilasi"><strong>Dampak Pressurizing terhadap Kolom Distilasi</strong></h2>
+<p>Pressurizing M/S berlangsung dalam siklus terjadwal, di mana adsorben dipulihkan tekanannya menggunakan feed air dari air compressor. Selama proses ini, sistem mengalami beberapa perubahan penting:</p>
+<h3 id="1%EF%B8%8F%E2%83%A3-pengurangan-feed-dry-air-ke-kolom-bawah"><strong>1️⃣ Pengurangan Feed Dry Air ke Kolom Bawah</strong></h3>
+<ul>
+<li>Saat pressurizing M/S berlangsung, flow air compressor cukup banyak digunakan untuk mengembalikan tekanan tower M/S, sehingga pasokan feed dry air ke kolom bawah berkurang.</li>
+<li>Penambahan penggunaan udara tekan untuk pressurizing M/S mengurangi jumlah udara yang masuk ke kolom distilasi.</li>
+<li>Penurunan pasokan ini bukan karena performa air compressor yang menurun (bahkan mungkin meningkat karena tersedia ruang lebih luas di downstream compressor), melainkan karena alokasi udara yang meningkat untuk proses regenerasi M/S.</li>
+</ul>
+<h3 id="2%EF%B8%8F%E2%83%A3-penurunan-tekanan-kolom-atas"><strong>2️⃣ Penurunan Tekanan Kolom Atas</strong></h3>
+<ul>
+<li>Karena feed dry air ke kolom bawah berkurang, distribusi tekanan dalam kolom distilasi terganggu, menyebabkan penurunan tekanan kolom atas.</li>
+<li>Pada saat yang sama venting valve ke atmosfir yang mendadak membuka jika tidak disertai dengan kontrol flow regenerasi yang responsif, maka flow regenerasi yang sebenarnya dibuang bisa mendadak meningkat sehingga mengakibatkan penurunan tekanan kolom atas.</li>
+<li>Hal ini berpengaruh terhadap keseimbangan pemisahan gas, karena tekanan yang lebih rendah dapat mengubah tekanan parsial nitrogen, oksigen, dan argon di dalam kolom distilasi.</li>
+</ul>
+<h3 id="3%EF%B8%8F%E2%83%A3-perubahan-titik-didih-akibat-fluktuasi-tekanan"><strong>3️⃣ Perubahan Titik Didih akibat Fluktuasi Tekanan</strong></h3>
+<ul>
+<li>Penurunan tekanan dalam kolom distilasi mengubah titik didih masing-masing komponen gas.</li>
+<li>Ini dapat mempengaruhi efisiensi separasi fraksional, karena tekanan yang tidak stabil menyebabkan ketidakseimbangan dalam komposisi produk.</li>
+<li>Jika tekanan turun terlalu drastis, kemurnian nitrogen, oksigen, dan argon bisa terganggu.</li>
+</ul>
+<p>Pengamatan tren DCS menunjukkan adanya <strong>fluktuasi tekanan yang signifikan</strong> selama pressurizing, terutama pada <strong>GAN yang dikendalikan berdasarkan flow</strong>.</p>
+<hr />
+
+<h2 id="peran-waste-gas-dalam-menahan-tekanan-kolom"><strong>Peran Waste Gas dalam Menahan Tekanan Kolom</strong></h2>
+<p>Dalam sistem ASU, <strong>waste gas</strong> memiliki peran penting dalam menjaga kestabilan tekanan kolom:</p>
+<ul>
+<li>Stabilitas waste gas: Selama pressurizing, venting waste gas biasanya dikurangi untuk mempertahankan tekanan karena pada dasarnya pada tahap ini flow regenerasi terbuang.</li>
+<li>Fluktuasi GAN: GAN yang dikendalikan berdasarkan flow cenderung menyebabkan tekanan turun drastis selama pressurizing.</li>
+</ul>
+<p>Waste gas dapat memberikan kompensasi parsial terhadap tekanan kolom, namun <strong>ketidakseimbangan tetap terjadi</strong> jika <strong>pengendalian GAN berbasis flow</strong>.</p>
+<hr />
+
+<h2 id="mengapa-flow-control-pada-gan-menyebabkan-ketidakseimbangan"><strong>Mengapa Flow Control pada GAN Menyebabkan Ketidakseimbangan?</strong></h2>
+<p>Kontrol GAN berbasis flow memiliki keterbatasan dalam mempertahankan kestabilan tekanan, karena:</p>
+<ul>
+<li>GAN dilepaskan dalam jumlah tetap tanpa mempertimbangkan fluktuasi tekanan kolom.</li>
+<li>Selama pressurizing, kolom kehilangan feed gas, tetapi flow control tetap berusaha mempertahankan aliran.</li>
+<li>Tekanan waste gas lebih stabil karena venting dikurangi, sementara GAN menunjukkan fluktuasi signifikan.</li>
+</ul>
+<hr />
+
+<h2 id="strategi-optimasi-pressure-control-untuk-gan"><strong>Strategi Optimasi Pressure Control untuk GAN</strong></h2>
+<p>Untuk mengurangi ketidakseimbangan, penerapan <strong>kontrol berbasis tekanan (pressure control)</strong> lebih tepat. Strategi yang dapat diterapkan meliputi:</p>
+<h3 id="1%EF%B8%8F%E2%83%A3-venting-gan-berbasis-tekanan"><strong>1️⃣ Venting GAN berbasis tekanan</strong></h3>
+<p>Menyesuaikan venting GAN berdasarkan <strong>tekanan tetap</strong>, bukan <strong>flow tetap</strong>. Bahkan bila perlu implementasi kontrol dengan set point kondisional.</p>
+<h3 id="2%EF%B8%8F%E2%83%A3-optimasi-kontrol-waste-gas"><strong>2️⃣ Optimasi kontrol waste gas</strong></h3>
+<p>Menggunakan waste gas untuk membantu menjaga stabilitas tekanan.</p>
+<h3 id="3%EF%B8%8F%E2%83%A3-analisis-tren-dcs"><strong>3️⃣ Analisis tren DCS</strong></h3>
+<p>Mengevaluasi dan menetapkan parameter PID control yang optimal.</p>
+<hr />
+
+<h2 id="kesimpulan-dan-rekomendasi"><strong>Kesimpulan dan Rekomendasi</strong></h2>
+<p>✅ Pressurizing M/S berpotensi menyebabkan penurunan tekanan kolom, yang berdampak terhadap pemisahan gas karena penurununan flow dry air.<br />
+✅ Waste gas dapat membantu menstabilkan tekanan, tetapi fluktuasi GAN tetap menjadi tantangan jika menggunakan flow control.<br />
+✅ Pressure control lebih efektif dibandingkan flow control dalam menjaga kestabilan tekanan selama pressurizing.<br />
+✅ Optimasi kontrol GAN berbasis pressure meningkatkan stabilitas sistem dan efisiensi pemisahan gas.</p>
+<p>Dengan penerapan <strong>strategi pressure control pada GAN</strong>, sistem ASU dapat lebih stabil dalam menghadapi <strong>efek regenerasi M/S</strong>, memastikan <strong>kualitas pemisahan gas tetap optimal dan efisiensi operasional meningkat</strong>. 🚀</p>
+<!--kg-card-end: markdown-->
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/air-separation-unit/2025/05/15/dampak-pressurizing-m-s-terhadap-stabilitas-kolom-distilasi-air-separation-unit.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+</body>
+
+</html>
