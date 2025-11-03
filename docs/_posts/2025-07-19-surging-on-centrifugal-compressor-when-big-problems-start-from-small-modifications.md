@@ -30,7 +30,7 @@ twitter_description: ""
 twitter_image: ""
 url: "https://blog.kiiota.com/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications/"
 comment_id: "687a8dda6dc008042df89ff7"
-reading_time: 11
+reading_time: 12
 access: true
 comments: true
 ---
@@ -59,43 +59,60 @@ It ensures that whichever input (recycle nitrogen compressor or booster expander
 </blockquote>
 <details>
 <summary>Click to reveal for Ladder Logic and PLC Symbol Table</summary>
-<pre><code class="language-plaintext">// Detect rising edge of input C60
+<pre><code class="language-plaintext">// =====================================================
+// First Trip Logic - Ladder Implementation
+// Author: Ketut Kumajaya (with tweaks from Grok on November 02, 2025)
+// Scope: Detect &amp; latch first trip between C60 (I0.0) &amp; CD10 (I0.1)
+// Features: Rising edge detection, latch tripped/first status, lock first trip, manual reset
+// Extendable: Duplicate rungs 1-4 &amp; 5-6 for channels 3-8 (I0.2-I0.7, M0.5+, Q0.4+)
+// =====================================================
+
+// Rising Edge Detection for C60 (I0.0)
 Rung 1:
-|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 pulse
+|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 rising edge pulse
 
 Rung 2:
-|----[ I0.0 ]-----------------------------( M0.3 )  // Save C60 state
+|----[ I0.0 ]-----------------------------( M0.3 )  // Latch C60 state (for tripped output)
 
-// Detect rising edge of input CD10
+// Rising Edge Detection for CD10 (I0.1)
 Rung 3:
-|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 pulse
+|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 rising edge pulse
 
 Rung 4:
-|----[ I0.1 ]-----------------------------( M0.4 )  // Save CD10 state
+|----[ I0.1 ]-----------------------------( M0.4 )  // Latch CD10 state (for tripped output)
 
-// Status outputs
+// Tripped Status Outputs (Latched from state M)
 Rung 5:
-|----[ I0.0 ]-----------------------------( Q0.2 )  // C60 has tripped
+|----[ M0.3 ]-----------------------------( Q0.2 )  // C60 tripped (latched)
 
 Rung 6:
-|----[ I0.1 ]-----------------------------( Q0.3 )  // CD10 has tripped
+|----[ M0.4 ]-----------------------------( Q0.3 )  // CD10 tripped (latched)
 
-// Determine who tripped first
+// Determine &amp; Latch First Trip (with lock M0.0)
 Rung 7:
-|----[ M0.1 ]----[/ M0.0 ]----------------( Q0.0 )  // C60 tripped first
-|                                     ----( M0.0 )  // Lock trip detection
+|----[ M0.1 ]----[/ M0.0 ]----------------( SET Q0.0 )  // Set first C60 if pulse &amp; no lock
+|                                     ----( M0.0 )  // Set lock
 
 Rung 8:
-|----[ M0.2 ]----[/ M0.0 ]----------------( Q0.1 )  // CD10 tripped first
-|                                     ----( M0.0 )  // Lock trip detection
+|----[ M0.2 ]----[/ M0.0 ]----------------( SET Q0.1 )  // Set first CD10 if pulse &amp; no lock
+|                                     ----( M0.0 )  // Set lock (if not already set)
 
-// Manual reset
+// Latch First Outputs (parallel hold to keep ON)
+Rung 7a (parallel to Rung 7 output):
+|----[ Q0.0 ]-----------------------------( Q0.0 )  // Hold first C60
+
+Rung 8a (parallel to Rung 8 output):
+|----[ Q0.1 ]-----------------------------( Q0.1 )  // Hold first CD10
+
+// Manual Reset (clear all latches &amp; lock)
 Rung 9:
-|----[ I0.2 ]---------------------------[RST M0.0]  // Reset trip flag
-|                                       [RST Q0.0]
-|                                       [RST Q0.1]
-|                                       [RST Q0.2]
-|                                       [RST Q0.3]
+|----[ I0.2 ]---------------------------[RST M0.0]  // Reset lock
+|                                       [RST M0.3]  // Reset C60 state
+|                                       [RST M0.4]  // Reset CD10 state
+|                                       [RST Q0.0]  // Reset first C60
+|                                       [RST Q0.1]  // Reset first CD10
+|                                       [RST Q0.2]  // Reset tripped C60
+|                                       [RST Q0.3]  // Reset tripped CD10
 
 </code></pre>
 <table>
@@ -104,6 +121,7 @@ Rung 9:
 <th><strong>Symbol</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Function Description</strong></th>
+<th><strong>Usage Notes</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -111,61 +129,73 @@ Rung 9:
 <td><code>I0.0</code></td>
 <td>Digital Input</td>
 <td>Trip signal from compressor C60</td>
+<td>Active HIGH on trip; rising edge detected via M0.1. Invert if original signal LOW.</td>
 </tr>
 <tr>
 <td><code>I0.1</code></td>
 <td>Digital Input</td>
 <td>Trip signal from booster expander CD10</td>
+<td>Same as I0.0; rising edge via M0.2. Scan priority: C60 first (deterministic).</td>
 </tr>
 <tr>
 <td><code>I0.2</code></td>
 <td>Digital Input</td>
 <td>Manual reset button to clear all trip flags</td>
+<td>Edge-triggered; clears lock &amp; latches in Rung 9. Add debounce if noisy.</td>
 </tr>
 <tr>
 <td><code>Q0.0</code></td>
 <td>Digital Output</td>
 <td>Indicates C60 tripped first</td>
+<td>Latched via SET; ON if C60 first &amp; locked. Connect to HMI alarm.</td>
 </tr>
 <tr>
 <td><code>Q0.1</code></td>
 <td>Digital Output</td>
 <td>Indicates CD10 tripped first</td>
+<td>Latched via SET; ON only if CD10 first (blocked if lock already ON).</td>
 </tr>
 <tr>
 <td><code>Q0.2</code></td>
 <td>Digital Output</td>
 <td>Status output: C60 has tripped</td>
+<td>Latched from M0.3; stays ON post-trip for monitoring.</td>
 </tr>
 <tr>
 <td><code>Q0.3</code></td>
 <td>Digital Output</td>
 <td>Status output: CD10 has tripped</td>
+<td>Latched from M0.4; same as Q0.2.</td>
 </tr>
 <tr>
 <td><code>M0.0</code></td>
 <td>Memory Bit</td>
 <td>Trip detection flag—only one trip allowed per scan</td>
+<td>Lock flag; SET on first pulse, blocks others. Reset via I0.2.</td>
 </tr>
 <tr>
 <td><code>M0.1</code></td>
 <td>Memory Bit</td>
 <td>Rising edge detected on C60</td>
+<td>Momentary pulse (1 scan); triggers SET Q0.0 if !M0.0.</td>
 </tr>
 <tr>
 <td><code>M0.2</code></td>
 <td>Memory Bit</td>
 <td>Rising edge detected on CD10</td>
+<td>Momentary pulse; triggers SET Q0.1 if !M0.0.</td>
 </tr>
 <tr>
 <td><code>M0.3</code></td>
 <td>Memory Bit</td>
 <td>Previous input state of C60 (for edge detection)</td>
+<td>Latches I0.0 state; used in [/M0.3] for rising edge.</td>
 </tr>
 <tr>
 <td><code>M0.4</code></td>
 <td>Memory Bit</td>
 <td>Previous input state of CD10 (for edge detection)</td>
+<td>Latches I0.1 state; same as M0.3.</td>
 </tr>
 </tbody>
 </table>
