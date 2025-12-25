@@ -12,11 +12,11 @@ image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\
 author:
   - "Ketut Putu Kumajaya"
 tags:
-  - "Engineering Lessons"
   - "Cost Optimization"
   - "Automation"
+  - "Engineering Lessons"
 categories:
-  - "engineering-lessons"
+  - "cost-optimization"
 featured: false
 visibility: "public"
 primary_author: "Ketut Putu Kumajaya"
