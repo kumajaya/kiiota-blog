@@ -1,5 +1,205 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2025-10-20T03:22:00+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
-</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional</title><link href="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" rel="alternate" type="text/html" title="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" /><published>2025-08-09T08:31:13+00:00</published><updated>2025-08-09T08:31:13+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/08/zero-cost_engineering.mp3" preload="metadata"></audio><div class="kg-audio-title">Workflow FOSS untuk Hasil Profesional</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">5.184</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2025-12-25T13:52:57+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Menghindari Masalah Grounding dan Petir dengan Fiber Optic</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/12/24/menghindari-masalah-grounding-dan-petir-dengan-fiber-optic.html" rel="alternate" type="text/html" title="Menghindari Masalah Grounding dan Petir dengan Fiber Optic" /><published>2025-12-24T18:05:59+00:00</published><updated>2025-12-24T18:05:59+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/12/24/menghindari-masalah-grounding-dan-petir-dengan-fiber-optic</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/12/24/menghindari-masalah-grounding-dan-petir-dengan-fiber-optic.html"><![CDATA[<h2 id="latar-belakang">Latar Belakang</h2>
+<p>Dalam lingkungan industri, jaringan komunikasi antar perangkat umumnya menggunakan kabel tembaga (Ethernet). Walaupun praktis, kabel tembaga memiliki kelemahan mendasar karena bersifat konduktif. Hal ini menimbulkan risiko:</p>
+<ul>
+<li><strong>Gangguan grounding</strong> akibat perbedaan potensial antar panel atau perangkat.</li>
+<li><strong>Induksi elektromagnetik (EMI)</strong> dari peralatan berdaya besar seperti motor atau inverter.</li>
+<li><strong>Sambaran petir</strong> yang dapat merambat melalui kabel dan merusak perangkat sensitif.</li>
+</ul>
+<p>Dampak dari gangguan tersebut tidak hanya berupa kerusakan perangkat, tetapi juga berpotensi menyebabkan downtime operasional yang signifikan serta risiko keselamatan.</p>
+<hr />
+
+<h2 id="fiber-optic-sebagai-solusi">Fiber Optic sebagai Solusi</h2>
+<p>Fiber optic merupakan media komunikasi yang sepenuhnya <strong>non-konduktif</strong>, sehingga tidak menghantarkan arus listrik. Keunggulan utama yang ditawarkan antara lain:</p>
+<ul>
+<li>
+<p><strong>Isolasi Galvanik Total</strong><br />
+Menghilangkan jalur arus listrik antar perangkat, aman dari perbedaan grounding maupun sambaran petir.</p>
+</li>
+<li>
+<p><strong>Ketahanan terhadap EMI/RFI</strong><br />
+Sinyal berbasis cahaya tidak terpengaruh oleh medan elektromagnetik, sehingga komunikasi tetap stabil.</p>
+</li>
+<li>
+<p><strong>Perlindungan Alami dari Petir</strong><br />
+Tidak adanya konduksi listrik membuat fiber optic aman dari energi petir.</p>
+</li>
+<li>
+<p><strong>Kecepatan dan Jangkauan</strong><br />
+Mendukung komunikasi gigabit dengan jarak hingga puluhan kilometer tanpa degradasi berarti.</p>
+</li>
+</ul>
+<hr />
+
+<h2 id="penerapan-di-industri">Penerapan di Industri</h2>
+<p>Fiber optic dapat diterapkan pada berbagai sistem komunikasi industri, antara lain:</p>
+<ul>
+<li><strong>SCADA dan DCS</strong> untuk komunikasi antar panel kontrol.</li>
+<li><strong>Flowmeter, power meter, atau sensor</strong> dalam pengiriman data ke server.</li>
+<li><strong>Koneksi antar gedung atau panel</strong> untuk mengatasi beda potensial grounding.</li>
+<li><strong>Integrasi OPC UA / Modbus TCP</strong> yang membutuhkan komunikasi real-time stabil.</li>
+</ul>
+<h3 id="topologi-sistem">Topologi Sistem</h3>
+<div style="width: 100%; text-align: center; margin: 0.5em auto; max-width: 800px;">
+  <div class="mermaid" style="width: 100%; max-width: 800px;">
+graph TD
+    classDef danger fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,rx:15,ry:15
+    classDef converter fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#e65100,rx:15,ry:15
+    A["⚡ Zona Eksternal<br />Perangkat Lapangan<br />(Area Rentan)"]
+    B["🛡️ Media Converter<br />FC311A-20<br />(Pelindung)"]
+    C["🛡️ Media Converter<br />FC311B-20<br />(Pelindung)"]
+    D["🏢 Zona Internal<br />Server / Data Center<br />(Area Rentan)"]
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    class A danger
+    class D danger
+    class B,C converter
+    linkStyle 1 stroke-dasharray: 5 5
+  </div>
+    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
+    Topologi Sistem Rancangan Jaringan Fiber Optic
+    </figcaption>
+</div>
+<h3 id="media-converter">Media Converter</h3>
+<ul>
+<li><strong>TP-Link FC311A-20</strong> (sisi perangkat)</li>
+<li><strong>TP-Link FC311B-20</strong> (sisi server/switch)</li>
+</ul>
+<figure style="text-align: center;">
+  <img src="/kiiota-blog/assets/media/dcac0bb9-2815-4d0a-9ae6-fa614bf4ccb3-FC311A-20-TL-FC311A-20-_normal_20250208074142m-1-.jpg" alt="TP-Link FC311A-20" width="400" style="display: block; margin: 0 auto;" />
+  <figcaption>FC311A-20 - Gigabit WDM Media Converter</figcaption>
+</figure>
+<p>Spesifikasi utama:</p>
+<ul>
+<li>Ethernet RJ45 10/100/1000 Mbps</li>
+<li>Fiber optic single-mode WDM (BiDi)</li>
+<li>Connector SC/UPC, mode simplex (1 core)</li>
+<li>Jarak dukung hingga 20 km</li>
+<li>Power supply DC 12–48 V</li>
+<li>Plug &amp; play tanpa konfigurasi</li>
+</ul>
+<h3 id="kabel-fiber-optic">Kabel Fiber Optic</h3>
+<ul>
+<li>Single-mode OS2, simplex (1 core)</li>
+<li>Connector SC/UPC – SC/UPC</li>
+<li>Panjang ±300 m (outdoor, UV resistant)</li>
+<li>❌ Tidak boleh multimode</li>
+<li>❌ Tidak boleh SC/APC (hijau)</li>
+</ul>
+<figure style="text-align: center;">
+  <img src="/kiiota-blog/assets/media/dcac0bb9-2815-4d0a-9ae6-fa614bf4ccb3-40494.B-1-.jpg" alt="Patch cord single-mode OS2 SC/UPC simplex" width="400" style="display: block; margin: 0 auto;" />
+  <figcaption>Patch cord single-mode OS2 simplex dengan konektor SC/UPC</figcaption>
+</figure>
+<h3 id="kabel-ethernet">Kabel Ethernet</h3>
+<ul>
+<li>Cat5e/Cat6, panjang ≤5 m</li>
+<li>Digunakan hanya di sisi converter (Perangkat → FC311A, FC311B → Server)</li>
+</ul>
+<h3 id="power-panel">Power &amp; Panel</h3>
+<ul>
+<li>Supply DC 12/24 V untuk masing-masing converter</li>
+<li>Converter ditempatkan dalam panel tertutup dengan grounding chassis</li>
+<li>Fiber optic masuk panel menggunakan strain relief/gland</li>
+</ul>
+<hr />
+
+<h2 id="keunggulan-sistem">Keunggulan Sistem</h2>
+<ul>
+<li><strong>Isolasi galvanik penuh</strong> → aman dari EMI dan petir.</li>
+<li><strong>Komunikasi stabil</strong> → mendukung protokol OPC UA atau Modbus TCP secara terus-menerus.</li>
+<li><strong>Konfigurasi sederhana</strong> → point-to-point tanpa kebutuhan pengaturan tambahan.</li>
+<li><strong>Siap audit</strong> → BOM jelas dan spesifikasi terdokumentasi, memudahkan proses pengadaan dan inspeksi.</li>
+</ul>
+<hr />
+
+<h2 id="bill-of-materials-bom">Bill of Materials (BOM)</h2>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>Item</th>
+<th>Spesifikasi</th>
+<th>Qty</th>
+<th>Catatan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Media Converter FC311A-20</td>
+<td>RJ45 1G, FO WDM SC/UPC</td>
+<td>1</td>
+<td>Sisi perangkat lapangan</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Media Converter FC311B-20</td>
+<td>RJ45 1G, FO WDM SC/UPC</td>
+<td>1</td>
+<td>Sisi server/switch</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kabel FO Outdoor OS2</td>
+<td>Simplex SC/UPC–SC/UPC ±300 m</td>
+<td>1 roll</td>
+<td>Sesuai site</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Patch Cable RJ45 Cat5e/Cat6</td>
+<td>≤5 m</td>
+<td>2 pcs</td>
+<td>Perangkat &amp; Server</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Panel / Enclosure</td>
+<td>Metal, DIN rail</td>
+<td>1 set</td>
+<td>Opsional</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Cable Gland / Strain Relief</td>
+<td>Untuk FO</td>
+<td>2 pcs</td>
+<td>Masuk panel</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Grounding Accessories</td>
+<td>Lug, kabel grounding</td>
+<td>1 set</td>
+<td>Panel &amp; chassis</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Label Kabel</td>
+<td>FO &amp; Ethernet</td>
+<td>1 set</td>
+<td>Identifikasi</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="best-practice-instalasi">Best Practice Instalasi</h2>
+<p>Untuk memastikan sistem fiber optic bekerja optimal dan tahan lama, disarankan:</p>
+<ul>
+<li><strong>Manajemen kabel</strong>: gunakan tray/ducting, hindari tekukan tajam (radius min. 30 mm).</li>
+<li><strong>Proteksi panel</strong>: gunakan enclosure dengan rating IP sesuai lingkungan (≥IP54 untuk outdoor).</li>
+<li><strong>Grounding konsisten</strong>: converter, PSU, dan panel tetap digrounding dengan kabel tembaga memadai.</li>
+<li><strong>Label &amp; dokumentasi</strong>: beri label jelas pada kabel, dokumentasikan jalur dan titik terminasi.</li>
+<li><strong>Strain relief/gland</strong>: gunakan gland saat kabel masuk panel untuk mencegah kerusakan mekanis.</li>
+<li><strong>Pemeriksaan konektor</strong>: bersihkan konektor SC/UPC sebelum instalasi untuk menghindari loss.</li>
+</ul>
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+<p>Penggunaan fiber optic dalam sistem komunikasi industri bukan sekadar peningkatan teknologi, melainkan langkah strategis untuk <strong>menghindari masalah grounding dan petir</strong>. Dengan isolasi total, ketahanan terhadap EMI, serta keandalan tinggi, fiber optic memastikan komunikasi tetap aman, stabil, dan berkelanjutan.</p>
+<h2></h2>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Cost Optimization" /><category term="Automation" /><summary type="html"><![CDATA[Fiber optic memberikan isolasi galvanik total, bebas EMI, dan aman dari petir. Solusi komunikasi industri yang stabil untuk menghindari risiko downtime operasional.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1594915440248-1e419eba6611?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE4fHxmaWJlciUyMHxlbnwwfHx8fDE3NjY1OTc4NTd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1594915440248-1e419eba6611?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE4fHxmaWJlciUyMHxlbnwwfHx8fDE3NjY1OTc4NTd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional</title><link href="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" rel="alternate" type="text/html" title="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" /><published>2025-08-09T08:31:13+00:00</published><updated>2025-08-09T08:31:13+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/08/zero-cost_engineering.mp3" preload="metadata"></audio><div class="kg-audio-title">Workflow FOSS untuk Hasil Profesional</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">5.184</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
 <h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
 <p>"<strong>Apakah kita benar-benar perlu membayar mahal untuk perangkat lunak, jika hasil teknikal yang sama — bahkan lebih baik — bisa dicapai secara gratis?</strong>"</p>
 <p>Di banyak industri, optimalisasi performa peralatan sering diasosiasikan dengan perangkat lunak berbayar, lisensi berlapis, dan perangkat keras kelas atas. Namun kenyataannya, <strong>hasil profesional tidak selalu bergantung pada biaya lisensi</strong>. Melalui pendekatan <strong>Zero-Cost Engineering</strong> — rekayasa berbasis FOSS (Free and Open Source Software) dan metodologi modular — kita dapat menghasilkan output teknis berkualitas tinggi tanpa biaya tambahan. Bayangkan: menyelesaikan analisis teknikal level industri tanpa mengeluarkan biaya lisensi perangkat lunak sama sekali. Ini bukan sekadar teori — studi kasus nyata telah membuktikannya.</p>
@@ -409,43 +609,60 @@ Sistem ini memastikan bahwa input mana pun—kompresor resirkulasi nitrogen atau
 </blockquote>
 <details>
 <summary>Klik untuk membuka Logika Ladder dan Tabel Simbol PLC</summary>
-<pre><code class="language-plaintext">// Detect rising edge of input C60
+<pre><code class="language-plaintext">// =====================================================
+// First Trip Logic - Ladder Implementation
+// Author: Ketut Kumajaya (with tweaks from Grok on 02 November 2025)
+// Scope: Detect &amp; latch first trip antara C60 (I0.0) &amp; CD10 (I0.1)
+// Fitur: Rising edge, latch tripped/first, lock first, manual reset
+// Extendable: Duplikat rung 1-4 &amp; 5-6 untuk channel 3-8 (I0.2-I0.7, M0.5+, Q0.4+)
+// =====================================================
+
+// Rising Edge Detection untuk C60 (I0.0)
 Rung 1:
-|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 pulse
+|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // Pulse C60 rising edge
 
 Rung 2:
-|----[ I0.0 ]-----------------------------( M0.3 )  // Save C60 state
+|----[ I0.0 ]-----------------------------( M0.3 )  // Latch state C60 (untuk tripped output)
 
-// Detect rising edge of input CD10
+// Rising Edge Detection untuk CD10 (I0.1)
 Rung 3:
-|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 pulse
+|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // Pulse CD10 rising edge
 
 Rung 4:
-|----[ I0.1 ]-----------------------------( M0.4 )  // Save CD10 state
+|----[ I0.1 ]-----------------------------( M0.4 )  // Latch state CD10 (untuk tripped output)
 
-// Status outputs
+// Tripped Status Outputs (Latched dari state M)
 Rung 5:
-|----[ I0.0 ]-----------------------------( Q0.2 )  // C60 has tripped
+|----[ M0.3 ]-----------------------------( Q0.2 )  // C60 tripped (latched)
 
 Rung 6:
-|----[ I0.1 ]-----------------------------( Q0.3 )  // CD10 has tripped
+|----[ M0.4 ]-----------------------------( Q0.3 )  // CD10 tripped (latched)
 
-// Determine who tripped first
+// Determine &amp; Latch First Trip (dengan lock M0.0)
 Rung 7:
-|----[ M0.1 ]----[/ M0.0 ]----------------( Q0.0 )  // C60 tripped first
-|                                     ----( M0.0 )  // Lock trip detection
+|----[ M0.1 ]----[/ M0.0 ]----------------( SET Q0.0 )  // Set first C60 jika pulse &amp; no lock
+|                                     ----( M0.0 )  // Set lock
 
 Rung 8:
-|----[ M0.2 ]----[/ M0.0 ]----------------( Q0.1 )  // CD10 tripped first
-|                                     ----( M0.0 )  // Lock trip detection
+|----[ M0.2 ]----[/ M0.0 ]----------------( SET Q0.1 )  // Set first CD10 jika pulse &amp; no lock
+|                                     ----( M0.0 )  // Set lock (jika belum)
 
-// Manual reset
+// Latch First Outputs (parallel hold, biar stay ON)
+Rung 7a (parallel ke Rung 7 output):
+|----[ Q0.0 ]-----------------------------( Q0.0 )  // Hold first C60
+
+Rung 8a (parallel ke Rung 8 output):
+|----[ Q0.1 ]-----------------------------( Q0.1 )  // Hold first CD10
+
+// Manual Reset (clear semua latch &amp; lock)
 Rung 9:
-|----[ I0.2 ]---------------------------[RST M0.0]  // Reset trip flag
-|                                       [RST Q0.0]
-|                                       [RST Q0.1]
-|                                       [RST Q0.2]
-|                                       [RST Q0.3]
+|----[ I0.2 ]---------------------------[RST M0.0]  // Reset lock
+|                                       [RST M0.3]  // Reset state C60
+|                                       [RST M0.4]  // Reset state CD10
+|                                       [RST Q0.0]  // Reset first C60
+|                                       [RST Q0.1]  // Reset first CD10
+|                                       [RST Q0.2]  // Reset tripped C60
+|                                       [RST Q0.3]  // Reset tripped CD10
 
 </code></pre>
 <table>
@@ -454,6 +671,7 @@ Rung 9:
 <th><strong>Symbol</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Function Description</strong></th>
+<th><strong>Usage Notes</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -461,61 +679,73 @@ Rung 9:
 <td><code>I0.0</code></td>
 <td>Digital Input</td>
 <td>Trip signal from compressor C60</td>
+<td>Aktif HIGH saat trip; rising edge detected via M0.1. Inversi jika sinyal asli LOW.</td>
 </tr>
 <tr>
 <td><code>I0.1</code></td>
 <td>Digital Input</td>
 <td>Trip signal from booster expander CD10</td>
+<td>Sama seperti I0.0; rising edge via M0.2. Prioritas scan: C60 duluan (deterministik).</td>
 </tr>
 <tr>
 <td><code>I0.2</code></td>
 <td>Digital Input</td>
 <td>Manual reset button to clear all trip flags</td>
+<td>Edge-triggered; clear lock &amp; latches di Rung 9. Tambah debounce jika noisy.</td>
 </tr>
 <tr>
 <td><code>Q0.0</code></td>
 <td>Digital Output</td>
 <td>Indicates C60 tripped first</td>
+<td>Latched via SET; ON jika C60 first &amp; locked. Hubung ke HMI alarm.</td>
 </tr>
 <tr>
 <td><code>Q0.1</code></td>
 <td>Digital Output</td>
 <td>Indicates CD10 tripped first</td>
+<td>Latched via SET; ON hanya jika CD10 first (blokir jika lock sudah ON).</td>
 </tr>
 <tr>
 <td><code>Q0.2</code></td>
 <td>Digital Output</td>
 <td>Status output: C60 has tripped</td>
+<td>Latched dari M0.3; stay ON post-trip untuk monitoring.</td>
 </tr>
 <tr>
 <td><code>Q0.3</code></td>
 <td>Digital Output</td>
 <td>Status output: CD10 has tripped</td>
+<td>Latched dari M0.4; sama seperti Q0.2.</td>
 </tr>
 <tr>
 <td><code>M0.0</code></td>
 <td>Memory Bit</td>
 <td>Trip detection flag—only one trip allowed per scan</td>
+<td>Lock flag; SET saat first pulse, blokir others. Reset via I0.2.</td>
 </tr>
 <tr>
 <td><code>M0.1</code></td>
 <td>Memory Bit</td>
 <td>Rising edge detected on C60</td>
+<td>Pulse momentary (1 scan); trigger SET Q0.0 jika !M0.0.</td>
 </tr>
 <tr>
 <td><code>M0.2</code></td>
 <td>Memory Bit</td>
 <td>Rising edge detected on CD10</td>
+<td>Pulse momentary; trigger SET Q0.1 jika !M0.0.</td>
 </tr>
 <tr>
 <td><code>M0.3</code></td>
 <td>Memory Bit</td>
 <td>Previous input state of C60 (for edge detection)</td>
+<td>Latch I0.0 state; digunakan di [/M0.3] untuk rising edge.</td>
 </tr>
 <tr>
 <td><code>M0.4</code></td>
 <td>Memory Bit</td>
 <td>Previous input state of CD10 (for edge detection)</td>
+<td>Latch I0.1 state; sama seperti M0.3.</td>
 </tr>
 </tbody>
 </table>
@@ -733,43 +963,60 @@ It ensures that whichever input (recycle nitrogen compressor or booster expander
 </blockquote>
 <details>
 <summary>Click to reveal for Ladder Logic and PLC Symbol Table</summary>
-<pre><code class="language-plaintext">// Detect rising edge of input C60
+<pre><code class="language-plaintext">// =====================================================
+// First Trip Logic - Ladder Implementation
+// Author: Ketut Kumajaya (with tweaks from Grok on November 02, 2025)
+// Scope: Detect &amp; latch first trip between C60 (I0.0) &amp; CD10 (I0.1)
+// Features: Rising edge detection, latch tripped/first status, lock first trip, manual reset
+// Extendable: Duplicate rungs 1-4 &amp; 5-6 for channels 3-8 (I0.2-I0.7, M0.5+, Q0.4+)
+// =====================================================
+
+// Rising Edge Detection for C60 (I0.0)
 Rung 1:
-|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 pulse
+|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 rising edge pulse
 
 Rung 2:
-|----[ I0.0 ]-----------------------------( M0.3 )  // Save C60 state
+|----[ I0.0 ]-----------------------------( M0.3 )  // Latch C60 state (for tripped output)
 
-// Detect rising edge of input CD10
+// Rising Edge Detection for CD10 (I0.1)
 Rung 3:
-|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 pulse
+|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 rising edge pulse
 
 Rung 4:
-|----[ I0.1 ]-----------------------------( M0.4 )  // Save CD10 state
+|----[ I0.1 ]-----------------------------( M0.4 )  // Latch CD10 state (for tripped output)
 
-// Status outputs
+// Tripped Status Outputs (Latched from state M)
 Rung 5:
-|----[ I0.0 ]-----------------------------( Q0.2 )  // C60 has tripped
+|----[ M0.3 ]-----------------------------( Q0.2 )  // C60 tripped (latched)
 
 Rung 6:
-|----[ I0.1 ]-----------------------------( Q0.3 )  // CD10 has tripped
+|----[ M0.4 ]-----------------------------( Q0.3 )  // CD10 tripped (latched)
 
-// Determine who tripped first
+// Determine &amp; Latch First Trip (with lock M0.0)
 Rung 7:
-|----[ M0.1 ]----[/ M0.0 ]----------------( Q0.0 )  // C60 tripped first
-|                                     ----( M0.0 )  // Lock trip detection
+|----[ M0.1 ]----[/ M0.0 ]----------------( SET Q0.0 )  // Set first C60 if pulse &amp; no lock
+|                                     ----( M0.0 )  // Set lock
 
 Rung 8:
-|----[ M0.2 ]----[/ M0.0 ]----------------( Q0.1 )  // CD10 tripped first
-|                                     ----( M0.0 )  // Lock trip detection
+|----[ M0.2 ]----[/ M0.0 ]----------------( SET Q0.1 )  // Set first CD10 if pulse &amp; no lock
+|                                     ----( M0.0 )  // Set lock (if not already set)
 
-// Manual reset
+// Latch First Outputs (parallel hold to keep ON)
+Rung 7a (parallel to Rung 7 output):
+|----[ Q0.0 ]-----------------------------( Q0.0 )  // Hold first C60
+
+Rung 8a (parallel to Rung 8 output):
+|----[ Q0.1 ]-----------------------------( Q0.1 )  // Hold first CD10
+
+// Manual Reset (clear all latches &amp; lock)
 Rung 9:
-|----[ I0.2 ]---------------------------[RST M0.0]  // Reset trip flag
-|                                       [RST Q0.0]
-|                                       [RST Q0.1]
-|                                       [RST Q0.2]
-|                                       [RST Q0.3]
+|----[ I0.2 ]---------------------------[RST M0.0]  // Reset lock
+|                                       [RST M0.3]  // Reset C60 state
+|                                       [RST M0.4]  // Reset CD10 state
+|                                       [RST Q0.0]  // Reset first C60
+|                                       [RST Q0.1]  // Reset first CD10
+|                                       [RST Q0.2]  // Reset tripped C60
+|                                       [RST Q0.3]  // Reset tripped CD10
 
 </code></pre>
 <table>
@@ -778,6 +1025,7 @@ Rung 9:
 <th><strong>Symbol</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Function Description</strong></th>
+<th><strong>Usage Notes</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -785,61 +1033,73 @@ Rung 9:
 <td><code>I0.0</code></td>
 <td>Digital Input</td>
 <td>Trip signal from compressor C60</td>
+<td>Active HIGH on trip; rising edge detected via M0.1. Invert if original signal LOW.</td>
 </tr>
 <tr>
 <td><code>I0.1</code></td>
 <td>Digital Input</td>
 <td>Trip signal from booster expander CD10</td>
+<td>Same as I0.0; rising edge via M0.2. Scan priority: C60 first (deterministic).</td>
 </tr>
 <tr>
 <td><code>I0.2</code></td>
 <td>Digital Input</td>
 <td>Manual reset button to clear all trip flags</td>
+<td>Edge-triggered; clears lock &amp; latches in Rung 9. Add debounce if noisy.</td>
 </tr>
 <tr>
 <td><code>Q0.0</code></td>
 <td>Digital Output</td>
 <td>Indicates C60 tripped first</td>
+<td>Latched via SET; ON if C60 first &amp; locked. Connect to HMI alarm.</td>
 </tr>
 <tr>
 <td><code>Q0.1</code></td>
 <td>Digital Output</td>
 <td>Indicates CD10 tripped first</td>
+<td>Latched via SET; ON only if CD10 first (blocked if lock already ON).</td>
 </tr>
 <tr>
 <td><code>Q0.2</code></td>
 <td>Digital Output</td>
 <td>Status output: C60 has tripped</td>
+<td>Latched from M0.3; stays ON post-trip for monitoring.</td>
 </tr>
 <tr>
 <td><code>Q0.3</code></td>
 <td>Digital Output</td>
 <td>Status output: CD10 has tripped</td>
+<td>Latched from M0.4; same as Q0.2.</td>
 </tr>
 <tr>
 <td><code>M0.0</code></td>
 <td>Memory Bit</td>
 <td>Trip detection flag—only one trip allowed per scan</td>
+<td>Lock flag; SET on first pulse, blocks others. Reset via I0.2.</td>
 </tr>
 <tr>
 <td><code>M0.1</code></td>
 <td>Memory Bit</td>
 <td>Rising edge detected on C60</td>
+<td>Momentary pulse (1 scan); triggers SET Q0.0 if !M0.0.</td>
 </tr>
 <tr>
 <td><code>M0.2</code></td>
 <td>Memory Bit</td>
 <td>Rising edge detected on CD10</td>
+<td>Momentary pulse; triggers SET Q0.1 if !M0.0.</td>
 </tr>
 <tr>
 <td><code>M0.3</code></td>
 <td>Memory Bit</td>
 <td>Previous input state of C60 (for edge detection)</td>
+<td>Latches I0.0 state; used in [/M0.3] for rising edge.</td>
 </tr>
 <tr>
 <td><code>M0.4</code></td>
 <td>Memory Bit</td>
 <td>Previous input state of CD10 (for edge detection)</td>
+<td>Latches I0.1 state; same as M0.3.</td>
 </tr>
 </tbody>
 </table>
@@ -1847,268 +2107,4 @@ A: Format data asli berbasis timestamp array, channel number array, dan nilai tr
 A: Tidak langsung. Rapid SCADA v5 memiliki autentikasi berbeda dan tidak menggunakan endpoint REST seperti versi 6.</p>
 <p><strong>Q: Bisakah ditambahkan endpoint untuk data realtime atau status channel?</strong><br />
 A: Ya, kamu bisa menambahkan rute baru dan menggunakan pendekatan serupa di <code>grafanaRouter.js</code>, lalu sesuaikan transformasi data sesuai kebutuhan.</p>
-<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="rapid-scada" /><category term="Rapid Scada" /><category term="Grafana" /><summary type="html"><![CDATA[Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana. Arsitektur Singkat Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA: Grafana --> [Basic Auth] --> ScadaGrafanaProxy --> [Cookie Session] --> Rapid SCADA 6 API * Grafana:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B</title><link href="https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html" rel="alternate" type="text/html" title="Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B" /><published>2025-05-18T06:34:52+00:00</published><updated>2025-05-18T06:34:52+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html"><![CDATA[<!--kg-card-begin: markdown-->
-<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
-<p><strong>ZeroTier</strong> adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan.</p>
-<p><strong>Beberapa fitur utama ZeroTier:</strong></p>
-<ul>
-<li><strong>Koneksi Peer-to-Peer</strong>: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat.</li>
-<li><strong>Keamanan Tinggi</strong>: Data dienkripsi end-to-end, memastikan privasi dan keamanan komunikasi.</li>
-<li><strong>Kemudahan Penggunaan</strong>: Instalasi ringan dan dapat digunakan di berbagai sistem operasi serta perangkat.</li>
-<li><strong>Manajemen Jaringan</strong>: Memungkinkan pengguna untuk mengontrol dan mengelola jaringan mereka melalui antarmuka web yang intuitif.</li>
-</ul>
-<blockquote>
-<p>&quot;Jika Anda ingin mencoba atau mempelajari lebih lanjut, kunjungi <a href="https://www.zerotier.com/?ref=blog.kiiota.com">situs resmi ZeroTier</a>.&quot;</p>
-</blockquote>
-<p>Artikel ini menjelaskan <strong>cara melakukan cross-compile ZeroTier client untuk perangkat ICR-3211B dari Advantech</strong>, khususnya berbasis <strong>ARMv7a 32-bit</strong>. Metode ini berguna untuk perangkat seperti router atau sistem berbasis embedded Linux lainnya.</p>
-<hr />
-
-<h2 id="persiapan-cross-compile"><strong>Persiapan Cross-Compile</strong></h2>
-<ul>
-<li><strong>Host Linux atau WSL (Windows Subsystem for Linux)</strong>: Menggunakan distribusi Ubuntu, Debian, atau sejenisnya.</li>
-<li><strong>Toolchain khusus ICR-3211B</strong>: Dapat diunduh dari <a href="https://bitbucket.org/bbsmartworx/toolchains/src/master/?ref=blog.kiiota.com">Advantech Toolchains Repository</a>, lebih spesifik <a href="https://bitbucket.org/bbsmartworx/toolchains/raw/ca59bfd00eacd7c86e3d9d9560c01dade4198503/deb/gcc-icr-v3-armv7-linux-gnueabi-7.4.0-3.x86_64.deb?ref=blog.kiiota.com">V3 routers (ARM Cortex-A8)</a> untuk target keluarga ICR-3200.</li>
-<li><strong>Koneksi internet</strong> untuk mengunduh dependensi.</li>
-</ul>
-<h3 id="1-instalasi-toolchain-cross-compiler"><strong>1. Instalasi Toolchain Cross-Compiler</strong></h3>
-<pre><code class="language-bash">sudo apt-get install git make pkg-config build-essential  
-sudo dpkg -i gcc-icr-v3-armv7-linux-gnueabi-7.4.0-3.x86_64.deb  
-</code></pre>
-<p>Toolchain akan terinstal di <strong><code>/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/</code></strong>.</p>
-<h3 id="2-clone-kode-sumber-zerotier"><strong>2. Clone Kode Sumber ZeroTier</strong></h3>
-<pre><code class="language-bash">git clone https://github.com/zerotier/ZeroTierOne.git --depth=1  
-cd ZeroTierOne  
-</code></pre>
-<p>Opsi <strong><code>--depth=1</code></strong> memastikan hanya commit terbaru yang diunduh untuk menghemat bandwidth.</p>
-<h3 id="3-patch-untuk-perbaikan-deteksi-arsitektur-dan-optimasi"><strong>3. Patch untuk Perbaikan Deteksi Arsitektur dan Optimasi</strong></h3>
-<p>Patch berikut disiapkan untuk memperbaiki deteksi arsitektur saat kompilasi dan optimasi ARM Cortex-A8 ICR-3211B. ARMv7a tidak memiliki dukungan native penuh untuk operasi atomic di semua prosesor, sehingga beberapa operasi seperti <strong><code>std::atomic</code></strong> pada C++ atau <strong><code>__atomic_</code></strong> pada GCC memerlukan pustaka tambahan untuk bekerja dengan benar. Untuk menghindari error saat linking, <strong><code>override LDFLAGS+=-latomic</code></strong> ditambahkan. Simpan patch berikut sebagai <strong><code>make-linux-Fix-architecture-detection.patch</code></strong>:</p>
-<pre><code class="language-patch">From 0a82874f6d1170205fa50400b3904bcab1e7da56 Mon Sep 17 00:00:00 2001
-From: Ketut Kumajaya &lt;ketut.kumajaya@gmail.com&gt;
-Date: Sat, 17 May 2025 21:19:46 +0700
-Subject: [PATCH] make-linux: Fix architecture detection
-
----
- make-linux.mk | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/make-linux.mk b/make-linux.mk
-index efc1bad..e47397b 100644
---- a/make-linux.mk
-+++ b/make-linux.mk
-@@ -334,7 +334,12 @@ endif
-
- # ARM32 hell -- use conservative CFLAGS
- ifeq ($(ZT_ARCHITECTURE),3)
--       ifeq ($(shell if [ -e /usr/bin/dpkg ]; then dpkg --print-architecture; fi),armel)
-+       ifeq ($(shell $(CC) -dM -E - &lt;/dev/null | grep -q __ARM_ARCH_7A__ &amp;&amp; echo 1),1)
-+               override CFLAGS+=-march=armv7-a -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=vfpv3 -O2
-+               override CXXFLAGS+=-march=armv7-a -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=vfpv3 -O2
-+               override LDFLAGS+=-latomic
-+               ZT_USE_ARM32_NEON_ASM_CRYPTO=0
-+       else ifeq ($(shell $(CC) -dM -E - &lt;/dev/null | grep -q __ARMEL__ &amp;&amp; echo 1),1)
-                override CFLAGS+=-march=armv5t -mfloat-abi=soft -msoft-float -mno-unaligned-access -marm
-                override CXXFLAGS+=-march=armv5t -mfloat-abi=soft -msoft-float -mno-unaligned-access -marm
-                ZT_USE_ARM32_NEON_ASM_CRYPTO=0
---
-2.43.0
-</code></pre>
-<p>kemudian terapkan ke kode sumber ZeroTier:</p>
-<pre><code class="language-bash">git apply make-linux-Fix-architecture-detection.patch
-</code></pre>
-<h3 id="4-konfigurasi-cross-compile"><strong>4. Konfigurasi Cross Compile</strong></h3>
-<p>Konfigurasi toolchain cross compile sebagai berikut:</p>
-<pre><code class="language-bash">export CC=/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-gcc
-export CXX=/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-g++
-export LD=/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-ld
-</code></pre>
-<h3 id="5-kompilasi-zerotier"><strong>5. Kompilasi ZeroTier</strong></h3>
-<p>Kompilasi ZeroTier dengan sejumlah thread prosesor yang tersedia agar prosesnya berlangsung cepat. Bila perlu, lakukan <strong><code>strip</code></strong> setelah kompilasi agar ukuran binary ZeroTier menjadi sangat kecil:</p>
-<pre><code class="language-bash">make -j$(nproc)
-/opt/toolchain/gcc-icr-v3-armv7-linux-gnueabi/bin/armv7-linux-gnueabi-strip --strip-all zerotier-one
-</code></pre>
-<h3 id="6-menyalin-binary-ke-target"><strong>6. Menyalin Binary ke Target</strong></h3>
-<p>Setelah kompilasi selesai, binary ZeroTier yang dihasilkan dapat ditemukan di direktori <em><code>ZeroTierOne/</code></em>. Anda bisa menyalinnya ke perangkat menggunakan SCP atau metode lain:</p>
-<pre><code class="language-bash">scp zerotier-one root@ip-target:/usr/sbin/
-</code></pre>
-<h3 id="7-verifikasi"><strong>7. Verifikasi</strong></h3>
-<p>Login ke perangkat ARMv7a dan jalankan binary untuk memastikan berhasil:</p>
-<pre><code class="language-bash">ssh root@ip-target
-cd /usr/sbin
-ln -sf zerotier-one zerotier-idtool
-ln -sf zerotier-one zerotier-cli
-zerotier-one -h
-</code></pre>
-<hr />
-
-<h2 id="menjalankan-zerotier-di-icr-3211b"><strong>Menjalankan ZeroTier di ICR-3211B</strong></h2>
-<p>Pada <strong>sistem minimalis seperti ICR-3211B</strong>, layanan <strong>systemd</strong> tidak tersedia, sehingga tidak bisa menggunakan <strong><code>systemctl</code></strong>. Sebagai solusi, kita akan menggunakan <strong>skrip init</strong> untuk mengelola ZeroTier secara langsung dan memastikan layanan tetap berjalan setelah reboot atau jika mengalami crash.</p>
-<h3 id="1-menambahkan-skrip-startup-dan-monitoring-ke-sistem"><strong>1. Menambahkan Skrip Startup dan Monitoring ke Sistem</strong></h3>
-<p>Simpan skrip berikut sebagai <strong><code>/etc/rc.d/init.d/zerotier-one</code></strong>:</p>
-<pre><code class="language-bash">#!/bin/sh
-
-DAEMON=&quot;zerotier-one&quot;
-DATADIR=&quot;/var/data/zerotier-one&quot;
-PIDFILE=&quot;$DATADIR/$DAEMON.pid&quot;
-WALL_CHAIN=&quot;srv_$DAEMON&quot;
-LOCAL_PORT=9993
-EXTRA_OPTS=&quot;-d -p$LOCAL_PORT $DATADIR&quot;
-
-. /etc/rc.d/init.d/functions
-
-start() {
-    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
-        echo &quot;$DAEMON is already running.&quot;
-    else
-        echo &quot;Starting $DAEMON...&quot;
-        mkdir -p &quot;$DATADIR&quot; /var/lib
-        ln -sf &quot;$DATADIR&quot; /var/lib/zerotier-one
-        add_chain $WALL_CHAIN
-        add_rule $WALL_CHAIN udp $LOCAL_PORT
-        add_chain6 $WALL_CHAIN
-        add_rule6 $WALL_CHAIN udp $LOCAL_PORT
-        logger -t &quot;$DAEMON&quot; &quot;$DAEMON service start&quot;
-        nohup &quot;$DAEMON&quot; $EXTRA_OPTS &amp;&gt; /dev/null &amp;
-        echo $! &gt; &quot;$PIDFILE&quot;
-        echo &quot;Started.&quot;
-    fi
-}
-
-stop() {
-    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
-        echo &quot;Stopping $DAEMON...&quot;
-        kill -9 &quot;$(cat $PIDFILE)&quot; &amp;&amp; rm -f &quot;$PIDFILE&quot;
-        sleep 2
-        del_chain $WALL_CHAIN
-        del_chain6 $WALL_CHAIN
-        logger -t &quot;$DAEMON&quot; &quot;$DAEMON service stop&quot;
-        echo &quot;Stopped.&quot;
-    else
-        echo &quot;$DAEMON is not running.&quot;
-    fi
-}
-
-status() {
-    echo -n &quot;$DAEMON is &quot;
-    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
-        echo &quot;running (PID: $(cat $PIDFILE))&quot;
-    else
-        echo &quot;not running.&quot;
-    fi
-}
-
-restart() {
-    echo &quot;Restarting $DAEMON...&quot;
-    stop
-    sleep 3
-    start
-}
-
-case &quot;$1&quot; in
-    start) start ;;
-    stop) stop ;;
-    restart) restart ;;
-    status) status ;;
-    *) echo &quot;Usage: $0 {start|stop|restart|status}&quot; ;;
-esac
-
-exit 0
-</code></pre>
-<p>Simpan skrip berikut sebagai <strong><code>/usr/sbin/zerotier-watchdog</code></strong> untuk memastikan layanan selalu tetap berjalan:</p>
-<pre><code class="language-bash">#!/bin/sh
-
-DAEMON=&quot;zerotier-one&quot;
-PIDFILE=&quot;/var/data/zerotier-one/$DAEMON.pid&quot;
-CHECK_INTERVAL=15  # Check every 15 seconds
-
-while true; do
-    if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; ps | grep -v grep | grep &quot;$(cat $PIDFILE)&quot; &gt; /dev/null 2&gt;&amp;1; then
-        echo &quot;$DAEMON is running.&quot;
-    else
-        logger -t &quot;$DAEMON&quot; &quot;$DAEMON stopped. Restarting...&quot;
-        service $DAEMON start
-    fi
-    sleep &quot;$CHECK_INTERVAL&quot;
-done
-</code></pre>
-<h3 id="2-mengaktifkan-skrip-startup"><strong>2. Mengaktifkan Skrip Startup</strong></h3>
-<p>Setelah menyimpan skrip di <strong><code>/etc/rc.d/init.d/zerotier</code></strong>, jalankan perintah berikut untuk <strong>mengaktifkan startup otomatis</strong>:</p>
-<pre><code class="language-bash">chmod +x /etc/rc.d/init.d/zerotier-one
-cd /etc/rc.d/rc.start
-ln -sf /etc/rc.d/init.d/zerotier-one rc.99.zerotier-one
-</code></pre>
-<p>Di halaman web ICR-3211B, ubah <strong>startup script</strong> menjadi:</p>
-<pre><code class="language-bash">#!/bin/sh
-#
-# This script will be executed *after* all the other init scripts.
-# You can put your own initialization stuff in here.
-chmod 777 /dev/net/tun
-
-nohup zerotier-watchdog &amp;&gt; /dev/null &amp;
-</code></pre>
-<h3 id="3-verifikasi-debugging"><strong>3. Verifikasi &amp; Debugging</strong></h3>
-<ul>
-<li><strong>Pastikan layanan berjalan:</strong></li>
-</ul>
-<pre><code class="language-bash">service zerotier-one start
-service zerotier-one status
-ip a
-</code></pre>
-<ul>
-<li><strong>Periksa log jika ada masalah:</strong><br />
-Setelah reboot, periksa kembali log dan status jaringan melalui antarmuka web ICR-3211B untuk memastikan ZeroTier berjalan normal.</li>
-</ul>
-<hr />
-
-<h2 id="bergabung-ke-jaringan-zerotier"><strong>Bergabung ke Jaringan ZeroTier</strong></h2>
-<p>Setelah ZeroTier berhasil berjalan di ICR-3211B, langkah berikutnya adalah <strong>bergabung ke jaringan ZeroTier</strong> agar perangkat dapat berkomunikasi dengan sistem lain.</p>
-<h3 id="1-dapatkan-network-id"><strong>1. Dapatkan Network ID</strong></h3>
-<p>Sebelum menghubungkan perangkat, pastikan Anda memiliki <strong>Network ID</strong> dari jaringan yang telah dibuat di <strong>ZeroTier Central</strong>.</p>
-<ul>
-<li>Login ke <strong>ZeroTier Central</strong>: <a href="https://my.zerotier.com/?ref=blog.kiiota.com">https://my.zerotier.com</a></li>
-<li>Buat atau pilih jaringan yang ingin digunakan.</li>
-<li>Catat <strong>Network ID</strong> (biasanya berupa string angka, misalnya <code>abcdef1234567890</code>).</li>
-</ul>
-<p>Anda bisa meminta <strong>Network ID</strong> ke administrator jaringan jika menggunakan jaringan ZeroTier private self hosted.</p>
-<h3 id="2-bergabung-ke-jaringan-dari-icr-3211b"><strong>2. Bergabung ke Jaringan dari ICR-3211B</strong></h3>
-<p>Gunakan perintah berikut di perangkat ICR-3211B:</p>
-<pre><code class="language-bash">zerotier-cli join &lt;NETWORK_ID&gt;
-</code></pre>
-<p>Contoh:</p>
-<pre><code class="language-bash">zerotier-cli join abcdef1234567890 
-</code></pre>
-<h3 id="3-verifikasi-koneksi"><strong>3. Verifikasi Koneksi</strong></h3>
-<p>Setelah bergabung ke jaringan, pastikan perangkat telah berhasil terkoneksi:</p>
-<pre><code class="language-bash">zerotier-cli info 
-</code></pre>
-<p>Jika berhasil, output akan menunjukkan <strong>status jaringan aktif</strong>, seperti:</p>
-<pre><code class="language-bash">200 info &lt;ztaddr&gt; &lt;ver&gt; ONLINE
-</code></pre>
-<p>Jika jaringan memerlukan <strong>persetujuan manual</strong>, masuk ke ZeroTier Central, lalu <strong>izinkan perangkat bergabung</strong> ke jaringan atau minta persetujuan ke administrator jaringan private yang digunakan.</p>
-<h3 id="4-cek-ip-address-di-zerotier"><strong>4. Cek IP Address di ZeroTier</strong></h3>
-<p>Gunakan perintah berikut untuk melihat IP yang diberikan oleh jaringan ZeroTier:</p>
-<pre><code class="language-bash">zerotier-cli listnetworks
-</code></pre>
-<p>Hasilnya akan menunjukkan <strong>IP yang diberikan</strong>, misalnya:</p>
-<pre><code class="language-bash">200 listnetworks abcdef1234567890 &lt;name&gt; &lt;mac&gt; OK PRIVATE &lt;dev&gt; 10.10.10.15/24
-</code></pre>
-<h3 id="5-uji-koneksi-antar-perangkat"><strong>5. Uji Koneksi Antar Perangkat</strong></h3>
-<p>Gunakan <strong>ping</strong> untuk menguji konektivitas antar perangkat yang terhubung ke ZeroTier:</p>
-<pre><code class="language-bash">ping &lt;IP_DEVICE_LAIN&gt;
-</code></pre>
-<p>Misalnya jika perangkat lain memiliki IP <strong>10.10.10.20</strong>:</p>
-<pre><code class="language-bash">ping 10.10.10.20
-</code></pre>
-<p>Jika ping berhasil, berarti koneksi melalui <strong>ZeroTier</strong> sudah aktif!</p>
-<p>Sekarang, <strong>ICR-3211B telah terhubung ke jaringan ZeroTier</strong> dan siap digunakan untuk komunikasi dengan perangkat lain.</p>
-<hr />
-
-<h2 id="penutup"><strong>Penutup</strong></h2>
-<p>Dengan langkah-langkah yang telah dijelaskan, ZeroTier-One kini dapat berjalan optimal di ICR-3211B, meskipun tanpa dukungan systemd. Cross-compiling, penerapan patch arsitektur, serta skrip startup dan monitoring layanan memastikan bahwa sistem tetap stabil dan terhubung tanpa perlu intervensi manual.</p>
-<p>Keunggulan dari pendekatan ini:</p>
-<ul>
-<li><strong>Portabilitas:</strong> Dapat digunakan pada perangkat ARMv7a lainnya dengan sedikit modifikasi.</li>
-<li><strong>Keamanan:</strong> Firewall diaktifkan untuk melindungi komunikasi jaringan.</li>
-<li><strong>Reliabilitas:</strong> Layanan otomatis restart jika ada kegagalan proses.</li>
-</ul>
-<p>Jika Anda ingin melakukan penyesuaian lebih lanjut—misalnya optimasi sumber daya atau penerapan kebijakan keamanan tambahan—artikel ini bisa menjadi dasar yang kuat. ZeroTier memungkinkan konektivitas fleksibel dan aman, sehingga cocok untuk berbagai implementasi di sistem embedded Linux lainnya.</p>
-<p><strong>Tetap eksplorasi dan selamat mencoba!</strong></p>
-<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="zerotier" /><category term="Zerotier" /><category term="ICR-3200" /><summary type="html"><![CDATA[Pendahuluan ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan. Beberapa fitur utama ZeroTier: * Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat. * Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="rapid-scada" /><category term="Rapid Scada" /><category term="Grafana" /><summary type="html"><![CDATA[Artikel ini menjelaskan implementasi proxy server yang menghubungkan antara Grafana dan Rapid SCADA versi 6. Proxy ini bertugas untuk menangani autentikasi berbasis cookie, mengakses data historis dari endpoint SCADA, dan mengubah format respons agar sesuai dengan format data time series Grafana. Arsitektur Singkat Berikut arsitektur umum alur komunikasi antara Grafana dan Rapid SCADA: Grafana --> [Basic Auth] --> ScadaGrafanaProxy --> [Cookie Session] --> Rapid SCADA 6 API * Grafana:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGRhc2hib2FyZHxlbnwwfHx8fDE3NDgxODg2NzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
