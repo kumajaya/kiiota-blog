@@ -88,7 +88,7 @@
 }
 
 /* Hide Ghost-specific elements */
-.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .scroll-button, .scroll-button svg, .gh-sidebar {
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .gh-sidebar {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
@@ -174,6 +174,116 @@ table td, table th { border: 1px solid #e0e0e0; }
 table tr:nth-child(even) { background-color: #f9f9f9; }
 table td:first-child, table th:first-child { padding-left: 0.75em !important; }
 table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+
+/* ⬆ Scroll Top Button + Progress Indicator */
+.scroll-top {
+  --ghost-accent-color: #222149;
+  position: fixed;
+  z-index: 50;
+  padding: 0;
+  right: 20px; bottom: 20px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(15px);
+  height: 46px; width: 46px;
+  cursor: pointer;
+  display: flex;
+  align-items: center; justify-content: center;
+  border-radius: 50%;
+  transition: all .4s ease;
+  border: none;
+  box-shadow: inset 0 0 0 2px #ccc;
+  color: #ccc; background-color: #fff;
+}
+.scroll-top.is-active {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top .icon-tabler-arrow-up {
+  position: absolute;
+  stroke-width: 2px;
+  stroke: #333;
+}
+.scroll-top svg path { fill: none; }
+.scroll-top svg.progress-circle path {
+  stroke: #333;
+  stroke-width: 4;
+  transition: all .4s ease;
+}
+.scroll-top:hover {
+  color: var(--ghost-accent-color);
+}
+.scroll-top:hover .progress-circle path,
+.scroll-top:hover .icon-tabler-arrow-up {
+  stroke: var(--ghost-accent-color);
+}
+@media print {
+  .scroll-button .btn-toggle-round {
+    display: none !important;
+  }
+}
+
+/* Native File Download Card Styling */
+.native-file-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ghost-bg, #f9f9f9);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 1em 0;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 600;
+}
+
+.file-desc {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.file-meta {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.dot {
+  margin: 0 6px;
+}
+
+.file-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.file-download:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.file-download svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.5;
+}
 </style>
 </head>
 <body><header class="site-header">
@@ -559,6 +669,53 @@ service_triggers() {
   });
 </script>
 
+<!-- Scroll Top Button & Progress Indicator: UX enhancement by Norbert Hunyadi -->
+<script defer>
+  const scrollTopBtn = document.querySelector('.js-scroll-top');   // Tombol scroll ke atas
+  const topSelector = document.querySelector('.post-content');     // Konten utama sebagai titik awal scroll
+
+  if (scrollTopBtn && topSelector) {
+    scrollTopBtn.onclick = () => {
+      const topPosition = topSelector.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
+    };
+
+    const progressPath = document.querySelector('.scroll-top path');
+    const pathLength = progressPath.getTotalLength();
+    progressPath.style.transition = 'none';
+    progressPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+    progressPath.style.strokeDashoffset = pathLength;
+    progressPath.getBoundingClientRect();
+    progressPath.style.transition = 'stroke-dashoffset 10ms linear';
+
+    const updateProgress = () => {
+      const scroll = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+      const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      const topOffset = topSelector.offsetTop;
+      const height = docHeight - windowHeight - topOffset;
+      const progress = pathLength - ((scroll - topOffset) * pathLength / height);
+      progressPath.style.strokeDashoffset = progress;
+    };
+
+    updateProgress();
+
+    const offset = topSelector.offsetTop; // Trigger scroll-top button visibility
+
+    window.addEventListener('scroll', () => {
+      updateProgress();
+      const scrollPos = window.scrollY || document.documentElement.scrollTop;
+      scrollPos > offset
+        ? scrollTopBtn.classList.add('is-active')
+        : scrollTopBtn.classList.remove('is-active');
+    }, false);
+  }
+</script>
+
 <!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
 <script defer>
   document.addEventListener("DOMContentLoaded", function () {
@@ -606,6 +763,52 @@ service_triggers() {
       card.replaceWith(wrapper);
     });
   });
+</script>
+
+<!-- Native File Card Enhancement: Replace Ghost file cards with native download links -->
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".kg-file-card").forEach(card => {
+    const link = card.querySelector("a.kg-file-card-container");
+    const fileUrl = link?.getAttribute("href");
+    const fileName = card.querySelector(".kg-file-card-title")?.textContent?.trim() || "Download File";
+    const fileDesc = card.querySelector(".kg-file-card-caption")?.textContent?.trim() || "";
+    const fileMeta = card.querySelector(".kg-file-card-metadata");
+    const fileSize = fileMeta?.querySelector(".kg-file-card-filesize")?.textContent?.trim() || "";
+    const fileBase = fileMeta?.querySelector(".kg-file-card-filename")?.textContent?.trim() || "";
+
+    if (!fileUrl) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "native-file-wrapper";
+
+    const svgIcon = `
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+           stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+        <polyline points="8.25 14.25 12 18 15.75 14.25"></polyline>
+        <line x1="12" y1="6.75" x2="12" y2="18"></line>
+        <circle cx="12" cy="12" r="11.25"></circle>
+      </svg>
+    `;
+
+    wrapper.innerHTML = `
+      <div class="file-info">
+        <div class="file-name">${fileName}</div>
+        ${fileDesc ? `<div class="file-desc">${fileDesc}</div>` : ""}
+        <div class="file-meta">
+          ${fileBase ? `<span>${fileBase}</span>` : ""}
+          ${fileBase && fileSize ? `<span class="dot">•</span>` : ""}
+          ${fileSize ? `<span>${fileSize}</span>` : ""}
+        </div>
+      </div>
+      <a class="file-download" href="${fileUrl}" download aria-label="Download file">
+        ${svgIcon}
+      </a>
+    `;
+
+    card.replaceWith(wrapper);
+  });
+});
 </script>
 </body>
 
