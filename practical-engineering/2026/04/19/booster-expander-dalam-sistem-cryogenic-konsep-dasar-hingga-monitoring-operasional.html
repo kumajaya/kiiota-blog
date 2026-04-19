@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Booster expander bukan dua mesin yang bekerja berdampingan. Ini adalah satu sistem energi — di mana expander menentukan batas, dan booster hanya mengikuti. Memahami ini mengubah cara kita membaca performa, vibrasi, dan stabilitas mesin di lapangan." />
+<meta property="og:description" content="Booster expander bukan dua mesin yang bekerja berdampingan. Ini adalah satu sistem energi — di mana expander menentukan batas, dan booster hanya mengikuti. Memahami ini mengubah cara kita membaca performa, vibrasi, dan stabilitas mesin di lapangan." />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1605141313002-fde711766543?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGJhc2ljJTIwa25vd2xlZGdlfGVufDB8fHx8MTc3NjU2MjYyMHww&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-04-19T02:34:56+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1605141313002-fde711766543?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGJhc2ljJTIwa25vd2xlZGdlfGVufDB8fHx8MTc3NjU2MjYyMHww&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="twitter:title" content="Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-19T02:34:56+00:00","datePublished":"2026-04-19T02:34:56+00:00","description":"Booster expander bukan dua mesin yang bekerja berdampingan. Ini adalah satu sistem energi — di mana expander menentukan batas, dan booster hanya mengikuti. Memahami ini mengubah cara kita membaca performa, vibrasi, dan stabilitas mesin di lapangan.","headline":"Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional","image":"https://images.unsplash.com/photo-1605141313002-fde711766543?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGJhc2ljJTIwa25vd2xlZGdlfGVufDB8fHx8MTc3NjU2MjYyMHww&ixlib=rb-4.1.0&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html"},"url":"https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+
+/* ⬆ Scroll Top Button + Progress Indicator */
+.scroll-top {
+  --ghost-accent-color: #222149;
+  position: fixed;
+  z-index: 50;
+  padding: 0;
+  right: 20px; bottom: 20px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(15px);
+  height: 46px; width: 46px;
+  cursor: pointer;
+  display: flex;
+  align-items: center; justify-content: center;
+  border-radius: 50%;
+  transition: all .4s ease;
+  border: none;
+  box-shadow: inset 0 0 0 2px #ccc;
+  color: #ccc; background-color: #fff;
+}
+.scroll-top.is-active {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top .icon-tabler-arrow-up {
+  position: absolute;
+  stroke-width: 2px;
+  stroke: #333;
+}
+.scroll-top svg path { fill: none; }
+.scroll-top svg.progress-circle path {
+  stroke: #333;
+  stroke-width: 4;
+  transition: all .4s ease;
+}
+.scroll-top:hover {
+  color: var(--ghost-accent-color);
+}
+.scroll-top:hover .progress-circle path,
+.scroll-top:hover .icon-tabler-arrow-up {
+  stroke: var(--ghost-accent-color);
+}
+@media print {
+  .scroll-button .btn-toggle-round {
+    display: none !important;
+  }
+}
+
+/* Native File Download Card Styling */
+.native-file-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ghost-bg, #f9f9f9);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 1em 0;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 600;
+}
+
+.file-desc {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.file-meta {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.dot {
+  margin: 0 6px;
+}
+
+.file-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.file-download:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.file-download svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.5;
+}
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/practical-engineering">
+        Practical Engineering
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2026-04-19T02:34:56+00:00" itemprop="datePublished">
+        April 19, 2026
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">8 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Booster expander bukan dua mesin yang bekerja berdampingan. Ini adalah satu sistem energi — di mana expander menentukan batas, dan booster hanya mengikuti. Memahami ini mengubah cara kita membaca performa, vibrasi, dan stabilitas mesin di lapangan.
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1605141313002-fde711766543?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGJhc2ljJTIwa25vd2xlZGdlfGVufDB8fHx8MTc3NjU2MjYyMHww&ixlib=rb-4.1.0&q=80&w=2000" alt="Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@meganwatson?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Megan Watson</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<h1 id="booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional">Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional</h1>
+<h2 id="pendahuluan">Pendahuluan</h2>
+<p>Dalam sistem Air Separation Unit (ASU), booster expander adalah salah satu komponen rotating equipment yang paling sering disalahpahami. Banyak operator memandangnya sebagai dua mesin terpisah — sebuah expander dan sebuah kompresor booster — yang kebetulan terhubung pada satu shaft.</p>
+<p>Padahal pemahaman yang tepat justru sebaliknya:</p>
+<blockquote>
+<p>Booster bukan mesin utama yang dibantu expander. Booster adalah beban — expander adalah prime mover yang memutarnya.</p>
+</blockquote>
+<p>Dengan kata lain, booster tidak menentukan kemampuan sistem. Ia hanya mengikuti energi yang disediakan oleh expander. Ini bukan sekadar konsep, melainkan batasan fisika yang menentukan bagaimana sistem harus dioperasikan.</p>
+<p>Artikel ini membahas konsep dasar booster expander, hubungan energi di dalamnya, serta pendekatan monitoring berbasis rasio yang lebih tepat untuk operasional sehari-hari.</p>
+<hr />
+
+<h2 id="konsep-dasar-satu-sistem-energi">Konsep Dasar: Satu Sistem Energi</h2>
+<p>Booster expander terdiri dari dua komponen utama dalam satu shaft:</p>
+<ul>
+<li><strong>Expander</strong> — gas bertekanan tinggi diekspansikan, menghasilkan kerja melalui ekstraksi enthalpy, memutar shaft, dan menghasilkan efek pendinginan yang signifikan.</li>
+<li><strong>Booster</strong> — memanfaatkan energi tersebut untuk mengkompresi gas di sisi booster.</li>
+</ul>
+<p>Keduanya bukan dua mesin independen, melainkan satu sistem energi yang saling terikat.</p>
+<blockquote>
+<p>Energi yang tersedia dari expander adalah batas atas dari kerja yang dapat dilakukan oleh booster.</p>
+</blockquote>
+<p>Penting untuk dipahami bahwa energi expander bukanlah nilai tetap — ia sangat dinamis, dipengaruhi oleh kondisi inlet (temperatur dan tekanan), posisi nozzle, serta backpressure di sisi outlet. Inilah sebabnya kapasitas booster bisa terasa berubah meskipun tidak ada yang diubah di sisi booster itu sendiri — sumber energinya yang berfluktuasi.</p>
+<p>Pendinginan pada expander bukan sekadar akibat penurunan tekanan seperti yang terjadi pada ekspansi melalui valve (efek Joule-Thomson), tetapi karena ekstraksi kerja dari gas. Inilah sebabnya expander jauh lebih efektif menghasilkan temperatur rendah dibandingkan ekspansi melalui valve biasa.</p>
+<hr />
+
+<h2 id="keseimbangan-energi-dan-dampaknya-di-lapangan">Keseimbangan Energi dan Dampaknya di Lapangan</h2>
+<p>Secara fundamental:</p>
+<p>$$W_{expander} = W_{booster} + W_{losses}$$</p>
+<p>Dimana losses meliputi:</p>
+<ul>
+<li>losses mekanis (bearing, seal, leakage)</li>
+<li>losses aerodinamis internal</li>
+</ul>
+<p>Namun operator tidak melihat persamaan ini secara langsung. Yang terlihat adalah manifestasinya:</p>
+<ul>
+<li>vibrasi meningkat</li>
+<li>speed tidak stabil</li>
+<li>mesin terasa tidak "smooth"</li>
+<li>bahkan trip</li>
+</ul>
+<p>Ketika keseimbangan energi terganggu, sistem keluar dari design point dan memicu:</p>
+<ul>
+<li>perubahan pola aliran di impeller</li>
+<li>munculnya unbalanced aerodynamic forces</li>
+<li>berkembang menjadi rotor instability</li>
+</ul>
+<p>Dalam jangka panjang:</p>
+<blockquote>
+<p>Kondisi ini mempercepat keausan bearing dan menurunkan keandalan mesin.</p>
+</blockquote>
+<p>Vibrasi sering didiagnosis sebagai masalah mekanis — bearing, alignment, atau balancing. Padahal di lapangan, vibrasi pada booster expander sangat sering berakar dari energy mismatch di sisi aerodinamis, bukan dari komponen mekanis itu sendiri. Mengejar solusi mekanis tanpa memeriksa keseimbangan energi proses adalah langkah yang bisa membuang waktu dan biaya.</p>
+<p>Dengan kata lain, menjaga keseimbangan energi bukan hanya soal performa — tetapi juga umur equipment.</p>
+<hr />
+
+<h2 id="power-torsi-dan-speed-batasan-yang-tidak-bisa-dinegosiasikan">Power, Torsi, dan Speed: Batasan yang Tidak Bisa Dinegosiasikan</h2>
+<p>$$W = \tau \times \omega$$</p>
+<p>Karena expander dan booster berada pada satu shaft:</p>
+<ul>
+<li>kecepatan rotasi selalu sama</li>
+<li>keseimbangan torsi harus terpenuhi</li>
+</ul>
+<p>$$\tau_{expander} = \tau_{booster} + \tau_{losses}$$</p>
+<p>Implikasi paling penting:</p>
+<blockquote>
+<p>Ini bukan batasan kontrol — ini batasan fisika. Booster tidak bisa dipaksa bekerja melebihi energi yang disediakan expander.</p>
+</blockquote>
+<p>Jika batas ini dilanggar, sistem tidak langsung berhenti — ia akan bereaksi dengan cara tertentu sebelum akhirnya tidak stabil:</p>
+<ul>
+<li>flow di kedua sisi berubah secara otomatis</li>
+<li>rasio ekspansi dan kompresi bergeser dari design point</li>
+<li>titik operasi berpindah ke zona yang kurang efisien atau tidak stabil</li>
+<li>speed turun, vibrasi meningkat, dan potensi trip meningkat</li>
+</ul>
+<p>Memahami mekanisme ini membantu operator mengenali tanda-tanda awal ketidakseimbangan sebelum sistem mencapai kondisi kritis.</p>
+<hr />
+
+<h2 id="parameter-utama-rasio-ekspansi-dan-rasio-kompresi">Parameter Utama: Rasio Ekspansi dan Rasio Kompresi</h2>
+<p>Catatan krusial:</p>
+<blockquote>
+<p>Semua perhitungan harus menggunakan tekanan absolut (bar abs / psia). Menggunakan tekanan gauge akan menghasilkan rasio yang salah dan interpretasi kondisi operasi yang keliru.</p>
+</blockquote>
+<p><strong>Rasio Ekspansi (Expander):</strong></p>
+<p>$$ER = \frac{P_{inlet}}{P_{outlet}}$$</p>
+<p><strong>Rasio Kompresi (Booster):</strong></p>
+<p>$$CR = \frac{P_{discharge}}{P_{suction}}$$</p>
+<p><strong>Mengapa bukan differential pressure (ΔP)?</strong></p>
+<p>ΔP hanya menunjukkan selisih absolut tanpa memperhitungkan kondisi suction.</p>
+<table>
+<thead>
+<tr>
+<th>Suction (bar abs)</th>
+<th>Discharge (bar abs)</th>
+<th>ΔP (bar)</th>
+<th>CR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.0</td>
+<td>6.0</td>
+<td>1.0</td>
+<td>1.20</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>1.25</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ΔP yang sama tidak selalu mencerminkan kondisi operasi yang sama.</p>
+</blockquote>
+<p>Dengan sistem DCS, rasio dapat dihitung secara real-time, sehingga lebih representatif dibanding ΔP.</p>
+<hr />
+
+<h2 id="temperatur-adalah-konsekuensi-bukan-target">Temperatur Adalah Konsekuensi, Bukan Target</h2>
+<p>$$T_{outlet} = T_{inlet} \times \left(\frac{P_{outlet}}{P_{inlet}}\right)^{\frac{\gamma-1}{\gamma}}$$</p>
+<p>Temperatur outlet adalah fungsi langsung dari rasio tekanan.</p>
+<blockquote>
+<p>Rasio adalah penyebab. Temperatur adalah akibat.</p>
+</blockquote>
+<p>Jika rasio sesuai design dan kondisi inlet normal, maka temperatur akan mengikuti secara alami.</p>
+<blockquote>
+<p>Mengejar temperatur tanpa memperhatikan rasio sama seperti memperbaiki gejala tanpa menyentuh penyebabnya.</p>
+</blockquote>
+<hr />
+
+<h2 id="opening-nozzle-expander-satu-tuas-untuk-seluruh-sistem">Opening Nozzle Expander: Satu Tuas untuk Seluruh Sistem</h2>
+<p>Opening nozzle (pada beberapa vendor dikenal sebagai VIGV atau segmental nozzle) adalah satu-satunya manipulated variable utama. Lebih tepat dipahami bukan sebagai pengatur flow semata, melainkan sebagai <strong>pengatur energi</strong> — karena yang sesungguhnya dikendalikan adalah enthalpy drop di sisi expander, yang menentukan berapa besar energi tersedia untuk memutar shaft dan menggerakkan booster. Perubahannya mempengaruhi seluruh sistem:</p>
+<div style="overflow-x: auto; margin: 1em 0;">
+  <div class="mermaid">
+    ---
+    config:
+      theme: neutral
+    ---
+    flowchart TD
+        A("Opening Nozzle ↑"):::nozzle
+        B("Flow Expander ↑"):::expander
+        C("Energi Expander ↑"):::expander
+        D("Torsi Shaft ↑"):::shaft
+        E("Speed ↑"):::shaft
+        F("Booster Work ↑"):::booster
+        G("Flow Booster ↑"):::booster
+        H("Rasio Kompresi Berubah"):::output
+        A --&gt; B
+        B --&gt; C
+        C --&gt;|Menghasilkan| D
+        D --&gt; E
+        E --&gt; F
+        F --&gt; G
+        G --&gt; H
+        classDef nozzle fill:#fff2cc,stroke:#bf9000,stroke-width:2px,color:#000
+        classDef expander fill:#cfe2f3,stroke:#1155cc,stroke-width:2px,color:#000
+        classDef shaft fill:#d9ead3,stroke:#38761d,stroke-width:2px,color:#000
+        classDef booster fill:#fce5cd,stroke:#e69138,stroke-width:2px,color:#000
+        classDef output fill:#d9d2e9,stroke:#351c75,stroke-width:2px,color:#000
+  </div>
+  <figcaption style="text-align:center; font-size:14px; color:#555;">
+    Pengaruh Opening Nozzle terhadap Keseimbangan Sistem Booster Expander
+  </figcaption>
+</div>
+<blockquote>
+<p>Tidak ada perubahan kecil di sistem ini — satu adjustment akan menggeser seluruh keseimbangan sistem.</p>
+</blockquote>
+<p><strong>Profil Vendor sebagai Peta Energi</strong></p>
+<p>Vendor biasanya menyediakan tabel performa yang mencakup speed, flow, tekanan, temperatur, dan posisi nozzle.</p>
+<blockquote>
+<p>Setiap titik dalam tabel tersebut adalah kondisi di mana keseimbangan energi tercapai. Profil vendor adalah peta keseimbangan energi sistem.</p>
+</blockquote>
+<p>Vendor umumnya tidak hanya menyediakan data untuk 100% pembebanan, tetapi juga untuk beberapa titik lain — misalnya 90% dan 110%. Setiap titik pembebanan memiliki profil keseimbangan energi tersendiri dengan rasio, speed, flow, dan posisi nozzle yang berbeda. Pendekatan monitoring berbasis rasio berlaku di semua titik pembebanan tersebut — operator tinggal mengacu ke profil yang sesuai dengan kondisi operasi aktual, tanpa perlu mengekstrapolasi sendiri.</p>
+<hr />
+
+<h2 id="bypass-valve-booster-harus-full-close">Bypass Valve Booster: Harus Full Close</h2>
+<p>Dalam kondisi operasi normal:</p>
+<blockquote>
+<p>Bypass valve harus full close.</p>
+</blockquote>
+<p>Jika terbuka:</p>
+<ul>
+<li>energi kompresi terbuang</li>
+<li>efisiensi menurun</li>
+<li>kondisi operasi menjadi bias</li>
+</ul>
+<p><strong>Fenomena Lapangan</strong></p>
+<p>Sering ditemukan bypass yang sudah lama tidak pernah full close dan dianggap normal. Kemungkinan penyebabnya adalah prosedur startup yang kurang terkoordinasi — nozzle dinaikkan terlalu cepat sementara bypass belum cukup ditutup, sehingga speed melonjak dan bypass dibiarkan terbuka sebagai solusi sementara yang kemudian bertahan.</p>
+<blockquote>
+<p>Jika sistem hanya stabil saat bypass terbuka, kemungkinan besar sistem belum berada pada titik operasi yang benar.</p>
+</blockquote>
+<hr />
+
+<h2 id="seal-gas-dan-lube-oil-parameter-pendukung-yang-tidak-boleh-diabaikan">Seal Gas dan Lube Oil: Parameter Pendukung yang Tidak Boleh Diabaikan</h2>
+<p>Di luar keseimbangan energi proses, ada dua sistem pendukung yang dapat menghasilkan gejala yang sama di lapangan — khususnya pada vibrasi dan bearing temperature — dan sering luput dari perhatian dalam diagnostik awal.</p>
+<p>Dengan kata lain:</p>
+<blockquote>
+<p>Tidak semua vibrasi berasal dari ketidakseimbangan energi, tetapi semua kemungkinan harus dipisahkan dengan jelas sebelum tindakan diambil.</p>
+</blockquote>
+<p><strong>Seal gas pressure:</strong></p>
+<p>Seal gas berfungsi mencegah process gas masuk ke area bearing. Jika tekanan seal gas tidak mencukupi atau tidak stabil:</p>
+<ul>
+<li>process gas dapat merembes masuk ke bearing area</li>
+<li>karakteristik pelumasan terganggu</li>
+<li>bearing temperature naik dan vibrasi meningkat</li>
+</ul>
+<p><strong>Lube oil:</strong></p>
+<p>Tekanan dan kondisi oli secara langsung menentukan kualitas film pelumasan di bearing. Jika tekanan oli terlalu rendah atau oli terkontaminasi:</p>
+<ul>
+<li>film oli tidak terbentuk sempurna</li>
+<li>terjadi kontak metal-to-metal</li>
+<li>bearing temperature naik dan vibrasi meningkat</li>
+</ul>
+<p>Perlu diperhatikan bahwa gejala yang muncul dari masalah seal gas atau lube oil dapat sangat mirip dengan gejala akibat ketidakseimbangan energi, seperti:</p>
+<ul>
+<li>peningkatan vibrasi</li>
+<li>kenaikan bearing temperature</li>
+<li>operasi yang terasa tidak stabil</li>
+</ul>
+<blockquote>
+<p>Sebelum menyimpulkan bahwa vibrasi berasal dari ketidakseimbangan energi atau masalah mekanis struktural, kondisi seal gas dan lube oil perlu diperiksa terlebih dahulu — keduanya adalah variabel independen yang dapat menghasilkan gejala serupa.</p>
+</blockquote>
+<hr />
+
+<h2 id="prosedur-startup-melewati-critical-speed-dengan-benar">Prosedur Startup: Melewati Critical Speed dengan Benar</h2>
+<p>Contoh sistem dengan dua critical speed (misal 6.000 dan 9.000 RPM):</p>
+<p><strong>Fase 1 — Menuju Critical Speed Pertama</strong></p>
+<ul>
+<li>Naikkan nozzle dengan cepat</li>
+<li>Lewati critical speed pertama sesegera mungkin</li>
+<li>Bypass masih terbuka</li>
+</ul>
+<p><strong>Fase 2 — Antar Critical Speed</strong></p>
+<ul>
+<li>Mulai koordinasi nozzle dan bypass secara proporsional</li>
+<li>Hindari berlama-lama di zona ini</li>
+</ul>
+<p><strong>Fase 3 — Setelah Critical Speed Kedua</strong></p>
+<ul>
+<li>Semua critical speed terlewati</li>
+<li>Koordinasi penuh, nozzle naik proporsional dengan bypass closing</li>
+<li>Target: bypass full close</li>
+</ul>
+<blockquote>
+<p>Yang berbahaya bukan melewati critical speed, tetapi terlalu lama berada di dalamnya.</p>
+</blockquote>
+<p>Untuk sistem dengan satu critical speed, prosedur menjadi dua fase — cepat melewati critical speed, lalu koordinasi penuh hingga bypass full close.</p>
+<hr />
+
+<h2 id="monitoring-berbasis-rasio">Monitoring Berbasis Rasio</h2>
+<p>Pendekatan monitoring terbaik adalah membandingkan rasio aktual dengan design secara bersamaan untuk kedua sisi:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Formula</th>
+<th>Makna</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rasio Ekspansi</td>
+<td>$ER = P_{inlet} / P_{outlet}$</td>
+<td>Performa expander</td>
+</tr>
+<tr>
+<td>Rasio Kompresi</td>
+<td>$CR = P_{discharge} / P_{suction}$</td>
+<td>Performa booster</td>
+</tr>
+</tbody>
+</table>
+<p>Namun yang lebih powerful adalah melihat <strong>hubungan antara ER dan CR</strong>, bukan hanya masing-masing secara terpisah. Pola korelasi keduanya memberikan informasi diagnostik yang jauh lebih kaya:</p>
+<table>
+<thead>
+<tr>
+<th>Pola</th>
+<th>Interpretasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ER naik, CR tidak mengikuti</td>
+<td>Energy mismatch — energi expander tidak terserap optimal oleh booster</td>
+</tr>
+<tr>
+<td>ER stabil, CR naik</td>
+<td>Kemungkinan masalah downstream booster</td>
+</tr>
+<tr>
+<td>ER turun, CR turun bersamaan</td>
+<td>Pergeseran kondisi operasi secara keseluruhan — periksa inlet expander dan nozzle</td>
+</tr>
+<tr>
+<td>ER &amp; CR keduanya menyimpang dari design</td>
+<td>Sistem di luar design envelope — kembalikan ke profil vendor</td>
+</tr>
+</tbody>
+</table>
+<p>Pendekatan berbasis pola korelasi ini adalah langkah menuju condition-based monitoring yang lebih proaktif.</p>
+<hr />
+
+<h2 id="panduan-interpretasi-untuk-operator">Panduan Interpretasi untuk Operator</h2>
+<table>
+<thead>
+<tr>
+<th>Kondisi</th>
+<th>Kemungkinan Penyebab</th>
+<th>Indikasi Vibrasi</th>
+<th>Tindakan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ER tinggi</td>
+<td>P inlet tinggi / outlet rendah</td>
+<td>Meningkat</td>
+<td>Periksa upstream</td>
+</tr>
+<tr>
+<td>CR tinggi</td>
+<td>Discharge tinggi</td>
+<td>Meningkat</td>
+<td>Periksa downstream</td>
+</tr>
+<tr>
+<td>ER &amp; CR menyimpang</td>
+<td>Di luar design envelope</td>
+<td>Instability</td>
+<td>Kembali ke profil vendor</td>
+</tr>
+<tr>
+<td>Speed fluktuatif</td>
+<td>Ketidakseimbangan energi</td>
+<td>Fluktuatif</td>
+<td>Evaluasi nozzle &amp; bypass</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="estimasi-flow">Estimasi Flow</h2>
+<p>Pendekatan berbasis keseimbangan energi dengan asumsi proses isentropik dan efisiensi konstan:</p>
+<p>$$\dot{m}_{expander} = \frac{W_{expander}}{\Delta h} \times \frac{1}{\eta_{expander}}$$</p>
+<p>$$\dot{m}_{booster} = \frac{W_{booster}}{\Delta h} \times \eta_{booster}$$</p>
+<p>Catatan penting:</p>
+<ul>
+<li>Formula ini valid dengan asumsi <strong>medium gas yang digunakan konsisten dengan kondisi design</strong>. Jika terjadi perubahan komposisi gas yang signifikan, diperlukan koreksi terhadap density atau molecular weight.</li>
+<li>Estimasi paling akurat di sekitar design point.</li>
+<li>Efisiensi berubah terhadap flow dan speed — pada kondisi low load, estimasi menjadi kurang presisi.</li>
+</ul>
+<hr />
+
+<h2 id="implementasi-di-dcs">Implementasi di DCS</h2>
+<h3 id="python">Python</h3>
+<pre><code class="language-python"># Input
+P_exp_inlet     = 6.0   # bar abs
+P_exp_outlet    = 1.4   # bar abs
+P_bst_suction   = 5.5   # bar abs
+P_bst_discharge = 6.2   # bar abs
+
+# Design
+ER_design = 6.0 / 1.4
+CR_design = 6.2 / 5.5
+
+# Rasio aktual (dengan proteksi division by zero)
+ER_actual = P_exp_inlet / P_exp_outlet if P_exp_outlet &gt; 0 else 0
+CR_actual = P_bst_discharge / P_bst_suction if P_bst_suction &gt; 0 else 0
+
+# Deviasi terhadap design (%)
+ER_deviation = (ER_actual - ER_design) / ER_design * 100 if ER_design &gt; 0 else 0
+CR_deviation = (CR_actual - CR_design) / CR_design * 100 if CR_design &gt; 0 else 0
+
+print(f"ER Aktual : {ER_actual:.3f} (Design: {ER_design:.3f}, Deviasi: {ER_deviation:.2f}%)")
+print(f"CR Aktual : {CR_actual:.3f} (Design: {CR_design:.3f}, Deviasi: {CR_deviation:.2f}%)")
+</code></pre>
+<p>📎 Bisa langsung dicoba di: 👉 <a href="https://onecompiler.com/python?ref=blog.kiiota.com">Python Online Compiler</a></p>
+<h3 id="structured-text-plc-dcs">Structured Text (PLC / DCS)</h3>
+<pre><code class="language-pascal">(* Input Variables *)
+VAR
+    P_EXP_INLET     : REAL;  (* Tekanan inlet expander, bar abs *)
+    P_EXP_OUTLET    : REAL;  (* Tekanan outlet expander, bar abs *)
+    P_BST_SUCTION   : REAL;  (* Tekanan suction booster, bar abs *)
+    P_BST_DISCHARGE : REAL;  (* Tekanan discharge booster, bar abs *)
+    ER_DESIGN       : REAL;  (* Rasio ekspansi design *)
+    CR_DESIGN       : REAL;  (* Rasio kompresi design *)
+END_VAR
+
+(* Output Variables *)
+VAR
+    ER_ACTUAL    : REAL;  (* Rasio ekspansi aktual *)
+    CR_ACTUAL    : REAL;  (* Rasio kompresi aktual *)
+    ER_DEVIATION : REAL;  (* Deviasi ER, % *)
+    CR_DEVIATION : REAL;  (* Deviasi CR, % *)
+END_VAR
+
+(* Kalkulasi Rasio *)
+IF P_EXP_OUTLET &gt; 0.0 THEN
+    ER_ACTUAL := P_EXP_INLET / P_EXP_OUTLET;
+END_IF;
+
+IF P_BST_SUCTION &gt; 0.0 THEN
+    CR_ACTUAL := P_BST_DISCHARGE / P_BST_SUCTION;
+END_IF;
+
+(* Deviasi terhadap design *)
+IF ER_DESIGN &gt; 0.0 THEN
+    ER_DEVIATION := (ER_ACTUAL - ER_DESIGN) / ER_DESIGN * 100.0;
+END_IF;
+
+IF CR_DESIGN &gt; 0.0 THEN
+    CR_DEVIATION := (CR_ACTUAL - CR_DESIGN) / CR_DESIGN * 100.0;
+END_IF;
+</code></pre>
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+<p>Booster expander bukan dua mesin terpisah, melainkan satu sistem energi yang saling terikat.</p>
+<p>Expander adalah sumber energi. Booster adalah beban yang mengikuti. Energi dari expander adalah batas atas yang tidak bisa dilanggar — ini bukan soal kontrol, tetapi hukum fisika.</p>
+<p>Parameter utama yang harus dijaga adalah rasio — rasio ekspansi menentukan performa expander, rasio kompresi menentukan performa booster. Temperatur bukan target utama, melainkan konsekuensi dari rasio yang tercapai.</p>
+<p>Opening nozzle adalah satu tuas yang menggeser seluruh keseimbangan sistem — mempengaruhi speed, flow, rasio, dan temperatur secara bersamaan.</p>
+<p>Bypass valve harus berada dalam kondisi full close saat operasi normal. Jika tidak, energi terbuang dan kondisi operasi yang sebenarnya menjadi tidak terlihat.</p>
+<p>Profil vendor bukan sekadar referensi, melainkan peta keseimbangan energi yang harus dijaga.</p>
+<p>Dengan memahami hubungan ini dan mengimplementasikan monitoring berbasis rasio di DCS, operator tidak hanya membaca angka — tetapi memahami kondisi sistem secara menyeluruh.</p>
+<p>Booster expander bukan sistem yang bisa dikontrol secara bebas — ia adalah sistem yang harus dipahami batas energinya. Operator yang memahami energi tidak menunggu alarm untuk bereaksi; mereka membaca perilaku mesin dan mengenali ketidakseimbangan sebelum menjadi masalah.</p>
+<blockquote>
+<p>Pada akhirnya, yang dijaga bukan sekadar parameter — tetapi keseimbangan energi sistem secara keseluruhan.</p>
+</blockquote>
+
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Scroll Top Button & Progress Indicator: UX enhancement by Norbert Hunyadi -->
+<script defer>
+  const scrollTopBtn = document.querySelector('.js-scroll-top');   // Tombol scroll ke atas
+  const topSelector = document.querySelector('.post-content');     // Konten utama sebagai titik awal scroll
+
+  if (scrollTopBtn && topSelector) {
+    scrollTopBtn.onclick = () => {
+      const topPosition = topSelector.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
+    };
+
+    const progressPath = document.querySelector('.scroll-top path');
+    const pathLength = progressPath.getTotalLength();
+    progressPath.style.transition = 'none';
+    progressPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+    progressPath.style.strokeDashoffset = pathLength;
+    progressPath.getBoundingClientRect();
+    progressPath.style.transition = 'stroke-dashoffset 10ms linear';
+
+    const updateProgress = () => {
+      const scroll = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+      const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      const topOffset = topSelector.offsetTop;
+      const height = docHeight - windowHeight - topOffset;
+      const progress = pathLength - ((scroll - topOffset) * pathLength / height);
+      progressPath.style.strokeDashoffset = progress;
+    };
+
+    updateProgress();
+
+    const offset = topSelector.offsetTop; // Trigger scroll-top button visibility
+
+    window.addEventListener('scroll', () => {
+      updateProgress();
+      const scrollPos = window.scrollY || document.documentElement.scrollTop;
+      scrollPos > offset
+        ? scrollTopBtn.classList.add('is-active')
+        : scrollTopBtn.classList.remove('is-active');
+    }, false);
+  }
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+
+<!-- Native File Card Enhancement: Replace Ghost file cards with native download links -->
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".kg-file-card").forEach(card => {
+    const link = card.querySelector("a.kg-file-card-container");
+    const fileUrl = link?.getAttribute("href");
+    const fileName = card.querySelector(".kg-file-card-title")?.textContent?.trim() || "Download File";
+    const fileDesc = card.querySelector(".kg-file-card-caption")?.textContent?.trim() || "";
+    const fileMeta = card.querySelector(".kg-file-card-metadata");
+    const fileSize = fileMeta?.querySelector(".kg-file-card-filesize")?.textContent?.trim() || "";
+    const fileBase = fileMeta?.querySelector(".kg-file-card-filename")?.textContent?.trim() || "";
+
+    if (!fileUrl) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "native-file-wrapper";
+
+    const svgIcon = `
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+           stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+        <polyline points="8.25 14.25 12 18 15.75 14.25"></polyline>
+        <line x1="12" y1="6.75" x2="12" y2="18"></line>
+        <circle cx="12" cy="12" r="11.25"></circle>
+      </svg>
+    `;
+
+    wrapper.innerHTML = `
+      <div class="file-info">
+        <div class="file-name">${fileName}</div>
+        ${fileDesc ? `<div class="file-desc">${fileDesc}</div>` : ""}
+        <div class="file-meta">
+          ${fileBase ? `<span>${fileBase}</span>` : ""}
+          ${fileBase && fileSize ? `<span class="dot">•</span>` : ""}
+          ${fileSize ? `<span>${fileSize}</span>` : ""}
+        </div>
+      </div>
+      <a class="file-download" href="${fileUrl}" download aria-label="Download file">
+        ${svgIcon}
+      </a>
+    `;
+
+    card.replaceWith(wrapper);
+  });
+});
+</script>
+</body>
+
+</html>
