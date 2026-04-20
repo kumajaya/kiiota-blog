@@ -1,5 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-04-19T04:09:53+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
-</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional</title><link href="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html" rel="alternate" type="text/html" title="Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional" /><published>2026-04-19T02:34:56+00:00</published><updated>2026-04-19T02:34:56+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html"><![CDATA[<h1 id="booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional">Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-04-20T04:14:36+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Analisis Spektrum Keahlian: Relevansi Pemahaman Lintas Domain</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain.html" rel="alternate" type="text/html" title="Analisis Spektrum Keahlian: Relevansi Pemahaman Lintas Domain" /><published>2026-04-19T05:46:07+00:00</published><updated>2026-04-19T05:46:07+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 1 November 2025</em></p>
+<p><em>Catatan ini saya tulis di penghujung 2025 sebagai refleksi atas perjalanan 25 tahun di dunia kontrol dan otomasi. Membacanya kembali hari ini, saya menyadari bahwa di tengah gempuran teknologi yang semakin cepat, prinsip-prinsip inilah yang menjaga akurasi dan kemanusiaan dalam setiap keputusan teknis saya.</em></p>
+<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
+<p>Perjalanan profesional saya tidak pernah berjalan lurus. Ada banyak persimpangan, percobaan, bahkan kegagalan dan kehilangan pekerjaan yang justru menjadi guru terbaik. Dari pemrograman kernel Linux hingga desain control system yang dapat diaudit, serta dokumentasi yang ramah bagi siapa saja, saya belajar bahwa keahlian bukanlah label yang melekat, melainkan proses yang terus berkembang — dan yang terpenting, bisa diwariskan agar orang lain tak perlu mengulang kesulitan yang sama.</p>
+<blockquote>
+<p><strong>"Teknologi tidak berhenti di mesin, melainkan di pemahaman manusia."</strong></p>
+</blockquote>
+<p>Tulisan ini adalah upaya sederhana saya untuk melihat diri sendiri secara jujur, sambil berbagi apa yang saya pelajari. Saya mencoba merangkum pengalaman ke dalam <strong>delapan lapisan kompetensi yang saling terhubung</strong>, yang bersama-sama membentuk cara saya berpikir dan bekerja: <em>integratif, sistematik, dan humanistik</em>.</p>
+<p>Urutan lapisan ini mengikuti alur alami perjalanan saya — dari fondasi teknis yang paling dasar, naik ke integrasi sistem, lalu ke aspek manusiawi dan visioner — dengan harapan bisa memberikan titik pijak bagi siapa saja yang sedang menavigasi dunia yang semakin kompleks ini.</p>
+<hr />
+
+<h2 id="1-lapisan-teknis-operasional-%E2%80%94-dari-sensor-ke-data"><strong>1. Lapisan Teknis-Operasional — Dari Sensor ke Data</strong></h2>
+<p>Lapisan ini adalah fondasi: kemampuan untuk mengubah konsep menjadi sistem nyata di lapangan. Dari PLC, SCADA, hingga flowmeter kriogenik, saya belajar bahwa detail teknis bukan sekadar angka — melainkan jembatan antara fenomena fisik dan keputusan operasional sehari-hari.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Desain dan pemrograman <em>PLC, DCS, dan SCADA</em> berbasis Ladder, Function Block Data (FBD), dan Structured Text (ST), atau bahkan JavaScript di Node-RED dan C# di Rapid SCADA.</li>
+<li>Integrasi solusi terbuka seperti 4diac FORTE (IEC 61499) atau OpenPLC (IEC 61131-3).</li>
+<li>Integrasi PLC, PID control, sistem I/O dan instrumentasi berbagai merk.</li>
+<li>Analisis performa <em>kompresor sentrifugal, booster expander, dan tangki kriogenik</em>.</li>
+<li>Konfigurasi transmitter DP dan <em>orifice flowmeter</em> dengan kompensasi tekanan dan temperatur.</li>
+<li>Implementasi sistem logging audit-grade berbasis JSON dan MQTT.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<p>Sistem kontrol terbaik bukan hanya yang bekerja — tapi yang bisa ditelusuri, diverifikasi, dan dipahami oleh tim. Sistem yang tidak bisa dijelaskan kepada orang lain adalah sistem yang rapuh. Fondasi ini perlu disatukan dalam arsitektur yang lebih luas agar tidak terisolasi.</p>
+<hr />
+
+<h2 id="2-lapisan-arsitektur-integrasi-sistem-%E2%80%94-menyatukan-ekosistem"><strong>2. Lapisan Arsitektur &amp; Integrasi Sistem — Menyatukan Ekosistem</strong></h2>
+<p>Otomasi industri bukan kumpulan perangkat yang bekerja sendiri-sendiri. Ia adalah ekosistem data. Lapisan ini adalah jembatan antara dunia fisik — sensor dan aktuator — dengan dunia digital: dashboard, analitik, dan keputusan berbasis data.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Desain <em>arsitektur edge-to-server</em> dengan retry logic, buffering, dan dead-letter queue.</li>
+<li>Pengembangan middleware untuk menyatukan API, autentikasi, dan datasource visualisasi.</li>
+<li>Sinkronisasi <em>flow context memory → persistent storage</em> untuk mencegah kehilangan data.</li>
+<li>Integrasi <em>Modbus, OPC UA, dan REST API</em> ke dalam sistem visualisasi terdistribusi.</li>
+<li>Implementasi pola <em>event sourcing</em> dan <em>self-healing pipeline</em>.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<p>Arsitektur terbuka memberi ruang bagi sistem untuk bertahan lama — tidak tergantung vendor, dapat diaudit, dan bisa diteruskan ke tim berikutnya tanpa kehilangan konteks. Pengalaman ini membawa saya ke akarnya: pemahaman software dari level paling dalam membuat integrasi terasa lebih intuitif.</p>
+<hr />
+
+<h2 id="3-lapisan-software-embedded-systems-%E2%80%94-dari-kernel-ke-aplikasi"><strong>3. Lapisan Software &amp; Embedded Systems — Dari Kernel ke Aplikasi</strong></h2>
+<p>Dari arsitektur yang lebih tinggi, pengalaman saya kembali ke level paling rendah dari sistem digital: kernel dan firmware. Perspektif <em>bottom-up</em> ini membentuk cara saya mendekati kompleksitas — dari bawah, bukan dari asumsi.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Pengembangan <em>Linux kernel dan Android device tree</em> untuk SoC ARM.</li>
+<li>Pembuatan utility open source karena kebutuhan kerja.</li>
+<li>Skrip otomatisasi (Bash, Python, JavaScript) untuk data logging dan visualisasi performa.</li>
+<li>Kontribusi pada ekosistem CyanogenMod, 4diac, Rapid SCADA, dan komunitas FOSS lain.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<p>Memahami sistem dari bawah ke atas mengubah cara merancang solusi di level aplikasi. Bukan sekadar lebih efisien — tapi lebih jujur terhadap apa yang sebenarnya terjadi di dalam sistem.</p>
+<hr />
+
+<h2 id="4-lapisan-komunitas-open-source-%E2%80%94-kolaborasi-inklusivitas-transparansi"><strong>4. Lapisan Komunitas Open Source — Kolaborasi, Inklusivitas, Transparansi</strong></h2>
+<p>Komunitas open source mengajarkan sesuatu yang tidak diajarkan di tempat kerja manapun: bahwa gelar dan jabatan bukan penentu kualitas kontribusi. Profesor bisa setara dengan diploma. Setiap orang bisa berkontribusi, setiap ide bisa diuji, dan setiap kesalahan bisa diperbaiki secara terbuka — di depan semua orang.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Kontribusi pada kernel Linux, device tree, dan utilitas open source.</li>
+<li>Partisipasi dalam komunitas FOSS global (Android, GitHub, forum teknis).</li>
+<li>Pembuatan dan pemeliharaan tool lintas komunitas.</li>
+<li>Diskusi terbuka, peer review, dan iterasi berbasis masukan publik.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<ul>
+<li><strong>Inklusivitas</strong>: kontribusi tidak mengenal latar belakang.</li>
+<li><strong>Transparansi</strong>: keputusan teknis harus bisa ditelusuri dan dipahami siapa pun.</li>
+<li><strong>Kerendahan hati</strong>: selalu ada ruang untuk belajar.</li>
+<li><strong>Keberlanjutan</strong>: solusi yang baik bisa diteruskan.</li>
+</ul>
+<h3 id="dampak-pada-cara-berpikir">Dampak pada Cara Berpikir</h3>
+<p>Nilai-nilai ini saya bawa ke dunia industri yang cenderung tertutup: menulis dokumentasi audit-grade, membangun sistem vendor-neutral, mendorong budaya yang tidak menyembunyikan cara kerjanya. Bukan sebagai idealisme — tapi karena sistem yang transparan lebih mudah dijaga dan lebih tahan lama.</p>
+<hr />
+
+<h2 id="5-lapisan-mekanikal-proses-%E2%80%94-menghormati-fenomena-fisik"><strong>5. Lapisan Mekanikal &amp; Proses — Menghormati Fenomena Fisik</strong></h2>
+<p>Data digital hanyalah representasi. Di baliknya ada energi, fluida, tekanan, dan temperatur yang nyata — dan yang nyata ini tidak bisa diabaikan.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Analisis performa <em>kompresor sentrifugal</em>.</li>
+<li>Studi fenomena <em>surge dan choke</em>.</li>
+<li>Perhitungan volume tangki torisferik berbasis standar ASME.</li>
+<li>Evaluasi efisiensi expander, pompa, dan sistem kriogenik.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<p>Engineering adalah bahasa universal — menghubungkan fenomena fisik dengan angka yang bisa diuji ulang. Kesalahan di lapangan sering bukan karena kurang data, tapi karena kurang pemahaman terhadap fisika yang bekerja di baliknya.</p>
+<hr />
+
+<h2 id="6-lapisan-rekayasa-pengetahuan-dokumentasi"><strong>6. Lapisan Rekayasa Pengetahuan &amp; Dokumentasi</strong></h2>
+<p>Dokumentasi bukan produk akhir dari pekerjaan. Ia adalah bagian dari pekerjaan itu sendiri. Menulis dengan jelas berarti berpikir dengan jelas — dan itu berlaku dua arah.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Dokumentasi teknis human-friendly dengan narasi edukatif.</li>
+<li><em>Living documentation</em> berbasis Markdown, Pandoc, GitHub Pages.</li>
+<li>Prinsip <em>troubleshooting mental framework</em>.</li>
+<li>Gaya penulisan yang menghubungkan sains, etika, dan empati.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<p>Pengetahuan yang tidak bisa ditulis ulang oleh orang lain adalah pengetahuan yang rentan hilang. Dokumentasi yang baik bukan yang paling lengkap — tapi yang paling mudah diikuti oleh orang yang belum pernah ada di sana sebelumnya.</p>
+<hr />
+
+<h2 id="7-lapisan-inovasi-efisiensi-sustainability"><strong>7. Lapisan Inovasi, Efisiensi, &amp; Sustainability</strong></h2>
+<p>Filosofi <em>Zero-Cost Engineering</em> tidak lahir dari pilihan ideologis. Ia lahir dari keterbatasan anggaran yang memaksa kreativitas. Keterbatasan bukan hambatan — ia adalah filter yang menyisakan solusi yang benar-benar bisa bertahan.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Integrasi alur kerja FOSS end-to-end tanpa lisensi.</li>
+<li>Desain sistem otomasi yang dapat diperluas tanpa ketergantungan vendor.</li>
+<li>Kerangka kerja <em>reproducible engineering documentation</em>.</li>
+<li>Edukasi internal tentang efisiensi berbasis keterbukaan.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<p>Efisiensi sejati bukan soal biaya yang ditekan, melainkan kemandirian intelektual yang dibangun — kemampuan untuk memahami, memodifikasi, dan meneruskan sistem tanpa bergantung pada satu vendor atau satu orang.</p>
+<hr />
+
+<h2 id="8-lapisan-kepemimpinan-budaya-kerja"><strong>8. Lapisan Kepemimpinan &amp; Budaya Kerja</strong></h2>
+<p>Kepemimpinan bagi saya bukan memberi perintah. Bukan pula memberi motivasi. Kepemimpinan adalah memberi arah yang jelas dan ruang yang cukup agar orang lain bisa tumbuh dengan cara mereka sendiri.</p>
+<h3 id="cakupan-utama">Cakupan Utama</h3>
+<ul>
+<li>Membangun budaya <em>human empowerment</em>.</li>
+<li>Mendorong transformasi menuju sistem otomasi terbuka.</li>
+<li>Menulis refleksi tentang kepemimpinan manusiawi di era otomasi.</li>
+<li>Menyeimbangkan data dengan intuisi manusia.</li>
+</ul>
+<h3 id="pelajaran-yang-saya-dapat">Pelajaran yang Saya Dapat</h3>
+<p>Pemimpin yang hanya membaca data akan selalu terlambat. Yang dibutuhkan adalah kemampuan membaca situasi — memahami konteks manusia di balik angka, dan mengambil keputusan yang tidak mereduksi manusia menjadi variabel.</p>
+<hr />
+
+<h2 id="kesimpulan"><strong>Kesimpulan</strong></h2>
+<p>Delapan lapisan ini bukan daftar keahlian. Ia adalah peta perjalanan — dengan semua persimpangan, percobaan, dan kegagalannya.</p>
+<p>Tuntutan atasan, ekspektasi customer, dan tekanan organisasi sering memaksa keluar dari zona nyaman. Justru di situlah pertumbuhan terjadi: belajar lebih cepat, berpikir lebih jernih, dan menemukan cara menjembatani teknologi dengan kebutuhan manusia.</p>
+<p>Keterlibatan dalam komunitas open source memperluas cara pandang: kolaborasi, transparansi, dan inklusivitas bukan nilai tambahan — melainkan fondasi sistem dan budaya kerja yang bisa bertahan lama. Nilai ini saya bawa ke dunia industri agar solusi tidak hanya berfungsi, tetapi juga bisa diaudit, dipelajari, dan diteruskan.</p>
+<p>Setiap lapisan adalah jembatan — antara mesin dan manusia, data dan intuisi, logika dan empati. Di era di mana AI dan otomasi mengubah segalanya, keahlian lintas domain bukan lagi pilihan. Ia adalah prasyarat untuk tidak tertinggal — dan untuk tidak meninggalkan orang lain.</p>
+<blockquote>
+<p><strong>Formula yang saya pegang:</strong></p>
+<ul>
+<li><em>Precision in System</em> — setiap logika harus bisa diaudit.</li>
+<li><em>Transparency in Knowledge</em> — setiap ide harus bisa diajarkan.</li>
+<li><em>Humanity in Leadership</em> — setiap keputusan harus memuliakan manusia.</li>
+</ul>
+</blockquote>
+<p>Saya tidak berusaha menjadi ahli di semua bidang. Saya berusaha memahami bagaimana semuanya saling terhubung — dan mengapa hubungan itu penting.</p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Bagaimana pengalaman teknis, kolaborasi, & tantangan relevan dengan kebutuhan pemahaman lintas domain saat ini—di mana AI/otomasi menuntut integrasi antar bidang, bukan terjebak di spesialisasi yang sempit.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fHJlZmxlY3Rpb258ZW58MHx8fHwxNzYyMDE3NTkyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fHJlZmxlY3Rpb258ZW58MHx8fHwxNzYyMDE3NTkyfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional</title><link href="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html" rel="alternate" type="text/html" title="Booster Expander dalam Sistem Cryogenic: Konsep Dasar hingga Monitoring Operasional" /><published>2026-04-19T02:34:56+00:00</published><updated>2026-04-19T02:34:56+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/04/19/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 19 April 2026</em></p>
 <h2 id="pendahuluan">Pendahuluan</h2>
 <p>Dalam sistem Air Separation Unit (ASU), booster expander adalah salah satu komponen rotating equipment yang paling sering disalahpahami. Banyak operator memandangnya sebagai dua mesin terpisah — sebuah expander dan sebuah kompresor booster — yang kebetulan terhubung pada satu shaft.</p>
 <p>Padahal pemahaman yang tepat justru sebaliknya:</p>
@@ -22,6 +160,366 @@
 </blockquote>
 <p>Penting untuk dipahami bahwa energi expander bukanlah nilai tetap — ia sangat dinamis, dipengaruhi oleh kondisi inlet (temperatur dan tekanan), posisi nozzle, serta backpressure di sisi outlet. Inilah sebabnya kapasitas booster bisa terasa berubah meskipun tidak ada yang diubah di sisi booster itu sendiri — sumber energinya yang berfluktuasi.</p>
 <p>Pendinginan pada expander bukan sekadar akibat penurunan tekanan seperti yang terjadi pada ekspansi melalui valve (efek Joule-Thomson), tetapi karena ekstraksi kerja dari gas. Inilah sebabnya expander jauh lebih efektif menghasilkan temperatur rendah dibandingkan ekspansi melalui valve biasa.</p>
+<hr />
+
+<!--kg-card-begin: html-->
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Booster Expander — Cryostar HA1660A</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f8f6; color: #1a1a18; padding: 1rem; }
+  .scene { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; gap: 1.2rem; max-width: 680px; margin: 0 auto; }
+  .mode-toggle { display: flex; background: #e8e8e4; padding: 4px; border-radius: 20px; gap: 4px; border: 1px solid rgba(0,0,0,0.1); }
+  .tgl-btn { border: none; padding: 6px 18px; border-radius: 16px; cursor: pointer; font-size: 11px; font-weight: 600; transition: all 0.2s; color: #666; background: transparent; }
+  .tgl-btn.active { background: #185FA5; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+  .label-row { display: flex; justify-content: space-around; width: 100%; max-width: 620px; }
+  .label-box { text-align: center; }
+  .label-title { font-size: 14px; font-weight: 500; }
+  .label-sub { font-size: 11px; color: #666; margin-top: 2px; }
+  .bar-wrap { width: 100%; max-width: 620px; }
+  .bar-label { font-size: 11px; color: #666; margin-bottom: 3px; display: flex; justify-content: space-between; }
+  .bar-bg { background: #e8e8e4; border-radius: 4px; height: 7px; overflow: hidden; }
+  .bar-fill { height: 7px; border-radius: 4px; transition: width 0.08s; }
+  .controls { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 620px; }
+  .ctrl { display: flex; align-items: center; gap: 10px; }
+  .ctrl label { font-size: 12px; color: #666; width: 150px; flex-shrink: 0; }
+  .ctrl input[type=range] { flex: 1; }
+  .ctrl span { font-size: 12px; font-weight: 500; min-width: 40px; text-align: right; }
+  .stats { display: flex; gap: 8px; width: 100%; max-width: 620px; flex-wrap: wrap; }
+  .stat { flex: 1; min-width: 90px; background: #e8e8e4; border-radius: 8px; padding: 8px 10px; }
+  .stat .sl { font-size: 10px; color: #666; margin-bottom: 3px; }
+  .stat .sv { font-size: 15px; font-weight: 500; }
+  .ok { color: #1D9E75 !important; }
+  .warn { color: #BA7517 !important; }
+  .danger { color: #E24B4A !important; }
+  .spec-row { display: flex; gap: 8px; width: 100%; max-width: 620px; }
+  .spec-card { flex: 1; background: #e8e8e4; border-radius: 8px; padding: 8px 10px; border-left: 3px solid; }
+  .spec-card .sc-title { font-size: 11px; font-weight: 500; margin-bottom: 4px; }
+  .spec-card .sc-row { font-size: 11px; color: #555; line-height: 1.6; }
+  .badge { display: inline-block; font-size: 10px; padding: 2px 10px; border-radius: 4px; background: #fdf6e3; color: #b58900; font-weight: 600; }
+  .design-note { font-size: 10px; color: #888; text-align: center; }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <div class="mode-toggle">
+    <button id="btn-warm" class="tgl-btn active" onclick="switchMode('warm')">Warm Unit</button>
+    <button id="btn-cold" class="tgl-btn" onclick="switchMode('cold')">Cold Unit</button>
+  </div>
+
+  <div style="text-align:center;">
+    <div class="badge" id="main-badge">Warm Unit · TC 200/45-AS · HA1660A</div>
+  </div>
+
+  <div class="spec-row">
+    <div class="spec-card" style="border-color:#185FA5;">
+      <div class="sc-title" style="color:#185FA5;">Expander — design</div>
+      <div class="sc-row" id="spec-exp"></div>
+    </div>
+    <div class="spec-card" style="border-color:#888780;">
+      <div class="sc-title" style="color:#5F5E5A;">Shaft — design</div>
+      <div class="sc-row" id="spec-shaft"></div>
+    </div>
+    <div class="spec-card" style="border-color:#BA7517;">
+      <div class="sc-title" style="color:#BA7517;">Booster — design</div>
+      <div class="sc-row" id="spec-bst"></div>
+    </div>
+  </div>
+
+  <div class="label-row">
+    <div class="label-box">
+      <div class="label-title" style="color:#185FA5;">Expander</div>
+      <div class="label-sub" id="lbl-exp">TC 200/45-AS · prime mover</div>
+    </div>
+    <div class="label-box">
+      <div class="label-title" style="color:#5F5E5A;">Shaft</div>
+      <div class="label-sub" id="lbl-shaft">Bearing 45</div>
+    </div>
+    <div class="label-box">
+      <div class="label-title" style="color:#BA7517;">Booster</div>
+      <div class="label-sub" id="lbl-bst">beban · 1.231 kW design</div>
+    </div>
+  </div>
+
+  <canvas id="c" width="620" height="210" style="max-width:100%;"></canvas>
+
+  <div class="bar-wrap">
+    <div class="bar-label"><span>Energi expander (cold production)</span><span id="ep-val">0 kW</span></div>
+    <div class="bar-bg"><div class="bar-fill" id="ebar" style="background:#378ADD;"></div></div>
+  </div>
+  <div class="bar-wrap">
+    <div class="bar-label"><span>Power dikonsumsi booster</span><span id="bp-val">0 kW</span></div>
+    <div class="bar-bg"><div class="bar-fill" id="bbar" style="background:#EF9F27;"></div></div>
+  </div>
+  <div class="bar-wrap">
+    <div class="bar-label"><span>Bearing losses</span><span id="bl-val">0 kW</span></div>
+    <div class="bar-bg"><div class="bar-fill" id="bl-bar" style="background:#B4B2A9;"></div></div>
+  </div>
+
+  <div class="controls">
+    <div class="ctrl">
+      <label>Opening nozzle expander</label>
+      <input type="range" min="0" max="100" value="77" id="nozzle" step="1" />
+      <span id="nozzle-out">77%</span>
+    </div>
+    <div class="ctrl">
+      <label>Bypass booster</label>
+      <input type="range" min="0" max="100" value="0" id="bypass" step="1" />
+      <span id="bypass-out">0%</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="sl">Speed shaft</div>
+      <div class="sv" id="sv">0 RPM</div>
+    </div>
+    <div class="stat">
+      <div class="sl">ER aktual / design</div>
+      <div class="sv" id="er">—</div>
+    </div>
+    <div class="stat">
+      <div class="sl">CR aktual / design</div>
+      <div class="sv" id="cr">—</div>
+    </div>
+    <div class="stat">
+      <div class="sl">Cold production est.</div>
+      <div class="sv" id="cp">0 kW</div>
+    </div>
+    <div class="stat">
+      <div class="sl">Status</div>
+      <div class="sv ok" id="st">Normal</div>
+    </div>
+  </div>
+
+  <div class="design-note" id="design-note">Design point: nozzle 77.5%</div>
+
+</div>
+
+<script>
+const data = {
+  warm: {
+    badge: "Warm Unit · TC 200/45-AS · HA1660A",
+    tagExp: "TC 200/45-AS", bearing: "45",
+    speed: 28100, loss: 27, bLossPct: 2.1,
+    designNozzle: 77.5,
+    exp: { pin: 30.80, pout: 5.39, er: 5.71, tin: -5.0, tout: -101 },
+    bst: { pin: 30.90, pout: 51.30, cr: 1.66, tin: 40, tout: 101, pwr: 1231 },
+    cold: 1258
+  },
+  cold: {
+    badge: "Cold Unit · TC 200/50B-AS · HA1660A",
+    tagExp: "TC 200/50B-AS", bearing: "50B",
+    speed: 24628, loss: 55, bLossPct: 6.6,
+    designNozzle: 67.0,
+    exp: { pin: 70.70, pout: 5.43, er: 13.02, tin: -96.5, tout: -178 },
+    bst: { pin: 51.18, pout: 71.10, cr: 1.39, tin: 40, tout: 78, pwr: 775 },
+    cold: 830
+  }
+};
+
+let mode = 'warm';
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+const CY = H / 2;
+
+let angle = 0, speed = 0, targetSpeed = 0;
+let nozzle = 77, bypass = 0;
+
+function switchMode(m) {
+  mode = m;
+  document.getElementById('btn-warm').className = 'tgl-btn' + (m === 'warm' ? ' active' : '');
+  document.getElementById('btn-cold').className = 'tgl-btn' + (m === 'cold' ? ' active' : '');
+  const d = data[m];
+  document.getElementById('main-badge').textContent = d.badge;
+  document.getElementById('spec-exp').innerHTML = `P inlet: ${d.exp.pin.toFixed(2)} bar abs<br>P outlet: ${d.exp.pout.toFixed(2)} bar abs<br>ER: ${d.exp.er} &nbsp;|&nbsp; T in: ${d.exp.tin.toFixed(1)} °C`;
+  document.getElementById('spec-shaft').innerHTML = `Speed: ${d.speed.toLocaleString('id-ID')} RPM<br>Bearing losses: ${d.loss} kW<br>Medium: Pure N₂`;
+  document.getElementById('spec-bst').innerHTML = `P inlet: ${d.bst.pin.toFixed(2)} bar abs<br>P outlet: ${d.bst.pout.toFixed(2)} bar abs<br>CR: ${d.bst.cr} &nbsp;|&nbsp; Power: ${d.bst.pwr.toLocaleString('id-ID')} kW`;
+  document.getElementById('lbl-exp').textContent = `${d.tagExp} · prime mover`;
+  document.getElementById('lbl-shaft').textContent = `Bearing ${d.bearing}`;
+  document.getElementById('lbl-bst').textContent = `beban · ${d.bst.pwr.toLocaleString('id-ID')} kW design`;
+  document.getElementById('bl-val').textContent = `${d.loss} kW`;
+  document.getElementById('bl-bar').style.width = `${d.bLossPct}%`;
+  document.getElementById('design-note').textContent = `Design point: nozzle ${d.designNozzle}%`;
+
+  // Reset nozzle slider ke design nozzle mode baru
+  nozzle = d.designNozzle;
+  document.getElementById('nozzle').value = nozzle;
+  document.getElementById('nozzle-out').textContent = nozzle.toFixed(1) + '%';
+  speed = 0;
+}
+
+document.getElementById('nozzle').oninput = function () {
+  nozzle = +this.value;
+  document.getElementById('nozzle-out').textContent = nozzle + '%';
+};
+document.getElementById('bypass').oninput = function () {
+  bypass = +this.value;
+  document.getElementById('bypass-out').textContent = bypass + '%';
+};
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+function drawImpeller(cx, cy, r, blades, ang, color, active) {
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(ang);
+  for (let i = 0; i < blades; i++) {
+    ctx.save(); ctx.rotate((i / blades) * Math.PI * 2);
+    ctx.beginPath(); ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(r * 0.25, -r * 0.18, r * 0.65, -r * 0.32, r, -r * 0.12);
+    ctx.bezierCurveTo(r * 0.82, r * 0.06, r * 0.25, r * 0.09, 0, 0);
+    ctx.fillStyle = active ? color + 'bb' : color + '55';
+    ctx.strokeStyle = color; ctx.lineWidth = 1; ctx.fill(); ctx.stroke();
+    ctx.restore();
+  }
+  ctx.beginPath(); ctx.arc(0, 0, r * 0.16, 0, Math.PI * 2);
+  ctx.fillStyle = color; ctx.fill(); ctx.restore();
+}
+
+function drawCasing(cx, cy, r, color) {
+  ctx.beginPath(); ctx.arc(cx, cy, r + 14, 0, Math.PI * 2);
+  ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.setLineDash([]); ctx.stroke();
+}
+
+function drawShaft(x1, x2, cy, spd, dSpeed) {
+  const alpha = Math.min(1, spd / dSpeed);
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(x1, cy - 7); ctx.lineTo(x2, cy - 7);
+  ctx.lineTo(x2, cy + 7); ctx.lineTo(x1, cy + 7); ctx.closePath();
+  ctx.fillStyle = `rgba(136,135,128,${0.25 + alpha * 0.5})`; ctx.fill();
+  ctx.strokeStyle = '#888780'; ctx.lineWidth = 1; ctx.stroke();
+  const n = 10;
+  for (let i = 0; i < n; i++) {
+    const raw = x1 + ((i / n) * (x2 - x1) + (angle * 28) % (x2 - x1));
+    const px = ((raw - x1) % (x2 - x1)) + x1;
+    ctx.beginPath(); ctx.moveTo(px, cy - 7); ctx.lineTo(px - 10, cy + 7);
+    ctx.strokeStyle = `rgba(95,94,90,${0.3 + alpha * 0.3})`; ctx.lineWidth = 1; ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawFlow(cx, cy, r, dir, color, intensity) {
+  if (intensity < 0.05) return;
+  const t = (Date.now() / 450) % 1;
+  for (let i = 0; i < 4; i++) {
+    const frac = ((t + i / 4) % 1);
+    const sx = cx + dir * (r + 16);
+    const ex = sx + dir * 50 * frac;
+    const yo = (i - 1.5) * 11;
+    ctx.beginPath(); ctx.moveTo(sx, cy + yo); ctx.lineTo(ex, cy + yo);
+    ctx.strokeStyle = color + Math.floor(intensity * 160).toString(16).padStart(2, '0');
+    ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.stroke(); ctx.setLineDash([]);
+    if (frac > 0.7) {
+      ctx.beginPath();
+      ctx.moveTo(ex, cy + yo - 4); ctx.lineTo(ex + dir * 6, cy + yo); ctx.lineTo(ex, cy + yo + 4);
+      ctx.strokeStyle = color + 'cc'; ctx.lineWidth = 1.5; ctx.stroke();
+    }
+  }
+}
+
+function drawBypass(bstX, r, frac) {
+  if (frac < 0.02) return;
+  const t = (Date.now() / 850) % 1;
+  ctx.beginPath(); ctx.setLineDash([5, 4]);
+  ctx.moveTo(bstX + r + 10, CY - 12);
+  ctx.bezierCurveTo(bstX + r + 55, CY - 72, bstX - r - 55, CY - 72, bstX - r - 10, CY - 12);
+  ctx.strokeStyle = `rgba(186,117,23,${frac * 0.85})`; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]);
+  const bpx = bstX + r + 10 + t * (-r * 2 - 20);
+  const bpy = CY - 12 - Math.sin(t * Math.PI) * 62;
+  ctx.beginPath(); ctx.arc(bpx, bpy, 3.5, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(186,117,23,${frac * 0.9})`; ctx.fill();
+  ctx.font = '10px sans-serif'; ctx.fillStyle = `rgba(186,117,23,${frac * 0.9})`;
+  ctx.textAlign = 'center'; ctx.fillText('recycle', bstX, CY - 80);
+}
+
+function drawDesignMarker(nozzleEl, designNozzle) {
+  // Draw marker on nozzle slider at design point position
+  const pct = designNozzle / 100;
+  const rect = nozzleEl.getBoundingClientRect();
+  // Canvas-based indicator instead
+}
+
+function frame() {
+  requestAnimationFrame(frame);
+  ctx.clearRect(0, 0, W, H);
+
+  const d = data[mode];
+  const nFrac = nozzle / 100;
+  const bFrac = bypass / 100;
+  const designFrac = d.designNozzle / 100;
+
+  // Performance relative to design nozzle
+  const performanceFactor = Math.min(1.25, Math.max(0, nFrac / designFrac));
+  const effectiveFactor = Math.max(0, performanceFactor - bFrac * 0.45);
+
+  targetSpeed = effectiveFactor * d.speed;
+  speed = lerp(speed, targetSpeed, 0.04);
+  const spd = speed / d.speed;
+  angle += spd * 0.11;
+
+  const expX = 130, bstX = 490, impR = 65;
+
+  const erActual = (d.exp.er * performanceFactor).toFixed(2);
+  const effectiveLoadForCR = Math.max(0, performanceFactor - bFrac * 0.4);
+  const crActual = Math.max(1, d.bst.cr * effectiveLoadForCR).toFixed(2);
+  const coldEst = Math.round(d.cold * performanceFactor);
+  const powerEst = Math.round(d.bst.pwr * effectiveLoadForCR);
+  const rpm = Math.round(speed / 100) * 100;
+
+  drawFlow(expX, CY, impR, -1, '#378ADD', performanceFactor * 0.9);
+  drawFlow(bstX, CY, impR, 1, '#EF9F27', Math.max(0, performanceFactor * 0.9 - bFrac * 0.5));
+  drawBypass(bstX, impR, bFrac);
+  drawShaft(expX + impR + 14, bstX - impR - 14, CY, speed, d.speed);
+  drawCasing(expX, CY, impR, '#185FA5');
+  drawImpeller(expX, CY, impR, 8, -angle * 1.3, '#378ADD', true);
+  drawCasing(bstX, CY, impR, '#BA7517');
+  drawImpeller(bstX, CY, impR, 7, angle * 1.2, '#EF9F27', bFrac < 0.05);
+
+  ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillStyle = '#666';
+  ctx.fillText(`N₂ · ${d.exp.pin.toFixed(2)} bar abs · ${d.exp.tin.toFixed(0)} °C`, expX, CY - impR - 22);
+  ctx.fillText(`N₂ · ${d.bst.pin.toFixed(2)} bar abs · ${d.bst.tin.toFixed(0)} °C`, bstX, CY - impR - 22);
+  ctx.fillStyle = '#378ADDcc';
+  ctx.fillText(`→ ${d.exp.pout.toFixed(2)} bar · ${d.exp.tout} °C`, expX, CY + impR + 26);
+  ctx.fillStyle = '#BA7517cc';
+  ctx.fillText(`→ ${d.bst.pout.toFixed(2)} bar · ${d.bst.tout} °C`, bstX, CY + impR + 26);
+
+  // Design point marker on canvas
+  ctx.font = '9px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillStyle = Math.abs(nozzle - d.designNozzle) < 2 ? '#1D9E75' : '#BA7517';
+  ctx.fillText(`▲ design: ${d.designNozzle}%`, 8, H - 6);
+
+  document.getElementById('ebar').style.width = Math.min(100, performanceFactor * 100).toFixed(0) + '%';
+  document.getElementById('ep-val').textContent = coldEst.toLocaleString('id-ID') + ' kW';
+  document.getElementById('bbar').style.width = Math.min(100, effectiveLoadForCR * 100).toFixed(0) + '%';
+  document.getElementById('bp-val').textContent = powerEst.toLocaleString('id-ID') + ' kW';
+  document.getElementById('sv').textContent = rpm.toLocaleString('id-ID') + ' RPM';
+  document.getElementById('er').textContent = erActual + ' / ' + d.exp.er;
+  document.getElementById('cr').textContent = crActual + ' / ' + d.bst.cr;
+  document.getElementById('cp').textContent = coldEst.toLocaleString('id-ID') + ' kW';
+
+  const st = document.getElementById('st');
+  const pct = speed / d.speed;
+  if (pct < 0.2) { st.textContent = 'Terlalu lambat'; st.className = 'sv danger'; }
+  else if (bFrac > 0.25) { st.textContent = 'Boros energi'; st.className = 'sv warn'; }
+  else if (pct > 1.1) { st.textContent = 'Overspeed'; st.className = 'sv danger'; }
+  else if (Math.abs(nozzle - d.designNozzle) <= 3 && bFrac < 0.05) { st.textContent = 'Design point'; st.className = 'sv ok'; }
+  else if (pct > 0.75) { st.textContent = 'Normal'; st.className = 'sv ok'; }
+  else { st.textContent = 'Partial load'; st.className = 'sv warn'; }
+}
+
+switchMode('warm');
+frame();
+</script>
+</body>
+</html>
+<!--kg-card-end: html-->
 <hr />
 
 <h2 id="keseimbangan-energi-dan-dampaknya-di-lapangan">Keseimbangan Energi dan Dampaknya di Lapangan</h2>
@@ -173,22 +671,129 @@
 <p>Vendor umumnya tidak hanya menyediakan data untuk 100% pembebanan, tetapi juga untuk beberapa titik lain — misalnya 90% dan 110%. Setiap titik pembebanan memiliki profil keseimbangan energi tersendiri dengan rasio, speed, flow, dan posisi nozzle yang berbeda. Pendekatan monitoring berbasis rasio berlaku di semua titik pembebanan tersebut — operator tinggal mengacu ke profil yang sesuai dengan kondisi operasi aktual, tanpa perlu mengekstrapolasi sendiri.</p>
 <hr />
 
-<h2 id="bypass-valve-booster-harus-full-close">Bypass Valve Booster: Harus Full Close</h2>
+<h2 id="bypass-valve-booster-anti-surge-dan-implikasinya-terhadap-energi">Bypass Valve Booster: Anti-Surge dan Implikasinya terhadap Energi</h2>
+<p>Dalam sistem booster, bypass valve merupakan bagian dari sistem <strong>anti-surge protection</strong>, yang berfungsi menjaga kompresor tetap berada pada daerah operasi yang stabil.</p>
+<p>Fungsinya meliputi:</p>
+<ul>
+<li>menjaga flow minimum melalui booster</li>
+<li>mencegah surge akibat aliran yang terlalu rendah</li>
+<li>melindungi impeller dari instabilitas aerodinamis</li>
+</ul>
+<blockquote>
+<p>Bypass valve bekerja dalam domain <strong>perilaku aliran (flow stability)</strong>, bukan dalam domain keseimbangan energi sistem.</p>
+</blockquote>
+<p>Namun dari sudut pandang energi, ada implikasi yang sangat penting.</p>
 <p>Dalam kondisi operasi normal:</p>
 <blockquote>
-<p>Bypass valve harus full close.</p>
+<p>Bypass valve seharusnya berada pada posisi <strong>full close</strong>.</p>
 </blockquote>
-<p>Jika terbuka:</p>
+<p>Ini bukan sekadar prosedur, tetapi konsekuensi dari sistem yang sudah seimbang:</p>
+<ul>
+<li>sistem tidak lagi membutuhkan recirculation untuk menjaga stabilitas</li>
+<li>seluruh energi dari expander diserap oleh booster</li>
+<li>tidak ada flow yang “diputar ulang” tanpa kontribusi proses</li>
+</ul>
+<p>Jika bypass tetap terbuka:</p>
 <ul>
 <li>energi kompresi terbuang</li>
 <li>efisiensi menurun</li>
-<li>kondisi operasi menjadi bias</li>
+<li>sebagian flow hanya bersirkulasi tanpa menghasilkan kerja proses</li>
+<li>kondisi operasi menjadi bias terhadap design</li>
 </ul>
+<blockquote>
+<p>Sistem yang stabil karena bypass terbuka belum tentu sistem yang benar secara energi.</p>
+</blockquote>
 <p><strong>Fenomena Lapangan</strong></p>
-<p>Sering ditemukan bypass yang sudah lama tidak pernah full close dan dianggap normal. Kemungkinan penyebabnya adalah prosedur startup yang kurang terkoordinasi — nozzle dinaikkan terlalu cepat sementara bypass belum cukup ditutup, sehingga speed melonjak dan bypass dibiarkan terbuka sebagai solusi sementara yang kemudian bertahan.</p>
+<p>Sering ditemukan bypass yang tidak pernah benar-benar full close dan dianggap sebagai kondisi normal. Dalam banyak kasus, hal ini berawal dari fase startup yang kurang terkoordinasi:</p>
+<ul>
+<li>nozzle dinaikkan terlalu cepat</li>
+<li>energi expander meningkat sebelum sistem siap</li>
+<li>speed melonjak</li>
+<li>bypass dibiarkan terbuka sebagai solusi sementara</li>
+</ul>
+<p>Yang menjadi masalah, kondisi sementara ini kemudian bertahan dan diwariskan sebagai “kenormalan”.</p>
 <blockquote>
 <p>Jika sistem hanya stabil saat bypass terbuka, kemungkinan besar sistem belum berada pada titik operasi yang benar.</p>
 </blockquote>
+<hr />
+
+<h2 id="shut-off-valve-expander-isolasi-sumber-energi-sistem">Shut-Off Valve Expander: Isolasi Sumber Energi Sistem</h2>
+<p>Jika bypass valve bekerja dalam menjaga stabilitas aliran selama operasi normal, maka shut-off valve berada pada level yang berbeda: <strong>isolasi total sumber energi sistem</strong>.</p>
+<blockquote>
+<p>Shut-off valve bukan lagi bagian dari kontrol proses, tetapi bagian dari sistem keselamatan yang memutus hubungan antara sumber energi dan rotating equipment.</p>
+</blockquote>
+<p>Pada kondisi trip, fokus sistem berubah dari <em>stability control</em> menjadi <em>energy isolation</em>.</p>
+<p>Shut-off valve pada inlet expander berfungsi untuk:</p>
+<ul>
+<li>menghentikan aliran gas ke expander</li>
+<li>mengisolasi sumber energi dari sistem shaft</li>
+<li>menghilangkan driving force utama pada turbin expander</li>
+<li>memastikan proses rundown terjadi secara terkendali dan terprediksi</li>
+</ul>
+<p>Secara konsep energi:</p>
+<pre><code>Normal Operation:
+Gas → Expander → Energy Extraction → Shaft → Booster
+
+Trip Condition:
+Gas Flow Isolated → Energy Supply Cut → Shaft Decays Naturally
+</code></pre>
+<p>Yang penting dipahami adalah bahwa tanpa shut-off valve, expander masih dapat “menerima energi residual” dari sistem upstream meskipun kondisi trip sudah aktif. Dalam kondisi tertentu, ini dapat menyebabkan:</p>
+<ul>
+<li>rundown yang tidak terkontrol</li>
+<li>beban dinamis tambahan pada shaft</li>
+<li>peningkatan stress pada bearing selama deceleration</li>
+<li>potensi secondary mechanical issue akibat transien yang tidak terisolasi</li>
+</ul>
+<blockquote>
+<p>Shutdown yang aman bukan hanya menghentikan operasi, tetapi memastikan tidak ada lagi energi baru yang masuk ke sistem.</p>
+</blockquote>
+<hr />
+
+<h2 id="perbedaan-konseptual-yang-perlu-dipahami">Perbedaan Konseptual yang Perlu Dipahami</h2>
+<table>
+<thead>
+<tr>
+<th>Aspek</th>
+<th>Bypass Valve</th>
+<th>Shut-Off Valve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Peran utama</td>
+<td>Stabilitas aliran (anti-surge)</td>
+<td>Isolasi energi</td>
+</tr>
+<tr>
+<td>Domain</td>
+<td>Flow dynamics</td>
+<td>Energy boundary</td>
+</tr>
+<tr>
+<td>Kondisi normal</td>
+<td>Menutup (ideal)</td>
+<td>Terbuka</td>
+</tr>
+<tr>
+<td>Kondisi trip</td>
+<td>Tidak utama</td>
+<td>Menutup cepat dan pasti</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="penegasan-arsitektur-sistem">Penegasan Arsitektur Sistem</h2>
+<blockquote>
+<p>Bypass valve menjaga sistem tetap stabil dalam domain operasi.<br />
+Shut-off valve memastikan sistem benar-benar terputus dari sumber energi saat keluar dari domain operasi.</p>
+</blockquote>
+<p>Dengan kata lain:</p>
+<ul>
+<li>bypass valve bekerja <strong>di dalam sistem</strong></li>
+<li>shut-off valve bekerja <strong>di batas sistem</strong></li>
+</ul>
+<p>Keduanya tidak saling menggantikan, karena bekerja pada dua level yang berbeda: <em>operational stability vs energy isolation boundary</em>.</p>
 <hr />
 
 <h2 id="seal-gas-dan-lube-oil-parameter-pendukung-yang-tidak-boleh-diabaikan">Seal Gas dan Lube Oil: Parameter Pendukung yang Tidak Boleh Diabaikan</h2>
@@ -223,7 +828,7 @@
 <hr />
 
 <h2 id="prosedur-startup-melewati-critical-speed-dengan-benar">Prosedur Startup: Melewati Critical Speed dengan Benar</h2>
-<p>Contoh sistem dengan dua critical speed (misal 6.000 dan 9.000 RPM):</p>
+<p>Contoh sistem dengan dua critical speed (misal 15.500 dan 19.000 RPM):</p>
 <p><strong>Fase 1 — Menuju Critical Speed Pertama</strong></p>
 <ul>
 <li>Naikkan nozzle dengan cepat</li>
@@ -3437,125 +4042,4 @@ Audit internal pada 12 fasilitas ASP menemukan rata-rata deviasi pengukuran mass
 </blockquote>
 <p>Spesifikasi tiap produk bisa berbeda, dan hanya dengan mengacu pada panduan resmi vendor, kita bisa memastikan bahwa instalasi memenuhi syarat teknis untuk akurasi dan keamanan jangka panjang.</p>
 <p>Jika Anda tertarik berdiskusi atau berbagi pengalaman seputar pemasangan flowmeter kriogenik, silakan hubungi kami.</p>
-<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="flowmeter" /><category term="Flowmeter" /><category term="Coriolis" /><category term="Cryogenic" /><summary type="html"><![CDATA[Akurasi pengukuran flowmeter sangat krusial. Namun, tahukah Anda bahwa lokasi dan orientasi fisik flowmeter juga bisa mempengaruhi keandalan datanya?]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Refleksi Seorang yang Bukan Insinyur di Tengah Sistem yang Sangat Serius</title><link href="https://kumajaya.github.io/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius.html" rel="alternate" type="text/html" title="Refleksi Seorang yang Bukan Insinyur di Tengah Sistem yang Sangat Serius" /><published>2025-07-07T13:35:37+00:00</published><updated>2025-07-07T13:35:37+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/technocratic-narrative/2025/07/07/refleksi-seorang-yang-bukan-insinyur-di-tengah-sistem-yang-sangat-serius.html"><![CDATA[<!--kg-card-begin: markdown-->
-<blockquote>
-<p><em>&quot;Kita hidup dalam sistem—dan seringkali, sistem itu sangat rumit. Tapi manusia—dengan pikirannya—masih punya ruang untuk bernapas, meskipun sempit. Dan saya memilih untuk bernapas lewat cara saya sendiri.&quot;</em></p>
-</blockquote>
-<p>Sebagai seseorang yang terlibat dalam dunia teknis, saya terbiasa dengan angka. Tapi saya belajar, tidak semua kebenaran bisa diringkas dalam digit. Tidak semua pemahaman harus linier.</p>
-<p>Dunia teknis bukan hanya ruang logika—ia juga bisa menjadi ruang kontemplatif. Saya bisa merasakannya saat berdiri di depan monitor DCS, dengan desingan mesin yang menembus pintu dan jendela. Di sana, saya menyaksikan flowrate argon yang hanya setitik dibanding nitrogen—tapi justru itulah yang paling jujur menggambarkan jalannya proses.</p>
-<p>Saya percaya, pemahaman sejati harus bekerja di semua kondisi. Kalau masih banyak syarat dan ketentuan, berarti masih ada hal yang belum kita pahami. Itulah sebabnya saya sering mengingatkan diri:</p>
-<blockquote>
-<p><em>&quot;Pemahaman bukan sekadar hafalan prosedur. Pemahaman adalah kemampuan menghadapi anomali dengan logis dan kepala tegak.&quot;</em></p>
-</blockquote>
-<hr />
-
-<h3 id="pelajaran-dari-lelaki-yang-tidak-selalu-benar-tapi-selalu-saya-hormati">Pelajaran dari Lelaki yang Tidak Selalu Benar, Tapi Selalu Saya Hormati</h3>
-<p>Dulu Ayah saya berkata:</p>
-<blockquote>
-<p><em>&quot;Bagaimanapun situasinya, cari cara agar kepalamu tetap tegak.&quot;</em></p>
-</blockquote>
-<p>Itu bukan sekadar nasihat moral. Bagi saya, itu adalah pondasi bersikap dalam setiap analisis dan keputusan yang bertanggungjawab dan terhormat.</p>
-<p>Bahkan saat saya menang taruhan kecil, lalu uangnya dilempar ke sawah, saya belajar bahwa tidak semua hasil pantas disimpan. Bahwa niat dan cara jauh lebih penting daripada sekadar hasil. Bahwa martabat kadang harus dibangun dari sebuah keputusan yang berat.</p>
-<hr />
-
-<h3 id="filter-ripple-dan-ketulusan">Filter, Ripple, dan Ketulusan</h3>
-<p>Saat berhadapan dengan transmitter, flowmeter, atau DCS, saya belajar: filter analog bisa menghaluskan ripple, tapi terlalu banyak smoothing membuat sinyal menjadi tangga. Terlalu rapi—seperti ingin menenangkan semua orang—tapi malah kehilangan kebenaran.</p>
-<p>Sama halnya dengan laporan. Terlalu rapi bisa jadi menutupi realitas.</p>
-<p>Maka saya tambahkan sedikit humor. Sedikit kontemplasi. Karena kita bukan sekadar operator data—kita adalah manusia yang merasa dan berpikir.</p>
-<hr />
-
-<h3 id="di-tengah-sistem-yang-penuh-hierarki">Di Tengah Sistem yang Penuh Hierarki</h3>
-<p>Saya sadar, gaya ini mungkin terasa asing di ruang-ruang penuh struktur. Tapi saya tidak menulis untuk menyenangkan semua orang. Saya menulis untuk menyelaraskan pikiran dan nilai.</p>
-<p>Untuk mengingatkan bahwa:</p>
-<blockquote>
-<p><strong>Leadership bukan tentang menjadi &quot;yang paling tahu&quot;, tapi tentang menghidupkan arah.</strong><br />
-Dengan komunikasi yang jernih, dan keberanian mengambil tanggung jawab jika tidak ada yang melakukannya.</p>
-</blockquote>
-<p>Kalau hari ini saya bicara soal teknis sambil menyelipkan filosofi, itu bukan karena ingin tampil beda atau <em>nyeleneh</em>. Tapi karena saya sadar, integritas tidak dibangun dari hasil—melainkan dari cara berpikir logis dan berinteraksi. Dari bagaimana kita menjelaskan konsep ke operator. Dari bagaimana kita membalas pesan rekan kerja. Dari bagaimana kita tetap menghargai orang yang bahkan tidak kita sukai. Dan keberhasilan organisasi jauh lebih penting daripada keberhasilan pribadi-pribadi di dalamnya.</p>
-<p>Selalu ada ruang untuk mempertimbangkan ulang, untuk menyempurnakan, atau sekadar membuka kembali wacana yang dianggap selesai. Justru di situlah ruang hidup bagi pemahaman yang sejati. Dan kalau ada yang bertanya, “Apakah semua yang saya tulis ini sudah benar?”—jawabannya: belum tentu. Tapi itulah gunanya ruang berpikir. Saya lebih nyaman hidup dalam kemungkinan yang terbuka, daripada terjebak dalam kesimpulan yang prematur.</p>
-<p>Dalam dunia teknik, kita sering cepat menjawab—tapi lambat mendengarkan. Kita piawai menyusun angka, tapi kerap canggung menyusun kata. Padahal, merawat bahasa bukan sekadar soal estetika—tapi soal akurasi makna dan kejujuran komunikasi. Mungkin ini waktu yang tepat untuk menumbuhkan sebuah gaya baru: <strong>technocratic narrative</strong>—gaya yang menjembatani presisi teknis dan kejujuran manusiawi</p>
-<hr />
-
-<h2 id="technocratic-narrative-style-menjembatani-teknik-dan-kemanusiaan">Technocratic Narrative Style: Menjembatani Teknik dan Kemanusiaan</h2>
-<p>Dalam dunia teknik, kita terbiasa menyusun argumen seperti menyusun wiring diagram: jelas, logis, dan presisi. Tapi manusia tidak hidup dari logika saja. Di ruang kontrol, di ruang rapat, bahkan di ruang pikiran kita sendiri, selalu ada keraguan, intuisi, dan pertimbangan nilai.</p>
-<p>Dan di situlah lahir sebuah pendekatan komunikasi yang tidak hanya menjelaskan, tapi juga menyentuh. Kita menyebutnya:</p>
-<blockquote>
-<p><strong>Technocratic Narrative Style</strong><br />
-<em>Gaya komunikasi teknis yang memadukan keakuratan data, kedalaman nilai, dan kehangatan narasi.</em><br />
-<em>Ia menjadikan setiap penjelasan bukan hanya masuk akal, tapi juga masuk hati.</em></p>
-</blockquote>
-<h3 id="mengapa-gaya-ini-muncul">Mengapa Gaya Ini Muncul?</h3>
-<p>Karena sistem terlalu kaku.<br />
-Karena data tidak selalu cukup.<br />
-Karena komunikasi di dunia teknik sering gagal bukan karena salah data—tapi karena kurang rasa.</p>
-<p>Gaya ini lahir dari kebutuhan untuk berkomunikasi secara utuh: agar laporan bukan sekadar formalitas, presentasi bukan sekadar slide, dan diskusi bukan sekadar debat menang-menangan.</p>
-<h3 id="inti-dari-technocratic-narrative-style">Inti dari Technocratic Narrative Style</h3>
-<p><strong>1. Ketegasan Teknis</strong></p>
-<ul>
-<li>Tetap berpijak pada data dan fakta.</li>
-<li>Tidak mengorbankan akurasi demi dramatisasi.</li>
-</ul>
-<p><strong>2. Refleksi Filosofis</strong></p>
-<ul>
-<li>Menyisipkan renungan di balik angka.</li>
-<li>Mengajak berpikir lebih dalam, bukan hanya lebih cepat.</li>
-</ul>
-<p><strong>3. Kedekatan Emosional</strong></p>
-<ul>
-<li>Menghargai konteks manusia: operator, rekan kerja, bahkan diri sendiri.</li>
-<li>Menghindari jargon saat tak perlu, memilih metafora yang menghubungkan.</li>
-</ul>
-<h3 id="gaya-komunikasi-saya-sebagai-contoh">Gaya Komunikasi Saya sebagai Contoh</h3>
-<p>Beberapa prinsip khas dalam komunikasi saya yang kini saya pahami sebagai bagian dari pendekatan ini:</p>
-<ul>
-<li>
-<p><strong>Nilai mendahului hasil.</strong><br />
-Seperti kisah &quot;uang dilempar ke sawah&quot;—keputusan etis lebih penting daripada hasil teknis.</p>
-</li>
-<li>
-<p><strong>Grafik tidak boleh menipu rasa.</strong><br />
-Filter analog boleh menghaluskan sinyal, tapi jangan sampai menipu kenyataan.</p>
-</li>
-<li>
-<p><strong>Laporan harus jujur, bukan hanya rapi.</strong></p>
-</li>
-<li>
-<p><strong>Keberanian tidak selalu berarti paling tahu, tapi paling siap bertanggung jawab.</strong></p>
-</li>
-</ul>
-<h3 id="apa-gunanya-gaya-ini">Apa Gunanya Gaya Ini?</h3>
-<ul>
-<li>Memperkuat leadership di dunia teknik yang sering terlalu kaku.</li>
-<li>Menjembatani tim teknis dan non-teknis.</li>
-<li>Menjadikan komunikasi sebagai alat perubahan budaya kerja—bukan hanya alat transfer informasi.</li>
-</ul>
-<hr />
-
-<h2 id="apa-itu">Apa Itu?</h2>
-<blockquote>
-<p>Bukan aliran. Ia bukan ajaran baru.<br />
-Ia hanyalah gaya berpikir dari seseorang yang dibesarkan oleh Ayah yang melarang berkata kasar—tapi membolehkan benturan fisik kalau memang tidak ada jalan lain.<br />
-Asal kamu tahu bahwa kamu benar.</p>
-</blockquote>
-<p>Itu bukan anjuran menjadi keras. Itu pelajaran tentang martabat—bahwa menjaga kepala tetap tegak tidak harus membuat orang lain menunduk. Mengabaikan nilai orang lain, atau menganulir pencapaiannya, tidak akan pernah membuat kita menjadi lebih besar. Justru sebaliknya, martabat tumbuh saat kita mampu menghargai tanpa harus sepakat, dan mengakui tanpa merasa terancam.</p>
-<p>Martabat yang tetap utuh meski dikelilingi alarm, tekanan kerja, dan sistem yang tak selalu masuk akal.</p>
-<p>Dan kalau hari ini saya bisa tetap berpikir jernih di tengah sistem yang bising, itu karena dulu saya pernah diajarkan: diam yang jujur lebih penting daripada menang yang salah.</p>
-<blockquote>
-<p>Oleh lelaki yang tak selalu benar, tapi selalu saya hormati.</p>
-</blockquote>
-<p>Dunia teknik butuh lebih banyak manusia yang tidak kehilangan rasa. Bukan untuk menjadi lembek, tapi untuk menjadi lentur. Bukan untuk melemahkan presisi, tapi untuk menguatkan empati.</p>
-<p>Saya tidak mengklaim bahwa ini gaya terbaik. Tapi saya percaya, gaya ini bisa ditumbuhkan. Ia dimulai dari kebiasaan bertanya sebelum menilai, dari latihan mendengar sebelum merumuskan solusi. Dan dari keberanian untuk tetap manusiawi, bahkan saat sedang memegang tanggung jawab teknis yang berat.</p>
-<hr />
-
-<h3 id="tidak-ada-yang-mutlak-benar">Tidak Ada yang Mutlak Benar</h3>
-<p>Saya tidak menulis sebagai orang yang paling tahu. Bahkan, saya tidak tahu apakah ini akan dianggap penting. Tapi saya menulis karena saya percaya bahwa ada cara lain menyampaikan hal teknis—tanpa kehilangan nurani, tanpa mematikan rasa.</p>
-<p>Saya tahu tulisan ini tidak akan menjawab semua pertanyaan. Bahkan bisa jadi akan memunculkan pertanyaan baru—dan itu baik. Karena ruang berpikir yang sehat bukan tentang mengunci pendapat, tapi membuka percakapan. Dan saya percaya, selama kita masih mau bertanya dengan jujur, kita sedang berjalan ke arah yang tepat.</p>
-<p>Mungkin gaya ini bukan untuk semua orang. Tapi jika satu-dua orang merasa tercerahkan atau tergerak untuk mulai bicara lebih jujur, lebih hangat, lebih manusiawi—maka tulisan ini sudah cukup.</p>
-<hr />
-
-<h3 id="catatan-penulis">Catatan Penulis</h3>
-<p>Tulisan ini merupakan refleksi pribadi saya. Setiap nilai, perenungan, dan nuansa di dalamnya berasal dari perjalanan saya sendiri.</p>
-<p>Saya tidak selalu benar. Bahkan, sering kali saya menulis untuk menguji cara berpikir saya sendiri, menguji konsistensi. Karena itu, saya terbuka untuk koreksi, untuk diskusi, dan untuk melihat bahwa mungkin ada jalan lain yang lebih baik. Ini bukan kesimpulan—melainkan undangan berpikir bersama.</p>
-<p>Kiranya bisa menjadi inspirasi ringan bagi siapa pun yang juga mencoba berpikir jernih di tengah sistem yang rumit, serius, dan cenderung kaku. Kalau ada satu hal yang saya harap bisa tersampaikan dari tulisan ini, itu adalah:<br />
-Bahwa menjadi teknisi yang manusiawi bukan kelemahan—itu kekuatan yang jarang dimiliki atau mungkin sulit untuk dimiliki.</p>
-<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="technocratic-narrative" /><category term="Technocratic Narrative" /><category term="Life Lessons" /><category term="Values" /><summary type="html"><![CDATA[Saya memang bukan insinyur. Tapi saya hidup di dalam sistem yang menuntut kejelasan, presisi, dan tanggung jawab. Tulisan ini adalah upaya untuk tetap berpikir jernih—di tengah ruang yang sering terlalu serius untuk bertanya.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1660543228680-748e1abd1f9e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyNHx8aW5kdXN0cmlhbHxlbnwwfHx8fDE3NTE4ODQwNTN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1660543228680-748e1abd1f9e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyNHx8aW5kdXN0cmlhbHxlbnwwfHx8fDE3NTE4ODQwNTN8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="flowmeter" /><category term="Flowmeter" /><category term="Coriolis" /><category term="Cryogenic" /><summary type="html"><![CDATA[Akurasi pengukuran flowmeter sangat krusial. Namun, tahukah Anda bahwa lokasi dan orientasi fisik flowmeter juga bisa mempengaruhi keandalan datanya?]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
