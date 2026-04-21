@@ -32,7 +32,7 @@ twitter_description: ""
 twitter_image: ""
 url: "https://blog.kiiota.com/booster-expander-dalam-sistem-cryogenic-konsep-dasar-hingga-monitoring-operasional/"
 comment_id: "69e42abd3585c0065d6f475a"
-reading_time: 13
+reading_time: 14
 access: true
 comments: true
 ---
@@ -68,22 +68,19 @@ comments: true
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Booster Expander — Cryostar HA1660A</title>
+<title>Booster Expander — Cryostar HA1660A (Performance Curve)</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f8f6; color: #1a1a18; padding: 1rem; }
-  .scene { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; gap: 1.2rem; max-width: 680px; margin: 0 auto; }
+  .scene { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; gap: 0.9rem; max-width: 680px; margin: 0 auto; }
   .mode-toggle { display: flex; background: #e8e8e4; padding: 4px; border-radius: 20px; gap: 4px; border: 1px solid rgba(0,0,0,0.1); }
   .tgl-btn { border: none; padding: 6px 18px; border-radius: 16px; cursor: pointer; font-size: 11px; font-weight: 600; transition: all 0.2s; color: #666; background: transparent; }
   .tgl-btn.active { background: #185FA5; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-  .label-row { display: flex; justify-content: space-around; width: 100%; max-width: 620px; }
-  .label-box { text-align: center; }
-  .label-title { font-size: 14px; font-weight: 500; }
-  .label-sub { font-size: 11px; color: #666; margin-top: 2px; }
   .bar-wrap { width: 100%; max-width: 620px; }
   .bar-label { font-size: 11px; color: #666; margin-bottom: 3px; display: flex; justify-content: space-between; }
   .bar-bg { background: #e8e8e4; border-radius: 4px; height: 7px; overflow: hidden; }
   .bar-fill { height: 7px; border-radius: 4px; transition: width 0.08s; }
+  .bar-wrap + .bar-wrap { margin-top: 6px; } /* Rapatkan dua bar pertama */
   .controls { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 620px; }
   .ctrl { display: flex; align-items: center; gap: 10px; }
   .ctrl label { font-size: 12px; color: #666; width: 150px; flex-shrink: 0; }
@@ -100,7 +97,6 @@ comments: true
   .spec-card { flex: 1; background: #e8e8e4; border-radius: 8px; padding: 8px 10px; border-left: 3px solid; }
   .spec-card .sc-title { font-size: 11px; font-weight: 500; margin-bottom: 4px; }
   .spec-card .sc-row { font-size: 11px; color: #555; line-height: 1.6; }
-  .badge { display: inline-block; font-size: 10px; padding: 2px 10px; border-radius: 4px; background: #fdf6e3; color: #b58900; font-weight: 600; }
   .design-note { font-size: 10px; color: #888; text-align: center; }
 </style>
 </head>
@@ -112,38 +108,10 @@ comments: true
     <button id="btn-cold" class="tgl-btn" onclick="switchMode('cold')">Cold Unit</button>
   </div>
 
-  <div style="text-align:center;">
-    <div class="badge" id="main-badge">Warm Unit · TC 200/45-AS · HA1660A</div>
-  </div>
-
   <div class="spec-row">
-    <div class="spec-card" style="border-color:#185FA5;">
-      <div class="sc-title" style="color:#185FA5;">Expander — design</div>
-      <div class="sc-row" id="spec-exp"></div>
-    </div>
-    <div class="spec-card" style="border-color:#888780;">
-      <div class="sc-title" style="color:#5F5E5A;">Shaft — design</div>
-      <div class="sc-row" id="spec-shaft"></div>
-    </div>
-    <div class="spec-card" style="border-color:#BA7517;">
-      <div class="sc-title" style="color:#BA7517;">Booster — design</div>
-      <div class="sc-row" id="spec-bst"></div>
-    </div>
-  </div>
-
-  <div class="label-row">
-    <div class="label-box">
-      <div class="label-title" style="color:#185FA5;">Expander</div>
-      <div class="label-sub" id="lbl-exp">TC 200/45-AS · prime mover</div>
-    </div>
-    <div class="label-box">
-      <div class="label-title" style="color:#5F5E5A;">Shaft</div>
-      <div class="label-sub" id="lbl-shaft">Bearing 45</div>
-    </div>
-    <div class="label-box">
-      <div class="label-title" style="color:#BA7517;">Booster</div>
-      <div class="label-sub" id="lbl-bst">beban · 1.231 kW design</div>
-    </div>
+    <div class="spec-card" style="border-color:#185FA5;"><div class="sc-title" style="color:#185FA5;">Expander — design</div><div class="sc-row" id="spec-exp"></div></div>
+    <div class="spec-card" style="border-color:#888780;"><div class="sc-title" style="color:#5F5E5A;">Shaft — design</div><div class="sc-row" id="spec-shaft"></div></div>
+    <div class="spec-card" style="border-color:#BA7517;"><div class="sc-title" style="color:#BA7517;">Booster — design</div><div class="sc-row" id="spec-bst"></div></div>
   </div>
 
   <canvas id="c" width="620" height="210" style="max-width:100%;"></canvas>
@@ -175,54 +143,70 @@ comments: true
   </div>
 
   <div class="stats">
-    <div class="stat">
-      <div class="sl">Speed shaft</div>
-      <div class="sv" id="sv">0 RPM</div>
-    </div>
-    <div class="stat">
-      <div class="sl">ER aktual / design</div>
-      <div class="sv" id="er">—</div>
-    </div>
-    <div class="stat">
-      <div class="sl">CR aktual / design</div>
-      <div class="sv" id="cr">—</div>
-    </div>
-    <div class="stat">
-      <div class="sl">Cold production est.</div>
-      <div class="sv" id="cp">0 kW</div>
-    </div>
-    <div class="stat">
-      <div class="sl">Status</div>
-      <div class="sv ok" id="st">Normal</div>
-    </div>
+    <div class="stat"><div class="sl">Speed shaft</div><div class="sv" id="sv">0 RPM</div></div>
+    <div class="stat"><div class="sl">ER aktual / design</div><div class="sv" id="er">—</div></div>
+    <div class="stat"><div class="sl">CR aktual / design</div><div class="sv" id="cr">—</div></div>
+    <div class="stat"><div class="sl">Status</div><div class="sv ok" id="st">Normal</div></div>
   </div>
 
   <div class="design-note" id="design-note">Design point: nozzle 77.5%</div>
-
 </div>
 
 <script>
+// ================== DATA DESIGN & PERFORMANCE CURVES ==================
 const data = {
-  warm: {
-    badge: "Warm Unit · TC 200/45-AS · HA1660A",
-    tagExp: "TC 200/45-AS", bearing: "45",
-    speed: 28100, loss: 27, bLossPct: 2.1,
-    designNozzle: 77.5,
+  warm: { badge: "Warm unit · TC 200/45-AS · HA1660A", tagExp: "TC 200/45-AS", bearing: "45", speed: 28100, loss: 27, bLossPct: 2.1,
+    designNozzle: 77.5, designFlow: 0.603, designHead: 51.0,
     exp: { pin: 30.80, pout: 5.39, er: 5.71, tin: -5.0, tout: -101 },
     bst: { pin: 30.90, pout: 51.30, cr: 1.66, tin: 40, tout: 101, pwr: 1231 },
-    cold: 1258
-  },
-  cold: {
-    badge: "Cold Unit · TC 200/50B-AS · HA1660A",
-    tagExp: "TC 200/50B-AS", bearing: "50B",
-    speed: 24628, loss: 55, bLossPct: 6.6,
-    designNozzle: 67.0,
+    cold: 1258 },
+  cold: { badge: "Cold unit · TC 200/50B-AS · HA1660A", tagExp: "TC 200/50B-AS", bearing: "50B", speed: 24628, loss: 55, bLossPct: 6.6,
+    designNozzle: 67.0, designFlow: 0.360, designHead: 33.5,
     exp: { pin: 70.70, pout: 5.43, er: 13.02, tin: -96.5, tout: -178 },
     bst: { pin: 51.18, pout: 71.10, cr: 1.39, tin: 40, tout: 78, pwr: 775 },
-    cold: 830
-  }
+    cold: 830 }
 };
 
+const warmCompressorCurve = [
+  [0.417375,54.223512],[0.427559,54.203734],[0.435537,54.169314],[0.442842,54.123498],[0.450884,54.073491],
+  [0.459469,54.041862],[0.467446,53.910149],[0.475424,53.811950],[0.483401,53.711726],[0.491378,53.596317],
+  [0.499355,53.474833],[0.507332,53.334115],[0.515309,53.187322],[0.523286,53.024332],[0.531262,52.844132],
+  [0.539239,52.648746],[0.547215,52.422989],[0.555192,52.189133],[0.563168,51.941105],[0.571144,51.654606],
+  [0.579120,51.332675],[0.586691,50.973062],[0.595071,50.558218],[0.603046,50.104680],[0.611020,49.583314],
+  [0.618994,48.978933],[0.626968,48.288502],[0.634941,47.495823],[0.642534,46.626311],[0.649366,45.728537],
+  [0.655439,44.822377],[0.660942,43.913074],[0.665875,42.995115],[0.670238,42.118156],[0.674412,41.203993],
+  [0.678395,40.255815],[0.681998,39.333148],[0.685222,38.408355],[0.688255,37.480905],[0.690341,36.838688],
+  [0.692565,36.169341]
+];
+
+const coldCompressorCurve = [
+  [0.255468638,34.422696],[0.260968758,34.432963],[0.265141273,34.410987],[0.269313777,34.387275],
+  [0.273486249,34.358936],[0.277341413,34.340421],[0.281831245,34.309861],[0.286003377,34.230546],
+  [0.290175683,34.177339],[0.294347927,34.114879],[0.298520132,34.046636],[0.302692276,33.969139],
+  [0.306864396,33.888172],[0.311036474,33.800843],[0.315208490,33.704261],[0.319380451,33.599583],
+  [0.323552370,33.488543],[0.327724204,33.364779],[0.331895960,33.229449],[0.336067686,33.089492],
+  [0.340239310,32.934498],[0.344410827,32.763311],[0.348582289,32.584027],[0.352753668,32.392372],
+  [0.356924857,32.172253],[0.361096031,31.949966],[0.365267028,31.701224],[0.369437834,31.423887],
+  [0.373608495,31.124888],[0.377778951,30.795237],[0.381949224,30.438405],[0.386119265,30.046872],
+  [0.390289071,29.620061],[0.394458628,29.156237],[0.398429317,28.667026],[0.402101919,28.171814],
+  [0.405575791,27.671923],[0.408850832,27.152054],[0.411927197,26.635738],[0.414804830,26.114196],
+  [0.417483840,25.603971],[0.419964152,25.093724],[0.422345048,24.573512],[0.424329200,24.150764]
+];
+
+function interpolateHead(flow, curve) {
+  if (flow <= curve[0][0]) return curve[0][1];
+  if (flow >= curve[curve.length-1][0]) return curve[curve.length-1][1];
+  for (let i = 0; i < curve.length - 1; i++) {
+    if (flow >= curve[i][0] && flow <= curve[i+1][0]) {
+      const x1 = curve[i][0], y1 = curve[i][1];
+      const x2 = curve[i+1][0], y2 = curve[i+1][1];
+      return y1 + (y2 - y1) * (flow - x1) / (x2 - x1);
+    }
+  }
+  return curve[curve.length-1][1];
+}
+
+// ================== SIMULASI ==================
 let mode = 'warm';
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
@@ -237,52 +221,42 @@ function switchMode(m) {
   document.getElementById('btn-warm').className = 'tgl-btn' + (m === 'warm' ? ' active' : '');
   document.getElementById('btn-cold').className = 'tgl-btn' + (m === 'cold' ? ' active' : '');
   const d = data[m];
-  document.getElementById('main-badge').textContent = d.badge;
   document.getElementById('spec-exp').innerHTML = `P inlet: ${d.exp.pin.toFixed(2)} bar abs<br>P outlet: ${d.exp.pout.toFixed(2)} bar abs<br>ER: ${d.exp.er} &nbsp;|&nbsp; T in: ${d.exp.tin.toFixed(1)} °C`;
   document.getElementById('spec-shaft').innerHTML = `Speed: ${d.speed.toLocaleString('id-ID')} RPM<br>Bearing losses: ${d.loss} kW<br>Medium: Pure N₂`;
   document.getElementById('spec-bst').innerHTML = `P inlet: ${d.bst.pin.toFixed(2)} bar abs<br>P outlet: ${d.bst.pout.toFixed(2)} bar abs<br>CR: ${d.bst.cr} &nbsp;|&nbsp; Power: ${d.bst.pwr.toLocaleString('id-ID')} kW`;
-  document.getElementById('lbl-exp').textContent = `${d.tagExp} · prime mover`;
-  document.getElementById('lbl-shaft').textContent = `Bearing ${d.bearing}`;
-  document.getElementById('lbl-bst').textContent = `beban · ${d.bst.pwr.toLocaleString('id-ID')} kW design`;
   document.getElementById('bl-val').textContent = `${d.loss} kW`;
   document.getElementById('bl-bar').style.width = `${d.bLossPct}%`;
-  document.getElementById('design-note').textContent = `Design point: nozzle ${d.designNozzle}%`;
+  document.getElementById('design-note').textContent = `${d.badge} · Design point: nozzle ${d.designNozzle}%`;
 
-  // Reset nozzle slider ke design nozzle mode baru
   nozzle = d.designNozzle;
   document.getElementById('nozzle').value = nozzle;
   document.getElementById('nozzle-out').textContent = nozzle.toFixed(1) + '%';
   speed = 0;
 }
 
-document.getElementById('nozzle').oninput = function () {
-  nozzle = +this.value;
-  document.getElementById('nozzle-out').textContent = nozzle + '%';
-};
-document.getElementById('bypass').oninput = function () {
-  bypass = +this.value;
-  document.getElementById('bypass-out').textContent = bypass + '%';
-};
+document.getElementById('nozzle').oninput = function () { nozzle = +this.value; document.getElementById('nozzle-out').textContent = nozzle + '%'; };
+document.getElementById('bypass').oninput = function () { bypass = +this.value; document.getElementById('bypass-out').textContent = bypass + '%'; };
 
 function lerp(a, b, t) { return a + (b - a) * t; }
 
+// ================== DRAWING FUNCTIONS ==================
 function drawImpeller(cx, cy, r, blades, ang, color, active) {
   ctx.save(); ctx.translate(cx, cy); ctx.rotate(ang);
   for (let i = 0; i < blades; i++) {
     ctx.save(); ctx.rotate((i / blades) * Math.PI * 2);
     ctx.beginPath(); ctx.moveTo(0, 0);
-    ctx.bezierCurveTo(r * 0.25, -r * 0.18, r * 0.65, -r * 0.32, r, -r * 0.12);
-    ctx.bezierCurveTo(r * 0.82, r * 0.06, r * 0.25, r * 0.09, 0, 0);
-    ctx.fillStyle = active ? color + 'bb' : color + '55';
+    ctx.bezierCurveTo(r*0.25, -r*0.18, r*0.65, -r*0.32, r, -r*0.12);
+    ctx.bezierCurveTo(r*0.82, r*0.06, r*0.25, r*0.09, 0, 0);
+    ctx.fillStyle = active ? color+'bb' : color+'55';
     ctx.strokeStyle = color; ctx.lineWidth = 1; ctx.fill(); ctx.stroke();
     ctx.restore();
   }
-  ctx.beginPath(); ctx.arc(0, 0, r * 0.16, 0, Math.PI * 2);
+  ctx.beginPath(); ctx.arc(0, 0, r*0.16, 0, Math.PI*2);
   ctx.fillStyle = color; ctx.fill(); ctx.restore();
 }
 
 function drawCasing(cx, cy, r, color) {
-  ctx.beginPath(); ctx.arc(cx, cy, r + 14, 0, Math.PI * 2);
+  ctx.beginPath(); ctx.arc(cx, cy, r + 14, 0, Math.PI*2);
   ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.setLineDash([]); ctx.stroke();
 }
 
@@ -290,16 +264,16 @@ function drawShaft(x1, x2, cy, spd, dSpeed) {
   const alpha = Math.min(1, spd / dSpeed);
   ctx.save();
   ctx.beginPath();
-  ctx.moveTo(x1, cy - 7); ctx.lineTo(x2, cy - 7);
-  ctx.lineTo(x2, cy + 7); ctx.lineTo(x1, cy + 7); ctx.closePath();
-  ctx.fillStyle = `rgba(136,135,128,${0.25 + alpha * 0.5})`; ctx.fill();
+  ctx.moveTo(x1, cy-7); ctx.lineTo(x2, cy-7);
+  ctx.lineTo(x2, cy+7); ctx.lineTo(x1, cy+7); ctx.closePath();
+  ctx.fillStyle = `rgba(136,135,128,${0.25 + alpha*0.5})`; ctx.fill();
   ctx.strokeStyle = '#888780'; ctx.lineWidth = 1; ctx.stroke();
   const n = 10;
   for (let i = 0; i < n; i++) {
-    const raw = x1 + ((i / n) * (x2 - x1) + (angle * 28) % (x2 - x1));
-    const px = ((raw - x1) % (x2 - x1)) + x1;
-    ctx.beginPath(); ctx.moveTo(px, cy - 7); ctx.lineTo(px - 10, cy + 7);
-    ctx.strokeStyle = `rgba(95,94,90,${0.3 + alpha * 0.3})`; ctx.lineWidth = 1; ctx.stroke();
+    const raw = x1 + ((i/n)*(x2-x1) + (angle*28) % (x2-x1));
+    const px = ((raw - x1) % (x2-x1)) + x1;
+    ctx.beginPath(); ctx.moveTo(px, cy-7); ctx.lineTo(px-10, cy+7);
+    ctx.strokeStyle = `rgba(95,94,90,${0.3 + alpha*0.3})`; ctx.lineWidth = 1; ctx.stroke();
   }
   ctx.restore();
 }
@@ -308,16 +282,16 @@ function drawFlow(cx, cy, r, dir, color, intensity) {
   if (intensity < 0.05) return;
   const t = (Date.now() / 450) % 1;
   for (let i = 0; i < 4; i++) {
-    const frac = ((t + i / 4) % 1);
+    const frac = ((t + i/4) % 1);
     const sx = cx + dir * (r + 16);
     const ex = sx + dir * 50 * frac;
     const yo = (i - 1.5) * 11;
     ctx.beginPath(); ctx.moveTo(sx, cy + yo); ctx.lineTo(ex, cy + yo);
-    ctx.strokeStyle = color + Math.floor(intensity * 160).toString(16).padStart(2, '0');
-    ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = color + Math.floor(intensity*160).toString(16).padStart(2,'0');
+    ctx.lineWidth = 1.5; ctx.setLineDash([4,3]); ctx.stroke(); ctx.setLineDash([]);
     if (frac > 0.7) {
       ctx.beginPath();
-      ctx.moveTo(ex, cy + yo - 4); ctx.lineTo(ex + dir * 6, cy + yo); ctx.lineTo(ex, cy + yo + 4);
+      ctx.moveTo(ex, cy+yo-4); ctx.lineTo(ex + dir*6, cy+yo); ctx.lineTo(ex, cy+yo+4);
       ctx.strokeStyle = color + 'cc'; ctx.lineWidth = 1.5; ctx.stroke();
     }
   }
@@ -326,23 +300,16 @@ function drawFlow(cx, cy, r, dir, color, intensity) {
 function drawBypass(bstX, r, frac) {
   if (frac < 0.02) return;
   const t = (Date.now() / 850) % 1;
-  ctx.beginPath(); ctx.setLineDash([5, 4]);
+  ctx.beginPath(); ctx.setLineDash([5,4]);
   ctx.moveTo(bstX + r + 10, CY - 12);
   ctx.bezierCurveTo(bstX + r + 55, CY - 72, bstX - r - 55, CY - 72, bstX - r - 10, CY - 12);
-  ctx.strokeStyle = `rgba(186,117,23,${frac * 0.85})`; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]);
-  const bpx = bstX + r + 10 + t * (-r * 2 - 20);
-  const bpy = CY - 12 - Math.sin(t * Math.PI) * 62;
-  ctx.beginPath(); ctx.arc(bpx, bpy, 3.5, 0, Math.PI * 2);
-  ctx.fillStyle = `rgba(186,117,23,${frac * 0.9})`; ctx.fill();
-  ctx.font = '10px sans-serif'; ctx.fillStyle = `rgba(186,117,23,${frac * 0.9})`;
+  ctx.strokeStyle = `rgba(186,117,23,${frac*0.85})`; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]);
+  const bpx = bstX + r + 10 + t * (-r*2 - 20);
+  const bpy = CY - 12 - Math.sin(t*Math.PI)*62;
+  ctx.beginPath(); ctx.arc(bpx, bpy, 3.5, 0, Math.PI*2);
+  ctx.fillStyle = `rgba(186,117,23,${frac*0.9})`; ctx.fill();
+  ctx.font = '10px sans-serif'; ctx.fillStyle = `rgba(186,117,23,${frac*0.9})`;
   ctx.textAlign = 'center'; ctx.fillText('recycle', bstX, CY - 80);
-}
-
-function drawDesignMarker(nozzleEl, designNozzle) {
-  // Draw marker on nozzle slider at design point position
-  const pct = designNozzle / 100;
-  const rect = nozzleEl.getBoundingClientRect();
-  // Canvas-based indicator instead
 }
 
 function frame() {
@@ -354,7 +321,6 @@ function frame() {
   const bFrac = bypass / 100;
   const designFrac = d.designNozzle / 100;
 
-  // Performance relative to design nozzle
   const performanceFactor = Math.min(1.25, Math.max(0, nFrac / designFrac));
   const effectiveFactor = Math.max(0, performanceFactor - bFrac * 0.45);
 
@@ -365,13 +331,21 @@ function frame() {
 
   const expX = 130, bstX = 490, impR = 65;
 
-  const erActual = (d.exp.er * performanceFactor).toFixed(2);
-  const effectiveLoadForCR = Math.max(0, performanceFactor - bFrac * 0.4);
-  const crActual = Math.max(1, d.bst.cr * effectiveLoadForCR).toFixed(2);
+  // === PERHITUNGAN BERDASARKAN PERFORMANCE CURVE VENDOR ===
+  const designFlow = d.designFlow;
+  let actualFlow = designFlow * performanceFactor * (1 - bFrac * 0.65);
+  const curve = (mode === 'warm') ? warmCompressorCurve : coldCompressorCurve;
+  const actualHead = interpolateHead(actualFlow, curve);
+
+  const loadFactor = Math.max(0, performanceFactor * (1 - bFrac * 0.6));
+  const powerEst = Math.round(d.bst.pwr * (actualFlow / designFlow) * (actualHead / d.designHead) * loadFactor * 0.92);
   const coldEst = Math.round(d.cold * performanceFactor);
-  const powerEst = Math.round(d.bst.pwr * effectiveLoadForCR);
+
+  const erActual = (d.exp.er * performanceFactor).toFixed(2);
+  const crActual = Math.max(1, d.bst.cr * loadFactor).toFixed(2);
   const rpm = Math.round(speed / 100) * 100;
 
+  // === ANIMASI ===
   drawFlow(expX, CY, impR, -1, '#378ADD', performanceFactor * 0.9);
   drawFlow(bstX, CY, impR, 1, '#EF9F27', Math.max(0, performanceFactor * 0.9 - bFrac * 0.5));
   drawBypass(bstX, impR, bFrac);
@@ -381,37 +355,41 @@ function frame() {
   drawCasing(bstX, CY, impR, '#BA7517');
   drawImpeller(bstX, CY, impR, 7, angle * 1.2, '#EF9F27', bFrac < 0.05);
 
+  // Label
   ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
   ctx.fillStyle = '#666';
-  ctx.fillText(`N₂ · ${d.exp.pin.toFixed(2)} bar abs · ${d.exp.tin.toFixed(0)} °C`, expX, CY - impR - 22);
-  ctx.fillText(`N₂ · ${d.bst.pin.toFixed(2)} bar abs · ${d.bst.tin.toFixed(0)} °C`, bstX, CY - impR - 22);
+  ctx.fillText(`N₂ · ${d.exp.pin.toFixed(2)} bar · ${d.exp.tin.toFixed(0)} °C`, expX, CY - impR - 22);
+  ctx.fillText(`N₂ · ${d.bst.pin.toFixed(2)} bar · ${d.bst.tin.toFixed(0)} °C`, bstX, CY - impR - 22);
   ctx.fillStyle = '#378ADDcc';
   ctx.fillText(`→ ${d.exp.pout.toFixed(2)} bar · ${d.exp.tout} °C`, expX, CY + impR + 26);
   ctx.fillStyle = '#BA7517cc';
   ctx.fillText(`→ ${d.bst.pout.toFixed(2)} bar · ${d.bst.tout} °C`, bstX, CY + impR + 26);
 
-  // Design point marker on canvas
-  ctx.font = '9px sans-serif'; ctx.textAlign = 'left';
-  ctx.fillStyle = Math.abs(nozzle - d.designNozzle) < 2 ? '#1D9E75' : '#BA7517';
-  ctx.fillText(`▲ design: ${d.designNozzle}%`, 8, H - 6);
-
+  // Update UI
   document.getElementById('ebar').style.width = Math.min(100, performanceFactor * 100).toFixed(0) + '%';
   document.getElementById('ep-val').textContent = coldEst.toLocaleString('id-ID') + ' kW';
-  document.getElementById('bbar').style.width = Math.min(100, effectiveLoadForCR * 100).toFixed(0) + '%';
+  document.getElementById('bbar').style.width = Math.min(100, loadFactor * 100).toFixed(0) + '%';
   document.getElementById('bp-val').textContent = powerEst.toLocaleString('id-ID') + ' kW';
   document.getElementById('sv').textContent = rpm.toLocaleString('id-ID') + ' RPM';
   document.getElementById('er').textContent = erActual + ' / ' + d.exp.er;
   document.getElementById('cr').textContent = crActual + ' / ' + d.bst.cr;
-  document.getElementById('cp').textContent = coldEst.toLocaleString('id-ID') + ' kW';
 
+  // Status
   const st = document.getElementById('st');
   const pct = speed / d.speed;
-  if (pct < 0.2) { st.textContent = 'Terlalu lambat'; st.className = 'sv danger'; }
-  else if (bFrac > 0.25) { st.textContent = 'Boros energi'; st.className = 'sv warn'; }
-  else if (pct > 1.1) { st.textContent = 'Overspeed'; st.className = 'sv danger'; }
-  else if (Math.abs(nozzle - d.designNozzle) <= 3 && bFrac < 0.05) { st.textContent = 'Design point'; st.className = 'sv ok'; }
-  else if (pct > 0.75) { st.textContent = 'Normal'; st.className = 'sv ok'; }
-  else { st.textContent = 'Partial load'; st.className = 'sv warn'; }
+  if ((mode === 'warm' && speed < 23850) || (mode === 'cold' && speed < 20950) || pct < 0.2) {
+    st.textContent = 'Underspeed'; st.className = 'sv danger';
+  } else if ((mode === 'warm' && speed > 29550) || (mode === 'cold' && speed > 25900) || pct > 1.1) {
+    st.textContent = 'Overspeed'; st.className = 'sv danger';
+  } else if (bFrac > 0.25) {
+    st.textContent = 'Boros energi'; st.className = 'sv warn';
+  } else if (Math.abs(nozzle - d.designNozzle) <= 3 && bFrac < 0.05) {
+    st.textContent = 'Design point'; st.className = 'sv ok';
+  } else if (pct > 0.75) {
+    st.textContent = 'Normal'; st.className = 'sv ok';
+  } else {
+    st.textContent = 'Partial load'; st.className = 'sv warn';
+  }
 }
 
 switchMode('warm');
@@ -419,6 +397,7 @@ frame();
 </script>
 </body>
 </html>
+
 <!--kg-card-end: html-->
 <hr>
 <h2 id="keseimbangan-energi-dan-dampaknya-di-lapangan">Keseimbangan Energi dan Dampaknya di Lapangan</h2>
@@ -624,12 +603,44 @@ frame();
 <li>memastikan proses rundown terjadi secara terkendali dan terprediksi</li>
 </ul>
 <p>Secara konsep energi:</p>
-<pre><code>Normal Operation:
-Gas → Expander → Energy Extraction → Shaft → Booster
-
-Trip Condition:
-Gas Flow Isolated → Energy Supply Cut → Shaft Decays Naturally
-</code></pre>
+<div style="overflow-x: auto; margin: 1em 0;">
+  <div class="mermaid">
+    ---
+    config:
+      theme: neutral
+    ---
+    flowchart TD
+    RUN([RUN]):::state --&gt; N
+    N --&gt; STOP([STOP]):::state
+    STOP --&gt; T
+    subgraph N["Normal Operation"]
+        direction LR
+        A("Gas"):::expander
+        B("Expander"):::expander
+        C("Energy Extraction"):::expander
+        D("Shaft"):::shaft
+        E("Booster"):::booster
+        A --&gt; B --&gt; C --&gt; D --&gt; E
+    end
+    subgraph T["Trip / Shutdown Transient"]
+        direction LR
+        G("Gas Flow Isolated"):::nozzle
+        H("Energy Supply Cut"):::nozzle
+        I("Shaft Decays Naturally"):::shaft
+        G --&gt; H --&gt; I
+    end
+    classDef state fill:#eeeeee,stroke:#666,stroke-width:2px,color:#000
+    classDef nozzle fill:#fff2cc,stroke:#bf9000,stroke-width:2px,color:#000
+    classDef expander fill:#cfe2f3,stroke:#1155cc,stroke-width:2px,color:#000
+    classDef shaft fill:#d9ead3,stroke:#38761d,stroke-width:2px,color:#000
+    classDef booster fill:#fce5cd,stroke:#e69138,stroke-width:2px,color:#000
+    classDef output fill:#d9d2e9,stroke:#351c75,stroke-width:2px,color:#000
+    classDef alert fill:#f4cccc,stroke:#cc0000,stroke-width:2px,color:#000
+  </div>
+  <figcaption style="text-align:center; font-size:14px; color:#555;">
+    Konsep Energi Normal Operation dan Trip Condition
+  </figcaption>
+</div>
 <p>Yang penting dipahami adalah bahwa tanpa shut-off valve, expander masih dapat “menerima energi residual” dari sistem upstream meskipun kondisi trip sudah aktif. Dalam kondisi tertentu, ini dapat menyebabkan:</p>
 <ul>
 <li>rundown yang tidak terkontrol</li>
