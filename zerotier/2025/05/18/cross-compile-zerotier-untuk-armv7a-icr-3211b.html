@@ -2,22 +2,23 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B | Kiiota Blog</title>
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Pendahuluan ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan. Beberapa fitur utama ZeroTier: Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat. Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama" />
-<meta property="og:description" content="Pendahuluan ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan. Beberapa fitur utama ZeroTier: Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat. Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama" />
+<meta name="twitter:description" property="og:description" content="Pendahuluan ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan. Beberapa fitur utama ZeroTier: Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat. Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama" />
 <link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html" />
 <meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html" />
 <meta property="og:site_name" content="Kiiota Blog" />
 <meta property="og:image" content="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&ixlib=rb-4.1.0&q=80&w=2000" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-05-18T06:34:52+00:00" />
+<meta property="article:modified_time" content="2025-05-18T06:34:52+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&ixlib=rb-4.1.0&q=80&w=2000" />
-<meta property="twitter:title" content="Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B" />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta name="twitter:title" content="Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-05-18T06:34:52+00:00","datePublished":"2025-05-18T06:34:52+00:00","description":"Pendahuluan ZeroTier adalah solusi jaringan global yang menggabungkan fitur VPN, SD-WAN, dan konektivitas IoT dalam satu platform. Dengan ZeroTier, pengguna dapat menghubungkan perangkat mereka ke jaringan pribadi yang aman tanpa perlu konfigurasi kompleks atau perangkat keras tambahan. Beberapa fitur utama ZeroTier: Koneksi Peer-to-Peer: Perangkat dapat berkomunikasi langsung tanpa harus melewati server pusat. Keamanan Tinggi: Data dienkripsi end-to-end, memastikan privasi dan keama","headline":"Cross Compile ZeroTier untuk armv7a Advantech ICR-3211B","image":"https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHZwbnxlbnwwfHx8fDE3NDczODg4NjN8MA&ixlib=rb-4.1.0&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html"},"url":"https://kumajaya.github.io/kiiota-blog/zerotier/2025/05/18/cross-compile-zerotier-untuk-armv7a-icr-3211b.html"}</script>
 <!-- End Jekyll SEO tag -->

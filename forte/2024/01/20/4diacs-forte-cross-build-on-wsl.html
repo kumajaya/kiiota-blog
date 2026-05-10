@@ -2,22 +2,23 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Build 4diac FORTE for Multiple Target on WSL | Kiiota Blog</title>
 <meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Build 4diac FORTE for Multiple Target on WSL" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Eclipse 4diac™ provides an open source infrastructure for distributed industrial process measurement and control systems based on the IEC 61499 standard. 4diac includes: development environment (4diac IDE), runtime environment (4diac FORTE), function block library, and example projects. The 4diac FORTE is a small portable implementation of an IEC 61499 runtime environment targeting small embedded control devices (16/32 Bit), implemented in C++. It supports online-reconfiguration of its applicat" />
-<meta property="og:description" content="Eclipse 4diac™ provides an open source infrastructure for distributed industrial process measurement and control systems based on the IEC 61499 standard. 4diac includes: development environment (4diac IDE), runtime environment (4diac FORTE), function block library, and example projects. The 4diac FORTE is a small portable implementation of an IEC 61499 runtime environment targeting small embedded control devices (16/32 Bit), implemented in C++. It supports online-reconfiguration of its applicat" />
+<meta name="twitter:description" property="og:description" content="Eclipse 4diac™ provides an open source infrastructure for distributed industrial process measurement and control systems based on the IEC 61499 standard. 4diac includes: development environment (4diac IDE), runtime environment (4diac FORTE), function block library, and example projects. The 4diac FORTE is a small portable implementation of an IEC 61499 runtime environment targeting small embedded control devices (16/32 Bit), implemented in C++. It supports online-reconfiguration of its applicat" />
 <link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/forte/2024/01/20/4diacs-forte-cross-build-on-wsl.html" />
 <meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/forte/2024/01/20/4diacs-forte-cross-build-on-wsl.html" />
 <meta property="og:site_name" content="Kiiota Blog" />
 <meta property="og:image" content="https://images.unsplash.com/photo-1587919057555-d728ff5beac3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTcwNTczMDQ2Mnww&ixlib=rb-4.0.3&q=80&w=2000" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-01-20T17:12:37+00:00" />
+<meta property="article:modified_time" content="2024-01-20T17:12:37+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://images.unsplash.com/photo-1587919057555-d728ff5beac3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTcwNTczMDQ2Mnww&ixlib=rb-4.0.3&q=80&w=2000" />
-<meta property="twitter:title" content="Build 4diac FORTE for Multiple Target on WSL" />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1587919057555-d728ff5beac3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTcwNTczMDQ2Mnww&ixlib=rb-4.0.3&q=80&w=2000" />
+<meta name="twitter:title" content="Build 4diac FORTE for Multiple Target on WSL" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-01-20T17:12:37+00:00","datePublished":"2024-01-20T17:12:37+00:00","description":"Eclipse 4diac™ provides an open source infrastructure for distributed industrial process measurement and control systems based on the IEC 61499 standard. 4diac includes: development environment (4diac IDE), runtime environment (4diac FORTE), function block library, and example projects. The 4diac FORTE is a small portable implementation of an IEC 61499 runtime environment targeting small embedded control devices (16/32 Bit), implemented in C++. It supports online-reconfiguration of its applicat","headline":"Build 4diac FORTE for Multiple Target on WSL","image":"https://images.unsplash.com/photo-1587919057555-d728ff5beac3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTcwNTczMDQ2Mnww&ixlib=rb-4.0.3&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/forte/2024/01/20/4diacs-forte-cross-build-on-wsl.html"},"url":"https://kumajaya.github.io/kiiota-blog/forte/2024/01/20/4diacs-forte-cross-build-on-wsl.html"}</script>
 <!-- End Jekyll SEO tag -->

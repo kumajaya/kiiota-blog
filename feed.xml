@@ -1,5 +1,442 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-04-21T03:58:28+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
-</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Analisis Spektrum Keahlian: Relevansi Pemahaman Lintas Domain</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain.html" rel="alternate" type="text/html" title="Analisis Spektrum Keahlian: Relevansi Pemahaman Lintas Domain" /><published>2026-04-19T05:46:07+00:00</published><updated>2026-04-19T05:46:07+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 1 November 2025</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-05-10T04:38:20+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Memahami Cara Kerja PID Control pada DCS Supcon</title><link href="https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon.html" rel="alternate" type="text/html" title="Memahami Cara Kerja PID Control pada DCS Supcon" /><published>2026-05-09T09:38:18+00:00</published><updated>2026-05-09T09:38:18+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 9 Mei 2026</em></p>
+<h1 id="pendahuluan">Pendahuluan</h1>
+<p>Pada banyak sistem kontrol industri, PID controller merupakan algoritma utama untuk menjaga variabel proses seperti pressure, flow, temperature, dan level tetap berada pada setpoint. Salah satu hal yang sering membingungkan engineer ketika menggunakan DCS Supcon adalah bentuk parameter PID-nya yang sedikit berbeda dibanding beberapa PLC atau DCS modern lain.</p>
+<p>Pada Supcon:</p>
+<ul>
+<li>Parameter <strong>P</strong> menggunakan <strong>Proportional Band (%)</strong></li>
+<li>Parameter <strong>I</strong> menggunakan <strong>nilai reciprocal dari Integral Time ($1/T_I$)</strong></li>
+<li>Derivative menggunakan bentuk <strong>filtered derivative</strong></li>
+</ul>
+<p>Akibatnya:</p>
+<ul>
+<li>Semakin <strong>kecil</strong> nilai P → controller semakin agresif</li>
+<li>Semakin <strong>besar</strong> nilai I → integral semakin agresif</li>
+</ul>
+<p>Ini berbeda dengan beberapa sistem lain yang menggunakan proportional gain langsung maupun integral time langsung.</p>
+<hr />
+
+<h1 id="apa-itu-pid-controller">Apa itu PID Controller?</h1>
+<p>PID controller adalah algoritma kontrol yang menghitung output berdasarkan tiga komponen: Proportional, Integral, dan Derivative. Ketiganya bekerja bersama untuk menjaga process variable (PV) tetap berada di setpoint (SP).</p>
+<h2 id="proportional-p">Proportional (P)</h2>
+<p>Komponen P menghasilkan output yang proporsional terhadap besar error saat ini — selisih antara SP dan PV. Semakin besar error, semakin besar output yang dihasilkan.</p>
+<p>P bekerja instan: begitu error muncul, output langsung berubah. Kelemahannya, P saja hampir selalu meninggalkan offset permanen — PV mendekati SP tapi tidak pernah benar-benar mencapainya.</p>
+<h2 id="integral-i">Integral (I)</h2>
+<p>Komponen I menjumlahkan error dari waktu ke waktu. Selama error masih ada, integral terus terakumulasi dan mendorong output hingga offset benar-benar hilang.</p>
+<p>I bertugas menghilangkan offset yang ditinggalkan oleh P. Namun integral yang terlalu agresif dapat menyebabkan overshoot dan oscillation karena output terus didorong bahkan saat PV sudah mendekati SP.</p>
+<h2 id="derivative-d">Derivative (D)</h2>
+<p>Komponen D membaca kecepatan perubahan error. Bila PV bergerak cepat menuju SP, derivative mulai mengurangi output lebih awal — seperti rem sebelum mencapai target.</p>
+<p>D membantu mengurangi overshoot dan mempercepat stabilisasi. Namun derivative sangat sensitif terhadap noise sehingga tidak selalu digunakan, terutama pada proses dengan sinyal yang tidak bersih.</p>
+<hr />
+
+<h1 id="struktur-pid-pada-supcon">Struktur PID pada Supcon</h1>
+<p>Dokumen Supcon menunjukkan formula dasar berikut:</p>
+<p>$$\frac{U(s)}{E(s)} = \frac{1}{P} + \frac{1}{T_I s} + \frac{T_D s}{1+\frac{T_D}{K_d}s}$$</p>
+<p>Dengan:</p>
+<ul>
+<li>$U(s)$ = output controller</li>
+<li>$E(s)$ = error</li>
+<li>$P$ = proportional band</li>
+<li>$T_I$ = integral time</li>
+<li>$T_D$ = derivative time</li>
+<li>$K_d$ = derivative filter gain</li>
+</ul>
+<p>Error didefinisikan sebagai:</p>
+<p>$$e(t) = SP(t) - PV(t)$$</p>
+<p>Di mana:</p>
+<ul>
+<li>$SP$ = setpoint</li>
+<li>$PV$ = process variable</li>
+</ul>
+<hr />
+
+<h1 id="komponen-proportional-p">Komponen Proportional (P)</h1>
+<p>Bagian proportional pada Supcon:</p>
+<p>$$U_P(s)=\frac{1}{P}E(s)$$</p>
+<p>Karena Supcon menggunakan proportional band, hubungan dengan gain klasik menjadi:</p>
+<p>$$K_p=\frac{100}{P}$$</p>
+<h2 id="makna-praktis">Makna Praktis</h2>
+<p>Semakin kecil P:</p>
+<ul>
+<li>gain semakin besar</li>
+<li>respons controller semakin agresif</li>
+</ul>
+<p>Semakin besar P:</p>
+<ul>
+<li>gain semakin kecil</li>
+<li>controller semakin lembut</li>
+</ul>
+<hr />
+
+<h2 id="contoh">Contoh</h2>
+<h3 id="p-100">P = 100%</h3>
+<p>$K_p=\frac{100}{100}=1$</p>
+<h3 id="p-600">P = 600%</h3>
+<p>$K_p=\frac{100}{600}=0.167$</p>
+<p>Artinya:</p>
+<ul>
+<li>P 100% sekitar 6 kali lebih agresif dibanding P 600%.</li>
+</ul>
+<hr />
+
+<h1 id="cara-kerja-integral-i">Cara Kerja Integral (I)</h1>
+<p>Bagian integral pada Supcon:</p>
+<p>$$U_I(s)=\frac{1}{T_I s}E(s)$$</p>
+<p>Dalam domain waktu:</p>
+<p>$$u_I(t)=\frac{1}{T_I}\int e(t),dt$$</p>
+<p>Integral bertugas:</p>
+<ul>
+<li>menghilangkan offset</li>
+<li>memastikan PV akhirnya mencapai SP</li>
+</ul>
+<hr />
+
+<h2 id="parameter-i-sebagai-reciprocal">Parameter I sebagai Reciprocal</h2>
+<p>Penting dipahami: <strong>parameter I yang diinput di DCS Supcon bukan $T_I$ langsung, melainkan nilai reciprocal-nya</strong>.</p>
+<p>Dokumentasi Supcon menyebutkan bahwa I ditampilkan sebagai reciprocal, dan nilai yang terlalu kecil dapat menyebabkan overflow perhitungan. Nilai minimum yang diizinkan adalah 1/60 = 0.02 menit.</p>
+<p>Hubungannya:</p>
+<p>$$I_{input} = \frac{1}{T_I}$$</p>
+<p>Artinya:</p>
+<table>
+<thead>
+<tr>
+<th>I (input DCS)</th>
+<th>T_I aktual</th>
+<th>Karakter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.02 menit</td>
+<td>50 menit</td>
+<td>sangat lambat</td>
+</tr>
+<tr>
+<td>0.17 menit</td>
+<td>6 menit</td>
+<td>lambat</td>
+</tr>
+<tr>
+<td>1 menit</td>
+<td>1 menit</td>
+<td>sedang</td>
+</tr>
+<tr>
+<td>2 menit</td>
+<td>0.5 menit</td>
+<td>agresif</td>
+</tr>
+<tr>
+<td>6 menit</td>
+<td>10 detik</td>
+<td>sangat agresif</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan: I besar → integral lebih agresif.</strong></p>
+<p>Ini kebalikan dari intuisi engineer yang terbiasa dengan sistem yang menggunakan integral time langsung.</p>
+<hr />
+
+<h2 id="karakter-integral">Karakter Integral</h2>
+<p>Semakin besar $I_{input}$:</p>
+<ul>
+<li>integral semakin cepat</li>
+<li>offset dihilangkan lebih agresif</li>
+</ul>
+<p>Semakin kecil $I_{input}$:</p>
+<ul>
+<li>integral semakin lambat</li>
+<li>loop lebih tenang</li>
+</ul>
+<hr />
+
+<h1 id="cara-kerja-derivative-d">Cara Kerja Derivative (D)</h1>
+<p>Bagian derivative pada Supcon:</p>
+<p>$$U_D(s)=\frac{T_D s}{1+\frac{T_D}{K_d}s}E(s)$$</p>
+<p>Derivative berfungsi:</p>
+<ul>
+<li>memprediksi arah perubahan PV</li>
+<li>mengurangi overshoot</li>
+<li>mempercepat stabilisasi</li>
+</ul>
+<p>Namun Supcon tidak menggunakan derivative ideal murni, melainkan derivative yang sudah difilter.</p>
+<hr />
+
+<h1 id="mengapa-derivative-difilter">Mengapa Derivative Difilter?</h1>
+<p>Derivative sangat sensitif terhadap noise.</p>
+<p>Tanpa filter:</p>
+<p>$$U_D(s)=T_D sE(s)$$</p>
+<p>Sedikit noise pada PV dapat menghasilkan perubahan output besar.</p>
+<p>Karena itu Supcon menambahkan filter low-pass:</p>
+<p>$$\frac{T_D s}{1+\frac{T_D}{K_d}s}$$</p>
+<p>Agar derivative tetap stabil untuk aplikasi industri.</p>
+<hr />
+
+<h1 id="dpi-mode-pada-supcon">D_PI Mode pada Supcon</h1>
+<p>Supcon menyediakan mode penting bernama <strong>D_PI</strong>.</p>
+<p>Pada mode ini:</p>
+<ul>
+<li>derivative hanya diterapkan ke PV</li>
+<li>bukan ke error</li>
+</ul>
+<p>Formula discrete yang digunakan:</p>
+<p>$$u_d(n)=\frac{T_D}{K_d T_s+T_D}u_d(n-1)+K_d\left[y(n)-y(n-1)\right]$$</p>
+<p>Dengan:</p>
+<ul>
+<li>$y(n)$ = PV sekarang</li>
+<li>$y(n-1)$ = PV sebelumnya</li>
+<li>$u_d(n)$ = derivative output sekarang</li>
+<li>$u_d(n-1)$ = derivative output sebelumnya</li>
+<li>$T_s$ = sampling time</li>
+</ul>
+<hr />
+
+<h1 id="mengapa-dpi-penting">Mengapa D_PI Penting?</h1>
+<p>Jika derivative diterapkan langsung pada error:</p>
+<p>$$\frac{d}{dt}(SP-PV)$$</p>
+<p>Maka perubahan mendadak pada SP akan menghasilkan:</p>
+<ul>
+<li>derivative kick</li>
+<li>lonjakan output besar</li>
+</ul>
+<p>Pada plant nyata ini bisa berbahaya:</p>
+<ul>
+<li>valve bergerak mendadak</li>
+<li>pressure spike</li>
+<li>instabilitas proses</li>
+</ul>
+<p>Karena itu Supcon menggunakan derivative terhadap PV saja.</p>
+<p>Ini merupakan praktik industri yang baik.</p>
+<hr />
+
+<h2 id="kapan-mengaktifkan-dpi">Kapan Mengaktifkan D_PI?</h2>
+<p>Aktifkan D_PI ketika:</p>
+<ul>
+<li>loop menggunakan derivative (D &gt; 0)</li>
+<li>setpoint loop sering diubah oleh operator atau oleh major loop cascade</li>
+<li>proses sensitif terhadap lonjakan output mendadak — misalnya pressure loop, recycle valve, atau cryogenic process</li>
+</ul>
+<p>Dengan D_PI aktif, perubahan SP tidak akan memicu derivative kick karena derivative hanya menghitung perubahan PV, bukan perubahan error.</p>
+<hr />
+
+<h2 id="kapan-derivative-sebaiknya-tidak-dipakai-sama-sekali">Kapan Derivative Sebaiknya Tidak Dipakai Sama Sekali?</h2>
+<p>Derivative tidak diperlukan — bahkan kontraproduktif — pada kondisi berikut:</p>
+<ul>
+<li><strong>Flow loop</strong> — sinyal flow transmitter mengandung noise tinggi; derivative akan memperkuat noise dan membuat valve hunting</li>
+<li><strong>Level loop</strong> — proses lambat dan toleran terhadap offset kecil; derivative tidak memberikan manfaat signifikan</li>
+<li><strong>Loop dengan transmitter noise tinggi</strong> — noise sekecil apapun akan diperkuat oleh derivative, meskipun sudah difilter</li>
+<li><strong>Loop yang sudah stabil dengan PI saja</strong> — menambahkan D tanpa alasan jelas hanya menambah kompleksitas tuning</li>
+</ul>
+<p>Sebagai panduan praktis: aktifkan derivative hanya bila ada masalah spesifik yang ingin diatasi — overshoot berlebihan atau respons yang terlalu lambat pada proses dengan dead time besar seperti temperature loop.</p>
+<hr />
+
+<h2 id="dpi-pada-cascade-control">D_PI pada Cascade Control</h2>
+<p>Perlu diperhatikan: <strong>mode D_PI tidak berlaku pada minor loop di cascade control</strong>.</p>
+<p>Ketika minor loop menerima setpoint dari major loop, differential action pada minor loop tetap menggunakan formula derivative original terhadap error, bukan terhadap PV. Hal ini karena setpoint minor loop berubah secara dinamis mengikuti output major loop, sehingga metode PV differential tidak dapat diterapkan.</p>
+<p>Implikasinya pada aplikasi seperti compressor atau ASU: bila derivative diaktifkan pada secondary loop cascade, perlu diperhitungkan bahwa derivative kick tetap dapat terjadi saat major loop memberikan perubahan setpoint yang signifikan.</p>
+<hr />
+
+<h1 id="bentuk-lengkap-pid-supcon">Bentuk Lengkap PID Supcon</h1>
+<p>Secara konseptual dalam domain waktu:</p>
+<p>$$u(t)=\frac{1}{P}e(t)+\frac{1}{T_I}\int e(t),dt+T_D\frac{de(t)}{dt}$$</p>
+<p>Walaupun implementasi aktualnya menggunakan:</p>
+<ul>
+<li>derivative filter</li>
+<li>discrete execution</li>
+<li>anti-reset windup</li>
+<li>mode D_PI</li>
+</ul>
+<hr />
+
+<h1 id="interpretasi-parameter-supcon">Interpretasi Parameter Supcon</h1>
+<h2 id="proportional-band">Proportional Band</h2>
+<table>
+<thead>
+<tr>
+<th>P (%)</th>
+<th>Karakter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1000</td>
+<td>sangat lembut</td>
+</tr>
+<tr>
+<td>600</td>
+<td>lembut</td>
+</tr>
+<tr>
+<td>300</td>
+<td>sedang</td>
+</tr>
+<tr>
+<td>100</td>
+<td>agresif</td>
+</tr>
+<tr>
+<td>50</td>
+<td>sangat agresif</td>
+</tr>
+</tbody>
+</table>
+<p>Range yang diizinkan: minimum 6.25%, maximum 204800%.</p>
+<hr />
+
+<h2 id="integral-time-i-sebagai-reciprocal">Integral Time (I sebagai reciprocal)</h2>
+<p>I input adalah $1/T_I$ — semakin besar nilai I yang diinput, semakin agresif integral. Lihat tabel konversi lengkap di bagian "Parameter I sebagai Reciprocal" di atas.</p>
+<p>Range yang diizinkan: minimum 0.02 menit (= 1/60), maximum sama dengan D.</p>
+<hr />
+
+<h2 id="derivative-time">Derivative Time</h2>
+<table>
+<thead>
+<tr>
+<th>D (detik)</th>
+<th>Karakter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>derivative nonaktif</td>
+</tr>
+<tr>
+<td>kecil</td>
+<td>efek derivative kecil</td>
+</tr>
+<tr>
+<td>besar</td>
+<td>derivative kuat</td>
+</tr>
+</tbody>
+</table>
+<p>Range yang diizinkan: minimum 0s, maximum 3276.8s.</p>
+<hr />
+
+<h1 id="karakter-tuning-berdasarkan-jenis-proses">Karakter Tuning Berdasarkan Jenis Proses</h1>
+<p>Tabel berikut memberikan range tipikal sebagai <strong>starting point</strong> tuning awal. Nilai final harus selalu disesuaikan dengan dinamika aktual loop di plant masing-masing — ukuran equipment, span transmitter, dan karakteristik valve sangat mempengaruhi hasil akhir.</p>
+<table>
+<thead>
+<tr>
+<th>Proses</th>
+<th>P tipikal (%)</th>
+<th>I tipikal (input)</th>
+<th>D</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flow</td>
+<td>50–200</td>
+<td>1–5</td>
+<td>Tidak perlu</td>
+<td>Proses cepat, butuh respons agresif</td>
+</tr>
+<tr>
+<td>Pressure</td>
+<td>100–500</td>
+<td>0.3–2</td>
+<td>Jarang</td>
+<td>Rentan oscillation, coupling antar equipment</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>300–1000</td>
+<td>0.05–0.3</td>
+<td>Opsional</td>
+<td>Proses lambat, integral agresif bisa windup</td>
+</tr>
+<tr>
+<td>Level</td>
+<td>500–2000</td>
+<td>0.02–0.1</td>
+<td>Tidak perlu</td>
+<td>Tank sebagai buffer, cukup proportional-dominant</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="flow-control">Flow Control</h2>
+<p>Flow adalah proses tercepat — dead time kecil, time constant kecil.</p>
+<p>Starting point yang umum digunakan:</p>
+<ul>
+<li>P: 50–200% (agresif)</li>
+<li>I: 1–5 (agresif, $T_I$ aktual 0.2–1 menit)</li>
+<li>D: tidak diperlukan, noise pada flow transmitter membuat derivative kontraproduktif</li>
+</ul>
+<hr />
+
+<h2 id="pressure-control">Pressure Control</h2>
+<p>Pressure sering memiliki coupling antar equipment — terutama pada header bersama atau sistem compressor dengan recycle.</p>
+<p>Starting point yang umum digunakan:</p>
+<ul>
+<li>P: 100–500% (sedang)</li>
+<li>I: 0.3–2 (sedang, $T_I$ aktual 0.5–3 menit)</li>
+<li>D: jarang digunakan, perlu hati-hati terhadap oscillation</li>
+</ul>
+<hr />
+
+<h2 id="temperature-control">Temperature Control</h2>
+<p>Proses thermal memiliki time constant besar dan dead time yang signifikan.</p>
+<p>Starting point yang umum digunakan:</p>
+<ul>
+<li>P: 300–1000% (lembut)</li>
+<li>I: 0.05–0.3 (lambat, $T_I$ aktual 3–20 menit)</li>
+<li>D: opsional, dapat membantu pada proses dengan dead time besar</li>
+</ul>
+<p>Integral yang terlalu agresif pada temperature loop berisiko windup karena proses lambat merespons.</p>
+<hr />
+
+<h2 id="level-control">Level Control</h2>
+<p>Tank berfungsi sebagai buffer — tidak perlu mengejar setpoint terlalu agresif.</p>
+<p>Starting point yang umum digunakan:</p>
+<ul>
+<li>P: 500–2000% (lembut, proportional-dominant)</li>
+<li>I: 0.02–0.1 (sangat lambat, $T_I$ aktual 10–50 menit)</li>
+<li>D: tidak diperlukan</li>
+</ul>
+<hr />
+
+<h1 id="kesalahan-umum-saat-tuning-supcon">Kesalahan Umum Saat Tuning Supcon</h1>
+<h2 id="salah-interpretasi-p">Salah interpretasi P</h2>
+<p>Karena Supcon menggunakan proportional band, banyak engineer salah interpretasi:</p>
+<p>Mereka mengira P besar = agresif. Padahal pada Supcon, P besar = lembut.</p>
+<h2 id="salah-interpretasi-i">Salah interpretasi I</h2>
+<p>Karena Supcon menampilkan I sebagai reciprocal, banyak engineer mengira I kecil = agresif.</p>
+<p>Padahal pada Supcon: <strong>I besar = agresif</strong> (karena $I = 1/T_I$, nilai besar berarti waktu integral singkat).</p>
+<p>Akibat kedua kesalahan ini:</p>
+<ul>
+<li>tuning menjadi terlalu lambat</li>
+<li>atau justru terlalu agresif tanpa disadari</li>
+</ul>
+<hr />
+
+<h1 id="kesimpulan">Kesimpulan</h1>
+<p>PID pada Supcon menggunakan:</p>
+<ul>
+<li>proportional band untuk P</li>
+<li>reciprocal integral time untuk I</li>
+<li>filtered derivative untuk D</li>
+</ul>
+<p>Karakter utamanya:</p>
+<ul>
+<li><strong>P kecil → lebih agresif</strong></li>
+<li><strong>I besar → lebih agresif</strong> (karena $I = 1/T_I$)</li>
+<li>derivative menggunakan filter untuk mengurangi noise</li>
+<li>tersedia mode D_PI untuk menghindari derivative kick, kecuali pada minor loop cascade</li>
+</ul>
+<p>Memahami interpretasi parameter ini sangat penting sebelum melakukan tuning di plant nyata, terutama pada sistem seperti:</p>
+<ul>
+<li>compressor</li>
+<li>Air Separation Unit</li>
+<li>cryogenic process</li>
+<li>pressure loop</li>
+<li>recycle control</li>
+<li>flow regulation</li>
+</ul>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="distributed-control-system" /><category term="Distributed Control System" /><category term="Engineering Lessons" /><category term="Field Experience" /><summary type="html"><![CDATA[DCS Supcon menggunakan proportional band dan reciprocal integral time — bukan gain dan integral time langsung. Salah baca parameter ini berarti tuning yang terasa sudah benar ternyata jauh dari optimal.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1579719558505-ad4a5fee0847?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb250cm9sfGVufDB8fHx8MTc3ODMxNjQyNnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1579719558505-ad4a5fee0847?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI2fHxjb250cm9sfGVufDB8fHx8MTc3ODMxNjQyNnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Analisis Spektrum Keahlian: Relevansi Pemahaman Lintas Domain</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain.html" rel="alternate" type="text/html" title="Analisis Spektrum Keahlian: Relevansi Pemahaman Lintas Domain" /><published>2026-04-19T05:46:07+00:00</published><updated>2026-04-19T05:46:07+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2026/04/19/analisis-spektrum-keahlian-relevansi-pemahaman-lintas-domain.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 1 November 2025</em></p>
 <p><em>Catatan ini saya tulis di penghujung 2025 sebagai refleksi atas perjalanan 25 tahun di dunia kontrol dan otomasi. Membacanya kembali hari ini, saya menyadari bahwa di tengah gempuran teknologi yang semakin cepat, prinsip-prinsip inilah yang menjaga akurasi dan kemanusiaan dalam setiap keputusan teknis saya.</em></p>
 <h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
 <p>Perjalanan profesional saya tidak pernah berjalan lurus. Ada banyak persimpangan, percobaan, bahkan kegagalan dan kehilangan pekerjaan yang justru menjadi guru terbaik. Dari pemrograman kernel Linux hingga desain control system yang dapat diaudit, serta dokumentasi yang ramah bagi siapa saja, saya belajar bahwa keahlian bukanlah label yang melekat, melainkan proses yang terus berkembang — dan yang terpenting, bisa diwariskan agar orang lain tak perlu mengulang kesulitan yang sama.</p>
@@ -3908,149 +4345,4 @@ plt.show()
 </a></p>
 <figcaption style="text-align:center; font-size:0.9em; font-style:italic; margin-top:6px; color:#444;">
   Sometimes, the only justice left... is to tell <strong>the truth</strong>.
-</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Mengapa Posisi dan Orientasi Flowmeter Cryogenic Itu Penting?</title><link href="https://kumajaya.github.io/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting.html" rel="alternate" type="text/html" title="Mengapa Posisi dan Orientasi Flowmeter Cryogenic Itu Penting?" /><published>2025-07-14T13:53:00+00:00</published><updated>2025-07-14T13:53:00+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/flowmeter/2025/07/14/mengapa-posisi-dan-orientasi-flowmeter-cryogenic-itu-penting.html"><![CDATA[<!--kg-card-begin: markdown-->
-<p>Dalam dunia pemrosesan gas industri, khususnya pada <strong>Air Separation Plant (ASP)</strong>, pengukuran aliran produk cair kriogenik seperti <em>liquid oxygen (LOX)</em>, <em>liquid nitrogen (LIN)</em>, dan <em>liquid argon (LAR)</em> bukan hanya sekadar angka. Data ini menjadi <strong>dasar untuk menghitung performa plant</strong>, <em>oxygen capture</em>, serta sebagai alat bantu penting dalam <em>monitoring</em> dan <em>control</em> proses produksi.</p>
-<p>Karena itu, <strong>akurasi pengukuran flowmeter sangat krusial</strong>. Namun, tahukah Anda bahwa <strong>lokasi dan orientasi fisik flowmeter</strong> juga bisa mempengaruhi keandalan datanya?</p>
-<hr />
-
-<h2 id="apa-masalahnya">Apa Masalahnya?</h2>
-<p>Meski bukan praktik umum, beberapa fasilitas memasang flowmeter coriolis untuk produk kriogenik <strong>di jalur keluar menuju storage</strong>, tepat <strong>setelah vacuum-jacketed (VJ) line</strong>. Secara operasional, pendekatan ini memang praktis—aksesnya mudah, dekat titik distribusi, dan mempermudah perawatan.</p>
-<p>Namun ada satu hal penting yang kerap terlewat:</p>
-<blockquote>
-<p><strong>Di titik ini, fluida kriogenik mulai kehilangan perlindungan termalnya dan terpapar panas lingkungan sekitar.</strong></p>
-</blockquote>
-<p>Akibatnya, terjadi <strong>flashing</strong>, yaitu perubahan sebagian cairan menjadi gas. Ini menghasilkan <strong>aliran dua fase</strong> yang membuat sinyal flowmeter menjadi <strong>tidak stabil, menurun akurasinya, dan rentan menghasilkan error sistematis</strong>.</p>
-<p>Vendor besar seperti <strong>Emerson, Endress+Hauser, Yokogawa</strong>, hingga <strong>Linde Engineering</strong>, secara konsisten mengingatkan bahwa <strong>paparan panas sekecil apa pun</strong> pada segmen pipa kriogenik terakhir dapat menyebabkan <strong>penurunan integritas pengukuran</strong>, terutama bila flowmeter ditempatkan <strong>di luar zona dingin</strong> (<em>cold zone</em>).</p>
-<hr />
-
-<h2 id="apakah-selalu-salah">Apakah Selalu Salah?</h2>
-<p>Tidak selalu. Dalam praktik industri, beberapa konfigurasi instalasi memang <strong>masih dimungkinkan di luar cold zone</strong>, <strong>selama disertai mitigasi teknis yang memadai</strong>, seperti:</p>
-<ul>
-<li><strong>Pemilihan teknologi flowmeter</strong> yang tahan terhadap dua fase atau dilengkapi kompensasi densitas dinamis,</li>
-<li><strong>Monitoring sinyal densitas</strong> secara real-time untuk mendeteksi indikasi flashing,</li>
-<li><strong>Desain kontrol valve dan layout pipa</strong> yang meminimalkan penurunan tekanan mendadak,</li>
-<li><strong>Validasi temperatur lokal</strong> secara berkala pada housing flowmeter dan upstream-nya,</li>
-<li><strong>Perbaikan kualitas insulasi</strong> pada segmen non-VJ, seperti dengan multi-layer insulation atau enclosure tambahan.</li>
-</ul>
-<p>Penempatan flowmeter kriogenik sebaiknya tidak hanya ditentukan dari kemudahan operasional, tetapi melalui <strong>evaluasi menyeluruh berbasis data</strong>, mempertimbangkan keseimbangan antara <strong>aksesibilitas</strong>, <strong>kualitas pengukuran</strong>, dan <strong>resiko proses</strong>.</p>
-<hr />
-
-<h2 id="apa-kata-vendor">Apa Kata Vendor?</h2>
-<blockquote>
-<p>“Coriolis meters for cryogenic liquids should be located as close as possible to the cold box outlet, upstream of any control valve or piping that might allow flashing or phase separation.”<br />
-— <em>Emerson Micro Motion, AN-001203</em> [1]</p>
-</blockquote>
-<blockquote>
-<p>“Always avoid installing mass flow meters downstream of a vacuum-insulated line. Even well-insulated lines allow enough heat ingress over time to induce partial vaporization.”<br />
-— <em>Endress+Hauser, Cryogenic Measurement Guide</em> [2]</p>
-</blockquote>
-<blockquote>
-<p>“Installing Coriolis meters in cryogenic service after pressure-reducing elements or long ambient-exposed lines may result in gas pockets and false high flow readings due to flashing.”<br />
-— <em>Yokogawa Flow Handbook</em> [3]</p>
-</blockquote>
-<blockquote>
-<p>“Where multiple cryogenic products are routed through VJ lines to storage, all flowmeters should be installed in the cold zone, before any temperature rise. Positioning all meters outside this zone introduces process measurement error for each product stream.”<br />
-— <em>Linde Engineering Best Practice Guide</em> [4]</p>
-</blockquote>
-<hr />
-
-<h2 id="orientasi-juga-tidak-kalah-penting">Orientasi Juga Tidak Kalah Penting</h2>
-<p>Selain lokasi pemasangan, <strong>orientasi flowmeter</strong> turut berperan dalam menjaga kestabilan pengukuran.</p>
-<p>Rekomendasi umum dari berbagai produsen adalah:</p>
-<ul>
-<li><strong>Vertikal upward (aliran dari bawah ke atas)</strong> untuk menjaga kondisi pipa penuh (<em>full-pipe</em>) dan mencegah terjebaknya gelembung gas,</li>
-<li><strong>Hindari orientasi horizontal panjang</strong> tanpa slope memadai atau orientasi vertikal downward yang bisa menyebabkan kantong gas.</li>
-</ul>
-<blockquote>
-<p>“Vertical orientation with upward flow helps ensure stable measurement and minimizes vapor lock. Avoid downward vertical installations in cryogenic service.”<br />
-— <em>Endress+Hauser Installation Best Practice</em> [5]</p>
-</blockquote>
-<blockquote>
-<p>“If the sensor is installed in a vertical pipeline, liquids and slurries should flow upward through the sensor. Keep the sensor tubes full of process fluid. For halting flow through the sensor with a single valve, install the valve downstream from the sensor.”<br />
-— <em>Emerson Micro Motion Installation Manual</em> [6]</p>
-</blockquote>
-<div align="center">
-  <img src="/kiiota-blog/assets/media/35cace59-6e7f-4874-bc30-853b9c1944bd-Micro-Motion-ELITE-Two-phase.jpeg" alt="Micro Motion ELITE Two-phase" width="75%" />
-  <p><em>Gambar 1. Saran instalasi Micro Motion ELITE jika terjadi potensi two-phase flow</em></p>
-</div>
-<hr />
-
-<h2 id="apa-yang-bisa-dilakukan">Apa yang Bisa Dilakukan?</h2>
-<p>Jadi, apa langkah praktis yang bisa dilakukan oleh tim di lapangan?</p>
-<ol>
-<li><strong>Cek ulang lokasi pemasangan</strong>, apakah masih dalam <em>cold zone</em> atau sudah di area berisiko flashing,</li>
-<li><strong>Amati sinyal flowmeter</strong>, apakah stabil atau menunjukkan fluktuasi tidak wajar,</li>
-<li><strong>Evaluasi orientasi flowmeter</strong>, apakah vertikal upward atau belum optimal,</li>
-<li><strong>Tinjau ulang spesifikasi teknologi dan insulasi</strong>, apakah sesuai kebutuhan proses,</li>
-<li><strong>Diskusikan lintas fungsi</strong>, untuk menyusun standar pemasangan antar plant.</li>
-</ol>
-<hr />
-
-<h2 id="kenapa-ini-penting">Kenapa Ini Penting?</h2>
-<ol>
-<li><strong>Studi Emerson</strong> tentang pengukuran LOX dengan flashing: Error bisa mencapai <strong>1.2-4.7%</strong> tergantung tingkat vaporisasi [7]</li>
-<li><strong>Audit Linde Engineering</strong>: Pemasangan setelah VJ line tanpa mitigasi menyebabkan <strong>deviasi sampai 3.2%</strong> pada neraca massa LIN [8]</li>
-</ol>
-<p>Karena setiap data yang salah bisa berujung pada:</p>
-<ul>
-<li>Kesalahan dalam neraca massa,</li>
-<li>Keputusan proses yang meleset,</li>
-<li>Penilaian performa produksi yang bias.</li>
-</ul>
-<p><strong>Flowmeter bukan hanya alat ukur. Ia adalah bagian dari sistem kepercayaan terhadap data.</strong></p>
-<hr />
-
-<h2 id="referensi-dokumen-vendor">Referensi Dokumen Vendor</h2>
-<ol>
-<li>
-<p><strong>Emerson Micro Motion.</strong> <em>Cryogenic Liquid Measurement – Application Note AN-001203.</em><br />
-Dokumen ini menjelaskan praktik terbaik pemasangan flowmeter coriolis pada aplikasi kriogenik.<br />
-<em>Dapat diperoleh melalui perwakilan Emerson atau mitra distribusi resmi.</em></p>
-</li>
-<li>
-<p><strong>Endress+Hauser.</strong> <em>Cryogenic Liquids Measurement Guide</em>, 2020 Edition.<br />
-Panduan pengukuran cairan kriogenik, mencakup efek flashing dan pemilihan lokasi flowmeter.<br />
-<a href="https://www.endress.com/en/field-instruments-overview/flow-measurement-product-overview/cryogenic-flow-measurement?ref=blog.kiiota.com">Cuplikan panduan tersedia di situs Endress+Hauser</a>.</p>
-</li>
-<li>
-<p><strong>Yokogawa.</strong> <em>Flow Handbook, Section 8 – Cryogenic Applications.</em><br />
-Menjelaskan tantangan pengukuran kriogenik dan solusi berbasis sensor massa.<br />
-<em>Tersedia dalam handbook cetak dan beberapa presentasi aplikasi industri.</em></p>
-</li>
-<li>
-<p><strong>Linde Engineering.</strong> <em>Best Practice Guide: Cryogenic Transfer Systems</em>, 2021.<br />
-Merinci prinsip desain jalur kriogenik dan pengaruh instalasi terhadap akurasi pengukuran.<br />
-<em>Dokumen terbatas, sering dibagikan dalam forum teknis dan kerja sama industri.</em></p>
-</li>
-<li>
-<p><strong>Endress+Hauser.</strong> <em>Flowmeter Installation Best Practices – Cryogenic Section.</em><br />
-Sorotan instalasi flowmeter dalam posisi vertikal upward dan pentingnya full-pipe.<br />
-<em>Tersedia sebagian dalam dokumentasi online produk.</em></p>
-</li>
-<li>
-<p><strong>Emerson Micro Motion.</strong> <em>Installation Manual 20002158 – ELITE Coriolis Flow and Density Sensors</em>, Rev DQ, 2024.<br />
-Panduan teknis resmi instalasi sensor ELITE, termasuk penempatan valve dan orientasi.<br />
-<a href="https://www.emerson.com/en-us/catalog/micro-motion?ref=blog.kiiota.com">Unduh langsung dari situs Emerson</a>.</p>
-</li>
-<li>
-<p><strong>Emerson Micro Motion.</strong> <em>Cryogenic Flow Measurement Challenges – Vapor Phase Disruption Analysis</em>, 2023.<br />
-White paper ini menyajikan hasil uji lapangan selama 18 bulan yang menunjukkan pengaruh signifikan dari flashing dan paparan panas terhadap performa sensor coriolis. Dibahas secara teknis bagaimana flashing (5–15%) dapat menyebabkan deviasi pengukuran 1.2–4.7%, bahkan melebihi 8% bila flashing makin parah. Disertakan pula rekomendasi instalasi seperti menjaga ∆T &lt;2°C dan lokasi sensor di dekat cold box.<br />
-<em>Tersedia atas permintaan kepada tim aplikasi Emerson.</em></p>
-</li>
-<li>
-<p><strong>Linde Engineering.</strong> <em>Cryogenic Mass Balance Report: Internal Plant Audit Findings</em>, 2022.<br />
-Audit internal pada 12 fasilitas ASP menemukan rata-rata deviasi pengukuran massa mencapai <strong>2.1% ±0.8%</strong> ketika flowmeter dipasang di lokasi yang tidak dioptimalkan. Deviasi terburuk tercatat sebesar <strong>3.2% pada pengukuran LIN</strong>. Penyebab utama antara lain: heat ingress di segmen non-VJ (<strong>68%</strong>), orientasi meter tidak sesuai (<strong>24%</strong>), dan efek aliran dua fase (<strong>8%</strong>).<br />
-<em>Disampaikan sebagai memorandum teknis internal, tidak dipublikasikan secara terbuka.</em></p>
-</li>
-</ol>
-<hr />
-
-<h2 id="penutup">Penutup</h2>
-<p>Evaluasi ulang terhadap <strong>posisi dan orientasi flowmeter cryogenic</strong> adalah bentuk investasi terhadap <strong>kualitas data dan integritas sistem</strong>. Semakin baik penempatannya, semakin kecil risiko <em>flashing</em>, dan semakin andal data produksi kriogenik yang menjadi dasar banyak keputusan penting.</p>
-<p>Namun yang paling krusial:</p>
-<blockquote>
-<p><strong>Setiap instalasi flowmeter harus merujuk dan mengikuti rekomendasi teknis dari vendor masing-masing.</strong></p>
-</blockquote>
-<p>Spesifikasi tiap produk bisa berbeda, dan hanya dengan mengacu pada panduan resmi vendor, kita bisa memastikan bahwa instalasi memenuhi syarat teknis untuk akurasi dan keamanan jangka panjang.</p>
-<p>Jika Anda tertarik berdiskusi atau berbagi pengalaman seputar pemasangan flowmeter kriogenik, silakan hubungi kami.</p>
-<!--kg-card-end: markdown-->]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="flowmeter" /><category term="Flowmeter" /><category term="Coriolis" /><category term="Cryogenic" /><summary type="html"><![CDATA[Akurasi pengukuran flowmeter sangat krusial. Namun, tahukah Anda bahwa lokasi dan orientasi fisik flowmeter juga bisa mempengaruhi keandalan datanya?]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZsb3d8ZW58MHx8fHwxNzUyNDc5OTQ1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
