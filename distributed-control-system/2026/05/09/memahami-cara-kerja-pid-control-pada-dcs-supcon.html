@@ -336,7 +336,7 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
       </div>
       
       <div class="force-inline post-authors">
-        <span class="reading-time">6 min read</span>
+        <span class="reading-time">10 min read</span>
       </div>
       
     </div>
@@ -393,6 +393,357 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
 <p>D membantu mengurangi overshoot dan mempercepat stabilisasi. Namun derivative sangat sensitif terhadap noise sehingga tidak selalu digunakan, terutama pada proses dengan sinyal yang tidak bersih.</p>
 <hr />
 
+<!--kg-card-begin: html-->
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PID Visualizer</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; padding: 16px; }
+
+.tab-bar { display: flex; gap: 0; margin-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+.tab-btn { padding: 8px 20px; font-size: 13px; font-weight: 500; border: none; background: transparent; color: #888; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s; }
+.tab-btn.active { color: #185FA5; border-bottom-color: #185FA5; }
+.tab-btn:hover:not(.active) { color: #444; }
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.mode-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.mode-btn { font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #ddd; background: transparent; color: #888; cursor: pointer; transition: all 0.15s; }
+.mode-btn.active { background: #e6f1fb; color: #185FA5; border-color: #185FA5; }
+
+.chart-wrap { position: relative; width: 100%; height: 240px; margin-bottom: 10px; }
+
+.legend { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 12px; color: #888; margin-bottom: 14px; }
+.legend span { display: flex; align-items: center; gap: 5px; }
+.leg-line { display: inline-block; width: 14px; height: 2px; }
+.leg-dash { display: inline-block; width: 14px; height: 0; border-top: 2px dashed #D85A30; }
+.noise-label { margin-left: auto; display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; }
+.noise-label input { accent-color: #185FA5; cursor: pointer; }
+
+.controls { border-top: 1px solid #f0f0f0; padding-top: 12px; }
+.ctrl { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+.ctrl-label { font-size: 12px; color: #666; width: 130px; flex-shrink: 0; line-height: 1.4; }
+.ctrl-label small { font-size: 11px; color: #aaa; display: block; }
+.ctrl input[type=range] { flex: 1; accent-color: #185FA5; }
+.ctrl-val { font-size: 13px; font-weight: 500; min-width: 52px; text-align: right; color: #1a1a1a; }
+.ctrl-sub { font-size: 11px; color: #aaa; min-width: 72px; text-align: right; }
+
+.status-box { margin-top: 10px; padding: 8px 12px; background: #f7f7f7; border-radius: 6px; font-size: 12px; color: #666; line-height: 1.5; min-height: 36px; }
+</style>
+</head>
+<body>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(event,'general')">PID Umum</button>
+  <button class="tab-btn" onclick="switchTab(event,'supcon')">PID Supcon</button>
+</div>
+
+<!-- TAB: PID UMUM -->
+<div class="tab-panel active" id="tab-general">
+  <div class="mode-bar">
+    <button class="mode-btn active" onclick="setMode('general','pid')" id="g-btn-pid">P + I + D</button>
+    <button class="mode-btn" onclick="setMode('general','p')" id="g-btn-p">P saja</button>
+    <button class="mode-btn" onclick="setMode('general','pi')" id="g-btn-pi">P + I</button>
+    <button class="mode-btn" onclick="setMode('general','pd')" id="g-btn-pd">P + D</button>
+  </div>
+  <div class="chart-wrap"><canvas id="g-chart" role="img" aria-label="Grafik respons PID umum"></canvas></div>
+  <div class="legend">
+    <span><span class="leg-line" style="background:#378ADD;"></span>Setpoint (SP)</span>
+    <span><span class="leg-line" style="background:#1D9E75;"></span>Process Variable (PV)</span>
+    <span><span class="leg-dash"></span>Output controller</span>
+    <label class="noise-label"><input type="checkbox" id="g-noise" onchange="updateGeneral()" /> Noise PV</label>
+  </div>
+  <div class="controls">
+    <div class="ctrl">
+      <div class="ctrl-label">Gain (Kp)<small>besar = agresif</small></div>
+      <input type="range" id="g-kp" min="0.1" max="5" step="0.1" value="1" oninput="updateGeneral()" />
+      <span class="ctrl-val" id="g-kp-val">1.0</span>
+      <span class="ctrl-sub"></span>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-label">Integral time T_I (min)<small>kecil = agresif</small></div>
+      <input type="range" id="g-ti" min="0.2" max="20" step="0.1" value="2" oninput="updateGeneral()" />
+      <span class="ctrl-val" id="g-ti-val">2.0 min</span>
+      <span class="ctrl-sub"></span>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-label">Derivative T_D (detik)<small>besar = lebih prediktif</small></div>
+      <input type="range" id="g-td" min="0" max="30" step="1" value="0" oninput="updateGeneral()" />
+      <span class="ctrl-val" id="g-td-val">0s</span>
+      <span class="ctrl-sub"></span>
+    </div>
+  </div>
+  <div class="status-box" id="g-status"></div>
+</div>
+
+<!-- TAB: PID SUPCON -->
+<div class="tab-panel" id="tab-supcon">
+  <div class="mode-bar">
+    <button class="mode-btn active" onclick="setMode('supcon','pid')" id="s-btn-pid">P + I + D</button>
+    <button class="mode-btn" onclick="setMode('supcon','p')" id="s-btn-p">P saja</button>
+    <button class="mode-btn" onclick="setMode('supcon','pi')" id="s-btn-pi">P + I</button>
+    <button class="mode-btn" onclick="setMode('supcon','pd')" id="s-btn-pd">P + D</button>
+  </div>
+  <div class="chart-wrap"><canvas id="s-chart" role="img" aria-label="Grafik respons PID konvensi Supcon"></canvas></div>
+  <div class="legend">
+    <span><span class="leg-line" style="background:#378ADD;"></span>Setpoint (SP)</span>
+    <span><span class="leg-line" style="background:#1D9E75;"></span>Process Variable (PV)</span>
+    <span><span class="leg-dash"></span>Output controller</span>
+    <label class="noise-label"><input type="checkbox" id="s-noise" onchange="updateSupcon()" /> Noise PV</label>
+  </div>
+  <div class="controls">
+    <div class="ctrl">
+      <div class="ctrl-label">P — band (%)<small>kecil = agresif</small></div>
+      <input type="range" id="s-p" min="20" max="600" step="10" value="150" oninput="updateSupcon()" />
+      <span class="ctrl-val" id="s-p-val">150%</span>
+      <span class="ctrl-sub" id="s-p-kp">Kp = 0.67</span>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-label">I — input DCS<small>besar = agresif</small></div>
+      <input type="range" id="s-i" min="0.05" max="5" step="0.05" value="1" oninput="updateSupcon()" />
+      <span class="ctrl-val" id="s-i-val">1.00</span>
+      <span class="ctrl-sub" id="s-i-ti">T_I = 1.0 min</span>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-label">D — detik<small>besar = lebih prediktif</small></div>
+      <input type="range" id="s-d" min="0" max="30" step="1" value="0" oninput="updateSupcon()" />
+      <span class="ctrl-val" id="s-d-val">0s</span>
+      <span class="ctrl-sub"></span>
+    </div>
+    <div class="ctrl" id="s-dpi-row" style="opacity:0.3;">
+      <div class="ctrl-label">Mode derivative<small>aktif saat D &gt; 0</small></div>
+      <div style="display:flex; gap:6px; flex:1;">
+        <button class="mode-btn" id="s-dpi-err" onclick="setDpiMode('error')" style="flex:1;">D on Error</button>
+        <button class="mode-btn active" id="s-dpi-pv" onclick="setDpiMode('pv')" style="flex:1;">D on PV (D_PI)</button>
+      </div>
+    </div>
+  </div>
+  <div class="status-box" id="s-status"></div>
+</div>
+
+<script>
+const modes = { general: 'pid', supcon: 'pid' };
+const charts = {};
+let dpiMode = 'pv';
+
+function switchTab(evt, tab) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+
+function setDpiMode(m) {
+  dpiMode = m;
+  document.getElementById('s-dpi-err').classList.toggle('active', m === 'error');
+  document.getElementById('s-dpi-pv').classList.toggle('active', m === 'pv');
+  updateSupcon();
+}
+
+function setMode(tab, m) {
+  modes[tab] = m;
+  ['pid','p','pi','pd'].forEach(k => {
+    const btn = document.getElementById((tab === 'general' ? 'g' : 's') + '-btn-' + k);
+    if (btn) btn.classList.toggle('active', k === m);
+  });
+  tab === 'general' ? updateGeneral() : updateSupcon();
+}
+
+function simulateGeneral(Kp, Ti, Td, mode, useNoise) {
+  const dt = 0.1, steps = 600, tau = 8;
+  const useI = mode === 'pi' || mode === 'pid';
+  const useD = mode === 'pd' || mode === 'pid';
+  let pv = 0, integral = 0, prev_err = 0;
+  const pvArr = [], outArr = [], spArr = [];
+  for (let i = 0; i < steps; i++) {
+    const SP = i < 150 ? 50 : 100;
+    const noise = useNoise ? (Math.random() - 0.5) * 1.5 : 0;
+    const measuredPv = pv + noise;
+    const err = SP - measuredPv;
+    const d_err = (err - prev_err) / dt;
+    let u = Kp * err;
+    if (useI) { integral += err * dt; u += (Kp / Ti) * integral; }
+    if (useD) { u += Kp * Td * d_err; }
+    const output = Math.min(Math.max(u, 0), 150);
+    if (useI && (u > 150 || u < 0)) integral -= err * dt;
+    pv += (output * 0.6 - pv) * (dt / tau);
+    pvArr.push(parseFloat(measuredPv.toFixed(2)));
+    outArr.push(parseFloat(output.toFixed(2)));
+    spArr.push(SP);
+    prev_err = err;
+  }
+  return { pvArr, outArr, spArr };
+}
+
+function simulateSupcon(Kp, Ti, Td, mode, useNoise) {
+  const dt = 0.1, steps = 600, tau = 8;
+  const useI = mode === 'pi' || mode === 'pid';
+  const useD = mode === 'pd' || mode === 'pid';
+  const useDpi = useD && dpiMode === 'pv';
+  let pv = 0, integral = 0, prev_pv = 0, prev_err = 0;
+  const pvArr = [], outArr = [], spArr = [];
+  for (let i = 0; i < steps; i++) {
+    const SP = i < 150 ? 50 : 100;
+    const noise = useNoise ? (Math.random() - 0.5) * 1.5 : 0;
+    const measuredPv = pv + noise;
+    const err = SP - measuredPv;
+    let u = Kp * err;
+    if (useI) { integral += err * dt; u += (Kp / Ti) * integral; }
+    if (useD) {
+      const d_term = useDpi
+        ? -Kp * Td * (measuredPv - prev_pv) / dt
+        : Kp * Td * (err - prev_err) / dt;
+      u += d_term;
+    }
+    const output = Math.min(Math.max(u, 0), 150);
+    if (useI && (u > 150 || u < 0)) integral -= err * dt;
+    pv += (output * 0.6 - pv) * (dt / tau);
+    pvArr.push(parseFloat(measuredPv.toFixed(2)));
+    outArr.push(parseFloat(output.toFixed(2)));
+    spArr.push(SP);
+    prev_pv = measuredPv;
+    prev_err = err;
+  }
+  return { pvArr, outArr, spArr };
+}
+
+function statusMsg(pvArr, mode, isSupcon, useNoise) {
+  const final = pvArr[pvArr.length - 1];
+  const offset = (100 - final).toFixed(1);
+  const overshoot = (Math.max(...pvArr.slice(150)) - 100).toFixed(1);
+  const stepNote = 'SP step 50→100 di t=15s. ';
+  const noiseNote = useNoise ? ' Noise aktif — perhatikan efek pada output controller.' : '';
+
+  if (mode === 'p') return stepNote + `P saja: offset akhir ${offset}% — proportional tidak bisa menghilangkan offset sepenuhnya.` + noiseNote;
+
+  if (mode === 'pi') return stepNote + (parseFloat(offset) < 1
+    ? `P+I: offset ≈ 0 — integral berhasil menghilangkan offset.`
+    : `P+I: integral sedang bekerja, offset tersisa ${offset}%.`) + noiseNote;
+
+  if (mode === 'pd') {
+    const dNote = isSupcon
+      ? ` Derivative: ${dpiMode === 'pv' ? 'D on PV (D_PI) — tidak ada derivative kick saat SP step.' : 'D on Error — perhatikan lonjakan output saat SP step di t=10s.'}`
+      : '';
+    return stepNote + `P+D: offset akhir ${offset}% — tanpa integral, offset permanen tetap ada.` + dNote + noiseNote;
+  }
+
+  const dNote = isSupcon
+    ? ` Derivative: ${dpiMode === 'pv' ? 'D on PV (D_PI) — kick minimal.' : 'D on Error — derivative kick terlihat saat t=10s. Coba ganti ke D on PV.'}`
+    : '';
+
+  if (parseFloat(overshoot) > 5) {
+    return stepNote + (isSupcon
+      ? `P+I+D: overshoot ${overshoot}% setelah SP step.` + dNote
+      : `P+I+D: overshoot ${overshoot}% — coba kecilkan Kp atau perbesar T_I.`) + noiseNote;
+  }
+  return stepNote + `P+I+D: stabil. Offset ≈ 0, overshoot ${overshoot}%.` + dNote + noiseNote;
+}
+
+function renderChart(id, pvArr, outArr, spArr) {
+  const labels = pvArr.map((_, i) => (i * 0.1).toFixed(1));
+  if (!charts[id]) {
+    charts[id] = new Chart(document.getElementById(id), {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          { label:'SP',     data:spArr,  borderColor:'#378ADD', borderWidth:2,   pointRadius:0 },
+          { label:'PV',     data:pvArr,  borderColor:'#1D9E75', borderWidth:2.5, pointRadius:0 },
+          { label:'Output', data:outArr, borderColor:'#D85A30', borderWidth:1.5, borderDash:[5,3], pointRadius:0, yAxisID:'y2' }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 200 },
+        plugins: { legend: { display: false } },
+        scales: {
+          x: {
+            ticks: { maxTicksLimit: 10, color:'#aaa', font:{size:11},
+              callback: (v, i) => i % 60 === 0 ? (i * 0.1).toFixed(0) + 's' : ''
+            },
+            grid: { color:'rgba(0,0,0,0.05)' }
+          },
+          y: {
+            min:0, max:130,
+            ticks: { color:'#aaa', font:{size:11} },
+            grid: { color:'rgba(0,0,0,0.05)' },
+            title: { display:true, text:'PV / SP', color:'#aaa', font:{size:11} }
+          },
+          y2: {
+            min:0, max:160, position:'right',
+            ticks: { color:'#D85A30', font:{size:11} },
+            grid: { drawOnChartArea:false },
+            title: { display:true, text:'Output %', color:'#D85A30', font:{size:11} }
+          }
+        }
+      }
+    });
+  } else {
+    charts[id].data.labels = labels;
+    charts[id].data.datasets[0].data = spArr;
+    charts[id].data.datasets[1].data = pvArr;
+    charts[id].data.datasets[2].data = outArr;
+    charts[id].update();
+  }
+}
+
+function updateGeneral() {
+  const Kp = parseFloat(document.getElementById('g-kp').value);
+  const Ti = parseFloat(document.getElementById('g-ti').value);
+  const Td = parseFloat(document.getElementById('g-td').value) / 60;
+  const m = modes.general;
+  const useNoise = document.getElementById('g-noise').checked;
+
+  document.getElementById('g-kp-val').textContent = Kp.toFixed(1);
+  document.getElementById('g-ti-val').textContent = Ti.toFixed(1) + ' min';
+  document.getElementById('g-td-val').textContent = (Td * 60).toFixed(0) + 's';
+  document.getElementById('g-ti').style.opacity = (m === 'pi' || m === 'pid') ? '1' : '0.3';
+  document.getElementById('g-td').style.opacity = (m === 'pd' || m === 'pid') ? '1' : '0.3';
+
+  const { pvArr, outArr, spArr } = simulateGeneral(Kp, Ti, Td, m, useNoise);
+  renderChart('g-chart', pvArr, outArr, spArr);
+  document.getElementById('g-status').textContent = statusMsg(pvArr, m, false, useNoise);
+}
+
+function updateSupcon() {
+  const P = parseFloat(document.getElementById('s-p').value);
+  const I = parseFloat(document.getElementById('s-i').value);
+  const D = parseFloat(document.getElementById('s-d').value);
+  const Kp = 100 / P;
+  const Ti = 1 / I;
+  const Td = D / 60;
+  const m = modes.supcon;
+  const useNoise = document.getElementById('s-noise').checked;
+
+  document.getElementById('s-p-val').textContent = P + '%';
+  document.getElementById('s-i-val').textContent = I.toFixed(2);
+  document.getElementById('s-d-val').textContent = D + 's';
+  document.getElementById('s-p-kp').textContent = 'Kp = ' + Kp.toFixed(3);
+  document.getElementById('s-i-ti').textContent = 'T_I = ' + Ti.toFixed(2) + ' min';
+
+  document.getElementById('s-i').style.opacity     = (m === 'pi' || m === 'pid') ? '1' : '0.3';
+  document.getElementById('s-i-ti').style.opacity  = (m === 'pi' || m === 'pid') ? '1' : '0.3';
+  document.getElementById('s-d').style.opacity     = (m === 'pd' || m === 'pid') ? '1' : '0.3';
+  document.getElementById('s-dpi-row').style.opacity = (m === 'pd' || m === 'pid') && D > 0 ? '1' : '0.3';
+
+  const { pvArr, outArr, spArr } = simulateSupcon(Kp, Ti, Td, m, useNoise);
+  renderChart('s-chart', pvArr, outArr, spArr);
+  document.getElementById('s-status').textContent = statusMsg(pvArr, m, true, useNoise);
+}
+
+updateGeneral();
+updateSupcon();
+</script>
+</body>
+</html>
+
+<!--kg-card-end: html-->
 <h1 id="struktur-pid-pada-supcon">Struktur PID pada Supcon</h1>
 <p>Dokumen Supcon menunjukkan formula dasar berikut:</p>
 <p>$$\frac{U(s)}{E(s)} = \frac{1}{P} + \frac{1}{T_I s} + \frac{T_D s}{1+\frac{T_D}{K_d}s}$$</p>
@@ -715,7 +1066,7 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
 <tr>
 <td>Level</td>
 <td>500–2000</td>
-<td>0.02–0.1</td>
+<td>0.05–0.1</td>
 <td>Tidak perlu</td>
 <td>Tank sebagai buffer, cukup proportional-dominant</td>
 </tr>
@@ -728,7 +1079,7 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
 <p>Starting point yang umum digunakan:</p>
 <ul>
 <li>P: 50–200% (agresif)</li>
-<li>I: 1–5 (agresif, $T_I$ aktual 0.2–1 menit)</li>
+<li>I: 1–5 (agresif, $T_I$ aktual 1–0.2 menit)</li>
 <li>D: tidak diperlukan, noise pada flow transmitter membuat derivative kontraproduktif</li>
 </ul>
 <hr />
@@ -738,7 +1089,7 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
 <p>Starting point yang umum digunakan:</p>
 <ul>
 <li>P: 100–500% (sedang)</li>
-<li>I: 0.3–2 (sedang, $T_I$ aktual 0.5–3 menit)</li>
+<li>I: 0.3–2 (sedang, $T_I$ aktual 3–0.5 menit)</li>
 <li>D: jarang digunakan, perlu hati-hati terhadap oscillation</li>
 </ul>
 <hr />
@@ -748,7 +1099,7 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
 <p>Starting point yang umum digunakan:</p>
 <ul>
 <li>P: 300–1000% (lembut)</li>
-<li>I: 0.05–0.3 (lambat, $T_I$ aktual 3–20 menit)</li>
+<li>I: 0.05–0.3 (lambat, $T_I$ aktual 20–3 menit)</li>
 <li>D: opsional, dapat membantu pada proses dengan dead time besar</li>
 </ul>
 <p>Integral yang terlalu agresif pada temperature loop berisiko windup karena proses lambat merespons.</p>
@@ -759,7 +1110,7 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
 <p>Starting point yang umum digunakan:</p>
 <ul>
 <li>P: 500–2000% (lembut, proportional-dominant)</li>
-<li>I: 0.02–0.1 (sangat lambat, $T_I$ aktual 10–50 menit)</li>
+<li>I: 0.05–0.1 (sangat lambat, $T_I$ aktual 20–10 menit)</li>
 <li>D: tidak diperlukan</li>
 </ul>
 <hr />
