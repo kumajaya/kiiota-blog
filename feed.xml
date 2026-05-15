@@ -1,5 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-05-11T04:53:09+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
-</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Memahami Cara Kerja PID Control pada DCS Supcon</title><link href="https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon.html" rel="alternate" type="text/html" title="Memahami Cara Kerja PID Control pada DCS Supcon" /><published>2026-05-09T09:38:18+00:00</published><updated>2026-05-09T09:38:18+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 9 Mei 2026</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-05-15T04:41:18+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Membuat Driver Modbus dengan Fitur Scaling Berdasarkan Driver Modbus Rapid SCADA</title><link href="https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada.html" rel="alternate" type="text/html" title="Membuat Driver Modbus dengan Fitur Scaling Berdasarkan Driver Modbus Rapid SCADA" /><published>2026-05-14T15:17:05+00:00</published><updated>2026-05-14T15:17:05+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 14 Mei 2026</em></p>
+<h2 id="pendahuluan">Pendahuluan</h2>
+<p>Rapid SCADA menyediakan driver <code>DrvModbus</code> yang handal untuk komunikasi Modbus. Namun, menambahkan fitur khusus seperti <em>scaling</em> (penskalaan nilai <em>raw</em> register ke nilai <em>engineer</em>) memerlukan perubahan kode sumber asli dan proses <em>pull request</em> yang rumit. Solusi praktis adalah <strong>menyalin seluruh driver asli</strong> lalu memodifikasinya menjadi driver mandiri, misalnya <code>DrvSigModbus</code>. Artikel ini memandu langkah demi langkah, termasuk mengintegrasikan fitur scaling dari <a href="https://github.com/RapidScada/scada-v6/pull/105?ref=blog.kiiota.com">PR #105</a> dan perbaikan validasi.</p>
+<blockquote>
+<p><strong>Prasyarat</strong></p>
+<ul>
+<li>Windows + VSCode dengan <strong>Git Bash</strong> (termasuk GNU tools: <code>sed</code>, <code>grep</code>, <code>find</code>)</li>
+<li><strong>.NET SDK 8.0</strong></li>
+<li>Kode sumber Rapid SCADA v6 sudah di-clone</li>
+</ul>
+</blockquote>
+<hr />
+
+<h2 id="langkah-1-%E2%80%93-menyalin-folder-driver-asli">Langkah 1 – Menyalin Folder Driver Asli</h2>
+<p>Di terminal Git Bash, masuk ke <code>ScadaComm/OpenDrivers</code>:</p>
+<pre><code class="language-bash">cp -r DrvModbus.Common  DrvSigModbus.Common
+cp -r DrvModbus.Logic   DrvSigModbus.Logic
+cp -r DrvModbus.View    DrvSigModbus.View
+</code></pre>
+<h2 id="langkah-2-%E2%80%93-mengganti-nama-file-proyek-dan-file-utama">Langkah 2 – Mengganti Nama File Proyek dan File Utama</h2>
+<p><strong>2.1 Rename file <code>.csproj</code></strong></p>
+<pre><code class="language-bash">mv DrvSigModbus.Common/DrvModbus.Common.csproj  DrvSigModbus.Common/DrvSigModbus.Common.csproj
+mv DrvSigModbus.Logic/DrvModbus.Logic.csproj    DrvSigModbus.Logic/DrvSigModbus.Logic.csproj
+mv DrvSigModbus.View/DrvModbus.View.csproj      DrvSigModbus.View/DrvSigModbus.View.csproj
+</code></pre>
+<p><strong>2.2 Rename file <code>.cs</code> dan <code>.xml</code> yang mengandung <code>DrvModbus</code> / <code>DevModbus</code></strong></p>
+<pre><code class="language-bash">mv DrvSigModbus.Logic/DrvModbusLogic.cs         DrvSigModbus.Logic/DrvSigModbusLogic.cs
+mv DrvSigModbus.Logic/DevModbusLogic.cs         DrvSigModbus.Logic/DevSigModbusLogic.cs
+
+mv DrvSigModbus.View/DrvModbusView.cs           DrvSigModbus.View/DrvSigModbusView.cs
+mv DrvSigModbus.View/DevModbusView.cs           DrvSigModbus.View/DevSigModbusView.cs
+
+mv DrvSigModbus.View/Lang/DrvModbus.en-GB.xml   DrvSigModbus.View/Lang/DrvSigModbus.en-GB.xml
+mv DrvSigModbus.View/Lang/DrvModbus.ru-RU.xml   DrvSigModbus.View/Lang/DrvSigModbus.ru-RU.xml
+</code></pre>
+<blockquote>
+<p><strong>Catatan:</strong> File seperti <code>ModbusCmd.cs</code>, <code>ModbusUtils.cs</code>, <code>ElemGroup.cs</code> tidak perlu di-rename karena bersifat generik.</p>
+</blockquote>
+<p><strong>2.3 Tambahkan berkas terjemahan Bahasa Indonesia</strong></p>
+<p>Buat file <code>DrvSigModbus.View/Lang/DrvSigModbus.id-ID.xml</code> dengan konten (contoh, bisa diambil dari patch asli):</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;DrvSigModbusDictionaries&gt;
+  &lt;Dictionary key="Scada.Comm.Drivers.DrvSigModbus.View.Controls.CtrlElem"&gt;
+    &lt;Phrase key="lblElemScaling"&gt;Skala&lt;/Phrase&gt;
+    &lt;Phrase key="lblElemScalingExample"&gt;Misalnya, 0;65535;0;35&lt;/Phrase&gt;
+    &lt;!-- tambahkan semua frase sesuai kebutuhan --&gt;
+  &lt;/Dictionary&gt;
+  &lt;!-- dictionary lainnya --&gt;
+&lt;/DrvSigModbusDictionaries&gt;
+</code></pre>
+<p><strong>2.4 Sesuaikan berkas proyek (<code>.csproj</code>)</strong></p>
+<p>Buka <code>DrvSigModbus.View/DrvSigModbus.View.csproj</code> dan pastikan ada baris berikut di dalam <code>&lt;ItemGroup&gt;</code>:</p>
+<pre><code class="language-xml">&lt;None Update="Lang\DrvSigModbus.ru-RU.xml"&gt;
+  &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
+&lt;/None&gt;
+&lt;None Update="Lang\DrvSigModbus.en-GB.xml"&gt;
+  &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
+&lt;/None&gt;
+&lt;None Update="Lang\DrvSigModbus.id-ID.xml"&gt;
+  &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
+&lt;/None&gt;
+</code></pre>
+<h2 id="langkah-3-%E2%80%93-mengganti-isi-file-namespace-string-referensi">Langkah 3 – Mengganti Isi File (Namespace, String, Referensi)</h2>
+<p>Gunakan <code>sed</code> untuk mengganti semua kemunculan nama lama:</p>
+<pre><code class="language-bash">find DrvSigModbus.* -type f \( -name "*.cs" -o -name "*.csproj" -o -name "*.xml" \) | \
+xargs sed -i \
+  -e 's/DrvModbus/DrvSigModbus/g' \
+  -e 's/DevModbus/DevSigModbus/g'
+</code></pre>
+<p><strong>Verifikasi</strong> tidak ada yang tersisa:</p>
+<pre><code class="language-bash">grep -r "DrvModbus\|DevModbus" DrvSigModbus.* --include="*.cs" --include="*.csproj" --include="*.xml"
+</code></pre>
+<p>(Output harus kosong)</p>
+<h2 id="langkah-4-%E2%80%93-menambahkan-proyek-ke-solution">Langkah 4 – Menambahkan Proyek ke Solution</h2>
+<pre><code class="language-bash">dotnet sln OpenDrivers.sln add \
+  DrvSigModbus.Common/DrvSigModbus.Common.csproj \
+  DrvSigModbus.Logic/DrvSigModbus.Logic.csproj \
+  DrvSigModbus.View/DrvSigModbus.View.csproj
+</code></pre>
+<h2 id="langkah-5-%E2%80%93-build-baseline-dan-commit">Langkah 5 – Build Baseline dan Commit</h2>
+<pre><code class="language-bash">dotnet build DrvSigModbus.Logic/DrvSigModbus.Logic.csproj
+dotnet build DrvSigModbus.View/DrvSigModbus.View.csproj
+</code></pre>
+<p>Pastikan tidak ada error. Lalu commit:</p>
+<pre><code class="language-bash">git add .
+git commit -m "Add DrvSigModbus as baseline copy of DrvModbus"
+</code></pre>
+<h2 id="langkah-6-%E2%80%93-menambahkan-fitur-scaling-dari-pr-105">Langkah 6 – Menambahkan Fitur Scaling dari PR #105</h2>
+<p><strong>6.1 Dari root project Rapid SCADA, unduh patch dan adaptasi ke DrvSigModbus</strong></p>
+<pre><code class="language-bash">curl -L https://github.com/kumajaya/scada-v6/commit/ce3f6324822f3295fb8e6f412a7a13412ee5cdc7.patch \
+  | sed -e 's|DrvModbus\.Common|DrvSigModbus.Common|g' \
+        -e 's|DrvModbus\.Logic|DrvSigModbus.Logic|g' \
+        -e 's|DrvModbus\.View|DrvSigModbus.View|g' \
+        -e 's|DevModbusLogic|DevSigModbusLogic|g' \
+        -e 's|DrvModbus\.en-GB|DrvSigModbus.en-GB|g' \
+        -e 's|DrvModbus\.ru-RU|DrvSigModbus.ru-RU|g' \
+  &gt; /tmp/sigmodbus-scaling.patch
+</code></pre>
+<p><strong>6.2 Terapkan patch</strong></p>
+<pre><code class="language-bash">git apply --check /tmp/sigmodbus-scaling.patch   # dry-run
+git apply /tmp/sigmodbus-scaling.patch
+</code></pre>
+<p><strong>6.3 Build ulang dan commit</strong></p>
+<pre><code class="language-bash">dotnet build ScadaComm/OpenDrivers/DrvSigModbus.Logic/DrvSigModbus.Logic.csproj
+dotnet build ScadaComm/OpenDrivers/DrvSigModbus.View/DrvSigModbus.View.csproj
+git add .
+git commit -m "DrvSigModbus: add scaling feature for UShort/Short registers"
+</code></pre>
+<h2 id="langkah-7-%E2%80%93-perbaikan-validasi-overflow-dan-ui">Langkah 7 – Perbaikan Validasi (Overflow dan UI)</h2>
+<p><strong>7.1 Di <code>ModbusCmd.cs</code> (mencegah overflow pada reverse scaling)</strong></p>
+<p>Cari metode <code>SetCmdData</code>, setelah <code>Math.Round(rawVal, 0)</code> tambahkan:</p>
+<pre><code class="language-csharp">if (ElemType == ElemType.UShort &amp;&amp; (rawVal &lt; 0 || rawVal &gt; 65535))
+    throw new ArgumentException($"Scaled value {rawVal} is out of range for UShort (0-65535).");
+if (ElemType == ElemType.Short &amp;&amp; (rawVal &lt; -32768 || rawVal &gt; 32767))
+    throw new ArgumentException($"Scaled value {rawVal} is out of range for Short (-32768-32767).");
+</code></pre>
+<p><strong>7.2 Validasi input di UI (<code>CtrlElem.cs</code> dan <code>CtrlCmd.cs</code>)</strong></p>
+<ul>
+<li>Tambahkan <code>using System.Drawing;</code></li>
+<li>Pada event handler <code>txtScaling_TextChanged</code> (atau <code>txtCmdScaling_TextChanged</code>), lakukan validasi format (4 angka, min≠max) dan beri warna latar merah jika salah. Contoh:</li>
+</ul>
+<pre><code class="language-csharp">try
+{
+    double[] scaling = ModbusUtils.ParseDoubleArray(scalingText);
+    if (scaling.Length != 4 || scaling[0] == scaling[1] || scaling[2] == scaling[3])
+        txtElemScaling.BackColor = Color.LightCoral;
+    else
+    {
+        elemTag.Elem.Scaling = scalingText;
+        txtElemScaling.BackColor = SystemColors.Window;
+    }
+}
+catch
+{
+    txtElemScaling.BackColor = Color.LightCoral;
+}
+</code></pre>
+<p><strong>7.3 Amend commit terakhir</strong></p>
+<pre><code class="language-bash">git add .
+git commit --amend --no-edit
+</code></pre>
+<h2 id="langkah-8-%E2%80%93-memperbarui-deskripsi-driver">Langkah 8 – Memperbarui Deskripsi Driver</h2>
+<p>Buka <code>DrvSigModbus.View/DrvSigModbusView.cs</code> dan ubah properti <code>Descr</code> menjadi:</p>
+<pre><code class="language-csharp">public override string Descr
+{
+    get
+    {
+        return Locale.IsRussian ?
+            "Взаимодействует с контроллерами по протоколу Modbus с поддержкой масштабирования.\n\n" +
+            ... :
+            "Interacts with controllers via Modbus protocol with scaling support.\n\n" +
+            ...;
+    }
+}
+</code></pre>
+<p>Amend commit terakhir:</p>
+<pre><code class="language-bash">git add .
+git commit --amend --no-edit
+</code></pre>
+<h2 id="langkah-9-%E2%80%93-membangun-dan-men-deploy-driver">Langkah 9 – Membangun dan Men-deploy Driver</h2>
+<pre><code class="language-bash">dotnet build ScadaComm/OpenDrivers/DrvSigModbus.Logic/DrvSigModbus.Logic.csproj -c Release
+dotnet build ScadaComm/OpenDrivers/DrvSigModbus.View/DrvSigModbus.View.csproj -c Release
+
+cp ScadaComm/OpenDrivers/DrvSigModbus.Logic/bin/Release/netstandard2.0/DrvSigModbus.Common.dll  "C:/Program Files/SCADA/ScadaComm/Drv/"
+cp ScadaComm/OpenDrivers/DrvSigModbus.Logic/bin/Release/netstandard2.0/DrvSigModbus.Logic.dll   "C:/Program Files/SCADA/ScadaComm/Drv/"
+
+cp ScadaComm/OpenDrivers/DrvSigModbus.View/bin/Release/net8.0-windows/DrvSigModbus.Common.dll   "C:/Program Files/SCADA/ScadaAdmin/Lib/"
+cp ScadaComm/OpenDrivers/DrvSigModbus.View/bin/Release/net8.0-windows/DrvSigModbus.View.dll     "C:/Program Files/SCADA/ScadaAdmin/Lib/"
+cp ScadaComm/OpenDrivers/DrvSigModbus.View/bin/Release/net8.0-windows/Lang/DrvSigModbus.*.xml   "C:/Program Files/SCADA/ScadaAdmin/Lang/"
+</code></pre>
+<p>Restart layanan <code>ScadaComm6</code>. Kemudian buka <strong>ScadaAdmin</strong> → <strong>Configuration Database</strong> → <strong>Secondary Tables</strong> → <strong>Device Types</strong>, tambah baris baru:</p>
+<ul>
+<li><strong>Name</strong>: <code>Sig Modbus</code></li>
+<li><strong>Driver</strong>: <code>DrvSigModbus</code></li>
+</ul>
+<p>Saat membuat perangkat, pilih <strong>Device Type</strong> = <code>Sig Modbus</code>.</p>
+<h2 id="langkah-10-%E2%80%93-menghasilkan-patch-final">Langkah 10 – Menghasilkan Patch Final</h2>
+<p>Untuk distribusi atau arsip:</p>
+<pre><code class="language-bash">git format-patch -1 HEAD --stdout &gt; sigmodbus-scaling-final.patch
+</code></pre>
+<p>Patch ini dapat diterapkan di repositori lain dengan <code>git am</code>.</p>
+<hr />
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+<p>Dengan panduan ini, Anda memiliki driver <code>DrvSigModbus</code> yang mandiri, mendukung scaling linear untuk <code>UShort</code>/<code>Short</code>, validasi overflow, UI responsif, dan tiga bahasa (Inggris, Rusia, Indonesia).</p>
+<p>Pendekatan <em>copy then modify</em> dipilih untuk menghindari ketergantungan pada upstream, tanpa perlu mengajukan PR, serta memberikan kendali penuh atas kode. Perubahan dari upstream dapat diadaptasi secara manual sesuai kebutuhan. Strategi ini pragmatis, kokoh, dan ideal untuk lingkungan industri yang mengutamakan stabilitas.</p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="rapid-scada" /><category term="Rapid Scada" /><category term="Edge Computing" /><category term="Automation" /><category term="Field Experience" /><summary type="html"><![CDATA[Panduan copy-then-modify untuk menghindari ketergantungan pada upstream, tanpa perlu rumit mengajukan pull request, dan mendapatkan kendali penuh atas driver yang sesuai kebutuhan.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1625459201773-9b2386f53ca2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxDfGVufDB8fHx8MTc3ODc2ODI2NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1625459201773-9b2386f53ca2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEzfHxDfGVufDB8fHx8MTc3ODc2ODI2NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Memahami Cara Kerja PID Control pada DCS Supcon</title><link href="https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon.html" rel="alternate" type="text/html" title="Memahami Cara Kerja PID Control pada DCS Supcon" /><published>2026-05-09T09:38:18+00:00</published><updated>2026-05-09T09:38:18+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/distributed-control-system/2026/05/09/memahami-cara-kerja-pid-control-pada-dcs-supcon.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 9 Mei 2026</em></p>
 <h1 id="pendahuluan">Pendahuluan</h1>
 <p>Pada banyak sistem kontrol industri, PID controller merupakan algoritma utama untuk menjaga variabel proses seperti pressure, flow, temperature, dan level tetap berada pada setpoint. Salah satu hal yang sering membingungkan engineer ketika menggunakan DCS Supcon adalah bentuk parameter PID-nya yang sedikit berbeda dibanding beberapa PLC atau DCS modern lain.</p>
 <p>Pada Supcon:</p>
@@ -4344,356 +4529,4 @@ Kombinasi dari penurunan konsumsi listrik dan peningkatan output produksi.</p>
 </a></p>
 <figcaption style="text-align:center; font-size:0.9em; font-style:italic; margin-top:6px; color:#444;">
   Terkadang, satu-satunya keadilan yang tersisa... adalah menyampaikan <strong>kebenaran</strong>.
-</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[Tulisan ini bukan hanya soal teknis, tapi juga tentang manajemen perubahan, analisis historis, dan ketangguhan menghadapi resistensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html" rel="alternate" type="text/html" title="Surging on Centrifugal Compressor: When Big Problems Start from Small Modifications" /><published>2025-07-18T19:23:19+00:00</published><updated>2025-07-18T19:23:19+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/18/surging-on-centrifugal-compressor-when-big-problems-start-from-small-modifications.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/07/surging_en_US.mp3" preload="metadata"></audio><div class="kg-audio-title">When Big Problems Start from Small Modifications</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">6.84</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
-<h2 id="introduction">Introduction</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/01_surging_on_centrifugal_compressor_when_big_problems_start_from_small_modifications.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Chronic issues with the <strong>Recycle Nitrogen Compressor</strong> and <strong>Booster Expander</strong> in the <strong>Air Separation Plant</strong> unit have been present since commissioning, triggered by installation modifications initially intended to provide expander speed information to the control room for operational purposes, but ultimately leading to long-term technical impacts.</p>
-<p>It took nearly ten years—from when I started working in this industry in 2007 until the problem was finally resolved in 2017—to truly understand and solve this issue. During that time, and certainly before, various efforts were made, but most only addressed the symptoms—not the root cause. From my perspective, this article records a long journey—from initial suspicions, field experiments, to the resolution that finally restored the system to its original design logic. Please feel free to provide counterarguments if you feel there are inaccuracies.</p>
-<hr />
-
-<h2 id="the-beginning-of-the-problem">The Beginning of the Problem</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/02_the_beginning_of_the_problem.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>From the start, this problem seemed to be understood with a flawed premise: almost all attention was focused on the <strong>recycle nitrogen compressor</strong>, as if it was always the culprit. However, from the beginning, I suspected something was amiss—especially in the shutdown sequence between the <strong>recycle nitrogen compressor</strong> and <strong>booster expander</strong>.</p>
-<p><strong>DCS showed that the recycle nitrogen compressor tripped first</strong>, but I doubted the accuracy of this data. There was a <strong>hardwired interlock</strong> that allowed the recycle nitrogen compressor to trip <strong>upon request from the booster expander</strong>, while DCS—which processes hundreds of I/Os—could experience latency in recording the sequence of events, especially those occurring within milliseconds. This is because DCS performs a <em>cyclic scan</em> of I/Os sequentially, whereas trip signals can appear <em>asynchronously</em>, either ahead of or behind the <em>scan</em> cycle.</p>
-<p>To ensure the actual shutdown sequence, I assembled a <strong>Siemens S7 PLC</strong> as a high-speed <em>event logger</em>. High resolution was the only way to objectively prove who actually tripped first. The test results were <strong>consistent</strong>: <strong>100% of events showed that the booster tripped first</strong>. This was caused by the <strong>sudden opening of the booster bypass</strong>, which triggered <strong>surging on the recycle nitrogen compressor</strong>, eventually causing the recycle nitrogen compressor to trip as well through interlock commands. Of course, not everyone immediately agreed with this conclusion—because understanding how DCS and PLC work requires deep technical expertise.</p>
-<blockquote>
-<p><strong>Ladder Logic – Fair Trip Detection</strong></p>
-<p>The ladder logic below implements a deterministic trip detection system using rising edge recognition and memory flags.<br />
-It ensures that whichever input (recycle nitrogen compressor or booster expander) triggers a trip first is recorded objectively—regardless of PLC scan order.</p>
-</blockquote>
-<details>
-<summary>Click to reveal for Ladder Logic and PLC Symbol Table</summary>
-<pre><code class="language-plaintext">// =====================================================
-// First Trip Logic - Ladder Implementation
-// Author: Ketut Kumajaya (with tweaks from Grok on November 02, 2025)
-// Scope: Detect &amp; latch first trip between C60 (I0.0) &amp; CD10 (I0.1)
-// Features: Rising edge detection, latch tripped/first status, lock first trip, manual reset
-// Extendable: Duplicate rungs 1-4 &amp; 5-6 for channels 3-8 (I0.2-I0.7, M0.5+, Q0.4+)
-// =====================================================
-
-// Rising Edge Detection for C60 (I0.0)
-Rung 1:
-|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // C60 rising edge pulse
-
-Rung 2:
-|----[ I0.0 ]-----------------------------( M0.3 )  // Latch C60 state (for tripped output)
-
-// Rising Edge Detection for CD10 (I0.1)
-Rung 3:
-|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // CD10 rising edge pulse
-
-Rung 4:
-|----[ I0.1 ]-----------------------------( M0.4 )  // Latch CD10 state (for tripped output)
-
-// Tripped Status Outputs (Latched from state M)
-Rung 5:
-|----[ M0.3 ]-----------------------------( Q0.2 )  // C60 tripped (latched)
-
-Rung 6:
-|----[ M0.4 ]-----------------------------( Q0.3 )  // CD10 tripped (latched)
-
-// Determine &amp; Latch First Trip (with lock M0.0)
-Rung 7:
-|----[ M0.1 ]----[/ M0.0 ]----------------( SET Q0.0 )  // Set first C60 if pulse &amp; no lock
-|                                     ----( M0.0 )  // Set lock
-
-Rung 8:
-|----[ M0.2 ]----[/ M0.0 ]----------------( SET Q0.1 )  // Set first CD10 if pulse &amp; no lock
-|                                     ----( M0.0 )  // Set lock (if not already set)
-
-// Latch First Outputs (parallel hold to keep ON)
-Rung 7a (parallel to Rung 7 output):
-|----[ Q0.0 ]-----------------------------( Q0.0 )  // Hold first C60
-
-Rung 8a (parallel to Rung 8 output):
-|----[ Q0.1 ]-----------------------------( Q0.1 )  // Hold first CD10
-
-// Manual Reset (clear all latches &amp; lock)
-Rung 9:
-|----[ I0.2 ]---------------------------[RST M0.0]  // Reset lock
-|                                       [RST M0.3]  // Reset C60 state
-|                                       [RST M0.4]  // Reset CD10 state
-|                                       [RST Q0.0]  // Reset first C60
-|                                       [RST Q0.1]  // Reset first CD10
-|                                       [RST Q0.2]  // Reset tripped C60
-|                                       [RST Q0.3]  // Reset tripped CD10
-
-</code></pre>
-<table>
-<thead>
-<tr>
-<th><strong>Symbol</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Function Description</strong></th>
-<th><strong>Usage Notes</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>I0.0</code></td>
-<td>Digital Input</td>
-<td>Trip signal from compressor C60</td>
-<td>Active HIGH on trip; rising edge detected via M0.1. Invert if original signal LOW.</td>
-</tr>
-<tr>
-<td><code>I0.1</code></td>
-<td>Digital Input</td>
-<td>Trip signal from booster expander CD10</td>
-<td>Same as I0.0; rising edge via M0.2. Scan priority: C60 first (deterministic).</td>
-</tr>
-<tr>
-<td><code>I0.2</code></td>
-<td>Digital Input</td>
-<td>Manual reset button to clear all trip flags</td>
-<td>Edge-triggered; clears lock &amp; latches in Rung 9. Add debounce if noisy.</td>
-</tr>
-<tr>
-<td><code>Q0.0</code></td>
-<td>Digital Output</td>
-<td>Indicates C60 tripped first</td>
-<td>Latched via SET; ON if C60 first &amp; locked. Connect to HMI alarm.</td>
-</tr>
-<tr>
-<td><code>Q0.1</code></td>
-<td>Digital Output</td>
-<td>Indicates CD10 tripped first</td>
-<td>Latched via SET; ON only if CD10 first (blocked if lock already ON).</td>
-</tr>
-<tr>
-<td><code>Q0.2</code></td>
-<td>Digital Output</td>
-<td>Status output: C60 has tripped</td>
-<td>Latched from M0.3; stays ON post-trip for monitoring.</td>
-</tr>
-<tr>
-<td><code>Q0.3</code></td>
-<td>Digital Output</td>
-<td>Status output: CD10 has tripped</td>
-<td>Latched from M0.4; same as Q0.2.</td>
-</tr>
-<tr>
-<td><code>M0.0</code></td>
-<td>Memory Bit</td>
-<td>Trip detection flag—only one trip allowed per scan</td>
-<td>Lock flag; SET on first pulse, blocks others. Reset via I0.2.</td>
-</tr>
-<tr>
-<td><code>M0.1</code></td>
-<td>Memory Bit</td>
-<td>Rising edge detected on C60</td>
-<td>Momentary pulse (1 scan); triggers SET Q0.0 if !M0.0.</td>
-</tr>
-<tr>
-<td><code>M0.2</code></td>
-<td>Memory Bit</td>
-<td>Rising edge detected on CD10</td>
-<td>Momentary pulse; triggers SET Q0.1 if !M0.0.</td>
-</tr>
-<tr>
-<td><code>M0.3</code></td>
-<td>Memory Bit</td>
-<td>Previous input state of C60 (for edge detection)</td>
-<td>Latches I0.0 state; used in [/M0.3] for rising edge.</td>
-</tr>
-<tr>
-<td><code>M0.4</code></td>
-<td>Memory Bit</td>
-<td>Previous input state of CD10 (for edge detection)</td>
-<td>Latches I0.1 state; same as M0.3.</td>
-</tr>
-</tbody>
-</table>
-</details>
-<p>Since commissioning, to reduce the risk of surging, <strong>the recycle nitrogen compressor has never been operated at maximum performance</strong>. Its bypass tends to remain open, and to maintain operational stability, operators developed a daily routine: <strong>reducing expander speed</strong> when ambient temperatures began to rise in the morning, and <strong>increasing it again when the night was cooler</strong>—an art of survival between the safe design limits and the ever-changing operational realities. This strategy was quite effective: cooler nights were utilized to boost booster performance. Meanwhile, hot days were kept stable—because at high temperatures, the risk of <strong>surging</strong> and <strong>tripping</strong> was much greater.</p>
-<p>However, operating a centrifugal compressor with a bypass that is not fully closed made the entire plant <strong>very noisy</strong>. This was a costly performance compromise—eroding energy efficiency while reducing work comfort due to constant noise.</p>
-<hr />
-
-<h2 id="experiments-and-investigations">Experiments and Investigations</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/03_experiments_and_investigations.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>The dynamic operational strategy applied based on environmental condition assessments <strong>did not always yield the expected results</strong>. When environmental assessments were inaccurate—too early or too late in responding to changes—adjustments to expander speed repeatedly <strong>failed to prevent surging or tripping</strong> in the system.</p>
-<p>This problem worsened at the end of 2016, despite various improvements previously made, including replacing several control components and sensors. These efforts <strong>turned out to only address the symptoms, not the root cause</strong>. The situation was like <strong>dealing with a disease with an unclear diagnosis, then trying various medications that never truly cured it</strong>.</p>
-<p>Management then decided to conduct a total overhaul of both machines—<strong>recycle nitrogen compressor and booster expander</strong>. However, due to personnel limitations from the vendor, only the recycle nitrogen compressor was worked on.</p>
-<p>When testing the operation of the recycle nitrogen compressor without the booster expander, <strong>the machine was able to run at maximum performance without any issues</strong>. This result further strengthened my belief that <strong>the recycle nitrogen compressor was not the root cause of the problems that had been occurring</strong>. Just a few days after the plant resumed full operation, surging and tripping occurred again—bringing us back to the initial confusion.</p>
-<p>I then decided to form a <strong>small team</strong>, consisting of selected control, instrumentation, and mechanical technicians—only those who were allowed to be involved and they only received orders from me. Together, we conducted a series of intensive investigations:</p>
-<ul>
-<li><strong>Recording local panels</strong> using real-time video alternately, although very uncomfortable</li>
-<li><strong>Remodeling trip signals</strong>, after we obtained valuable recordings from the time of the disturbance</li>
-<li><strong>Evaluating 4–20 mA signal wiring</strong>, which turned out to be loaded with three devices, not two as it should have been</li>
-<li><strong>Simulating assumptions</strong>, and we successfully reconstructed the root cause with precision!</li>
-</ul>
-<p>The most crucial finding came from one thing that had been overlooked from the start: <strong>the analog signal actually came from a 5V DC voltage source</strong>, not 24V DC as I had assumed. This was not just a numerical difference—but a fundamental difference in power capacity and tolerance to load. I discovered this when I brought home and read the old speed controller document.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Figure 1. Design Violation—analog signal overloaded by excessive output load
-  </figcaption>
-</div>
-<p>Furthermore, <strong>the output was actually loaded with three devices</strong>, whereas in the original design it was only designed for two. The combination of low voltage and excessive load caused <strong>significant signal distortion</strong>. The higher the operating speed, the greater the current drawn, and <strong>the voltage began to drop</strong> due to voltage drop at each load.</p>
-<p>At a certain point, <strong>the 5V DC source could no longer maintain the minimum voltage level</strong>, and the analog signal suddenly plummeted. This is where the peak problem emerged—<strong>the anti-surge controller on the booster expander read this condition as a serious disturbance</strong>, and responded aggressively even though it was not actually necessary.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Figure 2. Design Violation—speed drop triggered unnecessary surge control
-  </figcaption>
-</div>
-<details>
-<summary>Click to reveal for above Python plotting script</summary>
-<pre><code class="language-javascript">import numpy as np
-import matplotlib.pyplot as plt
-
-# Current range (mA)
-current_mA = np.linspace(4, 20, 1000)
-
-# Convert to RPM (0–45000 RPM)
-rpm = (current_mA - 4) / 16 * 45000
-
-# Load resistances (ohms)
-resistors = [125, 250, 350]
-colors = ['tab:blue', 'tab:orange', 'tab:red']
-
-# Output voltage for each resistance
-voltages = {R: current_mA / 1000 * R for R in resistors}
-
-plt.figure(figsize=(10, 6))
-
-for i, R in enumerate(resistors):
-    voltage = voltages[R]
-    label = f'{R} Ω Load' if R &lt; 350 else f'{R} Ω Load (design violation)'
-    linestyle = '-' if R &lt; 350 else '--'  # Dashed line indicates thermal shift or excessive load
-
-    plt.plot(rpm, voltage, label=label, color=colors[i], linestyle=linestyle)
-
-    # Find where voltage reaches 5V
-    idx_5 = np.argmin(np.abs(voltage - 5))
-    rpm_at_5V = rpm[idx_5]
-    plt.axvline(rpm_at_5V, color=colors[i], linestyle=':', alpha=0.6)
-    plt.text(rpm_at_5V, 5.3, f'{int(rpm_at_5V)} RPM', rotation=90,
-             verticalalignment='bottom', horizontalalignment='right',
-             fontsize=8, color=colors[i])
-
-# Find where voltage reaches 4.8V
-idx_4 = np.argmin(np.abs(voltage - 4.8))
-rpm_at_4 = rpm[idx_4]
-plt.axvline(rpm_at_4, color=colors[2], linestyle=':', alpha=0.6)
-plt.text(rpm_at_4, 5.3, f'{int(rpm_at_4)} RPM', rotation=90,
-            verticalalignment='bottom', horizontalalignment='right',
-            fontsize=8, color=colors[2])
-
-# Compliance limit line
-plt.axhline(5, color='black', linestyle='--', label='Maximum Voltage (5 V)')
-
-# Warning voltage line
-plt.axhline(4.8, color='red', linestyle='--', label='Voltage Drop Due to Load (4.8 V)')
-
-# Labels and titles
-plt.title('Analog Speed Signal Distortion Due to Voltage Drop')
-plt.xlabel('Expander Speed (RPM)')
-plt.ylabel('Analog Voltage (V)')
-plt.grid(True)
-plt.legend()
-plt.xlim(0, 45000)
-plt.ylim(0, 7)
-plt.tight_layout()
-
-# Export as SVG
-plt.savefig("Voltage_vs_Speed.svg", format='svg')
-plt.show()
-</code></pre>
-</details>
-<p>Finally, it became clear: <strong>the initial circuit modification—which was intended only to display information in the control room—accidentally created measurement anomalies</strong>. This small disturbance, which for years was hidden behind assumptions and routines, turned out to be the main cause of complex and costly systemic disturbances.</p>
-<hr />
-
-<h2 id="small-modifications-big-results">Small Modifications, Big Results</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/04_small_modifications_big_results.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>After successfully reconstructing the root cause, I prepared a brief presentation to explain what actually happened, along with a very simple solution: <strong>returning the circuit to its original design</strong>. I was confident this solution was safe and appropriate, as it did not involve changes to logic or devices, but merely corrected the proven faulty circuit modification.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Figure 3. Proposed Correction—conceptual signal splitting to mitigate analog overload risk
-  </figcaption>
-</div>
-<p>With full confidence, I presented this proposal in a management meeting. However, what happened was beyond expectations: <strong>I was not allowed to execute</strong>, and was directed to wait for vendor technicians to come for clarification and repairs. Yet, for years, neither the vendor nor others had ever successfully resolved this issue completely.</p>
-<p>I tried again, this time through a personal approach after the meeting, to explain the situation technically. But the result was the same: no room to act.</p>
-<p>At this point, I began to feel that <strong>the obstacles I faced were no longer technical, but political</strong>. An irony, when deep understanding of the problem was not the basis of trust.</p>
-<p>Because vendor support remained uncertain, I had already decided in my heart: whenever the plant tripped again, the solution I had prepared would be immediately executed. And of course, that day truly came. Still following procedures, I asked for permission from my direct superior before acting. Fortunately, the speed controller I had recently replaced had two output channels—eliminating the need for the previously planned signal splitter. With a slight program modification, I set both to output identical signals—one for the anti-surge controller, and one shared for local display and signals to DCS. The circuit modification became <strong>much simpler—and safer</strong>.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Figure 4. Final Implementation—dual analog outputs resolve prior signal load distortion
-  </figcaption>
-</div>
-<p>With just <strong>a 30 cm cable</strong> and one <strong>small screwdriver</strong>, I reconnected the analog output that had been the source of the hidden problem. After the repair, the booster expander's <em>anti-surge controller</em> was retested—and the results were undeniable: <strong>the system fully recovered</strong>, <strong>without anomalies</strong>.</p>
-<blockquote>
-<p>"Sometimes, major repairs start from things that seem trivial—as long as we are persistent enough to find them and do not assume a problem is eternal."</p>
-</blockquote>
-<hr />
-
-<h2 id="direct-and-indirect-effects">Direct and Indirect Effects</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/05_direct_and_indirect_effects.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>This small modification brought significant impacts on plant performance, both technically and economically:</p>
-<ul>
-<li><strong>The recycle nitrogen compressor can now operate with its bypass fully closed</strong>, allowing the system to run close to design performance. Nitrogen no longer circulates aimlessly, while also reducing the load on the cooling system.</li>
-<li><strong>The centrifugal compressor became silent</strong>, no longer producing the characteristic whistle sound from bypass flow—a <em>silence that signifies efficiency</em>.</li>
-<li><strong>Energy consumption—and as a result, electricity bills—have dropped drastically</strong>, as ineffective nitrogen cycles were eliminated, and the need for machine restarts was greatly reduced.</li>
-<li><strong>LIN and LAR production increased</strong>, as processes ran more stably and optimally according to the original design.</li>
-</ul>
-<p>Of course, these changes were not immediately felt. It took time to <strong>dismantle operational patterns</strong> that had been formed over years and <strong>build confidence in the changes</strong> that had been made, requiring further changes to the process.</p>
-<p>At that time, I did not yet have the ability to independently calculate plant capacity. But according to information, this modification <em>was said to have a tangible impact</em>:</p>
-<blockquote>
-<p><strong>Savings of over 1 billion rupiah per month</strong> A combination of reduced electricity consumption and increased production output.</p>
-</blockquote>
-<p>The exact figures can be debated. But the compressor's silence—no longer screaming—that is the most tangible proof that change has occurred.</p>
-<hr />
-
-<h2 id="cultural-and-perception-challenges">Cultural and Perception Challenges</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/06_cultural_and_perception_challenges.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>The biggest challenge in solving problems is often not technical, but work culture and decision-making structures. In complex systems that have been operating for a long time, it is not uncommon for <strong>no single individual to truly understand the problem completely</strong>. Understanding is scattered and fragmented—some lies with engineers, some with operators, and some hidden in documentation that is rarely revisited.</p>
-<p>In such conditions, the direction of troubleshooting is more often determined by who has authority, not by who understands the problem best. Solutions are often shaped by intuition, habits, or pressure to quickly “restore operations”—not by deep diagnostic results.</p>
-<p>Not because the system is deliberately left to deviate from the design, but because <strong>efforts to find the root cause repeatedly hit dead ends</strong>. When various approaches fail to yield results, the organization eventually chooses the path considered safest: sticking to a stable configuration even if it deviates. As long as the system is still running and no fatal damage occurs, this condition is gradually accepted as the new normal.</p>
-<p>But when disturbances become more frequent, routine handling is no longer sufficient. <strong>Courage is needed to propose a counter-narrative</strong>—opening the possibility that the root cause has not been truly addressed, that there is something that has been overlooked in our collective understanding.</p>
-<p>True change usually only has room when the pressure is high enough, the data is strong enough, and the frustration is deep enough. At this point, a new approach finally has a chance to be tried—and real improvements can begin to happen.</p>
-<hr />
-
-<h2 id="closing">Closing</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/07_closing.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>This is not merely about repairing circuits or control logic, but <strong>an effort to reorganize trust in the original design</strong>—and more than that, <strong>the courage to correct a system that has long been considered final</strong>.</p>
-<p>I even thought to myself, <em>“If the output of the new speed controller had just happened to be 12V or 24V, maybe the issue would’ve resolved itself.”</em> But then again, I might never have discovered the real root cause.</p>
-<p>After two decades of operating in a deviated condition, this system finally works as it should. Not because the tools changed, but because our understanding of them changed. A long process that brought <strong>invaluable technical and managerial lessons</strong>.</p>
-<hr />
-
-<p><strong>Author's Note</strong></p>
-<p>This writing is not just about technical matters, but also about <strong>change management</strong>, <strong>historical analysis</strong>, and <strong>resilience in facing resistance</strong>.</p>
-<blockquote>
-<p>Muscle mass isn't everything —  neurons fire faster. 🧠⚡</p>
-</blockquote>
-<p style="text-align:center; font-size:0.95em; color:#555; margin-top:2em;">
-  And if all else fails...
-</p>
-<p><a href="https://www.youtube.com/watch?v=BGednQsQ-h8&amp;ref=blog.kiiota.com" target="_blank" rel="noopener noreferrer" style="display:inline-block; position:relative; text-decoration:none; margin-top:2em;" onmouseover="this.firstElementChild.style.filter='brightness(0.8) contrast(1.2)'" onmouseout="this.firstElementChild.style.filter='none'">
-  <img src="https://img.youtube.com/vi/BGednQsQ-h8/hqdefault.jpg" alt="Limp Bizkit - The Truth" style="width:100%; max-width:200px; border:0; display:block; margin:0 auto; border-radius:8px;" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_play_button_icon_%282017%29.svg" alt="Play" style="position:absolute; top:50%; left:50%; width:36px; height:36px; transform:translate(-50%,-50%); opacity:0.85;" />
-</a></p>
-<figcaption style="text-align:center; font-size:0.9em; font-style:italic; margin-top:6px; color:#444;">
-  Sometimes, the only justice left... is to tell <strong>the truth</strong>.
-</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[This writing is not just about technical matters, but also about change management, historical analysis, and resilience in facing resistance.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1629144152968-50627249db14?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fHRyb3VibGV8ZW58MHx8fHwxNzUyODYyODYxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[Tulisan ini bukan hanya soal teknis, tapi juga tentang manajemen perubahan, analisis historis, dan ketangguhan menghadapi resistensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
