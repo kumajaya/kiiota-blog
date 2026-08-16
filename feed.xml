@@ -1,5 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-05-15T04:41:18+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
-</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Membuat Driver Modbus dengan Fitur Scaling Berdasarkan Driver Modbus Rapid SCADA</title><link href="https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada.html" rel="alternate" type="text/html" title="Membuat Driver Modbus dengan Fitur Scaling Berdasarkan Driver Modbus Rapid SCADA" /><published>2026-05-14T15:17:05+00:00</published><updated>2026-05-14T15:17:05+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 14 Mei 2026</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-08-16T06:24:38+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Water Injection pada Feed Air Compressor: Bisakah Fouling Dicegah, Bukan Hanya Dibersihkan?</title><link href="https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan.html" rel="alternate" type="text/html" title="Water Injection pada Feed Air Compressor: Bisakah Fouling Dicegah, Bukan Hanya Dibersihkan?" /><published>2026-08-16T05:25:52+00:00</published><updated>2026-08-16T05:25:52+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 16 Agustus 2026</em></p>
+<h2 id="pendahuluan">Pendahuluan</h2>
+<p>Fouling pada impeller feed air compressor adalah salah satu masalah yang cukup umum ditemui, terutama pada plant yang beroperasi di lingkungan dengan particulate tinggi dan kelembaban tropis. Ketika performa compressor mulai menurun akibat fouling, pendekatan yang paling umum adalah melakukan cleaning. Ini masuk akal—deposit sudah terbentuk, maka deposit tersebut dibersihkan.</p>
+<p>Tapi ada pertanyaan lain yang menarik untuk dipikirkan lebih jauh. Jika fouling sebenarnya adalah proses yang berlangsung terus-menerus selama compressor beroperasi, apakah kita selalu harus menunggu deposit terbentuk lebih dulu sebelum mengambil tindakan? Dari pertanyaan itulah muncul sebuah pendekatan yang layak dikaji: water injection.</p>
+<p>Water injection sendiri bukan teknologi baru. Prinsip wet compression dan water washing sudah lama digunakan pada berbagai aplikasi rotating equipment, termasuk gas turbine dan beberapa centrifugal compressor berukuran besar. Yang menarik bukan apakah prinsip ini sudah dikenal, tapi apakah prinsip ini bisa diterapkan secara tepat pada feed air compressor, khususnya pada lingkungan operasi dengan udara ambient yang memang sudah mengandung moisture sejak awal.</p>
+<p>Ada satu hal lagi yang membuat pendekatan ini terasa lebih relevan dari sekadar menjaga impeller tetap bersih. Particulate yang membentuk deposit di impeller adalah gas yang sama yang mengalir melewati intercooler dan aftercooler. Artinya, fouling bukan fenomena yang berhenti di impeller—ia berpotensi terjadi di sepanjang gas path, termasuk pada sirip-sirip cooler di hilirnya.</p>
+<p>Tulisan ini bukan klaim bahwa continuous water injection pasti menjadi solusi terbaik untuk fouling feed air compressor. Tujuannya lebih sederhana—melihat apakah ada dasar engineering yang cukup untuk menjadikan pendekatan ini sesuatu yang layak dikaji lebih lanjut.</p>
+<h2 id="fouling-pada-feed-air-compressor">Fouling pada Feed Air Compressor</h2>
+<p>Udara yang masuk ke feed air compressor berasal langsung dari atmosfer. Air filter pada inlet mengurangi masuknya particulate, tapi tidak membuat udara benar-benar bebas dari partikel maupun aerosol. Partikel yang sangat halus, fiber organik, aerosol, dan kontaminan lain masih bisa lolos dan pada akhirnya berinteraksi dengan permukaan compressor. Kondisi ambient yang lembap turut memengaruhi karakter deposit yang terbentuk.</p>
+<p>Seiring waktu, material tersebut terakumulasi pada permukaan impeller dan komponen gas path lainnya. Pada tahap awal, perubahan performa mungkin belum terlalu terlihat. Namun ketika deposit semakin banyak, dampaknya bisa berkembang—efisiensi compressor menurun, daya yang dibutuhkan untuk output yang sama meningkat, pressure ratio atau flow capability berubah, surge margin menyempit, dan pada kondisi tertentu, fouling yang tidak merata bisa berkontribusi terhadap perubahan balance dan kenaikan vibrasi.</p>
+<p>Yang sering luput dari perhatian, gas yang membawa particulate ini tidak berhenti di impeller. Setelah dikompresi, gas mengalir melalui intercooler dan aftercooler—rangkaian sirip dan tube dengan permukaan yang jauh lebih luas, dan celah yang jauh lebih sempit, dibanding lintasan gas di dalam casing compressor. Particulate yang sama, dikombinasikan dengan kondensasi moisture yang memang terjadi secara alami di cooler (karena gas didinginkan mendekati titik embunnya), berpotensi membuat fouling menjadi lebih signifikan pada permukaan cooler.</p>
+<p>Fouling di sirip cooler punya konsekuensi termal yang cukup signifikan. Deposit yang menumpuk di permukaan sirip menurunkan heat transfer coefficient, sehingga approach temperature antara gas dan cooling medium melebar dari desainnya—yang bisa jadi merupakan penjelasan lain untuk kasus discharge temperature yang melebihi batas desain, di luar soal perbedaan properti gas atau ada tidaknya evaporative cooling di dalam casing compressor yang sudah dibahas sebelumnya. Dengan kata lain, fouling bukan sekadar persoalan kebersihan komponen mekanis di satu titik. Ia pada akhirnya menjadi persoalan performa dan efisiensi energi di sepanjang gas path.</p>
+<h2 id="dari-masalah-maintenance-menjadi-masalah-energi">Dari Masalah Maintenance Menjadi Masalah Energi</h2>
+<p>Cara paling sederhana melihat fouling adalah: impeller kotor, maka cleaning diperlukan. Tapi dari perspektif operasi, ada rantai konsekuensi yang lebih panjang. Fouling yang meningkat menurunkan efisiensi compressor, yang berarti kebutuhan daya meningkat, specific energy meningkat, dan operating cost pun ikut naik. Di sisi lain, ketika cleaning frequency meningkat, maintenance cost bertambah, availability berkurang, dan potensi production loss ikut membesar.</p>
+<p>Karena itu, pertanyaan mengenai fouling sebenarnya bukan hanya soal bagaimana cara membersihkan impeller, tapi juga apakah kita bisa memperlambat pembentukan fouling itu sendiri, sehingga compressor tetap berada pada kondisi performa yang lebih baik untuk waktu yang lebih lama. Di sinilah water injection menjadi menarik untuk dipertimbangkan.</p>
+<h2 id="water-injection-konsep-yang-sudah-dikenal">Water Injection: Konsep yang Sudah Dikenal</h2>
+<p>Water injection ke dalam compressor bukan konsep baru. Pada aplikasi tertentu, air diinjeksikan dalam bentuk fine droplets ke inlet atau lokasi tertentu di dalam compressor. Tergantung desain dan kondisi operasinya, air tersebut memberikan beberapa efek yang berbeda—dan ketiga efek ini sebaiknya tidak dicampur menjadi satu konsep yang sama.</p>
+<p><strong>Fouling mitigation.</strong> Droplet air yang berinteraksi dengan permukaan gas path dapat membantu mencegah atau mengurangi akumulasi deposit yang masih relatif baru. Secara konseptual ini mirip dengan prinsip online washing, memanfaatkan aliran air saat equipment masih beroperasi untuk membantu mengendalikan deposit. Tapi penting diberi batasan: water injection tidak otomatis berarti online washing. Efektivitasnya sangat bergantung pada ukuran droplet, distribusi droplet, lokasi injection, kecepatan aliran, residence time, karakter deposit, serta apakah droplet benar-benar mencapai impeller atau justru sudah menguap sebelumnya. Deposit yang sudah tebal dan mengeras pun belum tentu bisa dihilangkan hanya dengan continuous injection. Karena itu, pendekatan ini lebih tepat dipandang sebagai preventive fouling mitigation, bukan pengganti cleaning untuk deposit yang sudah berat.</p>
+<p>Efek ini juga tidak berhenti di impeller. Kalau injection dilakukan di titik yang tepat—misalnya di inlet, sebelum gas mengalami kompresi pertama—droplet yang terbawa aliran berpotensi ikut membantu menjaga kebersihan permukaan interstage dan sirip cooler di hilirnya, karena gas yang sama yang membawa particulate juga yang melewati cooler. Ini menjadikan water injection bukan cuma pendekatan untuk impeller, tapi berpotensi untuk keseluruhan gas path, termasuk komponen yang justru sering luput dari perhatian saat membahas fouling.</p>
+<p><strong>Wet compression dan evaporative cooling.</strong> Efek kedua berhubungan dengan termodinamika compressor. Jika air yang diinjeksikan menguap di dalam aliran udara, proses evaporasi menyerap panas, sehingga temperatur gas selama proses kompresi bisa menjadi lebih rendah dibanding kompresi adiabatic tanpa injection—prosesnya bergerak lebih dekat ke kondisi yang mendekati isotermal. Salah satu konsekuensinya, discharge temperature bisa lebih terkendali. Jadi water injection tidak hanya menarik dari sisi fouling, tapi juga punya aspek wet compression yang secara terpisah bisa memengaruhi performa compressor. Tapi ini bukan berarti semakin banyak air semakin baik—jumlah air, kondisi ambient, kemampuan evaporasi, lokasi injection, serta batas mekanis dan proses compressor semuanya perlu diperhitungkan.</p>
+<p><strong>Perubahan mass flow dan operating point.</strong> Ada satu efek lain yang sering terlupakan. Air yang diinjeksikan juga merupakan tambahan massa yang masuk ke compressor. Artinya, water injection bukan hanya persoalan cooling atau cleaning—ia juga bisa mengubah hubungan antara mass flow, volumetric flow, pressure ratio, compressor power, compressor map, dan operating point. Karena itu, evaluasi water injection tidak cukup hanya dengan melihat apakah discharge temperature turun atau apakah impeller terlihat lebih bersih. Perlu juga dipikirkan bagaimana tambahan massa tersebut memengaruhi operating point compressor—ini menjadi semakin penting untuk centrifugal compressor, karena margin terhadap surge, choke, dan batas mekanis lainnya tidak hanya ditentukan oleh satu parameter.</p>
+<h2 id="water-washing-dan-continuous-water-injection-bukan-hal-yang-sama">Water Washing dan Continuous Water Injection Bukan Hal yang Sama</h2>
+<p>Istilah water washing dan water injection kadang dipakai bergantian, padahal keduanya bisa punya tujuan berbeda. Water washing pada dasarnya bersifat remedial—deposit sudah terbentuk, kemudian air digunakan untuk membantu melepaskan atau membersihkannya. Water washing bisa dilakukan secara offline maupun online, tergantung desain equipment dan prosedur vendor.</p>
+<p>Continuous water injection lebih bersifat proaktif. Tujuannya bukan terutama menghilangkan fouling yang sudah tebal, tapi mencoba mengurangi laju pembentukan deposit selama compressor beroperasi. Sederhananya: water washing bekerja setelah deposit sudah terjadi, sementara continuous injection mencoba memperlambat proses pembentukannya sejak awal.</p>
+<p>Keduanya sebenarnya tidak harus dipertentangkan. Bahkan pendekatan yang paling realistis mungkin bukan memilih salah satu, melainkan mengombinasikan keduanya—periodic cleaning untuk menangani deposit yang sudah terbentuk, sementara controlled water injection dievaluasi sebagai upaya memperlambat pembentukan deposit berikutnya.</p>
+<h2 id="bagaimana-dengan-moisture-carry-over">Bagaimana dengan Moisture Carry-over?</h2>
+<p>Untuk feed air compressor pada ASU, ada satu pertanyaan yang secara alami muncul: bukankah water injection justru menambah moisture yang nantinya harus dihilangkan oleh molecular sieve? Jawabannya tidak sesederhana "aman" atau "tidak aman".</p>
+<p>Udara ambient yang masuk ke compressor sejak awal memang sudah mengandung moisture—feed air compressor tidak menerima dry gas, ia menerima wet atmospheric air. Water injection berarti menambahkan sejumlah moisture di atas moisture ambient tersebut. Di sisi lain, setelah compressor, feed air akan melewati purification system yang memang dirancang untuk menghilangkan moisture dan CO2 sebelum gas masuk ke cold box.</p>
+<p>Karena itu, pertanyaan engineering yang lebih tepat bukan apakah molecular sieve bisa menghilangkan moisture tambahan, tapi apakah additional water load dari injection masih berada dalam design dan regeneration margin purification system. Ini perbedaan yang penting. Secara konseptual, additional moisture load bisa dilihat sebagai ambient moisture load ditambah injected water load, yang bersama-sama membentuk total adsorption load dan pada akhirnya memengaruhi regeneration requirement.</p>
+<p>Jadi sebelum menerapkan water injection, perlu dihitung berapa tambahan water load yang sebenarnya masuk ke molecular sieve—bukan hanya kemampuan adsorpsi pada kondisi normal, tapi juga pengaruhnya terhadap regeneration cycle, heating requirement, breakthrough margin, dan overall purification performance. Dengan pendekatan seperti ini, water injection tidak dianggap sebagai risiko yang sepenuhnya baru, tapi juga tidak otomatis dianggap tanpa konsekuensi.</p>
+<h2 id="air-quality-dan-water-quality-menjadi-bagian-penting">Air Quality dan Water Quality Menjadi Bagian Penting</h2>
+<p>Ada satu hal lagi yang tidak boleh diabaikan. Jika kita memasukkan air ke dalam feed air compressor, maka kualitas air tersebut menjadi bagian dari engineering problem itu sendiri. Air injection bukan sekadar memasang nozzle lalu menyemprotkan air—kualitas air, kemungkinan dissolved solids, potensi korosi, scaling, kontaminasi biologis, serta carry-over perlu dipertimbangkan. Yang ingin kita cegah adalah fouling akibat particulate dari atmospheric air, jangan sampai sistem water injection justru memperkenalkan jenis deposit baru.</p>
+<p>Pemilihan sumber air dan treatment-nya karena itu menjadi bagian integral dari desain. Begitu pula dengan nozzle—ukuran droplet dan distribusinya bukan detail kecil. Nozzle yang menghasilkan distribusi tidak merata bisa menyebabkan local wetting, sementara droplet yang terlalu besar mungkin tidak menguap sebagaimana diharapkan. Water injection, dengan begitu, perlu dilihat sebagai sebuah sistem, bukan sekadar komponen tambahan.</p>
+<h2 id="pertanyaan-engineering-yang-perlu-dijawab">Pertanyaan Engineering yang Perlu Dijawab</h2>
+<p>Sebelum menganggap water injection sebagai solusi, ada beberapa pertanyaan yang perlu dijawab secara kuantitatif.</p>
+<p>Yang paling fundamental adalah apakah fouling benar-benar berkurang—dan ini perlu diperiksa tidak hanya pada impeller, tapi juga pada cooler. Ini bisa dibandingkan dari kondisi compressor dan cooler sebelum dan sesudah penerapan, idealnya dengan parameter yang bisa diukur secara konsisten—efisiensi compressor, pressure ratio, flow, shaft power, discharge temperature di tiap titik pengukuran, approach temperature di intercooler dan aftercooler, vibrasi, dan frekuensi cleaning untuk masing-masing komponen. Trend lebih penting daripada satu snapshot; kalau cleaning interval sebelumnya menunjukkan pola tertentu—baik untuk impeller maupun untuk cooler—pertanyaannya adalah apakah pola itu benar-benar berubah setelah intervensi dilakukan.</p>
+<p>Pertanyaan berikutnya, apakah energy saving-nya lebih besar daripada additional energy requirement. Wet compression memang bisa memberikan keuntungan termodinamika tertentu, tapi sistem water injection sendiri membutuhkan equipment tambahan—pompa, control system, treatment, instrumentation, maintenance, dan kemungkinan pressure loss. Tidak cukup mengatakan temperatur turun berarti lebih efisien; yang perlu dilihat adalah net energy impact terhadap keseluruhan sistem.</p>
+<p>Pertanyaan lain, bagaimana pengaruhnya terhadap compressor map. Water injection bisa mengubah mass flow dan thermodynamic state dari gas, sehingga evaluasi perlu mempertimbangkan apakah compressor tetap beroperasi pada area dengan margin yang memadai terhadap surge dan batas operasi lainnya. Tujuannya bukan sekadar mendapatkan temperatur discharge yang lebih rendah, tapi tetap menjaga compressor berada pada safe and efficient operating envelope.</p>
+<p>Dan terakhir, berapa tambahan beban ke molecular sieve. Ini bisa dihitung—jika laju injeksi air diketahui, additional water mass bisa dibandingkan dengan adsorption capacity serta regeneration design. Dengan begitu diskusinya berubah dari sekadar dugaan bahwa molecular sieve "sepertinya masih sanggup", menjadi perbandingan konkret antara additional moisture load dan available purification margin. Di situlah engineering judgement menjadi jauh lebih kuat.</p>
+<h2 id="mungkin-langkah-awalnya-bukan-continuous-injection">Mungkin Langkah Awalnya Bukan Continuous Injection</h2>
+<p>Ada kemungkinan bahwa setelah seluruh perhitungan dilakukan, continuous water injection ternyata tidak memberikan economic benefit yang cukup. Dan itu bukan berarti kajian ini gagal—justru bisa jadi hasilnya menunjukkan bahwa pendekatan yang lebih sederhana lebih masuk akal. Misalnya, jika masalah utamanya adalah deposit yang sudah terbentuk tapi interval cleaning terlalu panjang, water washing yang lebih terstruktur mungkin sudah memberikan sebagian besar benefit dengan kompleksitas yang jauh lebih rendah.</p>
+<p>Ini penting untuk diingat, karena dalam engineering, solusi terbaik tidak selalu solusi yang paling sophisticated. Pertanyaannya lebih ke arah: apa intervensi paling sederhana yang memberikan benefit cukup dengan risiko dan biaya yang bisa diterima? Continuous injection hanya layak dipilih kalau memang memberikan sesuatu yang tidak bisa diperoleh secara ekonomis lewat pendekatan yang lebih sederhana.</p>
+<h2 id="bagaimana-jika-pendekatan-ini-ingin-dicoba">Bagaimana Jika Pendekatan Ini Ingin Dicoba?</h2>
+<p>Langkah pertama seharusnya bukan langsung memasang injection system, tapi membangun baseline terlebih dahulu. Kumpulkan trend compressor selama beberapa siklus operasi—flow, suction dan discharge pressure, suction dan discharge temperature, power, vibrasi, ambient temperature, humidity, filter differential pressure, dan kapan cleaning dilakukan. Dari data tersebut bisa dicari hubungan antara operating condition, fouling progression, dan compressor performance.</p>
+<p>Setelah baseline tersedia, barulah evaluasi lebih lanjut bisa dilakukan. Jika memungkinkan, trial kecil atau controlled test bisa dipakai untuk melihat perubahan compressor performance, perubahan discharge temperature, perubahan vibrasi, perubahan cleaning interval, perubahan energy consumption, dan perubahan moisture load ke purification system. Dengan data seperti ini, keputusan tidak lagi didasarkan pada asumsi bahwa water injection "seharusnya bekerja", tapi pada apakah benefit yang diperoleh benar-benar terlihat pada equipment yang sedang dihadapi.</p>
+<h2 id="dari-cleaning-cost-ke-lifecycle-cost">Dari Cleaning Cost ke Lifecycle Cost</h2>
+<p>Pada akhirnya, kelayakan water injection sebaiknya tidak dinilai hanya dari harga nozzle, piping, pump, atau instrumentation. Yang lebih relevan adalah lifecycle economics.</p>
+<p>Tanpa intervensi, rantainya berjalan seperti ini: fouling menyebabkan efficiency loss, yang berarti additional compressor power, higher operating cost, periodic cleaning, dan pada akhirnya downtime serta maintenance cost. Dengan intervensi, rantainya berbeda: water injection system membutuhkan capital cost, water treatment, biaya pump/control/maintenance, dan additional water load—tapi berpotensi memberikan performance benefit dan cleaning interval yang lebih panjang.</p>
+<p>Dua rantai biaya ini perlu dibandingkan. Pertanyaannya bukan apakah water injection murah, tapi apakah total cost of ownership dengan water injection lebih rendah daripada biaya membiarkan fouling berkembang dan kemudian membersihkannya. Dan jawabannya mungkin berbeda untuk setiap plant.</p>
+<h2 id="penutup">Penutup</h2>
+<p>Water washing dan wet compression bukan konsep baru. Keduanya sudah punya banyak preseden pada berbagai aplikasi rotating equipment. Yang menarik adalah mencoba melihat apakah prinsip ini bisa memberikan manfaat tambahan pada feed air compressor, khususnya pada plant yang beroperasi di lingkungan dengan particulate dan humidity tinggi.</p>
+<p>Tapi water injection tidak boleh disederhanakan menjadi "air disemprotkan, impeller bersih". Ada setidaknya tiga mekanisme berbeda yang perlu dipahami—fouling mitigation, wet compression, dan perubahan mass flow atau operating point—dan cakupan manfaatnya berpotensi meluas melewati impeller, sampai ke sirip-sirip intercooler dan aftercooler yang sama-sama dilalui gas yang membawa particulate. Di sisi lain, untuk ASU, tambahan moisture juga perlu dilihat sebagai tambahan load terhadap purification system, bukan sekadar persoalan apakah molecular sieve "bisa mengeringkan air".</p>
+<p>Pada akhirnya, mungkin pertanyaan paling menarik bukan apakah water injection merupakan solusi untuk fouling, melainkan apakah kita bisa mengubah strategi—dari sekadar membersihkan fouling setelah terjadi, menjadi mengelola laju pembentukan fouling sejak awal. Jika jawabannya ya, water injection mungkin layak menjadi salah satu pendekatan yang dikaji. Jika ternyata tidak memberikan benefit yang cukup, kita tetap mendapatkan sesuatu yang berharga: pemahaman yang lebih baik mengenai hubungan antara fouling, compressor performance, maintenance, energy consumption, dan operating cost.</p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="compressor" /><category term="Compressor" /><category term="Centrifugal" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Fouling pada feed air compressor biasanya ditangani setelah deposit terbentuk. Tapi bagaimana jika laju pembentukannya bisa dikurangi sejak awal? Tulisan ini mengeksplorasi water injection sebagai pendekatan proaktif untuk mengelola fouling.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1722112977821-c87cbd55f459?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE0fHxpbmR1c3RyaWFsJTIwd2F0ZXIlMjBqZXR8ZW58MHx8fHwxNzg2ODU2NzE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1722112977821-c87cbd55f459?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE0fHxpbmR1c3RyaWFsJTIwd2F0ZXIlMjBqZXR8ZW58MHx8fHwxNzg2ODU2NzE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Membuat Driver Modbus dengan Fitur Scaling Berdasarkan Driver Modbus Rapid SCADA</title><link href="https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada.html" rel="alternate" type="text/html" title="Membuat Driver Modbus dengan Fitur Scaling Berdasarkan Driver Modbus Rapid SCADA" /><published>2026-05-14T15:17:05+00:00</published><updated>2026-05-14T15:17:05+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/rapid-scada/2026/05/14/membuat-driver-modbus-dengan-fitur-scaling-berdasarkan-driver-modbus-rapid-scada.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 14 Mei 2026</em></p>
 <h2 id="pendahuluan">Pendahuluan</h2>
 <p>Rapid SCADA menyediakan driver <code>DrvModbus</code> yang handal untuk komunikasi Modbus. Namun, menambahkan fitur khusus seperti <em>scaling</em> (penskalaan nilai <em>raw</em> register ke nilai <em>engineer</em>) memerlukan perubahan kode sumber asli dan proses <em>pull request</em> yang rumit. Solusi praktis adalah <strong>menyalin seluruh driver asli</strong> lalu memodifikasinya menjadi driver mandiri, misalnya <code>DrvSigModbus</code>. Artikel ini memandu langkah demi langkah, termasuk mengintegrasikan fitur scaling dari <a href="https://github.com/RapidScada/scada-v6/pull/105?ref=blog.kiiota.com">PR #105</a> dan perbaikan validasi.</p>
 <blockquote>
@@ -4175,358 +4227,4 @@ Jika cairannya terlalu "berat" (kaya oksigen), kolom bisa terlalu hangat.</p>
 <li>Di kolom distilasi kriogenik, <strong>suhu yang terlalu ekstrem ke salah satu arah bisa membuat pemisahan gagal</strong>.</li>
 <li>Jaga keseimbangan antara <strong>penguapan dan kondensasi</strong> agar nitrogen dan oksigen tetap di jalur masing-masing.</li>
 </ul>
-<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cryogenic" /><category term="Cryogenic" /><summary type="html"><![CDATA[Suhu di kolom bawah distilasi kriogenik menentukan pemisahan nitrogen & oksigen. Terlalu dingin, nitrogen gagal menguap, liquid air kaya nitrogen. Terlalu hangat, oksigen ikut naik, cemari nitrogen. Komposisi liquid air sebagai indikator: keseimbangan suhu, kunci kemurnian.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Surging pada Kompresor Sentrifugal: Ketika Masalah Besar Berawal dari Modifikasi Kecil</title><link href="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil.html" rel="alternate" type="text/html" title="Surging pada Kompresor Sentrifugal: Ketika Masalah Besar Berawal dari Modifikasi Kecil" /><published>2025-07-21T15:56:15+00:00</published><updated>2025-07-21T15:56:15+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/engineering-lessons/2025/07/21/surging-pada-kompresor-sentrifugal-ketika-masalah-besar-berawal-dari-modifikasi-kecil.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/07/surging_id_ID.mp3" preload="metadata"></audio><div class="kg-audio-title">Ketika Masalah Besar Berawal dari Modifikasi Kecil</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">6.312</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
-<h2 id="pendahuluan">Pendahuluan</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/01_surging_pada_kompresor_sentrifugal_ketika_masalah_besar_berawal_dari_modifikasi_kecil.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Masalah kronis pada <strong>Kompresor Resirkulasi Nitrogen</strong> dan <strong>Booster Ekspander</strong> di unit <strong>Pabrik Pemisah Udara</strong> sudah muncul sejak commissioning, dipicu oleh modifikasi instalasi yang awalnya dimaksudkan untuk memberikan informasi kecepatan ekspander ke ruang kontrol untuk kepentingan operasional, namun berujung pada dampak teknis jangka panjang.</p>
-<p>Perlu hampir sepuluh tahun—sejak saya mulai bekerja di industri ini pada 2007 hingga akhirnya terpecahkan di 2017—untuk benar-benar memahami dan menyelesaikan masalah ini. Dalam kurun waktu tersebut dan pasti juga sebelumnya, berbagai upaya telah dilakukan, namun sebagian besar hanya menyentuh gejalanya—bukan akarnya. Dari perspektif saya, artikel ini merekam perjalanan panjang—dari kecurigaan awal, eksperimen lapangan, hingga penyelesaian yang akhirnya mengembalikan sistem ke logika desain aslinya. Silakan memberikan sanggahan jika dirasa ada yang kurang tepat.</p>
-<hr />
-
-<h2 id="awal-mula-masalah">Awal Mula Masalah</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/02_awal_mula_masalah.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Sejak awal, masalah ini seperti dipahami dengan premis yang keliru: hampir semua perhatian tertuju pada <strong>kompresor resirkulasi nitrogen</strong>, seolah-olah ia selalu menjadi biang keladi. Namun sejak awal, saya mencurigai ada yang tidak beres—terutama dalam urutan <em>shutdown</em> antara <strong>kompresor resirkulasi nitrogen</strong> dan <strong>booster ekspander</strong>.</p>
-<p><strong>DCS menunjukkan bahwa kompresor resirkulasi nitrogen trip terlebih dahulu</strong>, tetapi saya meragukan kebenaran data ini. Ada <strong>kabel interlock</strong> yang memungkinkan kompresor resirkulasi nitrogen trip <strong>atas permintaan dari booster ekspander</strong>, sementara DCS—yang memproses ratusan I/O—bisa mengalami latensi dalam mencatat urutan kejadian, terutama yang terjadi dalam skala milidetik. Ini karena DCS melakukan <em>siklus pemindaian</em> terhadap I/O secara sekuensial, sedangkan sinyal trip bisa muncul <em>tidak sinkron</em>, baik di depan maupun di belakang jalannya siklus.</p>
-<p>Demi memastikan urutan <em>shutdown</em> yang sebenarnya, saya merakit sendiri sebuah <strong>PLC Siemens S7</strong> sebagai <em>pencatan even</em> berkecepatan tinggi. Resolusi tinggi menjadi satu-satunya cara untuk secara obyektif membuktikan siapa yang benar-benar lebih dulu trip. Hasil pengujiannya <strong>konsisten</strong>: <strong>100% kejadian menunjukkan bahwa booster-lah yang lebih dulu trip</strong>. Ini disebabkan oleh <strong>pembukaan <em>bypass</em> booster secara mendadak</strong>, yang memicu <strong>surging pada kompresor resirkulasi nitrogen</strong>, akhirnya kompresor resirkulasi nitrogen ikut trip juga melalui perintah interlock. Tentu tidak semua langsung setuju dengan kesimpulan ini—karena memahami cara kerja DCS dan PLC memang memerlukan keahlian teknis yang mendalam.</p>
-<blockquote>
-<p><strong>Logika Ladder – Deteksi Trip yang Adil</strong></p>
-<p>Logika ladder di bawah ini menerapkan sistem deteksi trip yang deterministik dengan menggunakan deteksi <em>rising edge</em> dan penanda memori.<br />
-Sistem ini memastikan bahwa input mana pun—kompresor resirkulasi nitrogen atau booster ekspander—yang memicu trip pertama akan dicatat secara objektif, tanpa dipengaruhi oleh urutan pemindaian PLC.</p>
-</blockquote>
-<details>
-<summary>Klik untuk membuka Logika Ladder dan Tabel Simbol PLC</summary>
-<pre><code class="language-plaintext">// =====================================================
-// First Trip Logic - Ladder Implementation
-// Author: Ketut Kumajaya (with tweaks from Grok on 02 November 2025)
-// Scope: Detect &amp; latch first trip antara C60 (I0.0) &amp; CD10 (I0.1)
-// Fitur: Rising edge, latch tripped/first, lock first, manual reset
-// Extendable: Duplikat rung 1-4 &amp; 5-6 untuk channel 3-8 (I0.2-I0.7, M0.5+, Q0.4+)
-// =====================================================
-
-// Rising Edge Detection untuk C60 (I0.0)
-Rung 1:
-|----[ I0.0 ]----[/ M0.3 ]----------------( M0.1 )  // Pulse C60 rising edge
-
-Rung 2:
-|----[ I0.0 ]-----------------------------( M0.3 )  // Latch state C60 (untuk tripped output)
-
-// Rising Edge Detection untuk CD10 (I0.1)
-Rung 3:
-|----[ I0.1 ]----[/ M0.4 ]----------------( M0.2 )  // Pulse CD10 rising edge
-
-Rung 4:
-|----[ I0.1 ]-----------------------------( M0.4 )  // Latch state CD10 (untuk tripped output)
-
-// Tripped Status Outputs (Latched dari state M)
-Rung 5:
-|----[ M0.3 ]-----------------------------( Q0.2 )  // C60 tripped (latched)
-
-Rung 6:
-|----[ M0.4 ]-----------------------------( Q0.3 )  // CD10 tripped (latched)
-
-// Determine &amp; Latch First Trip (dengan lock M0.0)
-Rung 7:
-|----[ M0.1 ]----[/ M0.0 ]----------------( SET Q0.0 )  // Set first C60 jika pulse &amp; no lock
-|                                     ----( M0.0 )  // Set lock
-
-Rung 8:
-|----[ M0.2 ]----[/ M0.0 ]----------------( SET Q0.1 )  // Set first CD10 jika pulse &amp; no lock
-|                                     ----( M0.0 )  // Set lock (jika belum)
-
-// Latch First Outputs (parallel hold, biar stay ON)
-Rung 7a (parallel ke Rung 7 output):
-|----[ Q0.0 ]-----------------------------( Q0.0 )  // Hold first C60
-
-Rung 8a (parallel ke Rung 8 output):
-|----[ Q0.1 ]-----------------------------( Q0.1 )  // Hold first CD10
-
-// Manual Reset (clear semua latch &amp; lock)
-Rung 9:
-|----[ I0.2 ]---------------------------[RST M0.0]  // Reset lock
-|                                       [RST M0.3]  // Reset state C60
-|                                       [RST M0.4]  // Reset state CD10
-|                                       [RST Q0.0]  // Reset first C60
-|                                       [RST Q0.1]  // Reset first CD10
-|                                       [RST Q0.2]  // Reset tripped C60
-|                                       [RST Q0.3]  // Reset tripped CD10
-
-</code></pre>
-<table>
-<thead>
-<tr>
-<th><strong>Symbol</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Function Description</strong></th>
-<th><strong>Usage Notes</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>I0.0</code></td>
-<td>Digital Input</td>
-<td>Trip signal from compressor C60</td>
-<td>Aktif HIGH saat trip; rising edge detected via M0.1. Inversi jika sinyal asli LOW.</td>
-</tr>
-<tr>
-<td><code>I0.1</code></td>
-<td>Digital Input</td>
-<td>Trip signal from booster expander CD10</td>
-<td>Sama seperti I0.0; rising edge via M0.2. Prioritas scan: C60 duluan (deterministik).</td>
-</tr>
-<tr>
-<td><code>I0.2</code></td>
-<td>Digital Input</td>
-<td>Manual reset button to clear all trip flags</td>
-<td>Edge-triggered; clear lock &amp; latches di Rung 9. Tambah debounce jika noisy.</td>
-</tr>
-<tr>
-<td><code>Q0.0</code></td>
-<td>Digital Output</td>
-<td>Indicates C60 tripped first</td>
-<td>Latched via SET; ON jika C60 first &amp; locked. Hubung ke HMI alarm.</td>
-</tr>
-<tr>
-<td><code>Q0.1</code></td>
-<td>Digital Output</td>
-<td>Indicates CD10 tripped first</td>
-<td>Latched via SET; ON hanya jika CD10 first (blokir jika lock sudah ON).</td>
-</tr>
-<tr>
-<td><code>Q0.2</code></td>
-<td>Digital Output</td>
-<td>Status output: C60 has tripped</td>
-<td>Latched dari M0.3; stay ON post-trip untuk monitoring.</td>
-</tr>
-<tr>
-<td><code>Q0.3</code></td>
-<td>Digital Output</td>
-<td>Status output: CD10 has tripped</td>
-<td>Latched dari M0.4; sama seperti Q0.2.</td>
-</tr>
-<tr>
-<td><code>M0.0</code></td>
-<td>Memory Bit</td>
-<td>Trip detection flag—only one trip allowed per scan</td>
-<td>Lock flag; SET saat first pulse, blokir others. Reset via I0.2.</td>
-</tr>
-<tr>
-<td><code>M0.1</code></td>
-<td>Memory Bit</td>
-<td>Rising edge detected on C60</td>
-<td>Pulse momentary (1 scan); trigger SET Q0.0 jika !M0.0.</td>
-</tr>
-<tr>
-<td><code>M0.2</code></td>
-<td>Memory Bit</td>
-<td>Rising edge detected on CD10</td>
-<td>Pulse momentary; trigger SET Q0.1 jika !M0.0.</td>
-</tr>
-<tr>
-<td><code>M0.3</code></td>
-<td>Memory Bit</td>
-<td>Previous input state of C60 (for edge detection)</td>
-<td>Latch I0.0 state; digunakan di [/M0.3] untuk rising edge.</td>
-</tr>
-<tr>
-<td><code>M0.4</code></td>
-<td>Memory Bit</td>
-<td>Previous input state of CD10 (for edge detection)</td>
-<td>Latch I0.1 state; sama seperti M0.3.</td>
-</tr>
-</tbody>
-</table>
-</details>
-<p>Sejak awal commissioning, untuk menurunkan risiko surging, <strong>kompresor resirkulasi nitrogen tidak pernah dijalankan pada performa maksimal</strong>. <em>Bypass</em>-nya cenderung tetap terbuka, dan demi menjaga kestabilan operasi, operator mengembangkan rutinitas harian: <strong>menurunkan kecepatan ekspander</strong> saat suhu lingkungan mulai naik di pagi hari, dan <strong>menaikkannya kembali ketika malam lebih sejuk</strong>—sebuah seni bertahan di antara batas aman desain dan realitas operasional yang terus berubah. Strategi ini cukup efektif: malam hari yang lebih dingin dimanfaatkan untuk meningkatkan performa booster. Sementara siang hari yang panas dijaga agar tetap stabil—karena pada suhu tinggi, risiko <strong>surging</strong> dan <strong>trip</strong> jauh lebih besar.</p>
-<p>Namun, mengoperasikan kompresor sentrifugal dengan <em>bypass</em> yang tidak sepenuhnya tertutup membuat seluruh plant menjadi <strong>sangat bising</strong>. Ini adalah kompromi performa yang mahal—menggerus efisiensi energi sekaligus menurunkan kenyamanan kerja akibat kebisingan konstan.</p>
-<hr />
-
-<h2 id="eksperimen-dan-investigasi">Eksperimen dan Investigasi</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/03_eksperimen_dan_investigasi.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Strategi operasional dinamis yang diterapkan berdasarkan penilaian terhadap kondisi lingkungan <strong>tidak selalu memberikan hasil yang diharapkan</strong>. Ketika penilaian lingkungan kurang tepat—terlalu cepat atau terlalu lambat dalam merespons perubahan—penyesuaian kecepatan ekspander berulang kali <strong>gagal mencegah surging maupun trip</strong> pada sistem.</p>
-<p>Masalah ini justru makin memburuk pada akhir 2016, meskipun sebelumnya telah dilakukan berbagai perbaikan, termasuk penggantian sejumlah komponen kontrol dan sensor. Upaya-upaya tersebut <strong>ternyata hanya menyentuh gejalanya, bukan akar permasalahannya</strong>. Situasinya seperti <strong>berkutat dengan penyakit yang tidak jelas diagnosanya, lalu mencoba berbagai obat yang tidak pernah benar-benar menyembuhkan</strong>.</p>
-<p>Manajemen kemudian memutuskan untuk melakukan overhaul total pada kedua mesin—<strong>kompresor resirkulasi nitrogen dan booster ekspander</strong>. Namun, karena keterbatasan personel dari pihak vendor, hanya kompresor resirkulasi nitrogen yang dikerjakan.</p>
-<p>Saat dilakukan uji coba pengoperasian kompresor resirkulasi nitrogen tanpa booster ekspander, <strong>mesin mampu berjalan hingga performa maksimal tanpa kendala</strong>. Hasil ini semakin memperkuat keyakinan saya bahwa <strong>kompresor resirkulasi nitrogen bukanlah akar dari permasalahan yang selama ini terjadi</strong>. Hanya beberapa hari setelah plant kembali beroperasi penuh, surging dan trip kembali terjadi—membawa kami kembali ke titik awal kebingungan.</p>
-<p>Saya kemudian memutuskan membentuk <strong>tim kecil</strong>, terdiri dari teknisi kontrol, instrumentasi, dan mekanik terpilih—hanya mereka yang boleh terlibat dan mereka hanya menerima perintah dari saya. Bersama-sama, kami menjalankan serangkaian investigasi intensif:</p>
-<ul>
-<li><strong>Perekaman local panel</strong> menggunakan video real-time secara bergantian, meski sangat tidak nyaman</li>
-<li><strong>Pemodelan ulang sinyal trip</strong>, setelah kami memperoleh rekaman berharga dari saat terjadinya gangguan</li>
-<li><strong>Evaluasi rangkaian sinyal 4–20</strong>, yang ternyata dibebani tiga perangkat, bukan dua seperti seharusnya</li>
-<li><strong>Simulasi dugaan</strong>, dan kami berhasil merekonstruksi ulang akar permasalahannya dengan presisi!</li>
-</ul>
-<p>Temuan paling krusial datang dari satu hal yang luput sejak awal: <strong>sinyal analog ternyata berasal dari sumber tegangan 5 volt DC</strong>, bukan 24 volt DC seperti saya kira. Ini bukan sekadar perbedaan angka—melainkan perbedaan mendasar dalam kapasitas daya dan toleransi terhadap beban. Ini saya temukan saat dokumen perangkat kontrol kecepatan lama saya bawa pulang dan baca di rumah.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_design_violation.svg" alt="surging_design_violation" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Gambar 1. Pelanggaran Desain—sinyal analog kelebihan beban
-  </figcaption>
-</div>
-<p>Lebih lanjut, <strong>output tersebut ternyata dibebani tiga perangkat</strong>, padahal dalam desain awal hanya dirancang untuk dua. Kombinasi tegangan rendah dan jumlah beban berlebih ini menimbulkan <strong>distorsi sinyal</strong> yang nyata. Semakin tinggi kecepatan operasi, semakin besar arus yang ditarik, dan <strong>tegangan mulai merosot</strong> akibat drop tegangan di tiap beban.</p>
-<p>Hingga pada titik tertentu, <strong>sumber 5 volt DC tak mampu lagi mempertahankan level tegangan minimum</strong>, dan sinyal analog tiba-tiba anjlok. Di sinilah masalah puncaknya muncul—<strong>kontrol anti surging pada booster ekspander membaca kondisi ini sebagai gangguan serius</strong>, dan merespons secara agresif meski sebenarnya tidak diperlukan.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-Voltage_vs_Speed.svg" alt="Voltage_vs_Speed" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Gambar 2. Pelanggaran Desain—penurunan kecepatan memicu respon anti surge yang tidak perlu
-  </figcaption>
-</div>
-<details>
-<summary>Klik untuk membuka skrip plotting Python di atas</summary>
-<pre><code class="language-javascript">import numpy as np
-import matplotlib.pyplot as plt
-
-# Current range (mA)
-current_mA = np.linspace(4, 20, 1000)
-
-# Convert to RPM (0–45000 RPM)
-rpm = (current_mA - 4) / 16 * 45000
-
-# Load resistances (ohms)
-resistors = [125, 250, 350]
-colors = ['tab:blue', 'tab:orange', 'tab:red']
-
-# Output voltage for each resistance
-voltages = {R: current_mA / 1000 * R for R in resistors}
-
-plt.figure(figsize=(10, 6))
-
-for i, R in enumerate(resistors):
-    voltage = voltages[R]
-    label = f'{R} Ω Load' if R &lt; 350 else f'{R} Ω Load (design violation)'
-    linestyle = '-' if R &lt; 350 else '--'  # Dashed line indicates thermal shift or excessive load
-
-    plt.plot(rpm, voltage, label=label, color=colors[i], linestyle=linestyle)
-
-    # Find where voltage reaches 5V
-    idx_5 = np.argmin(np.abs(voltage - 5))
-    rpm_at_5V = rpm[idx_5]
-    plt.axvline(rpm_at_5V, color=colors[i], linestyle=':', alpha=0.6)
-    plt.text(rpm_at_5V, 5.3, f'{int(rpm_at_5V)} RPM', rotation=90,
-             verticalalignment='bottom', horizontalalignment='right',
-             fontsize=8, color=colors[i])
-
-# Find where voltage reaches 4.8V
-idx_4 = np.argmin(np.abs(voltage - 4.8))
-rpm_at_4 = rpm[idx_4]
-plt.axvline(rpm_at_4, color=colors[2], linestyle=':', alpha=0.6)
-plt.text(rpm_at_4, 5.3, f'{int(rpm_at_4)} RPM', rotation=90,
-            verticalalignment='bottom', horizontalalignment='right',
-            fontsize=8, color=colors[2])
-
-# Compliance limit line
-plt.axhline(5, color='black', linestyle='--', label='Maximum Voltage (5 V)')
-
-# Warning voltage line
-plt.axhline(4.8, color='red', linestyle='--', label='Voltage Drop Due to Load (4.8 V)')
-
-# Labels and titles
-plt.title('Analog Speed Signal Distortion Due to Voltage Drop')
-plt.xlabel('Expander Speed (RPM)')
-plt.ylabel('Analog Voltage (V)')
-plt.grid(True)
-plt.legend()
-plt.xlim(0, 45000)
-plt.ylim(0, 7)
-plt.tight_layout()
-
-# Export as SVG
-plt.savefig("Voltage_vs_Speed.svg", format='svg')
-plt.show()
-</code></pre>
-</details>
-<p>Akhirnya jelas: <strong>modifikasi rangkaian awal—yang niatnya hanya untuk menampilkan informasi di ruang kontrol—secara tidak sengaja menciptakan anomali pengukuran</strong>. Gangguan kecil ini, yang selama bertahun-tahun tersembunyi di balik asumsi dan rutinitas, justru menjadi penyebab utama gangguan sistemik yang kompleks dan mahal.</p>
-<hr />
-
-<h2 id="modifikasi-kecil-hasil-besar">Modifikasi Kecil, Hasil Besar</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/04_modifikasi_kecil_hasil_besar.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Setelah berhasil merekonstruksi akar masalahnya, saya menyusun presentasi singkat untuk menjelaskan apa yang sebenarnya terjadi, disertai solusi yang sangat sederhana: <strong>mengembalikan rangkaian ke desain awalnya</strong>. Solusi ini saya yakini aman dan tepat, karena tidak melibatkan perubahan logika atau perangkat, melainkan hanya mengoreksi modifikasi rangkaian yang terbukti keliru.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_fix.svg" alt="surging_fix" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Gambar 3. Koreksi yang Diusulkan—konsep pemisahan sinyal untuk mengurangi risiko kelebihan beban analog
-  </figcaption>
-</div>
-<p>Dengan penuh keyakinan, saya sampaikan proposal ini dalam rapat manajemen. Namun, yang terjadi justru di luar dugaan: <strong>saya tidak diizinkan melakukan eksekusi</strong>, dan diarahkan untuk menunggu teknisi dari vendor datang melakukan klarifikasi dan perbaikan. Padahal, selama bertahun-tahun, pihak vendor maupun pihak lain tidak pernah berhasil menyelesaikan masalah ini secara tuntas.</p>
-<p>Saya mencoba kembali, kali ini lewat pendekatan personal setelah rapat, untuk menjelaskan duduk perkaranya secara teknis. Tetapi hasilnya tetap sama: tidak diberi ruang untuk bertindak.</p>
-<p>Pada titik ini, saya mulai merasa bahwa <strong>hambatan yang saya hadapi bukan lagi teknis, tetapi politis</strong>. Sebuah ironi, ketika pemahaman yang mendalam terhadap masalah justru bukan menjadi dasar kepercayaan.</p>
-<p>Karena dukungan dari vendor tak kunjung pasti, saya sudah menetapkan dalam hati: kapan pun plant kembali trip, maka solusi yang saya siapkan akan langsung saya eksekusi. Dan tentu hari itu benar-benar datang. Tetap dengan prosedur, saya meminta izin kepada atasan langsung sebelum bertindak. Untungnya, perangkat kontrol kecepatan yang belum lama saya ganti memiliki dua kanal output–menghilangkan kebutuhan splitter sinyal yang sempat direncanakan sebelumnya. Dengan sedikit modifikasi program, saya set keduanya untuk mengeluarkan sinyal identik—satu untuk kontrol anti surging, dan satu lagi dipakai bersama untuk tampilan lokal serta sinyal ke DCS. Modifikasi rangkaian menjadi <strong>jauh lebih sederhana—dan lebih aman</strong>.</p>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/fe18e9c7-d3ea-4542-b701-83a46cb36702-surging_final.svg" alt="surging_final" style="max-width:100%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Gambar 4. Implementasi Final—output analog ganda menyelesaikan distorsi sinyal
-  </figcaption>
-</div>
-<p>Hanya dengan <strong>seutas kabel 30 cm</strong> dan satu <strong>obeng kecil</strong>, saya menyambung ulang output analog yang selama ini menjadi sumber masalah tersembunyi.<br />
-Setelah diperbaiki, <em>kontrol anti surging</em> pada booster ekspander saya uji ulang — dan hasilnya tak terbantahkan: <strong>sistem pulih total</strong>, <strong>tanpa anomali</strong>.</p>
-<blockquote>
-<p>"Kadang, perbaikan besar dimulai dari hal yang tampak sepele—asal kita cukup gigih mencarinya dan tidak menganggap sebuah masalah pasti abadi."</p>
-</blockquote>
-<hr />
-
-<h2 id="efek-langsung-dan-tidak-langsung">Efek Langsung dan Tidak Langsung</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/05_efek_langsung_dan_tidak_langsung.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Modifikasi kecil ini membawa dampak besar terhadap performa plant, baik secara teknis maupun ekonomis:</p>
-<ul>
-<li><strong>Kompresor resirkulasi nitrogen kini dapat beroperasi dengan <em>bypass</em> tertutup sepenuhnya</strong>, memungkinkan sistem berjalan mendekati performa desain. Nitrogen tak lagi berputar-putar tanpa tujuan, sekaligus mengurangi beban pada sistem pendingin.</li>
-<li><strong>Kompresor sentrifugal menjadi senyap</strong>, tidak ada lagi suara khas peluit dari aliran <em>bypass</em>—sebuah <em>keheningan yang menandakan efisiensi</em>.</li>
-<li><strong>Konsumsi energi dan dengan demikian tagihan listrik menurun drastis</strong>, karena siklus nitrogen yang tidak efektif telah dieliminasi, dan kebutuhan untuk start ulang mesin jauh berkurang.</li>
-<li><strong>Produksi nitrogen dan argon meningkat</strong>, seiring proses yang berjalan lebih stabil dan optimal sesuai rancangan awal.</li>
-</ul>
-<p>Tentu saja, perubahan ini tidak langsung terasa seketika. Butuh waktu untuk <strong>membongkar pola operasi</strong> yang sudah terbentuk selama bertahun-tahun dan <strong>membangun keyakinan terhadap perubahan</strong> yang sudah dilakukan memerlukan perubahan lanjutan pada proses.</p>
-<p>Saya sendiri saat itu belum memiliki kemampuan untuk menghitung kapasitas plant secara independen. Tapi menurut informasi, modifikasi ini <em>disebut-sebut memberikan dampak nyata</em>:</p>
-<blockquote>
-<p><strong>Penghematan lebih dari 1 miliar rupiah per bulan</strong><br />
-Kombinasi dari penurunan konsumsi listrik dan peningkatan output produksi.</p>
-</blockquote>
-<p>Angka pastinya bisa diperdebatkan. Tapi suara kompresor yang tak lagi menjerit—itu bukti paling nyata bahwa perubahan sudah terjadi.</p>
-<hr />
-
-<h2 id="tantangan-budaya-dan-persepsi">Tantangan Budaya dan Persepsi</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/06_tantangan_budaya_dan_persepsi.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Tantangan terbesar dalam menyelesaikan masalah sering kali bukanlah teknis, melainkan budaya kerja dan struktur pengambilan keputusan. Dalam sistem yang kompleks dan telah lama beroperasi, tidak jarang <strong>tak ada satu pun individu yang benar-benar memahami persoalan secara utuh</strong>. Pemahaman tersebar dan terfragmentasi — sebagian ada di engineer, sebagian di operator, sebagian lagi tersembunyi dalam dokumentasi yang jarang disentuh kembali.</p>
-<p>Dalam kondisi seperti ini, arah <em>troubleshooting</em> lebih banyak ditentukan oleh siapa yang memiliki kewenangan, bukan oleh siapa yang paling memahami persoalan. Solusi pun kerap dibentuk oleh intuisi, kebiasaan, atau tekanan untuk segera “memulihkan operasi” — bukan oleh hasil diagnosa yang mendalam.</p>
-<p>Bukan karena sistem sengaja dibiarkan menyimpang dari desain, melainkan karena <strong>upaya-upaya menemukan akar masalah berulang kali menemui jalan buntu</strong>. Ketika berbagai pendekatan tak kunjung membuahkan hasil, organisasi akhirnya memilih jalan yang dianggap paling aman: bertahan pada konfigurasi yang stabil meskipun menyimpang. Selama sistem masih berjalan dan tidak terjadi kerusakan fatal, kondisi ini perlahan diterima sebagai kenormalan baru.</p>
-<p>Namun ketika gangguan makin sering terjadi, rutinitas penanganan tak lagi cukup. <strong>Diperlukan keberanian untuk mengajukan narasi tandingan</strong> — membuka kemungkinan bahwa akar masalah belum benar-benar tersentuh, bahwa ada sesuatu yang selama ini luput dari pemahaman kolektif kita.</p>
-<p>Perubahan sejati biasanya baru memiliki ruang ketika tekanan sudah cukup tinggi, data sudah cukup kuat, dan rasa frustrasi sudah cukup mendalam. Di titik ini, pendekatan baru akhirnya punya peluang untuk dicoba — dan perbaikan yang nyata bisa mulai terjadi.</p>
-<hr />
-
-<h2 id="penutup">Penutup</h2>
-<audio controls="">
-  <source src="https://blog.kiiota.com/content/media/2025/07/07_penutup.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<p>Ini bukan semata urusan memperbaiki rangkaian atau logika kontrol, melainkan <strong>upaya menata ulang kepercayaan terhadap desain awal</strong>—dan lebih dari itu, <strong>keberanian untuk mengoreksi sistem yang selama ini dianggap sudah final</strong>.</p>
-<p>Saya bahkan sempat berpikir, <em>“Kalau saja output perangkat kontrol kecepatan baru kebetulan 12 volt atau 24 volt, mungkin masalah ini selesai dengan sendirinya.”</em> Tapi bisa jadi, saya tidak akan pernah tahu sumber masalah yang sebenarnya.</p>
-<p>Setelah dua dekade berjalan dalam kondisi yang menyimpang, akhirnya sistem ini bekerja sebagaimana mestinya. Bukan karena alatnya berubah, tapi karena cara kita memahaminya yang berubah. Sebuah proses panjang yang menghadirkan <strong>pembelajaran teknis sekaligus manajerial yang tak ternilai</strong>.</p>
-<hr />
-
-<p><strong>Catatan Penulis</strong></p>
-<p>Tulisan ini bukan hanya soal teknis, tapi juga tentang <strong>manajemen perubahan</strong>, <strong>analisis historis</strong>, dan <strong>ketangguhan menghadapi resistensi</strong>.</p>
-<blockquote>
-<p>Massa otot bukan segalanya —  neuronlah yang membuat otak bekerja lebih cepat. 🧠⚡</p>
-</blockquote>
-<p style="text-align:center; font-size:0.95em; color:#555; margin-top:2em;">
-  Dan jika semuanya gagal...
-</p>
-<p><a href="https://www.youtube.com/watch?v=BGednQsQ-h8&amp;ref=blog.kiiota.com" target="_blank" rel="noopener noreferrer" style="display:inline-block; position:relative; text-decoration:none; margin-top:2em;" onmouseover="this.firstElementChild.style.filter='brightness(0.8) contrast(1.2)'" onmouseout="this.firstElementChild.style.filter='none'">
-  <img src="https://img.youtube.com/vi/BGednQsQ-h8/hqdefault.jpg" alt="Limp Bizkit - The Truth" style="width:100%; max-width:200px; border:0; display:block; margin:0 auto; border-radius:8px;" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_play_button_icon_%282017%29.svg" alt="Play" style="position:absolute; top:50%; left:50%; width:36px; height:36px; transform:translate(-50%,-50%); opacity:0.85;" />
-</a></p>
-<figcaption style="text-align:center; font-size:0.9em; font-style:italic; margin-top:6px; color:#444;">
-  Terkadang, satu-satunya keadilan yang tersisa... adalah menyampaikan <strong>kebenaran</strong>.
-</figcaption>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="engineering-lessons" /><category term="Engineering Lessons" /><category term="Troubleshooting" /><summary type="html"><![CDATA[Tulisan ini bukan hanya soal teknis, tapi juga tentang manajemen perubahan, analisis historis, dan ketangguhan menghadapi resistensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1630941150115-ae465f29ece0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzdHJlc3N8ZW58MHx8fHwxNzUzMDI2Nzk3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cryogenic" /><category term="Cryogenic" /><summary type="html"><![CDATA[Suhu di kolom bawah distilasi kriogenik menentukan pemisahan nitrogen & oksigen. Terlalu dingin, nitrogen gagal menguap, liquid air kaya nitrogen. Terlalu hangat, oksigen ikut naik, cemari nitrogen. Komposisi liquid air sebagai indikator: keseimbangan suhu, kunci kemurnian.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

@@ -2,23 +2,23 @@
 :root {
   --minima-brand-color: #818181;
   --minima-brand-color-light: #e7e7e7;
-  --minima-brand-color-dimmed: rgb(100.95, 100.95, 100.95);
-  --minima-brand-color-dark: rgb(65.25, 65.25, 65.25);
-  --minima-site-title-color: rgb(65.25, 65.25, 65.25);
+  --minima-brand-color-dimmed: rgb(39.5882352941%, 39.5882352941%, 39.5882352941%);
+  --minima-brand-color-dark: rgb(25.5882352941%, 25.5882352941%, 25.5882352941%);
+  --minima-site-title-color: rgb(25.5882352941%, 25.5882352941%, 25.5882352941%);
   --minima-heading-color: #111111;
-  --minima-text-color: rgb(65.25, 65.25, 65.25);
+  --minima-text-color: rgb(25.5882352941%, 25.5882352941%, 25.5882352941%);
   --minima-background-color: #fdfdfd;
   --minima-code-background-color: #f6f8fa;
   --minima-link-base-color: #1e69d8;
-  --minima-link-visited-color: rgb(20.6707317073, 72.3475609756, 148.8292682927);
-  --minima-link-hover-color: rgb(65.25, 65.25, 65.25);
+  --minima-link-visited-color: rgb(8.106169297%, 28.3715925395%, 58.3644189383%);
+  --minima-link-hover-color: rgb(25.5882352941%, 25.5882352941%, 25.5882352941%);
   --minima-border-color-01: #e7e7e7;
-  --minima-border-color-02: rgb(218.25, 218.25, 218.25);
-  --minima-border-color-03: rgb(65.25, 65.25, 65.25);
-  --minima-table-text-color: rgb(62.9, 62.9, 62.9);
-  --minima-table-zebra-color: rgb(246.3, 246.3, 246.3);
-  --minima-table-header-bg-color: rgb(238.65, 238.65, 238.65);
-  --minima-table-header-border: rgb(223.35, 223.35, 223.35);
+  --minima-border-color-02: rgb(85.5882352941%, 85.5882352941%, 85.5882352941%);
+  --minima-border-color-03: rgb(25.5882352941%, 25.5882352941%, 25.5882352941%);
+  --minima-table-text-color: rgb(24.6666666667%, 24.6666666667%, 24.6666666667%);
+  --minima-table-zebra-color: rgb(96.5882352941%, 96.5882352941%, 96.5882352941%);
+  --minima-table-header-bg-color: rgb(93.5882352941%, 93.5882352941%, 93.5882352941%);
+  --minima-table-header-border: rgb(87.5882352941%, 87.5882352941%, 87.5882352941%);
   --minima-table-border-color: #e7e7e7;
 }
 
@@ -214,25 +214,25 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --minima-brand-color: #999999;
-    --minima-brand-color-light: rgb(165.75, 165.75, 165.75);
-    --minima-brand-color-dimmed: rgb(132.6, 132.6, 132.6);
-    --minima-brand-color-dark: rgb(43.35, 43.35, 43.35);
-    --minima-site-title-color: rgb(165.75, 165.75, 165.75);
+    --minima-brand-color-light: rgb(65%, 65%, 65%);
+    --minima-brand-color-dimmed: rgb(52%, 52%, 52%);
+    --minima-brand-color-dark: rgb(17%, 17%, 17%);
+    --minima-site-title-color: rgb(65%, 65%, 65%);
     --minima-heading-color: #bbbbbb;
-    --minima-text-color: rgb(148.75, 148.75, 148.75);
+    --minima-text-color: rgb(58.3333333333%, 58.3333333333%, 58.3333333333%);
     --minima-background-color: #181818;
     --minima-code-background-color: #222222;
     --minima-link-base-color: #5691cd;
     --minima-link-visited-color: #80bbff;
-    --minima-link-hover-color: rgb(148.75, 148.75, 148.75);
-    --minima-border-color-01: rgb(43.35, 43.35, 43.35);
-    --minima-border-color-02: rgb(165.75, 165.75, 165.75);
+    --minima-link-hover-color: rgb(58.3333333333%, 58.3333333333%, 58.3333333333%);
+    --minima-border-color-01: rgb(17%, 17%, 17%);
+    --minima-border-color-02: rgb(65%, 65%, 65%);
     --minima-border-color-03: #999999;
-    --minima-table-text-color: rgb(148.75, 148.75, 148.75);
-    --minima-table-zebra-color: rgb(34.2, 34.2, 34.2);
-    --minima-table-header-bg-color: rgb(49.5, 49.5, 49.5);
-    --minima-table-header-border: rgb(62.25, 62.25, 62.25);
-    --minima-table-border-color: rgb(43.35, 43.35, 43.35);
+    --minima-table-text-color: rgb(58.3333333333%, 58.3333333333%, 58.3333333333%);
+    --minima-table-zebra-color: rgb(13.4117647059%, 13.4117647059%, 13.4117647059%);
+    --minima-table-header-bg-color: rgb(19.4117647059%, 19.4117647059%, 19.4117647059%);
+    --minima-table-header-border: rgb(24.4117647059%, 24.4117647059%, 24.4117647059%);
+    --minima-table-border-color: rgb(17%, 17%, 17%);
   }
   .highlight .err {
     color: #e3d2d2;
