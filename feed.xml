@@ -1,5 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-08-16T06:24:38+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
-</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Water Injection pada Feed Air Compressor: Bisakah Fouling Dicegah, Bukan Hanya Dibersihkan?</title><link href="https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan.html" rel="alternate" type="text/html" title="Water Injection pada Feed Air Compressor: Bisakah Fouling Dicegah, Bukan Hanya Dibersihkan?" /><published>2026-08-16T05:25:52+00:00</published><updated>2026-08-16T05:25:52+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 16 Agustus 2026</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-09-13T05:40:34+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Kurva V/Hz pada Roots Blower: Kenapa Menurunkan Kecepatan Bisa Menaikkan Arus Motor</title><link href="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor.html" rel="alternate" type="text/html" title="Kurva V/Hz pada Roots Blower: Kenapa Menurunkan Kecepatan Bisa Menaikkan Arus Motor" /><published>2026-09-12T17:53:49+00:00</published><updated>2026-09-12T17:53:49+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 12 September 2026</em></p>
+<h2 id="pendahuluan">Pendahuluan</h2>
+<p>Salah satu laporan operasional yang cukup menarik perhatian datang dari sebuah plant oksigen: setiap kali frekuensi inverter diturunkan, arus motor justru naik. Secara intuisi, ini berlawanan dengan ekspektasi umum bahwa menurunkan kecepatan mesin seharusnya menurunkan kebutuhan daya dan, pada kondisi tertentu, arus motor. Namun ekspektasi ini valid untuk satu kategori beban tertentu, dan mesin yang dibahas di sini — Roots blower tipe positive displacement — berada di kategori yang berbeda.</p>
+<p>Tulisan ini membahas mengapa fenomena tersebut terjadi, bagaimana root-cause-nya diverifikasi, dan hasil perbaikannya di lapangan.</p>
+<h2 id="dua-kategori-beban-pada-aplikasi-vfd">Dua Kategori Beban pada Aplikasi VFD</h2>
+<p>Dari sudut pandang inverter, beban mekanis umumnya terbagi menjadi dua kategori dengan karakteristik torsi yang berbeda.</p>
+<p><strong>Variable torque</strong> — diwakili pompa dan fan sentrifugal. Torsi yang dibutuhkan naik sebanding kuadrat kecepatan (T ∝ N²), sehingga daya naik sebanding pangkat tiga kecepatan (P ∝ N³). Menurunkan kecepatan menjadi setengahnya secara teori menurunkan kebutuhan daya menjadi seperdelapan — inilah dasar mengapa VFD memberi penghematan energi signifikan pada aplikasi HVAC dan sistem pemompaan.</p>
+<p><strong>Constant torque</strong> — mencakup Roots blower, screw compressor, dan mesin positive displacement lainnya. Klasifikasi ini merujuk pada karakteristik yang umum digunakan sebagai basis pemilihan parameter VFD, bukan pernyataan bahwa torsi aktual selalu bernilai tetap dalam segala kondisi. Pada kondisi ideal, setiap putaran rotor memindahkan volume geometris yang relatif tetap, sehingga kapasitas volumetrik teoritis berbanding lurus dengan kecepatan rotor (Q ∝ N). Sebagai pendekatan (bukan persamaan karakteristik blower yang presisi), torsi yang dibutuhkan dapat digambarkan sebagai T ≈ (Q × ΔP) / (ω × η) — sehingga dengan Q ∝ N, persamaan ini disederhanakan menjadi T ≈ (N × ΔP) / (N × η), yang berarti pada ΔP proses dan efisiensi (η) yang relatif stabil, torsi mendekati konstan pada berbagai kecepatan operasi, dan daya mengikuti hubungan linear terhadap kecepatan (P ∝ N). Namun jika ΔP proses berubah signifikan — misalnya akibat perubahan tekanan suction/discharge atau kondisi gas — atau efisiensi berubah cukup besar terhadap operating point, torsi aktual turut bergeser. "Constant torque" pada konteks ini lebih tepat dipahami sebagai kategori aplikasi untuk pemilihan karakteristik V/Hz, bukan besaran yang konstan secara matematis pada setiap saat.</p>
+<p>Perbedaan kategori ini menentukan parameter kontrol motor yang seharusnya digunakan — dan di titik inilah ditemukan sumber masalah pada kasus ini.</p>
+<h2 id="parameter-yang-tidak-sesuai-kurva-vhz-quadratic">Parameter yang Tidak Sesuai: Kurva V/Hz Quadratic</h2>
+<p>Kurva V/Hz (voltage-to-frequency) menentukan besarnya tegangan yang diberikan inverter ke motor pada setiap frekuensi operasi. Untuk beban variable-torque, tegangan pada kecepatan rendah dapat diturunkan secara agresif karena torsi yang dibutuhkan pada kecepatan tersebut memang kecil — pendekatan ini dikenal sebagai kurva <strong>V/Hz Quadratic</strong>.</p>
+<p>Namun untuk beban constant-torque, torsi yang dibutuhkan tetap tinggi meskipun kecepatan rendah. Jika kurva Quadratic tetap digunakan, tegangan pada frekuensi rendah berpotensi tidak memadai untuk mempertahankan fluks magnet yang diperlukan bagi torsi yang dibutuhkan, sehingga dapat terjadi <strong>under-fluxing</strong>. Pada kondisi ini, motor cenderung menarik arus lebih besar untuk mempertahankan torsi yang sama. Perlu dicatat, hubungan ini tidak selalu sesederhana itu pada praktiknya: sebagian drive memiliki fitur <em>voltage boost</em> atau <em>IR compensation</em> yang turut memengaruhi tegangan aktual pada frekuensi rendah, dan arus motor yang tinggi juga dapat dipengaruhi oleh faktor lain seperti losses mekanis, kondisi belt, atau temperatur ambient. Under-fluxing akibat kurva V/Hz yang tidak sesuai tetap menjadi mekanisme yang paling konsisten untuk menjelaskan pola yang teramati pada kasus ini — sebagaimana akan ditunjukkan oleh data pada bagian berikutnya — namun bukan satu-satunya variabel yang secara teoritis dapat memengaruhi arus motor.</p>
+<p>Semakin rendah frekuensi operasi, deviasi rasio V/Hz terhadap kebutuhan beban constant-torque menjadi semakin besar — meskipun konsekuensinya terhadap arus tetap bergantung pada keseluruhan sistem drive-motor-beban, bukan kurva V/Hz semata. Inilah kondisi konfigurasi inverter yang ditemukan di plant: parameter <em>Motor Control Type</em> (CTT) tercatat sebagai "U/F VC Quadratic" — profil yang sesuai untuk fan/pompa, namun digunakan untuk menggerakkan Roots blower melalui transmisi V-belt.</p>
+<h2 id="verifikasi-hipotesis">Verifikasi Hipotesis</h2>
+<p>Kesimpulan awal ini didasarkan pada konvergensi beberapa jenis bukti:</p>
+<ul>
+<li><strong>Fenomena lapangan</strong> — arus naik saat frekuensi diturunkan, sebuah pola yang tidak sesuai dengan perilaku yang diharapkan dari aplikasi constant-torque dengan kondisi operasi yang relatif sama.</li>
+<li><strong>Dokumen konfigurasi inverter</strong> — parameter CTT tercatat eksplisit sebagai "U/F VC Quadratic".</li>
+<li><strong>Teori dasar motor listrik</strong> — hubungan antara profil V/Hz dan fenomena under-fluxing sudah dipahami baik dalam literatur kelistrikan industri.</li>
+</ul>
+<p>Ketiganya mengarah pada satu penjelasan yang paling konsisten. Namun konvergensi bukan pembuktian definitif — sehingga sebelum eksekusi perubahan parameter pada motor 160 kW yang menggerakkan suplai oksigen kontinu, diperlukan validasi lapangan langsung.</p>
+<h2 id="eksekusi-dan-hasil">Eksekusi dan Hasil</h2>
+<p>Perubahan parameter dilakukan dengan prosedur yang sesuai untuk mesin kritikal: window shutdown terjadwal (15 menit), izin dari seluruh pemangku kepentingan terkait, motor dihentikan total sebelum parameter diubah (beberapa parameter kontrol motor tidak dapat diubah saat drive dalam kondisi running), kemudian di-restart dan dipantau.</p>
+<p>Parameter CTT diubah dari "U/F VC Quadratic" menjadi "U/F VC Standard" (kurva V/Hz linear, lebih sesuai untuk beban torsi konstan).</p>
+<p>Data arus dan temperatur motor sebelum dan sesudah perubahan, pada beberapa titik frekuensi operasi:</p>
+<table>
+<thead>
+<tr>
+<th>Kondisi</th>
+<th>Frekuensi</th>
+<th>Arus motor</th>
+<th>Temperatur motor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sebelum perbaikan</td>
+<td>40 Hz</td>
+<td>232–247 A</td>
+<td>63.4–68.9 °C</td>
+</tr>
+<tr>
+<td>Sesudah perbaikan</td>
+<td>33 Hz</td>
+<td>≈ 200 A</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Sesudah perbaikan</td>
+<td>30 Hz</td>
+<td>199–206 A</td>
+<td>58.4–59.8 °C</td>
+</tr>
+<tr>
+<td>Sesudah perbaikan</td>
+<td>25 Hz</td>
+<td>194–207 A</td>
+<td>60.7–68.9 °C (mencakup 24 jam operasi)</td>
+</tr>
+</tbody>
+</table>
+<p>Setelah CTT dikoreksi, pola hubungan antara frekuensi dan arus berubah menjadi lebih sesuai dengan ekspektasi untuk aplikasi constant-torque: arus tidak lagi menunjukkan kecenderungan meningkat ketika frekuensi diturunkan, melainkan berada pada kisaran yang relatif sama atau sedikit menurun. Yang berubah bukan sekadar nilai arus, melainkan <strong>pola hubungan antara frekuensi dan arus</strong> — dari yang semula berlawanan arah dengan model teknis yang diharapkan, menjadi konsisten dengannya. Data logsheet 24 jam berikutnya, yang mencakup transisi dari 30 Hz ke 25 Hz di tengah periode operasi, mendukung bahwa pola ini bertahan: temperatur motor tetap berada dalam kisaran 60.7–68.9 °C selama periode tersebut, tanpa indikasi kenaikan temperatur yang terus-menerus, dan tanpa indikasi hunting atau ketidakstabilan kontrol — meski periode 24 jam ini tentu belum setara dengan uji ketahanan termal jangka panjang.</p>
+<p>Dua catatan metodologis perlu disampaikan agar temuan ini tidak dibaca sebagai pembuktian mutlak. Pertama, perbandingan pada tabel di atas bukan perbandingan pada titik operasi yang identik — kondisi sebelum perbaikan (40 Hz) dan sesudah (33/30/25 Hz) tidak diukur pada frekuensi yang sama, sehingga bukan perbandingan <em>apple-to-apple</em> dalam arti ketat. Yang memberi keyakinan tambahan adalah tekanan discharge proses relatif stabil pada kisaran yang sama (sekitar 160–171 kPa) di seluruh periode pengamatan, sehingga ΔP sistem tidak berubah drastis antara kondisi sebelum dan sesudah — namun idealnya, verifikasi lebih kuat akan diperoleh dari pengukuran pada frekuensi yang identik sebelum dan sesudah perubahan parameter.</p>
+<p>Kedua, artikel ini menggunakan <strong>arus</strong> sebagai indikator utama karena itulah yang tersedia dari logsheet operasional. Arus adalah indikator yang berguna namun tidak identik dengan daya listrik maupun beban mekanis motor — hubungan keduanya dipengaruhi juga oleh power factor dan bentuk gelombang keluaran VFD, yang dapat berbeda antar titik operasi. Pembacaan daya (kW) langsung, jika tersedia, akan memberi gambaran yang lebih representatif terhadap beban motor dibanding arus semata.</p>
+<p>Pola arus pada tabel di atas dapat digambarkan sebagai berikut (titik 40 Hz merepresentasikan kondisi sebelum perbaikan, titik lainnya sesudah perbaikan):</p>
+<div style="overflow-x: auto; margin: 1em 0;">
+  <div class="mermaid">
+    ---
+    config:
+      theme: neutral
+    ---
+    xychart
+        title "Arus Motor terhadap Frekuensi Operasi"
+        x-axis "Frekuensi (Hz)" [40, 33, 30, 25]
+        y-axis "Arus Motor (A)" 180 --&gt; 250
+        line [239.5, 200, 202.5, 200.5]
+  </div>
+</div>
+<p>Titik 40 Hz merepresentasikan kondisi sebelum perbaikan dan menunjukkan arus yang lebih tinggi dibanding titik-titik operasi setelah CTT dikoreksi. Data ini konsisten dengan observasi lapangan bahwa penurunan frekuensi sebelum perbaikan tidak memberikan penurunan arus seperti yang diharapkan.</p>
+<h2 id="implikasi-terhadap-strategi-turndown">Implikasi terhadap Strategi Turndown</h2>
+<p>Sistem ini menggunakan skema kontrol split-range — kombinasi VFD dan bypass valve, dengan VFD sebagai aksi kontrol utama (lebih efisien energi untuk beban positive displacement) dan bypass valve sebagai trim sekunder setelah kecepatan mencapai batas minimum. Prinsipnya adalah menggunakan perubahan kecepatan sebagai mekanisme turndown utama, dan membuka bypass hanya ketika kecepatan telah mencapai batas operasi yang ditetapkan — pada arah sebaliknya (menaikkan demand), sekuensingnya juga konsisten: bypass menutup terlebih dahulu sebelum kecepatan dinaikkan lebih lanjut. Ini merupakan filosofi sequencing kontrol, bukan sekadar pembagian rentang sinyal secara sembarang.</p>
+<div style="display: flex; gap: 1.5em; margin: 1.5em 0; flex-wrap: wrap; align-items: flex-start;">
+  <div style="flex: 1 1 320px; min-width: 280px; overflow-x: auto;">
+    <div class="mermaid">
+      flowchart TD
+          Start([Demand proses menurun]) --&gt; A1
+          A1["1. Kurangi kecepatan VFD"] --&gt; A2{"2. Kecepatan sudah<br />di batas minimum?"}
+          A2 -- Belum --&gt; A1
+          A2 -- Sudah --&gt; A3["3. Buka bypass valve<br />secara bertahap"]
+          A3 --&gt; Selesai([Tekanan proses<br />kembali stabil])
+          classDef trigger fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
+          classDef vfd fill:#ffffff,stroke:#3b82f6,stroke-width:1.5px,color:#1e40af
+          classDef decision fill:#ffffff,stroke:#94a3b8,stroke-width:1.5px,color:#334155
+          classDef bypass fill:#ffffff,stroke:#f97316,stroke-width:1.5px,color:#9a3412
+          classDef endNode fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
+          class Start trigger
+          class A1 vfd
+          class A2 decision
+          class A3 bypass
+          class Selesai endNode
+          linkStyle 2 stroke:#cbd5e1,stroke-width:1.5px,stroke-dasharray:5,5
+    </div>
+  </div>
+  <div style="flex: 1 1 320px; min-width: 280px; overflow-x: auto;">
+    <div class="mermaid">
+      flowchart TD
+          Start([Demand proses meningkat]) --&gt; B1
+          B1["1. Tutup bypass valve<br />secara bertahap"] --&gt; B2{"2. Bypass sudah<br />tertutup penuh?"}
+          B2 -- Belum --&gt; B1
+          B2 -- Sudah --&gt; B3["3. Naikkan kecepatan VFD"]
+          B3 --&gt; Selesai([Tekanan proses<br />kembali stabil])
+          classDef trigger fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
+          classDef bypass fill:#ffffff,stroke:#f97316,stroke-width:1.5px,color:#9a3412
+          classDef decision fill:#ffffff,stroke:#94a3b8,stroke-width:1.5px,color:#334155
+          classDef vfd fill:#ffffff,stroke:#3b82f6,stroke-width:1.5px,color:#1e40af
+          classDef endNode fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
+          class Start trigger
+          class B1 bypass
+          class B2 decision
+          class B3 vfd
+          class Selesai endNode
+          linkStyle 2 stroke:#cbd5e1,stroke-width:1.5px,stroke-dasharray:5,5
+    </div>
+  </div>
+</div>
+<p>Sebelum perbaikan, kekhawatiran terhadap arus tinggi pada kecepatan rendah menjadikan batas bawah (<em>low speed limit</em>) inverter dijaga relatif konservatif. Setelah pola arus teramati menjadi lebih sesuai dengan ekspektasi pada frekuensi rendah, batas ini diturunkan secara bertahap dari 30 Hz ke 25 Hz — memperluas peran VFD dalam turndown dan mengurangi ketergantungan pada bypass valve.</p>
+<p>Hal ini relevan dari sisi efisiensi energi: setiap gas yang telah dikompresi blower namun kemudian dialirkan kembali ke sisi suction melalui bypass merepresentasikan energi kompresi yang telah dikeluarkan tanpa pernah mencapai proses. Selama blower, motor, VFD, dan proses masih berada dalam batas operasi yang valid, semakin besar porsi turndown yang dapat ditangani langsung melalui pengurangan kecepatan, semakin kecil kebutuhan mengalirkan gas melalui jalur bypass tersebut — bukan berarti menurunkan frekuensi sejauh mungkin selalu lebih efisien, karena ada batas lain (pendinginan motor, batas operasi mekanis blower, pelumasan, potensi pulsasi) yang turut membatasi seberapa jauh penurunan itu dapat dilakukan secara aman.</p>
+<h2 id="pertanyaan-yang-masih-terbuka">Pertanyaan yang Masih Terbuka</h2>
+<p>Dua aspek masih memerlukan klarifikasi lebih lanjut.</p>
+<p>Pertama, <strong>kapasitas pendinginan motor</strong>. Motor menggunakan konfigurasi pendinginan standar (kipas terpasang pada poros, sehingga laju alirannya menurun seiring penurunan kecepatan motor). Semakin rendah frekuensi operasi, semakin berkurang kapasitas pendinginannya, terlepas dari kesesuaian parameter V/Hz — dengan kata lain, kesesuaian dari sisi kelistrikan (<em>electrical suitability</em>) pada kecepatan rendah tidak otomatis berarti kesesuaian dari sisi termal (<em>thermal suitability</em>). Penelusuran lebih lanjut menemukan bahwa motor ini tersedia dalam varian dengan <em>"forced cooling"</em> independen sebagai opsi pabrikan — informasi yang relevan untuk rencana turndown lebih dalam, meskipun kelayakan retrofit pada unit yang sudah terpasang masih perlu dikonfirmasi.</p>
+<p>Kedua, <strong>rating operasi pada dokumen pabrikan</strong>. Dokumen motor mencantumkan rentang operasi 6–50 Hz dengan kategori <em>"reduced torque"</em> — istilah yang umumnya ditujukan untuk aplikasi dengan torsi yang menurun terhadap kecepatan, seperti fan/pompa. Karena blower pada aplikasi ini dikategorikan sebagai constant-torque load, relevansi rating tersebut terhadap batas operasi aktual perlu dikonfirmasi ke pabrikan — mengingat terminologi "reduced torque" pada katalog motor dapat pula berkaitan dengan kapasitas termal, metode pendinginan, atau kelas aplikasi tertentu yang spesifik terhadap model motor tersebut, bukan semata soal jenis beban. Hingga klarifikasi tersebut diperoleh, batas operasi yang digunakan tetap mengacu pada rentang yang telah tervalidasi melalui data lapangan.</p>
+<h2 id="apakah-ini-hanya-masalah-schneider">Apakah Ini Hanya Masalah Schneider?</h2>
+<p>Tidak. Kasus di atas menggunakan Schneider Altivar ATV630 sebagai contoh, namun konsep kurva V/Hz kuadratik versus linear bukan spesifik satu merek. Nama parameternya berbeda antar vendor, tetapi prinsip pemilihannya sama.</p>
+<p>Delta C2000 menyediakan opsi <em>square curve</em> di samping <em>linear</em> dan kurva kustom multi-titik pada grup parameter V/F, serta mode kontrol berbasis vektor (SVC/FOC) sebagai alternatif V/F murni. ABB, pada seri seperti ACS480/ACS580, menyebut parameter setara ini sebagai <em>V/f ratio</em> dengan pilihan <strong>Squared</strong> dan <strong>Linear</strong> — dokumentasi ABB sendiri menyebutkan Squared sebagai pengaturan default pada sejumlah model, ditujukan untuk aplikasi pompa/fan sentrifugal.</p>
+<p>Terlepas dari merek drive dan konfigurasi default-nya, parameter karakteristik V/Hz perlu diverifikasi terhadap jenis beban yang digerakkan. Inverter yang dapat menjalankan motor tanpa fault belum tentu memiliki konfigurasi yang optimal untuk aplikasi tersebut. Penamaan serta lokasi parameter berbeda antar seri dan versi firmware, sehingga manual programming resmi tetap menjadi rujukan sebelum melakukan perubahan pada sistem yang sedang beroperasi.</p>
+<h2 id="penutup">Penutup</h2>
+<p>Root-cause pada kasus troubleshooting jarang ditentukan hanya karena satu parameter terlihat tidak sesuai di atas kertas. Keyakinan terhadap suatu penjelasan menjadi lebih kuat ketika perubahan pada parameter tersebut menghasilkan perubahan perilaku sistem yang konsisten dengan model teknis yang diharapkan — seperti yang ditunjukkan pada kasus ini, di mana pola hubungan frekuensi-arus berubah menjadi lebih sesuai dengan model teknis yang diharapkan setelah parameter CTT dikoreksi.</p>
+<p>Temuan ini menggarisbawahi satu hal: parameter default pabrikan tidak selalu sesuai untuk setiap aplikasi. Kurva V/Hz Quadratic bukan parameter yang keliru secara umum — karakteristik ini memang ditujukan untuk aplikasi dengan torsi yang menurun terhadap kecepatan, seperti fan dan pompa sentrifugal. Namun untuk beban constant-torque seperti Roots blower, parameter yang sama dapat menjadi sumber inefisiensi dan potensi masalah termal jangka panjang.</p>
+<p>Kondisi semacam ini berpotensi bertahan tanpa terdeteksi, karena gejalanya — arus sedikit lebih tinggi, temperatur motor sedikit lebih panas — mudah dianggap sebagai karakteristik normal alih-alih kesalahan konfigurasi yang dapat diperbaiki. Verifikasi ulang parameter dasar kontrol motor, khususnya pada instalasi yang menggerakkan beban positive displacement, layak dijadikan bagian dari praktik pemeriksaan berkala — bukan hanya saat commissioning awal.</p>
+<hr />
+
+<p><em>Catatan: rincian data pada tulisan ini disederhanakan untuk kepentingan penyajian. Identitas plant dan pihak-pihak yang terlibat tidak disebutkan.</em></p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="practical-engineering" /><category term="Practical Engineering" /><category term="Field Experience" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Apa yang terjadi ketika frekuensi VFD diturunkan tetapi arus motor justru naik? Sebuah kasus Roots blower bisa menjadi contoh bahwa masalah tidak selalu berada pada motor atau inverter, tetapi bisa berasal dari karakteristik kontrol yang tidak sesuai dengan jenis beban.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1630163939978-c80abbef293a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHdyb25nJTIwZGVjaXNpb258ZW58MHx8fHwxNzg5MjM1Mjc5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1630163939978-c80abbef293a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHdyb25nJTIwZGVjaXNpb258ZW58MHx8fHwxNzg5MjM1Mjc5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Water Injection pada Feed Air Compressor: Bisakah Fouling Dicegah, Bukan Hanya Dibersihkan?</title><link href="https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan.html" rel="alternate" type="text/html" title="Water Injection pada Feed Air Compressor: Bisakah Fouling Dicegah, Bukan Hanya Dibersihkan?" /><published>2026-08-16T05:25:52+00:00</published><updated>2026-08-16T05:25:52+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/compressor/2026/08/16/water-injection-pada-feed-air-compressor-bisakah-fouling-dicegah-bukan-hanya-dibersihkan.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 16 Agustus 2026</em></p>
 <h2 id="pendahuluan">Pendahuluan</h2>
 <p>Fouling pada impeller feed air compressor adalah salah satu masalah yang cukup umum ditemui, terutama pada plant yang beroperasi di lingkungan dengan particulate tinggi dan kelembaban tropis. Ketika performa compressor mulai menurun akibat fouling, pendekatan yang paling umum adalah melakukan cleaning. Ini masuk akal—deposit sudah terbentuk, maka deposit tersebut dibersihkan.</p>
 <p>Tapi ada pertanyaan lain yang menarik untuk dipikirkan lebih jauh. Jika fouling sebenarnya adalah proses yang berlangsung terus-menerus selama compressor beroperasi, apakah kita selalu harus menunggu deposit terbentuk lebih dulu sebelum mengambil tindakan? Dari pertanyaan itulah muncul sebuah pendekatan yang layak dikaji: water injection.</p>
@@ -4077,154 +4218,4 @@ Catatan: Estimasi harga lisensi bersifat indikatif dan dapat berubah tergantung 
 <p><strong>Zero-Cost Engineering</strong> adalah filosofi bahwa <em>keterbatasan biaya tidak membatasi kualitas hasil</em> — bukan sekadar strategi hemat, melainkan pendekatan sistemik untuk membangun ekosistem kerja yang transparan, modular, dan siap diuji ulang. Hasil teknis yang kompleks bisa disampaikan dengan profesional — setara (bahkan melampaui) workflow berbasis solusi berbayar. Meskipun membutuhkan adaptasi bagi tim yang terbiasa dengan perangkat lunak berbayar, manfaat jangka panjangnya signifikan.</p>
 <p>Selain solusi yang digunakan di sini, saya juga mengandalkan Rapid SCADA untuk pemantauan industri, Node-RED untuk otomasi alur kerja, 4diac FORTE untuk kontrol IEC 61499, serta alat lain seperti ZeroTier untuk jaringan virtual yang aman, RutOS/OpenWrt untuk manajemen perangkat edge, mbusd untuk komunikasi Modbus TCP/RTU, dan sistem berbasis Ubuntu atau turunan Debian untuk integrasi IIoT. Semua ini memperkuat filosofi Zero-Cost Engineering — bahwa hasil profesional dapat dicapai tanpa lisensi berbayar, dengan ekosistem kerja yang terbuka, modular, dan siap diuji ulang.</p>
 <p>"<strong>Siap mencoba Zero-Cost Engineering? Gunakan alat FOSS ini dan mulai proyek Anda dengan efisiensi maksimal.</strong>"</p>
-<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cost-optimization" /><category term="Cost Optimization" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kolom Bawah: Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?</title><link href="https://kumajaya.github.io/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen.html" rel="alternate" type="text/html" title="Kolom Bawah: Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?" /><published>2025-07-27T18:57:54+00:00</published><updated>2025-07-27T18:57:54+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/cryogenic/2025/07/27/kolom-bawah-terlalu-dingin-bisa-membuat-nitrogen-tercemar-oksigen.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/07/kolom_bawah_id_ID.mp3" preload="metadata"></audio><div class="kg-audio-title">Terlalu Dingin Bisa Membuat Nitrogen Tercemar Oksigen?</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">5.064</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
-<p>Pernahkah kamu bertanya, bagaimana udara diubah menjadi oksigen murni atau nitrogen murni? Teknologi di baliknya disebut <strong>distilasi kriogenik</strong>. Tapi proses ini bukan cuma sekadar membekukan — ia harus dikendalikan dengan sangat presisi.</p>
-<p><strong>Distilasi kriogenik</strong> adalah jantung dari proses pemisahan udara menjadi oksigen, nitrogen, dan argon. Proses ini sangat bergantung pada <strong>suhu dan tekanan yang tepat</strong>, karena pemisahan terjadi berdasarkan <strong>perbedaan titik didih</strong> tiap komponen.</p>
-<p>Salah satu bagian paling penting dari proses distilasi kriogenik adalah <strong>kolom distilasi bagian bawah</strong>. Di sinilah udara cair dipisahkan menjadi dua komponen utama: <strong>nitrogen naik ke atas, dan oksigen terkonsentrasi turun ke bawah</strong>.</p>
-<p>Ya, kita sedang bicara <strong>kolom bawah</strong> — tempat pertama pemisahan terjadi sebelum masuk ke kolom atas untuk pemurnian lebih lanjut.</p>
-<blockquote>
-<p>Tapi di kolom bawah ini, ada satu hal yang sering membingungkan:<br />
-<strong>“Kenapa suhu yang terlalu rendah justru membuat produk nitrogen tetap tercemar oksigen?”</strong></p>
-</blockquote>
-<p>Mari kita bahas dengan cara yang masuk akal dan mudah diingat.</p>
-<hr />
-
-<h3 id="kolom-seperti-tangga">Kolom Seperti Tangga</h3>
-<p>Bayangkan kolom distilasi sebagai <strong>tangga vertikal</strong>:</p>
-<ul>
-<li><strong>Uap naik dari bawah</strong>, membawa nitrogen, karena nitrogen paling mudah menguap.</li>
-<li><strong>Cairan turun dari atas</strong>, membawa oksigen, karena oksigen lebih sulit menguap.</li>
-</ul>
-<p>Di setiap <strong>tray</strong> (semacam lantai kecil di dalam kolom), uap dan cairan bertemu dan saling bertukar komponen. Nitrogen cenderung menguap dan terus naik, sedangkan oksigen lebih mudah mengembun dan terus turun.</p>
-<hr />
-
-<h3 id="apa-yang-terjadi-jika-kolom-terlalu-dingin">Apa yang Terjadi Jika Kolom Terlalu Dingin?</h3>
-<p>Saat kolom bawah terlalu dingin:</p>
-<ul>
-<li><strong>Uap nitrogen tidak terbentuk cukup banyak</strong> karena terlalu banyak yang terkondensasi jadi cair.</li>
-<li>Aliran naik melemah — <strong>tidak ada dorongan uap yang cukup untuk menolak oksigen naik</strong>.</li>
-</ul>
-<p>Akibatnya:</p>
-<blockquote>
-<p><strong>Oksigen ikut naik ke bagian atas</strong>, dan mencemari produk nitrogen.</p>
-</blockquote>
-<hr />
-
-<h3 id="logika-tekanan-parsial">Logika Tekanan Parsial</h3>
-<p>Secara termodinamika:</p>
-<ul>
-<li>Di bagian atas kolom bawah, dominasi uap nitrogen menciptakan <strong>tekanan parsial nitrogen yang tinggi</strong>.</li>
-<li>Ini seperti “penghalang molekul” yang <strong>mencegah oksigen untuk ikut menguap dan naik</strong>.</li>
-</ul>
-<p>Namun, jika suhu terlalu rendah:</p>
-<ul>
-<li>Uap nitrogen tidak cukup kuat.</li>
-<li><strong>Penghalang itu melemah</strong>, dan oksigen bisa ikut naik ke atas.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Komponen</th>
-<th>Titik Didih @ 5.45 barA</th>
-<th>Fase pada −170 °C</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Nitrogen</td>
-<td>−177.97 °C</td>
-<td>Uap</td>
-</tr>
-<tr>
-<td>Argon</td>
-<td>−166.12 °C</td>
-<td>Campuran</td>
-</tr>
-<tr>
-<td>Oksigen</td>
-<td>−163.27 °C</td>
-<td>Cair</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Biasanya suhu operasi kolom bawah dijaga sedikit di bawah titik didih nitrogen, misalnya sekitar −175 °C, tergantung tekanan operasi (misalnya 5.45 barA), untuk memastikan nitrogen mendidih dan oksigen mengembun secara selektif.</p>
-</blockquote>
-<hr />
-
-<h3 id="bagaimana-jika-terlalu-hangat">Bagaimana Jika Terlalu Hangat?</h3>
-<p>Sebaliknya, jika kolom bawah terlalu hangat:</p>
-<ul>
-<li><strong>Oksigen tidak cukup mengembun ke bentuk cair</strong>, sehingga gagal tertahan di bawah.</li>
-<li><strong>Oksigen bisa tetap dalam fase uap</strong> dan ikut naik bersama nitrogen.</li>
-</ul>
-<p>Akibatnya:</p>
-<blockquote>
-<p>Produk nitrogen tetap tercemar oksigen — tapi kali ini karena <strong>oksigen gagal turun</strong>, bukan karena <strong>naik secara pasif</strong>.</p>
-</blockquote>
-<hr />
-
-<h3 id="visualisasi-sederhana">Visualisasi Sederhana</h3>
-<p>Bayangkan <strong>tiga kondisi suhu</strong> di kolom bawah:</p>
-<ol>
-<li>
-<p><strong>Terlalu Dingin</strong><br />
-Uap nitrogen lemah — oksigen ikut naik — nitrogen tidak murni.</p>
-</li>
-<li>
-<p><strong>Terlalu Hangat</strong><br />
-Oksigen gagal mengembun — tetap dalam uap — ikut naik — nitrogen tercemar.</p>
-</li>
-<li>
-<p><strong>Normal (Ideal)</strong><br />
-Tray bekerja optimal — nitrogen naik, oksigen turun — pemisahan sempurna.</p>
-</li>
-</ol>
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <img src="/kiiota-blog/assets/media/d510a781-de17-4e42-b4a7-ff9ce0cd774f-distillation_column.gif" alt="distillation_column.gif" style="max-width:75%; height:auto;" />
-  <figcaption style="text-align:center; margin-top: 8px;">
-    Gambar 1. Animasi pemisahan oksigen dan nitrogen dalam kondisi terlalu dingin, normal, dan terlalu hangat.
-  </figcaption>
-</div>
-<blockquote>
-<p>Keseimbangan suhu = pemisahan optimal.</p>
-</blockquote>
-<hr />
-
-<h3 id="mnemonik-mudah">Mnemonik Mudah</h3>
-<p>Jika kamu ingin mengingatnya dengan cepat, cukup ingat ini:</p>
-<blockquote>
-<p><strong>“Terlalu dingin, tak ada yang naik. Terlalu hangat, tak ada yang turun.”</strong></p>
-</blockquote>
-<hr />
-
-<h3 id="apa-yang-terjadi-pada-liquid-air">Apa yang Terjadi pada Liquid Air?</h3>
-<p>Cairan di dasar kolom bawah sering disebut sebagai <strong>liquid air</strong>, karena masih merupakan campuran oksigen, nitrogen, dan argon — belum sepenuhnya terpisah. Komposisinya mencerminkan seberapa baik proses pemisahan berlangsung di kolom bawah.</p>
-<p>Suhu dasar kolom sangat mempengaruhi <strong>jumlah nitrogen</strong> yang tertahan dalam cairan ini:</p>
-<ul>
-<li>
-<p><strong>Terlalu Dingin</strong><br />
-Terlalu banyak nitrogen ikut mengembun — <strong>volume liquid air meningkat</strong>, tapi kandungannya lebih kaya nitrogen. Ini pertanda bahwa <strong>nitrogen tidak sepenuhnya menguap</strong> dan malah tertahan di dasar kolom.</p>
-</li>
-<li>
-<p><strong>Terlalu Hangat</strong><br />
-Nitrogen sudah menguap sempurna, tapi <strong>oksigen dan argon belum cukup banyak yang mengembun</strong>.<br />
-Akibatnya: liquid air jadi lebih sedikit, tetap kaya oksigen, tapi miskin argon.<br />
-Sebagian oksigen ikut naik ke bagian atas, <strong>menurunkan kemurnian nitrogen</strong> di puncak kolom bawah.</p>
-</li>
-</ul>
-<p>Dalam praktik, <strong>komposisi liquid air</strong> (dari sensor inline atau analisis laboratorium) sering digunakan sebagai <strong>indikator tidak langsung</strong> apakah suhu dasar kolom sudah berada pada titik optimal.</p>
-<blockquote>
-<p>Jika cairan di bawah terlalu "encer" (kaya nitrogen), kolom bisa terlalu dingin.<br />
-Jika cairannya terlalu "berat" (kaya oksigen), kolom bisa terlalu hangat.</p>
-</blockquote>
-<hr />
-
-<h3 id="kesimpulan">Kesimpulan</h3>
-<ul>
-<li>Jangan kira semakin dingin itu semakin baik.</li>
-<li>Jangan juga membiarkan kolom terlalu hangat.</li>
-<li>Di kolom distilasi kriogenik, <strong>suhu yang terlalu ekstrem ke salah satu arah bisa membuat pemisahan gagal</strong>.</li>
-<li>Jaga keseimbangan antara <strong>penguapan dan kondensasi</strong> agar nitrogen dan oksigen tetap di jalur masing-masing.</li>
-</ul>
-<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cryogenic" /><category term="Cryogenic" /><summary type="html"><![CDATA[Suhu di kolom bawah distilasi kriogenik menentukan pemisahan nitrogen & oksigen. Terlalu dingin, nitrogen gagal menguap, liquid air kaya nitrogen. Terlalu hangat, oksigen ikut naik, cemari nitrogen. Komposisi liquid air sebagai indikator: keseimbangan suhu, kunci kemurnian.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxveHlnZW58ZW58MHx8fHwxNzUzNjM0NDU2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cost-optimization" /><category term="Cost Optimization" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
