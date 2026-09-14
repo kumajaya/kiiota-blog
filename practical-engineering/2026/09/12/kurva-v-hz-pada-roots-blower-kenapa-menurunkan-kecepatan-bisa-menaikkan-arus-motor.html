@@ -428,19 +428,57 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
 <p>Dua catatan metodologis perlu disampaikan agar temuan ini tidak dibaca sebagai pembuktian mutlak. Pertama, perbandingan pada tabel di atas bukan perbandingan pada titik operasi yang identik — kondisi sebelum perbaikan (40 Hz) dan sesudah (33/30/25 Hz) tidak diukur pada frekuensi yang sama, sehingga bukan perbandingan <em>apple-to-apple</em> dalam arti ketat. Yang memberi keyakinan tambahan adalah tekanan discharge proses relatif stabil pada kisaran yang sama (sekitar 160–171 kPa) di seluruh periode pengamatan, sehingga ΔP sistem tidak berubah drastis antara kondisi sebelum dan sesudah — namun idealnya, verifikasi lebih kuat akan diperoleh dari pengukuran pada frekuensi yang identik sebelum dan sesudah perubahan parameter.</p>
 <p>Kedua, artikel ini menggunakan <strong>arus</strong> sebagai indikator utama karena itulah yang tersedia dari logsheet operasional. Arus adalah indikator yang berguna namun tidak identik dengan daya listrik maupun beban mekanis motor — hubungan keduanya dipengaruhi juga oleh power factor dan bentuk gelombang keluaran VFD, yang dapat berbeda antar titik operasi. Pembacaan daya (kW) langsung, jika tersedia, akan memberi gambaran yang lebih representatif terhadap beban motor dibanding arus semata.</p>
 <p>Pola arus pada tabel di atas dapat digambarkan sebagai berikut (titik 40 Hz merepresentasikan kondisi sebelum perbaikan, titik lainnya sesudah perbaikan):</p>
-<div style="overflow-x: auto; margin: 1em 0;">
-  <div class="mermaid">
-    ---
-    config:
-      theme: neutral
-    ---
-    xychart
-        title "Arus Motor terhadap Frekuensi Operasi"
-        x-axis "Frekuensi (Hz)" [40, 33, 30, 25]
-        y-axis "Arus Motor (A)" 180 --&gt; 250
-        line [239.5, 200, 202.5, 200.5]
-  </div>
-</div>
+
+<!--kg-card-begin: html-->
+<figure class="kg-card kg-html-card">
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:sans-serif;background:#fff;">
+  <text x="320" y="24" text-anchor="middle" font-size="15" font-weight="600" fill="#222">Arus Motor terhadap Frekuensi Operasi</text>
+  <!-- Y gridlines & labels (180-250A, step 10) -->
+  <g font-size="11" fill="#666">
+    <line x1="60" y1="260" x2="580" y2="260" stroke="#ccc" stroke-width="1" />
+    <text x="50" y="264" text-anchor="end">180</text>
+    <line x1="60" y1="197.1" x2="580" y2="197.1" stroke="#eee" stroke-width="1" />
+    <text x="50" y="201" text-anchor="end">200</text>
+    <line x1="60" y1="134.3" x2="580" y2="134.3" stroke="#eee" stroke-width="1" />
+    <text x="50" y="138" text-anchor="end">220</text>
+    <line x1="60" y1="71.4" x2="580" y2="71.4" stroke="#eee" stroke-width="1" />
+    <text x="50" y="75" text-anchor="end">240</text>
+    <line x1="60" y1="40" x2="580" y2="40" stroke="#ccc" stroke-width="1" />
+    <text x="50" y="44" text-anchor="end">250</text>
+  </g>
+  <!-- Axes -->
+  <line x1="60" y1="40" x2="60" y2="260" stroke="#888" stroke-width="1.5" />
+  <line x1="60" y1="260" x2="580" y2="260" stroke="#888" stroke-width="1.5" />
+  <text x="20" y="150" text-anchor="middle" font-size="12" fill="#444" transform="rotate(-90 20 150)">Arus Motor (A)</text>
+  <text x="320" y="300" text-anchor="middle" font-size="12" fill="#444">Frekuensi (Hz)</text>
+  <!-- X ticks: 40 -> 25 (urutan kronologis, kiri ke kanan) -->
+  <g font-size="11" fill="#666" text-anchor="middle">
+    <text x="160" y="278">40</text>
+    <text x="300" y="278">33</text>
+    <text x="360" y="278">30</text>
+    <text x="460" y="278">25</text>
+  </g>
+  <!-- Line connecting "sesudah" points only (33-30-25 Hz), urutan kronologis -->
+  <polyline points="300,197.1 360,189.3 460,195.6" fill="none" stroke="#2E86AB" stroke-width="2.5" />
+  <!-- Sesudah points (blue) -->
+  <circle cx="300" cy="197.1" r="6" fill="#2E86AB" />
+  <text x="300" y="215" text-anchor="middle" font-size="11" fill="#2E86AB">≈200 A</text>
+  <circle cx="360" cy="189.3" r="6" fill="#2E86AB" />
+  <text x="360" y="177" text-anchor="middle" font-size="11" fill="#2E86AB">199–206 A</text>
+  <circle cx="460" cy="195.6" r="6" fill="#2E86AB" />
+  <text x="460" y="213" text-anchor="middle" font-size="11" fill="#2E86AB">194–207 A</text>
+  <!-- Sebelum point (red), isolated, not connected -->
+  <circle cx="160" cy="73" r="6" fill="#C0392B" />
+  <text x="160" y="60" text-anchor="middle" font-size="11" fill="#C0392B">232–247 A</text>
+  <!-- Legend -->
+  <circle cx="180" cy="325" r="5" fill="#C0392B" />
+  <text x="192" y="329" font-size="11" fill="#444">Sebelum perbaikan (Quadratic)</text>
+  <circle cx="180" cy="345" r="5" fill="#2E86AB" />
+  <text x="192" y="349" font-size="11" fill="#444">Sesudah perbaikan (Standard/Linear)</text>
+</svg>
+<figcaption style="font-size:0.85em;color:#777;text-align:center;">Titik nilai merepresentasikan rentang tengah dari data arus pada tabel sebelumnya.</figcaption>
+</figure>
+<!--kg-card-end: html-->
 <p>Titik 40 Hz merepresentasikan kondisi sebelum perbaikan dan menunjukkan arus yang lebih tinggi dibanding titik-titik operasi setelah CTT dikoreksi. Data ini konsisten dengan observasi lapangan bahwa penurunan frekuensi sebelum perbaikan tidak memberikan penurunan arus seperti yang diharapkan.</p>
 <h2 id="implikasi-terhadap-strategi-turndown">Implikasi terhadap Strategi Turndown</h2>
 <p>Sistem ini menggunakan skema kontrol split-range — kombinasi VFD dan bypass valve, dengan VFD sebagai aksi kontrol utama (lebih efisien energi untuk beban positive displacement) dan bypass valve sebagai trim sekunder setelah kecepatan mencapai batas minimum. Prinsipnya adalah menggunakan perubahan kecepatan sebagai mekanisme turndown utama, dan membuka bypass hanya ketika kecepatan telah mencapai batas operasi yang ditetapkan — pada arah sebaliknya (menaikkan demand), sekuensingnya juga konsisten: bypass menutup terlebih dahulu sebelum kecepatan dinaikkan lebih lanjut. Ini merupakan filosofi sequencing kontrol, bukan sekadar pembagian rentang sinyal secara sembarang.</p>
@@ -453,17 +491,17 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
           A2 -- Belum --&gt; A1
           A2 -- Sudah --&gt; A3["3. Buka bypass valve<br />secara bertahap"]
           A3 --&gt; Selesai([Tekanan proses<br />kembali stabil])
-          classDef trigger fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
-          classDef vfd fill:#ffffff,stroke:#3b82f6,stroke-width:1.5px,color:#1e40af
-          classDef decision fill:#ffffff,stroke:#94a3b8,stroke-width:1.5px,color:#334155
-          classDef bypass fill:#ffffff,stroke:#f97316,stroke-width:1.5px,color:#9a3412
-          classDef endNode fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
+          classDef trigger fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#444444
+          classDef vfd fill:#eaf3fa,stroke:#2E86AB,stroke-width:1.5px,color:#1c5c78
+          classDef decision fill:#ffffff,stroke:#94a3b8,stroke-width:1.5px,color:#444444
+          classDef bypass fill:#fbeae7,stroke:#C0392B,stroke-width:1.5px,color:#7a241b
+          classDef endNode fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#444444
           class Start trigger
           class A1 vfd
           class A2 decision
           class A3 bypass
           class Selesai endNode
-          linkStyle 2 stroke:#cbd5e1,stroke-width:1.5px,stroke-dasharray:5,5
+          linkStyle 2 stroke:#94a3b8,stroke-width:1.5px,stroke-dasharray:5,5
     </div>
   </div>
   <div style="flex: 1 1 320px; min-width: 280px; overflow-x: auto;">
@@ -474,17 +512,17 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
           B2 -- Belum --&gt; B1
           B2 -- Sudah --&gt; B3["3. Naikkan kecepatan VFD"]
           B3 --&gt; Selesai([Tekanan proses<br />kembali stabil])
-          classDef trigger fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
-          classDef bypass fill:#ffffff,stroke:#f97316,stroke-width:1.5px,color:#9a3412
-          classDef decision fill:#ffffff,stroke:#94a3b8,stroke-width:1.5px,color:#334155
-          classDef vfd fill:#ffffff,stroke:#3b82f6,stroke-width:1.5px,color:#1e40af
-          classDef endNode fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#475569
+          classDef trigger fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#444444
+          classDef bypass fill:#fbeae7,stroke:#C0392B,stroke-width:1.5px,color:#7a241b
+          classDef decision fill:#ffffff,stroke:#94a3b8,stroke-width:1.5px,color:#444444
+          classDef vfd fill:#eaf3fa,stroke:#2E86AB,stroke-width:1.5px,color:#1c5c78
+          classDef endNode fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#444444
           class Start trigger
           class B1 bypass
           class B2 decision
           class B3 vfd
           class Selesai endNode
-          linkStyle 2 stroke:#cbd5e1,stroke-width:1.5px,stroke-dasharray:5,5
+          linkStyle 2 stroke:#94a3b8,stroke-width:1.5px,stroke-dasharray:5,5
     </div>
   </div>
 </div>
