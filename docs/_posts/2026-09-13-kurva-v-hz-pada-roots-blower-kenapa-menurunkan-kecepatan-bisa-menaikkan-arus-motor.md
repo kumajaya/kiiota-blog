@@ -6,9 +6,9 @@ slug: "kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-a
 layout: "post"
 excerpt: |
   Apa yang terjadi ketika frekuensi VFD diturunkan tetapi arus motor justru naik? Sebuah kasus Roots blower bisa menjadi contoh bahwa masalah tidak selalu berada pada motor atau inverter, tetapi bisa berasal dari karakteristik kontrol yang tidak sesuai dengan jenis beban.
-image: "https://images.unsplash.com/photo-1630163939978-c80abbef293a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHdyb25nJTIwZGVjaXNpb258ZW58MHx8fHwxNzg5MjM1Mjc5fDA&ixlib=rb-4.1.0&q=80&w=2000"
+image: "https://images.unsplash.com/photo-1692719094491-2746e82a8595?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGVsZWN0cmljJTIwbW90b3J8ZW58MHx8fHwxNzg5ODc3OTQ1fDA&ixlib=rb-4.1.0&q=80&w=2000"
 image_alt: ""
-image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@randylaybourne?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Randy Laybourne</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
+image_caption: "<span style=\"white-space: pre-wrap;\">Photo by </span><a href=\"https://unsplash.com/@troywinther?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Troy Winther</span></a><span style=\"white-space: pre-wrap;\"> / </span><a href=\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\"><span style=\"white-space: pre-wrap;\">Unsplash</span></a>"
 author:
   - "Ketut Putu Kumajaya"
 tags:
@@ -44,12 +44,55 @@ comments: true
 <h2 id="dua-kategori-beban-pada-aplikasi-vfd">Dua Kategori Beban pada Aplikasi VFD</h2>
 <p>Dari sudut pandang inverter, beban mekanis umumnya terbagi menjadi dua kategori dengan karakteristik torsi yang berbeda.</p>
 <p><strong>Variable torque</strong> — diwakili pompa dan fan sentrifugal. Torsi yang dibutuhkan naik sebanding kuadrat kecepatan (T ∝ N²), sehingga daya naik sebanding pangkat tiga kecepatan (P ∝ N³). Menurunkan kecepatan menjadi setengahnya secara teori menurunkan kebutuhan daya menjadi seperdelapan — inilah dasar mengapa VFD memberi penghematan energi signifikan pada aplikasi HVAC dan sistem pemompaan.</p>
-<p><strong>Constant torque</strong> — mencakup Roots blower, screw compressor, dan mesin positive displacement lainnya. Klasifikasi ini merujuk pada karakteristik yang umum digunakan sebagai basis pemilihan parameter VFD, bukan pernyataan bahwa torsi aktual selalu bernilai tetap dalam segala kondisi. Pada kondisi ideal, setiap putaran rotor memindahkan volume geometris yang relatif tetap, sehingga kapasitas volumetrik teoritis berbanding lurus dengan kecepatan rotor (Q ∝ N). Sebagai pendekatan (bukan persamaan karakteristik blower yang presisi), torsi yang dibutuhkan dapat digambarkan sebagai T ≈ (Q × ΔP) / (ω × η) — sehingga dengan Q ∝ N, persamaan ini disederhanakan menjadi T ≈ (N × ΔP) / (N × η), yang berarti pada ΔP proses dan efisiensi (η) yang relatif stabil, torsi mendekati konstan pada berbagai kecepatan operasi, dan daya mengikuti hubungan linear terhadap kecepatan (P ∝ N). Namun jika ΔP proses berubah signifikan — misalnya akibat perubahan tekanan suction/discharge atau kondisi gas — atau efisiensi berubah cukup besar terhadap operating point, torsi aktual turut bergeser. "Constant torque" pada konteks ini lebih tepat dipahami sebagai kategori aplikasi untuk pemilihan karakteristik V/Hz, bukan besaran yang konstan secara matematis pada setiap saat.</p>
+<p><strong>Constant torque</strong> — mencakup Roots blower, screw compressor, dan mesin positive displacement lainnya. Klasifikasi ini merujuk pada karakteristik yang umum digunakan sebagai basis pemilihan parameter VFD, bukan pernyataan bahwa torsi aktual selalu bernilai tetap dalam segala kondisi. Pada kondisi ideal, setiap putaran rotor memindahkan volume geometris yang relatif tetap, sehingga kapasitas volumetrik teoritis berbanding lurus dengan kecepatan rotor (Q ∝ N). Hubungan ini paling bersih diturunkan lewat daya: daya kompresi dapat didekati sebagai P ≈ (Q × ΔP) / η, sehingga dengan Q ∝ N, daya mengikuti hubungan linear terhadap kecepatan (P ∝ N) pada ΔP proses dan efisiensi (η) yang relatif stabil. Karena torsi adalah T = P / ω dan kecepatan sudut ω ∝ N, maka T ∝ P / N — dan dengan P ∝ N, torsi mendekati konstan pada berbagai kecepatan operasi. Perlu dicatat, ini adalah pendekatan, bukan persamaan karakteristik blower yang presisi: jika ΔP proses berubah signifikan — misalnya akibat perubahan tekanan suction/discharge atau kondisi gas — atau efisiensi berubah cukup besar terhadap operating point, torsi aktual turut bergeser. "Constant torque" pada konteks ini lebih tepat dipahami sebagai kategori aplikasi untuk pemilihan karakteristik V/Hz, bukan besaran yang konstan secara matematis pada setiap saat.</p>
 <p>Perbedaan kategori ini menentukan parameter kontrol motor yang seharusnya digunakan — dan di titik inilah ditemukan sumber masalah pada kasus ini.</p>
 <h2 id="parameter-yang-tidak-sesuai-kurva-vhz-quadratic">Parameter yang Tidak Sesuai: Kurva V/Hz Quadratic</h2>
 <p>Kurva V/Hz (voltage-to-frequency) menentukan besarnya tegangan yang diberikan inverter ke motor pada setiap frekuensi operasi. Untuk beban variable-torque, tegangan pada kecepatan rendah dapat diturunkan secara agresif karena torsi yang dibutuhkan pada kecepatan tersebut memang kecil — pendekatan ini dikenal sebagai kurva <strong>V/Hz Quadratic</strong>.</p>
 <p>Namun untuk beban constant-torque, torsi yang dibutuhkan tetap tinggi meskipun kecepatan rendah. Jika kurva Quadratic tetap digunakan, tegangan pada frekuensi rendah berpotensi tidak memadai untuk mempertahankan fluks magnet yang diperlukan bagi torsi yang dibutuhkan, sehingga dapat terjadi <strong>under-fluxing</strong>. Pada kondisi ini, motor cenderung menarik arus lebih besar untuk mempertahankan torsi yang sama. Perlu dicatat, hubungan ini tidak selalu sesederhana itu pada praktiknya: sebagian drive memiliki fitur <em>voltage boost</em> atau <em>IR compensation</em> yang turut memengaruhi tegangan aktual pada frekuensi rendah, dan arus motor yang tinggi juga dapat dipengaruhi oleh faktor lain seperti losses mekanis, kondisi belt, atau temperatur ambient. Under-fluxing akibat kurva V/Hz yang tidak sesuai tetap menjadi mekanisme yang paling konsisten untuk menjelaskan pola yang teramati pada kasus ini — sebagaimana akan ditunjukkan oleh data pada bagian berikutnya — namun bukan satu-satunya variabel yang secara teoritis dapat memengaruhi arus motor.</p>
 <p>Semakin rendah frekuensi operasi, deviasi rasio V/Hz terhadap kebutuhan beban constant-torque menjadi semakin besar — meskipun konsekuensinya terhadap arus tetap bergantung pada keseluruhan sistem drive-motor-beban, bukan kurva V/Hz semata. Inilah kondisi konfigurasi inverter yang ditemukan di plant: parameter <em>Motor Control Type</em> (CTT) tercatat sebagai "U/F VC Quadratic" — profil yang sesuai untuk fan/pompa, namun digunakan untuk menggerakkan Roots blower melalui transmisi V-belt.</p>
+
+<!--kg-card-begin: html-->
+<figure class="kg-card kg-html-card">
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:sans-serif;background:#fff;">
+  <text x="320" y="24" text-anchor="middle" font-size="15" font-weight="600" fill="#222">Kurva V/Hz: Quadratic vs Linear vs Linear+Boost</text>
+  <g font-size="11" fill="#666">
+    <line x1="60" y1="320" x2="600" y2="320" stroke="#ccc" stroke-width="1"/><text x="50" y="324" text-anchor="end">0</text>
+    <line x1="60" y1="264" x2="600" y2="264" stroke="#eee" stroke-width="1"/><text x="50" y="268" text-anchor="end">20</text>
+    <line x1="60" y1="208" x2="600" y2="208" stroke="#eee" stroke-width="1"/><text x="50" y="212" text-anchor="end">40</text>
+    <line x1="60" y1="152" x2="600" y2="152" stroke="#eee" stroke-width="1"/><text x="50" y="156" text-anchor="end">60</text>
+    <line x1="60" y1="96" x2="600" y2="96" stroke="#eee" stroke-width="1"/><text x="50" y="100" text-anchor="end">80</text>
+    <line x1="60" y1="40" x2="600" y2="40" stroke="#ccc" stroke-width="1"/><text x="50" y="44" text-anchor="end">100</text>
+  </g>
+  <line x1="60" y1="40" x2="60" y2="320" stroke="#888" stroke-width="1.5"/>
+  <line x1="60" y1="320" x2="600" y2="320" stroke="#888" stroke-width="1.5"/>
+  <text x="20" y="180" text-anchor="middle" font-size="12" fill="#444" transform="rotate(-90 20 180)">Tegangan (% nominal)</text>
+  <text x="330" y="360" text-anchor="middle" font-size="12" fill="#444">Frekuensi (Hz)</text>
+  <g font-size="11" fill="#666" text-anchor="middle">
+    <text x="60" y="338">0</text><text x="168" y="338">10</text><text x="276" y="338">20</text>
+    <text x="384" y="338">30</text><text x="492" y="338">40</text><text x="600" y="338">50</text>
+  </g>
+  <line x1="330" y1="166" x2="330" y2="250" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- Linear+Boost: V = 8 + (f/50)*92 -->
+  <polyline points="60,297.6 114,271.9 168,246.1 222,220.3 276,194.6 330,168.8 384,143 438,117.3 492,91.5 546,65.8 600,40" fill="none" stroke="#27AE60" stroke-width="2.5"/>
+  <!-- Linear -->
+  <polyline points="60,320 114,292 168,264 222,236 276,208 330,180 384,152 438,124 492,96 546,68 600,40" fill="none" stroke="#2E86AB" stroke-width="2.5"/>
+  <!-- Quadratic -->
+  <polyline points="60,320 114,317.2 168,308.8 222,294.8 276,275.2 330,250 384,219.2 438,182.8 492,140.8 546,93.2 600,40" fill="none" stroke="#C0392B" stroke-width="2.5"/>
+  <!-- Markers at 25 Hz -->
+  <circle cx="330" cy="168.8" r="5" fill="#27AE60"/><text x="330" y="159" text-anchor="middle" font-size="10" fill="#27AE60">55%</text>
+  <circle cx="330" cy="180" r="4" fill="#2E86AB"/>
+  <circle cx="330" cy="250" r="5" fill="#C0392B"/><text x="330" y="266" text-anchor="middle" font-size="10" fill="#C0392B">25%</text>
+  <!-- Boost offset marker at 0Hz -->
+  <circle cx="60" cy="297.6" r="4" fill="#27AE60"/><text x="70" y="292" font-size="10" fill="#27AE60">~8% (boost)</text>
+  <!-- Legend -->
+  <line x1="90" y1="392" x2="115" y2="392" stroke="#27AE60" stroke-width="3"/><text x="122" y="396" font-size="11" fill="#444">Linear + Voltage Boost / IR comp.</text>
+  <line x1="350" y1="392" x2="375" y2="392" stroke="#2E86AB" stroke-width="3"/><text x="382" y="396" font-size="11" fill="#444">Standard / Linear</text>
+  <line x1="510" y1="392" x2="535" y2="392" stroke="#C0392B" stroke-width="3"/><text x="542" y="396" font-size="11" fill="#444">Quadratic</text>
+</svg>
+<p style="font-size:0.85em;color:#777;text-align:left;margin:0.5em 0 0;"><b>Catatan:</b> Bentuk kurva Linear+Boost bersifat skematik. Boost/IR compensation pada drive nyata umumnya non-linear (paling agresif di beberapa Hz pertama) dan bergantung beban.</p>
+<figcaption style="font-size:0.85em;color:#777;text-align:center;">Tiga profil V/Hz — pada 25 Hz, celah tegangan Quadratic terhadap Linear inilah yang menekan fluks pada beban constant-torque.</figcaption>
+</figure>
+<!--kg-card-end: html-->
 <h2 id="verifikasi-hipotesis">Verifikasi Hipotesis</h2>
 <p>Kesimpulan awal ini didasarkan pada konvergensi beberapa jenis bukti:</p>
 <ul>
