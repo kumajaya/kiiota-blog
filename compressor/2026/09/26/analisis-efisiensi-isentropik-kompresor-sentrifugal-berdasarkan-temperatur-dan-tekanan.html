@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan | Kiiota Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Efisiensi kompresor multi-stage bisa dianalisis dari temperatur dan tekanan setiap stage. Tulisan ini membahas apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan cara membedakan masalah stage dari masalah cooler." />
+<meta name="twitter:description" property="og:description" content="Efisiensi kompresor multi-stage bisa dianalisis dari temperatur dan tekanan setiap stage. Tulisan ini membahas apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan cara membedakan masalah stage dari masalah cooler." />
+<link rel="canonical" href="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html" />
+<meta property="og:url" content="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html" />
+<meta property="og:site_name" content="Kiiota Blog" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1748851556700-560d9b7454ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbCUyMGNvbXByZXNzb3J8ZW58MHx8fHwxNzkwMzk0MDY5fDA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-09-26T03:51:16+00:00" />
+<meta property="article:modified_time" content="2026-09-26T03:51:16+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1748851556700-560d9b7454ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbCUyMGNvbXByZXNzb3J8ZW58MHx8fHwxNzkwMzk0MDY5fDA&ixlib=rb-4.1.0&q=80&w=2000" />
+<meta name="twitter:title" content="Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-26T03:51:16+00:00","datePublished":"2026-09-26T03:51:16+00:00","description":"Efisiensi kompresor multi-stage bisa dianalisis dari temperatur dan tekanan setiap stage. Tulisan ini membahas apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan cara membedakan masalah stage dari masalah cooler.","headline":"Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan","image":"https://images.unsplash.com/photo-1748851556700-560d9b7454ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbCUyMGNvbXByZXNzb3J8ZW58MHx8fHwxNzkwMzk0MDY5fDA&ixlib=rb-4.1.0&q=80&w=2000","mainEntityOfPage":{"@type":"WebPage","@id":"https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html"},"url":"https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="/kiiota-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kumajaya.github.io/kiiota-blog/feed.xml" title="Kiiota Blog" /><!-- Dark Mode Detection -->
+<script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
+<!-- PrismJS Syntax Highlighting Theme + Plugins -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-coy.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.css" crossorigin="anonymous">
+
+<!-- KaTeX (Math Typesetting Engine) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome Icon Suite -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Dukungan favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/kiiota-blog/assets/media/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/kiiota-blog/assets/media/favicon-32x32.png">
+<link rel="shortcut icon" href="/kiiota-blog/assets/media/favicon.ico">
+
+<style>
+/* Reduce site title line-height and bottom margin */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+.site-title:hover,
+.site-title:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Post header left-align */
+.post-header {
+  text-align: left !important;
+  padding-left: 0;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+.post-category a {
+  text-decoration: none;
+}
+.post-category a:hover,
+.post-category a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.post-title {
+  text-align: left !important;
+  margin-left: 0;
+}
+
+/* Hide Ghost-specific elements */
+.kg-card, .kg-file-card, .kg-audio-card, .kg-audio-card *, .gh-sidebar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Native Audio Player Styling */
+.native-audio-wrapper {
+  margin: 1.5rem 0;
+}
+
+.native-audio-wrapper audio {
+  width: 100%;
+}
+
+.audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(255,255,255,0.9) !important;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  overflow: visible;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.mermaid.is-ready { opacity: 1; }
+
+/* Node & Label Styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .actor {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2.2px;
+  rx: 8px; ry: 8px;
+  filter: drop-shadow(0 2px 3px rgba(59,130,246,0.12)) drop-shadow(0 1px 1px rgba(59,130,246,0.1));
+  transition: all 0.25s ease;
+}
+.mermaid .node text, .mermaid .label, .mermaid .label text {
+  color: #1f2937;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+/* Arrow & Edge Styling */
+.mermaid .marker, .mermaid .arrowheadPath, .mermaid .arrowhead path { fill: #3b82f6 !important; stroke: none !important; }
+.mermaid .edgePath path, .mermaid .path { stroke: #3b82f6; stroke-width: 2.6px; stroke-linecap: round; }
+.mermaid path, .mermaid line { stroke-width: 1.5px !important; }
+
+/* Diagram Title */
+.mermaid .title, .mermaid .title text { font-weight: 600; color: #1e40af; }
+
+/* Dark Mode Overrides */
+.dark-mode .mermaid {
+  background: rgba(17,24,39,0.85) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 15px -3px rgba(0,0,0,0.25);
+}
+.dark-mode .mermaid .node rect, .dark-mode .mermaid .node circle, .dark-mode .mermaid .node polygon, .dark-mode .mermaid .actor {
+  fill: #111827;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 2px 3px rgba(96,165,250,0.2)) drop-shadow(0 1px 1px rgba(96,165,250,0.15));
+}
+.dark-mode .mermaid .node text, .dark-mode .mermaid .label, .dark-mode .mermaid .label text { color: #f3f4f6; }
+.dark-mode .mermaid .edgePath path, .dark-mode .mermaid .path { stroke: #60a5fa; }
+.dark-mode .mermaid .title, .dark-mode .mermaid .title text { color: #93c5fd; }
+
+/* Responsive Mermaid Adjustments */
+@media (max-width: 768px) {
+  .mermaid { padding: 1.2rem; border-radius: 10px; }
+  .mermaid .label, .mermaid .node text, .mermaid .label text { font-size: 1.15rem !important; }
+}
+
+/* Table Styling */
+table td, table th { border: 1px solid #e0e0e0; }
+table tr:nth-child(even) { background-color: #f9f9f9; }
+table td:first-child, table th:first-child { padding-left: 0.75em !important; }
+table th { background-color: #222149; color: #fff !important; font-weight: bold; }
+
+/* ⬆ Scroll Top Button + Progress Indicator */
+.scroll-top {
+  --ghost-accent-color: #222149;
+  position: fixed;
+  z-index: 50;
+  padding: 0;
+  right: 20px; bottom: 20px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(15px);
+  height: 46px; width: 46px;
+  cursor: pointer;
+  display: flex;
+  align-items: center; justify-content: center;
+  border-radius: 50%;
+  transition: all .4s ease;
+  border: none;
+  box-shadow: inset 0 0 0 2px #ccc;
+  color: #ccc; background-color: #fff;
+}
+.scroll-top.is-active {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top .icon-tabler-arrow-up {
+  position: absolute;
+  stroke-width: 2px;
+  stroke: #333;
+}
+.scroll-top svg path { fill: none; }
+.scroll-top svg.progress-circle path {
+  stroke: #333;
+  stroke-width: 4;
+  transition: all .4s ease;
+}
+.scroll-top:hover {
+  color: var(--ghost-accent-color);
+}
+.scroll-top:hover .progress-circle path,
+.scroll-top:hover .icon-tabler-arrow-up {
+  stroke: var(--ghost-accent-color);
+}
+@media print {
+  .scroll-button .btn-toggle-round {
+    display: none !important;
+  }
+}
+
+/* Native File Download Card Styling */
+.native-file-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ghost-bg, #f9f9f9);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 1em 0;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 600;
+}
+
+.file-desc {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.file-meta {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.dot {
+  margin: 0 6px;
+}
+
+.file-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.file-download:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.file-download svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.5;
+}
+</style>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/kiiota-blog/">Kiiota Blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/kiiota-blog/pages/contact.html">Kontak</a>
+  <a class="nav-item" href="/kiiota-blog/pages/about.html">Tentang situs ini</a>
+  <a class="nav-item" href="/kiiota-blog/pages/privacy.html">Privasi</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    
+
+    
+    <div class="post-category">
+      
+      <a href="/kiiota-blog/tags/compressor">
+        Compressor
+      </a>
+    </div>
+    
+
+    <h1 class="post-title p-name" itemprop="name headline">Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan</h1>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2026-09-26T03:51:16+00:00" itemprop="datePublished">
+        September 26, 2026
+      </time>
+      <div class="force-inline post-authors">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Ketut Putu Kumajaya</span>
+          </span>
+        
+      </div>
+      
+      <div class="force-inline post-authors">
+        <span class="reading-time">7 min read</span>
+      </div>
+      
+    </div>
+  </header>
+
+  
+  <p class="post-excerpt" itemprop="description">
+    Efisiensi kompresor multi-stage bisa dianalisis dari temperatur dan tekanan setiap stage. Tulisan ini membahas apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan cara membedakan masalah stage dari masalah cooler.
+
+  </p>
+  
+
+  
+  <figure class="post-feature-image">
+    <img src="https://images.unsplash.com/photo-1748851556700-560d9b7454ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbCUyMGNvbXByZXNzb3J8ZW58MHx8fHwxNzkwMzk0MDY5fDA&ixlib=rb-4.1.0&q=80&w=2000" alt="Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan" loading="lazy" class="post-feature-img">
+    
+    <figcaption class="post-feature-caption">
+      <p><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@omikron?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Valentin</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></p>
+
+    </figcaption>
+    
+  </figure>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<h3 id="pendahuluan">Pendahuluan</h3>
+<p>Kompresor yang kurang efisien membutuhkan kerja lebih besar untuk menaikkan tekanan yang sama, dan kerja tambahan itu muncul sebagai temperatur discharge yang lebih tinggi. Karena itu efisiensi isentropik sebuah stage bisa dihitung hanya dari <strong>temperatur dan tekanan</strong>, tanpa flowmeter.</p>
+<p>Pada kompresor single-stage, perhitungannya langsung. Pada kompresor multi-stage dengan intercooler, rumusnya sama, tetapi harus diterapkan <strong>per stage</strong>. Tulisan ini membahas kenapa, apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan bagaimana membaca efisiensi stage bersama kinerja cooler. Contohnya diambil dari kompresor recycle nitrogen 4-stage yang juga dipakai di artikel <a href="https://blog.kiiota.com/analisis-pengaruh-variasi-kondisi-operasional-terhadap-kapasitas-aliran-kompresor-sentrifugal/">Analisis Pengaruh Variasi Kondisi Operasional terhadap Kapasitas Aliran Kompresor Sentrifugal</a>.</p>
+<hr />
+
+<h3 id="rumus-efisiensi-isentropik">Rumus Efisiensi Isentropik</h3>
+<p>Pada kompresi ideal tanpa rugi (isentropik), temperatur discharge hanya ditentukan oleh temperatur suction dan rasio tekanan r = P_out/P_in:</p>
+<p>\( T_{out,isen} = T_{in} \times r^{(k-1)/k} \)</p>
+<p>Pada kompresi nyata yang praktis adiabatik, kerja yang dibutuhkan lebih besar, sehingga temperatur discharge aktual lebih tinggi. Perbandingan kenaikan temperatur ideal dan aktual adalah efisiensi isentropik:</p>
+<p>\( \eta = \frac{T_{out,isen} - T_{in}}{T_{out,aktual} - T_{in}} \)</p>
+<p>Temperatur dalam Kelvin, dan untuk udara atau nitrogen (k−1)/k ≈ 0.2857. Ini pendekatan gas ideal; pada tekanan stage akhir, sifat gas nyata sedikit menyimpang, tetapi penyimpangan itu relatif tetap sehingga tidak mengganggu perbandingan terhadap nilai historis.</p>
+<p>Rumus ini berlaku untuk <strong>satu proses kompresi tanpa pendinginan di tengahnya</strong>: suction dan discharge pada kompresor single-stage, atau satu stage pada kompresor multi-stage, dengan temperatur discharge diukur sebelum cooler.</p>
+<p>Hasilnya cukup peka terhadap sensor. Sebagai ilustrasi, pada stage dengan rasio tekanan sekitar 1.5 dan temperatur seperti contoh di bawah, error 1°C pada temperatur discharge atau error 1% pada rasio tekanan menggeser efisiensi sekitar 2 poin. Karena itu angka efisiensi lebih bisa dipercaya sebagai <strong>tren</strong> daripada sebagai nilai absolut.</p>
+<hr />
+
+<h3 id="kenapa-harus-per-stage">Kenapa Harus Per Stage</h3>
+<p>Godaan yang sering muncul adalah memakai temperatur suction stage 1, temperatur discharge stage akhir, dan rasio tekanan overall. Hasilnya bisa ratusan persen; pada kompresor contoh di bawah, sekitar 480%.</p>
+<p>Penyebabnya adalah cooler. Rumus di atas menghitung kenaikan temperatur seolah seluruh kompresi terjadi tanpa pendinginan, sedangkan temperatur di discharge stage akhir hanya "mengingat" kenaikan temperatur stage terakhir. Panas yang sudah dibuang cooler di antara stage tidak ada di dalam persamaan.</p>
+<p>Ada alasan kedua yang lebih penting dalam praktik: <strong>degradasi stage awal hampir tidak terlihat di ujung kompresor</strong>. Dalam model ilustratif kompresor 4-stage dengan efektivitas cooler 85%, jika efisiensi stage 1 turun dari 80% ke 75%, temperatur discharge stage 1 naik sekitar 3°C. Tetapi cooler 1 membuang hampir semua kenaikan itu, dan yang sampai ke discharge stage akhir hanya sekitar 0.02°C. Masalah di stage 1 jauh lebih mudah ditemukan dari pengukuran stage 1 sendiri.</p>
+<hr />
+
+<h3 id="contoh-kompresor-recycle-nitrogen-4-stage">Contoh: Kompresor Recycle Nitrogen 4-Stage</h3>
+<p>Snapshot DCS berikut memiliki temperatur suction dan discharge setiap stage, tetapi tekanan hanya tersedia di suction stage 1 dan discharge stage akhir. Rasio tekanan overall sekitar 6.09.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Suction</th>
+<th>Discharge</th>
+<th>Kenaikan temperatur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>31°C</td>
+<td>87°C</td>
+<td>56°C</td>
+</tr>
+<tr>
+<td>2</td>
+<td>32°C</td>
+<td>77°C</td>
+<td>45°C</td>
+</tr>
+<tr>
+<td>3</td>
+<td>32°C</td>
+<td>84°C</td>
+<td>52°C</td>
+</tr>
+<tr>
+<td>4</td>
+<td>33°C</td>
+<td>74°C</td>
+<td>41°C</td>
+</tr>
+</tbody>
+</table>
+<p>Tanpa tekanan antar-stage, ada dua hal yang tetap bisa dihitung.</p>
+<p><strong>1. Estimasi efisiensi rata-rata stage.</strong> Selama temperatur suction setiap stage hampir sama, jumlah kenaikan temperatur ideal semua stage relatif tidak sensitif terhadap cara rasio tekanan dibagi. Pada contoh ini, pembagian yang cukup berbeda (misalnya 1.70/1.55/1.50/1.54) hanya mengubah jumlahnya kurang dari 0.1%. Jadi efisiensi rata-rata bisa diperkirakan dari rasio tekanan overall saja, dengan asumsi pembagian rata:</p>
+<p>\( \bar{\eta} = \frac{\sum_i T_{in,i} \left( PR^{(k-1)/(k \cdot n)} - 1 \right)}{\sum_i \left( T_{out,i} - T_{in,i} \right)} \)</p>
+<p>dengan n jumlah stage. Hasilnya adalah rata-rata berbobot oleh kenaikan temperatur aktual. Pada snapshot ini, estimasi efisiensi rata-rata stage sekitar <strong>86.6%</strong>.</p>
+<p>Sebagai pembanding, dari data desain kompresor ini (96000 Nm³/h, daya poros 6850 kW, rasio tekanan 5.94, suction 37°C), dengan asumsi rasio tekanan terbagi rata, c_p rata-rata, dan rugi mekanis sekitar 1.5%, estimasi efisiensi desainnya sekitar <strong>86.5%</strong>. Secara keseluruhan, kompresor masih bekerja dekat efisiensi desainnya.</p>
+<p><strong>2. Efisiensi per stage dengan asumsi rasio tekanan terbagi rata.</strong> Jika rasio tekanan overall dibagi rata (akar pangkat empat dari 6.09, sekitar 1.57 per stage), efisiensi keempat stage menjadi:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Efisiensi, asumsi rasio rata</td>
+<td>75%</td>
+<td>93%</td>
+<td>81%</td>
+<td>103%</td>
+</tr>
+</tbody>
+</table>
+<p>Stage 4 di atas 100%, jadi angka ini tidak bisa ditafsirkan sebagai efisiensi stage sebenarnya. Penyebab utamanya bias dari asumsi pembagian rata: stage 1 kemungkinan memikul rasio lebih besar, stage 4 lebih kecil. Error sensor atau sifat gas bisa menambah, tetapi tidak cukup menjelaskan selisih sebesar ini.</p>
+<p>Tetapi selama pembagian rasio antar-stage tidak banyak berubah, bias ini juga <strong>relatif stabil</strong>. Polanya cenderung tetap: stage 1 terbaca lebih rendah dan stage 4 lebih tinggi. Karena itu angka ini tetap berguna jika dibandingkan dengan <strong>nilainya sendiri saat kompresor sehat</strong>, sama seperti approach cooler dibandingkan dengan nilainya saat bersih. Jika stage 1 biasanya terbaca 75% lalu turun ke 71% pada kondisi operasi serupa, stage 1 memburuk.</p>
+<p>Jika tekanan antar-stage tersedia, rumus yang sama dipakai dengan rasio tekanan stage yang sebenarnya, dan hasilnya mendekati efisiensi stage sebenarnya.</p>
+<hr />
+
+<h3 id="kinerja-cooler">Kinerja Cooler</h3>
+<p>Cooler menentukan temperatur suction stage berikutnya. Kerja kompresi sebanding dengan temperatur suction absolut, sehingga suction 5°C lebih panas menambah kerja stage itu sekitar 1.6%. Cooler yang memburuk tidak mengubah efisiensi stage, tetapi menaikkan konsumsi daya.</p>
+<p>Dari temperatur gas masuk dan keluar cooler serta temperatur cooling water, ada tiga indikator:</p>
+<ul>
+<li><strong>Approach</strong>: temperatur gas keluar dikurangi temperatur cooling water masuk. Semakin besar, semakin buruk.</li>
+<li><strong>Efektivitas</strong> (berbasis temperatur): seberapa besar bagian dari beda temperatur maksimum yang berhasil dimanfaatkan cooler. Nilainya setara dengan efektivitas heat exchanger sebenarnya jika kapasitas panas air jauh lebih besar dari gas, seperti pada contoh ini.</li>
+<li><strong>Kenaikan temperatur cooling water</strong>: petunjuk beban panas dan flow air.</li>
+</ul>
+<p>\( \varepsilon = \frac{T_{gas,masuk} - T_{gas,keluar}}{T_{gas,masuk} - T_{cw,masuk}} \)</p>
+<p>Pada kompresor contoh, dengan cooling water masuk 30°C:</p>
+<table>
+<thead>
+<tr>
+<th>Cooler</th>
+<th>Gas masuk</th>
+<th>Gas keluar</th>
+<th>Approach</th>
+<th>Efektivitas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cooler 1</td>
+<td>87°C</td>
+<td>32°C</td>
+<td>2°C</td>
+<td>96%</td>
+</tr>
+<tr>
+<td>Cooler 2</td>
+<td>77°C</td>
+<td>32°C</td>
+<td>2°C</td>
+<td>96%</td>
+</tr>
+<tr>
+<td>Cooler 3</td>
+<td>84°C</td>
+<td>33°C</td>
+<td>3°C</td>
+<td>94%</td>
+</tr>
+<tr>
+<td>Aftercooler</td>
+<td>74°C</td>
+<td>32°C</td>
+<td>2°C</td>
+<td>95%</td>
+</tr>
+</tbody>
+</table>
+<p>Approach pada snapshot ini sekitar 2–3°C. Baik atau buruknya tetap dinilai terhadap desain atau nilai saat bersih dari cooler itu sendiri. Angka ini konsisten dengan kenaikan temperatur cooling water gabungan yang hanya sekitar 4.4°C: flow air besar dibanding panas yang dibuang, sehingga gas bisa didinginkan sangat dekat ke temperatur air. Pada approach sekecil ini, selisih 1°C antar-cooler perlu dibaca dengan mempertimbangkan akurasi sensor.</p>
+<p>Kombinasi ketiga indikator membantu menebak jenis masalah cooler. Secara kualitatif, model heat exchanger sederhana memberi pola berikut:</p>
+<table>
+<thead>
+<tr>
+<th>Kejadian</th>
+<th>Approach</th>
+<th>Efektivitas</th>
+<th>Kenaikan T air</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fouling</td>
+<td>naik tajam</td>
+<td>turun</td>
+<td>turun</td>
+</tr>
+<tr>
+<td>Flow cooling water berkurang</td>
+<td>naik sedikit</td>
+<td>turun sedikit</td>
+<td>naik tajam</td>
+</tr>
+<tr>
+<td>Cooling water masuk lebih panas</td>
+<td>turun sedikit</td>
+<td>tetap</td>
+<td>turun sedikit</td>
+</tr>
+<tr>
+<td>Stage sebelumnya memburuk</td>
+<td>naik sedikit</td>
+<td>tetap</td>
+<td>naik sedikit</td>
+</tr>
+</tbody>
+</table>
+<p>Baris terakhir penting: approach ikut naik sedikit ketika stage sebelumnya memburuk, karena gas yang masuk cooler lebih panas. Efektivitas tidak ikut berubah, sehingga lebih bersih sebagai indikator kondisi cooler.</p>
+<hr />
+
+<h3 id="membaca-stage-dan-cooler-bersama">Membaca Stage dan Cooler Bersama</h3>
+<p>Efisiensi stage memakai temperatur suction stage itu sendiri. Jika cooler sebelumnya kotor, suction memang lebih panas, tetapi kenaikan suction itu sendiri tidak berarti efisiensi stage turun. Sebaliknya, gas yang lebih panas dari stage yang memburuk tidak dengan sendirinya mengubah efektivitas cooler, selama kondisi cooler lainnya sama. Keduanya membantu memisahkan dua sumber masalah yang gejalanya mirip. Tabel berikut adalah pola diagnosis awal, bukan kepastian penyebab:</p>
+<table>
+<thead>
+<tr>
+<th>Efisiensi stage</th>
+<th>Efektivitas cooler sebelumnya</th>
+<th>Indikasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Turun</td>
+<td>Normal</td>
+<td>Masalah di stage: fouling impeller, keausan, clearance</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>Turun</td>
+<td>Masalah di cooler: fouling atau flow air kurang</td>
+</tr>
+<tr>
+<td>Turun</td>
+<td>Turun</td>
+<td>Keduanya, atau penyebab bersama</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>Normal, tetapi suction naik</td>
+<td>Cooling water lebih panas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h3 id="menampilkan-di-dcs">Menampilkan di DCS</h3>
+<p>Semua indikator ini bisa dihitung terus-menerus dan ditampilkan berdampingan dengan referensinya, misalnya rasio tekanan aktual di samping nilai desainnya:</p>
+<ul>
+<li>rasio tekanan overall, dengan referensi desain,</li>
+<li>efisiensi rata-rata stage, dengan referensi desain,</li>
+<li>efisiensi setiap stage (asumsi rasio rata), dengan referensi nilai stage itu saat sehat,</li>
+<li>approach dan efektivitas setiap cooler, dengan referensi nilai saat bersih.</li>
+</ul>
+<p>Referensi "saat sehat" cukup diambil dari rata-rata periode ketika kompresor diketahui normal dan steady. Validitas angka dinilai oleh yang membaca: saat kompresor mati atau transient, nilainya memang tidak bermakna.</p>
+<p>Function block berikut sengaja dibuat minimal.</p>
+<p><strong>Efisiensi satu stage</strong>, satu instance per stage:</p>
+<pre><code class="language-iecst">(* Efisiensi satu stage. PR = rasio tekanan overall dan N_Stage = jumlah
+   stage (asumsi rasio rata), atau PR = rasio stage sebenarnya dan
+   N_Stage = 1 jika tekanan antar-stage tersedia. *)
+FUNCTION_BLOCK FB_StageEfficiency
+VAR_INPUT
+    T_in_C   : REAL;   (* suction stage, degC *)
+    T_out_C  : REAL;   (* discharge stage, sebelum cooler, degC *)
+    PR       : REAL;   (* rasio tekanan, absolut *)
+    N_Stage  : REAL;
+    Eta_Base : REAL;   (* nilai saat sehat, 0-1 *)
+END_VAR
+VAR_OUTPUT
+    Eta       : REAL;  (* 0-1 *)
+    Eta_Index : REAL;  (* %, 100 = sama dengan saat sehat *)
+END_VAR
+
+IF (T_out_C &gt; T_in_C) AND (PR &gt; 1.0) AND (N_Stage &gt; 0.0) THEN
+    Eta := (T_in_C + 273.15) * (EXPT(PR, 0.2857 / N_Stage) - 1.0)
+           / (T_out_C - T_in_C);
+    IF Eta_Base &gt; 0.0 THEN
+        Eta_Index := Eta / Eta_Base * 100.0;
+    END_IF;
+END_IF;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<p><strong>Efisiensi rata-rata stage</strong> dari rasio tekanan overall:</p>
+<pre><code class="language-iecst">(* Efisiensi rata-rata stage, kompresor 4-stage, dari PR overall *)
+FUNCTION_BLOCK FB_AverageStageEfficiency
+VAR_INPUT
+    T_in_C  : ARRAY[1..4] OF REAL;
+    T_out_C : ARRAY[1..4] OF REAL;
+    PR      : REAL;
+END_VAR
+VAR_OUTPUT
+    Eta_avg : REAL;   (* 0-1 *)
+    Sum_dT  : REAL;   (* degC *)
+END_VAR
+VAR
+    i : INT;
+    r_a, sum_ideal : REAL;
+END_VAR
+
+IF PR &gt; 1.0 THEN
+    r_a := EXPT(PR, 0.2857 / 4.0);
+    sum_ideal := 0.0;
+    Sum_dT := 0.0;
+    FOR i := 1 TO 4 DO
+        sum_ideal := sum_ideal + (T_in_C[i] + 273.15) * (r_a - 1.0);
+        Sum_dT := Sum_dT + (T_out_C[i] - T_in_C[i]);
+    END_FOR;
+    IF Sum_dT &gt; 0.0 THEN
+        Eta_avg := sum_ideal / Sum_dT;
+    END_IF;
+END_IF;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<p><strong>Kinerja cooler</strong>, satu instance per cooler:</p>
+<pre><code class="language-iecst">(* Kinerja satu cooler *)
+FUNCTION_BLOCK FB_CoolerPerformance
+VAR_INPUT
+    T_gas_in_C  : REAL;
+    T_gas_out_C : REAL;
+    T_cw_in_C   : REAL;
+    T_cw_out_C  : REAL;
+END_VAR
+VAR_OUTPUT
+    Approach      : REAL;   (* degC *)
+    Effectiveness : REAL;   (* 0-1 *)
+    CW_dT         : REAL;   (* degC *)
+END_VAR
+
+Approach := T_gas_out_C - T_cw_in_C;
+CW_dT    := T_cw_out_C - T_cw_in_C;
+IF T_gas_in_C &gt; T_cw_in_C THEN
+    Effectiveness := (T_gas_in_C - T_gas_out_C) / (T_gas_in_C - T_cw_in_C);
+END_IF;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<hr />
+
+<h3 id="hubungan-dengan-estimasi-flow">Hubungan dengan Estimasi Flow</h3>
+<p>Di artikel <a href="https://blog.kiiota.com/estimasi-flow-kompresor-sentrifugal-pendekatan-isothermal-relatif-terhadap-titik-desain/">Estimasi Flow Kompresor Sentrifugal: Pendekatan Isothermal Relatif terhadap Titik Desain</a>, flow diestimasi dengan asumsi efisiensi kompresor sama dengan desain. Efisiensi rata-rata stage adalah cara langsung untuk memeriksa asumsi itu: selama nilainya stabil di sekitar desain, estimasi flow bisa dipercaya. Jika efisiensi turun sementara estimasi flow masih memakai efisiensi desain, estimasi flow cenderung terlalu tinggi.</p>
+<p>Temperatur per stage juga memberi estimasi flow kedua dari neraca energi: daya yang diterima gas dibagi c_p dan jumlah kenaikan temperatur semua stage. Cara ini tidak memerlukan asumsi efisiensi isentropik, tetapi tetap membutuhkan estimasi rugi mekanis dan c_p. Pada contoh ini hasilnya sekitar 94000–97000 Nm³/h. Estimasi berbasis desain, sekitar 95800 Nm³/h pada basis normal yang sama, berada dalam rentang itu. Dua pendekatan model yang berbeda memberi angka yang berdekatan, dan selisihnya dari waktu ke waktu bisa dipantau sebagai indikator perubahan kondisi kompresor.</p>
+<hr />
+
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Efisiensi isentropik kompresor sentrifugal bisa dianalisis dari temperatur dan tekanan, asalkan per stage. Suction stage pertama dan discharge stage terakhir tidak bisa dipakai untuk satu efisiensi overall pada kompresor multi-stage dengan intercooler, dan degradasi stage awal hampir tidak terlihat di sana.</p>
+<p>Jika tekanan antar-stage tidak tersedia, efisiensi setiap stage tidak bisa diketahui secara absolut. Yang masih bisa dihitung adalah estimasi berbasis asumsi rasio rata: efisiensi rata-rata yang bisa dibandingkan dengan desain, dan efisiensi per stage yang dibandingkan dengan nilainya sendiri saat sehat. Dibaca bersama approach dan efektivitas cooler, yang memakai sensor yang sama, masalah di stage dan masalah di cooler bisa dipilah langsung dari layar DCS.</p>
+<hr />
+
+<p>Artikel ini ditulis dengan bantuan kecerdasan buatan dengan arahan, penyesuaian, dan validasi oleh penulis.</p>
+
+
+  </div>
+
+  <a class="u-url" href="/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html" hidden></a>
+  <meta itemprop="mainEntityOfPage" content="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html">
+</article>
+
+<style>
+.post-category {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-feature-image {
+  margin-top: 1rem;
+}
+
+.post-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.post-feature-caption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+</style>
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/kiiota-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ketut Kumajaya</li>
+          <li><a class="u-email" href="mailto:ketut.kumajaya@gmail.com">ketut.kumajaya@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/kumajaya/kiiota-blog" target="_blank" title="Repositori Kiiota Blog di GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://x.com/ketutkumajaya" target="_blank" title="Ketut Kumajaya at X (formerly Twitter)">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://kumajaya.github.io/kiiota-blog/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewbox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+        />
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+<!-- PrismJS: Core syntax highlighting engine and plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/command-line/prism-command-line.min.js"></script>
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Configure Prism Autoloader
+    if (Prism.plugins.autoloader) {
+      Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/';
+    }
+
+    // Add line numbers to all code blocks
+    document.querySelectorAll('pre[class*=language-]').forEach(node => {
+      node.classList.add('line-numbers');
+    });
+
+    // Trigger syntax highlighting
+    Prism.highlightAll();
+  });
+</script>
+
+<!-- KaTeX: Load math typesetting engine + auto-render -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},   // Block
+        {left: "$", right: "$", display: false},     // Inline
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
+
+<!-- Mermaid.js: Initialize diagrams -->
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js" crossorigin="anonymous"></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    mermaid.initialize({
+      startOnLoad: false,        // Manual rendering
+      theme: 'base',
+      fontFamily: 'Segoe UI, sans-serif',
+      securityLevel: 'loose',
+      themeVariables: {
+        primaryColor: '#f0f7ff',
+        primaryBorderColor: '#3b82f6'
+      }
+    });
+
+    // Lazy-load observer for Mermaid diagrams
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (!el.id) el.id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
+          await mermaid.run({ querySelector: `#${el.id}` });
+          el.classList.add('is-ready');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    document.querySelectorAll('.mermaid').forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- Scroll Top Button & Progress Indicator: UX enhancement by Norbert Hunyadi -->
+<script defer>
+  const scrollTopBtn = document.querySelector('.js-scroll-top');   // Tombol scroll ke atas
+  const topSelector = document.querySelector('.post-content');     // Konten utama sebagai titik awal scroll
+
+  if (scrollTopBtn && topSelector) {
+    scrollTopBtn.onclick = () => {
+      const topPosition = topSelector.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
+    };
+
+    const progressPath = document.querySelector('.scroll-top path');
+    const pathLength = progressPath.getTotalLength();
+    progressPath.style.transition = 'none';
+    progressPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+    progressPath.style.strokeDashoffset = pathLength;
+    progressPath.getBoundingClientRect();
+    progressPath.style.transition = 'stroke-dashoffset 10ms linear';
+
+    const updateProgress = () => {
+      const scroll = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+      const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      const topOffset = topSelector.offsetTop;
+      const height = docHeight - windowHeight - topOffset;
+      const progress = pathLength - ((scroll - topOffset) * pathLength / height);
+      progressPath.style.strokeDashoffset = progress;
+    };
+
+    updateProgress();
+
+    const offset = topSelector.offsetTop; // Trigger scroll-top button visibility
+
+    window.addEventListener('scroll', () => {
+      updateProgress();
+      const scrollPos = window.scrollY || document.documentElement.scrollTop;
+      scrollPos > offset
+        ? scrollTopBtn.classList.add('is-active')
+        : scrollTopBtn.classList.remove('is-active');
+    }, false);
+  }
+</script>
+
+<!-- Audio Card Enhancement: Replace Ghost audio cards with native players -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".kg-audio-card").forEach(function (card) {
+      const audio = card.querySelector("audio");
+      const title = card.querySelector(".kg-audio-title")?.textContent || "";
+      const src = audio?.getAttribute("src");
+
+      if (!src) return;
+
+      // Buat elemen player
+      const nativePlayer = document.createElement("audio");
+      nativePlayer.setAttribute("controls", "");
+      nativePlayer.setAttribute("preload", "metadata");
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "audio/mpeg");
+      nativePlayer.appendChild(source);
+
+      // Tambahkan fallback sebagai node teks
+      nativePlayer.appendChild(document.createTextNode(
+        "Browser Anda tidak mendukung pemutar audio atau file tidak tersedia."
+      ));
+
+      // Bungkus semua dalam wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "native-audio-wrapper";
+
+      // Tambahkan caption di atas player
+      if (title) {
+        const caption = document.createElement("div");
+        caption.className = "audio-title";
+        caption.textContent = title;
+        wrapper.appendChild(caption);
+      }
+
+      wrapper.appendChild(nativePlayer);
+
+      // Tambahkan metadata untuk audit/logging
+      wrapper.setAttribute("data-audio-source", src);
+      wrapper.setAttribute("data-audio-title", title);
+
+      // Ganti elemen Ghost dengan versi native
+      card.replaceWith(wrapper);
+    });
+  });
+</script>
+
+<!-- Native File Card Enhancement: Replace Ghost file cards with native download links -->
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".kg-file-card").forEach(card => {
+    const link = card.querySelector("a.kg-file-card-container");
+    const fileUrl = link?.getAttribute("href");
+    const fileName = card.querySelector(".kg-file-card-title")?.textContent?.trim() || "Download File";
+    const fileDesc = card.querySelector(".kg-file-card-caption")?.textContent?.trim() || "";
+    const fileMeta = card.querySelector(".kg-file-card-metadata");
+    const fileSize = fileMeta?.querySelector(".kg-file-card-filesize")?.textContent?.trim() || "";
+    const fileBase = fileMeta?.querySelector(".kg-file-card-filename")?.textContent?.trim() || "";
+
+    if (!fileUrl) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "native-file-wrapper";
+
+    const svgIcon = `
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+           stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+        <polyline points="8.25 14.25 12 18 15.75 14.25"></polyline>
+        <line x1="12" y1="6.75" x2="12" y2="18"></line>
+        <circle cx="12" cy="12" r="11.25"></circle>
+      </svg>
+    `;
+
+    wrapper.innerHTML = `
+      <div class="file-info">
+        <div class="file-name">${fileName}</div>
+        ${fileDesc ? `<div class="file-desc">${fileDesc}</div>` : ""}
+        <div class="file-meta">
+          ${fileBase ? `<span>${fileBase}</span>` : ""}
+          ${fileBase && fileSize ? `<span class="dot">•</span>` : ""}
+          ${fileSize ? `<span>${fileSize}</span>` : ""}
+        </div>
+      </div>
+      <a class="file-download" href="${fileUrl}" download aria-label="Download file">
+        ${svgIcon}
+      </a>
+    `;
+
+    card.replaceWith(wrapper);
+  });
+});
+</script>
+</body>
+
+</html>

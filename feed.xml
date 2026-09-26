@@ -1,5 +1,710 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-09-20T05:43:59+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
-</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Kurva V/Hz pada Roots Blower: Kenapa Menurunkan Kecepatan Bisa Menaikkan Arus Motor</title><link href="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor.html" rel="alternate" type="text/html" title="Kurva V/Hz pada Roots Blower: Kenapa Menurunkan Kecepatan Bisa Menaikkan Arus Motor" /><published>2026-09-12T17:53:49+00:00</published><updated>2026-09-12T17:53:49+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 12 September 2026</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-09-26T05:51:46+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+</subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan</title><link href="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html" rel="alternate" type="text/html" title="Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan" /><published>2026-09-26T03:51:16+00:00</published><updated>2026-09-26T03:51:16+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html"><![CDATA[<h3 id="pendahuluan">Pendahuluan</h3>
+<p>Kompresor yang kurang efisien membutuhkan kerja lebih besar untuk menaikkan tekanan yang sama, dan kerja tambahan itu muncul sebagai temperatur discharge yang lebih tinggi. Karena itu efisiensi isentropik sebuah stage bisa dihitung hanya dari <strong>temperatur dan tekanan</strong>, tanpa flowmeter.</p>
+<p>Pada kompresor single-stage, perhitungannya langsung. Pada kompresor multi-stage dengan intercooler, rumusnya sama, tetapi harus diterapkan <strong>per stage</strong>. Tulisan ini membahas kenapa, apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan bagaimana membaca efisiensi stage bersama kinerja cooler. Contohnya diambil dari kompresor recycle nitrogen 4-stage yang juga dipakai di artikel <a href="https://blog.kiiota.com/analisis-pengaruh-variasi-kondisi-operasional-terhadap-kapasitas-aliran-kompresor-sentrifugal/">Analisis Pengaruh Variasi Kondisi Operasional terhadap Kapasitas Aliran Kompresor Sentrifugal</a>.</p>
+<hr />
+
+<h3 id="rumus-efisiensi-isentropik">Rumus Efisiensi Isentropik</h3>
+<p>Pada kompresi ideal tanpa rugi (isentropik), temperatur discharge hanya ditentukan oleh temperatur suction dan rasio tekanan r = P_out/P_in:</p>
+<p>\( T_{out,isen} = T_{in} \times r^{(k-1)/k} \)</p>
+<p>Pada kompresi nyata yang praktis adiabatik, kerja yang dibutuhkan lebih besar, sehingga temperatur discharge aktual lebih tinggi. Perbandingan kenaikan temperatur ideal dan aktual adalah efisiensi isentropik:</p>
+<p>\( \eta = \frac{T_{out,isen} - T_{in}}{T_{out,aktual} - T_{in}} \)</p>
+<p>Temperatur dalam Kelvin, dan untuk udara atau nitrogen (k−1)/k ≈ 0.2857. Ini pendekatan gas ideal; pada tekanan stage akhir, sifat gas nyata sedikit menyimpang, tetapi penyimpangan itu relatif tetap sehingga tidak mengganggu perbandingan terhadap nilai historis.</p>
+<p>Rumus ini berlaku untuk <strong>satu proses kompresi tanpa pendinginan di tengahnya</strong>: suction dan discharge pada kompresor single-stage, atau satu stage pada kompresor multi-stage, dengan temperatur discharge diukur sebelum cooler.</p>
+<p>Hasilnya cukup peka terhadap sensor. Sebagai ilustrasi, pada stage dengan rasio tekanan sekitar 1.5 dan temperatur seperti contoh di bawah, error 1°C pada temperatur discharge atau error 1% pada rasio tekanan menggeser efisiensi sekitar 2 poin. Karena itu angka efisiensi lebih bisa dipercaya sebagai <strong>tren</strong> daripada sebagai nilai absolut.</p>
+<hr />
+
+<h3 id="kenapa-harus-per-stage">Kenapa Harus Per Stage</h3>
+<p>Godaan yang sering muncul adalah memakai temperatur suction stage 1, temperatur discharge stage akhir, dan rasio tekanan overall. Hasilnya bisa ratusan persen; pada kompresor contoh di bawah, sekitar 480%.</p>
+<p>Penyebabnya adalah cooler. Rumus di atas menghitung kenaikan temperatur seolah seluruh kompresi terjadi tanpa pendinginan, sedangkan temperatur di discharge stage akhir hanya "mengingat" kenaikan temperatur stage terakhir. Panas yang sudah dibuang cooler di antara stage tidak ada di dalam persamaan.</p>
+<p>Ada alasan kedua yang lebih penting dalam praktik: <strong>degradasi stage awal hampir tidak terlihat di ujung kompresor</strong>. Dalam model ilustratif kompresor 4-stage dengan efektivitas cooler 85%, jika efisiensi stage 1 turun dari 80% ke 75%, temperatur discharge stage 1 naik sekitar 3°C. Tetapi cooler 1 membuang hampir semua kenaikan itu, dan yang sampai ke discharge stage akhir hanya sekitar 0.02°C. Masalah di stage 1 jauh lebih mudah ditemukan dari pengukuran stage 1 sendiri.</p>
+<hr />
+
+<h3 id="contoh-kompresor-recycle-nitrogen-4-stage">Contoh: Kompresor Recycle Nitrogen 4-Stage</h3>
+<p>Snapshot DCS berikut memiliki temperatur suction dan discharge setiap stage, tetapi tekanan hanya tersedia di suction stage 1 dan discharge stage akhir. Rasio tekanan overall sekitar 6.09.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Suction</th>
+<th>Discharge</th>
+<th>Kenaikan temperatur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>31°C</td>
+<td>87°C</td>
+<td>56°C</td>
+</tr>
+<tr>
+<td>2</td>
+<td>32°C</td>
+<td>77°C</td>
+<td>45°C</td>
+</tr>
+<tr>
+<td>3</td>
+<td>32°C</td>
+<td>84°C</td>
+<td>52°C</td>
+</tr>
+<tr>
+<td>4</td>
+<td>33°C</td>
+<td>74°C</td>
+<td>41°C</td>
+</tr>
+</tbody>
+</table>
+<p>Tanpa tekanan antar-stage, ada dua hal yang tetap bisa dihitung.</p>
+<p><strong>1. Estimasi efisiensi rata-rata stage.</strong> Selama temperatur suction setiap stage hampir sama, jumlah kenaikan temperatur ideal semua stage relatif tidak sensitif terhadap cara rasio tekanan dibagi. Pada contoh ini, pembagian yang cukup berbeda (misalnya 1.70/1.55/1.50/1.54) hanya mengubah jumlahnya kurang dari 0.1%. Jadi efisiensi rata-rata bisa diperkirakan dari rasio tekanan overall saja, dengan asumsi pembagian rata:</p>
+<p>\( \bar{\eta} = \frac{\sum_i T_{in,i} \left( PR^{(k-1)/(k \cdot n)} - 1 \right)}{\sum_i \left( T_{out,i} - T_{in,i} \right)} \)</p>
+<p>dengan n jumlah stage. Hasilnya adalah rata-rata berbobot oleh kenaikan temperatur aktual. Pada snapshot ini, estimasi efisiensi rata-rata stage sekitar <strong>86.6%</strong>.</p>
+<p>Sebagai pembanding, dari data desain kompresor ini (96000 Nm³/h, daya poros 6850 kW, rasio tekanan 5.94, suction 37°C), dengan asumsi rasio tekanan terbagi rata, c_p rata-rata, dan rugi mekanis sekitar 1.5%, estimasi efisiensi desainnya sekitar <strong>86.5%</strong>. Secara keseluruhan, kompresor masih bekerja dekat efisiensi desainnya.</p>
+<p><strong>2. Efisiensi per stage dengan asumsi rasio tekanan terbagi rata.</strong> Jika rasio tekanan overall dibagi rata (akar pangkat empat dari 6.09, sekitar 1.57 per stage), efisiensi keempat stage menjadi:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Efisiensi, asumsi rasio rata</td>
+<td>75%</td>
+<td>93%</td>
+<td>81%</td>
+<td>103%</td>
+</tr>
+</tbody>
+</table>
+<p>Stage 4 di atas 100%, jadi angka ini tidak bisa ditafsirkan sebagai efisiensi stage sebenarnya. Penyebab utamanya bias dari asumsi pembagian rata: stage 1 kemungkinan memikul rasio lebih besar, stage 4 lebih kecil. Error sensor atau sifat gas bisa menambah, tetapi tidak cukup menjelaskan selisih sebesar ini.</p>
+<p>Tetapi selama pembagian rasio antar-stage tidak banyak berubah, bias ini juga <strong>relatif stabil</strong>. Polanya cenderung tetap: stage 1 terbaca lebih rendah dan stage 4 lebih tinggi. Karena itu angka ini tetap berguna jika dibandingkan dengan <strong>nilainya sendiri saat kompresor sehat</strong>, sama seperti approach cooler dibandingkan dengan nilainya saat bersih. Jika stage 1 biasanya terbaca 75% lalu turun ke 71% pada kondisi operasi serupa, stage 1 memburuk.</p>
+<p>Jika tekanan antar-stage tersedia, rumus yang sama dipakai dengan rasio tekanan stage yang sebenarnya, dan hasilnya mendekati efisiensi stage sebenarnya.</p>
+<hr />
+
+<h3 id="kinerja-cooler">Kinerja Cooler</h3>
+<p>Cooler menentukan temperatur suction stage berikutnya. Kerja kompresi sebanding dengan temperatur suction absolut, sehingga suction 5°C lebih panas menambah kerja stage itu sekitar 1.6%. Cooler yang memburuk tidak mengubah efisiensi stage, tetapi menaikkan konsumsi daya.</p>
+<p>Dari temperatur gas masuk dan keluar cooler serta temperatur cooling water, ada tiga indikator:</p>
+<ul>
+<li><strong>Approach</strong>: temperatur gas keluar dikurangi temperatur cooling water masuk. Semakin besar, semakin buruk.</li>
+<li><strong>Efektivitas</strong> (berbasis temperatur): seberapa besar bagian dari beda temperatur maksimum yang berhasil dimanfaatkan cooler. Nilainya setara dengan efektivitas heat exchanger sebenarnya jika kapasitas panas air jauh lebih besar dari gas, seperti pada contoh ini.</li>
+<li><strong>Kenaikan temperatur cooling water</strong>: petunjuk beban panas dan flow air.</li>
+</ul>
+<p>\( \varepsilon = \frac{T_{gas,masuk} - T_{gas,keluar}}{T_{gas,masuk} - T_{cw,masuk}} \)</p>
+<p>Pada kompresor contoh, dengan cooling water masuk 30°C:</p>
+<table>
+<thead>
+<tr>
+<th>Cooler</th>
+<th>Gas masuk</th>
+<th>Gas keluar</th>
+<th>Approach</th>
+<th>Efektivitas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cooler 1</td>
+<td>87°C</td>
+<td>32°C</td>
+<td>2°C</td>
+<td>96%</td>
+</tr>
+<tr>
+<td>Cooler 2</td>
+<td>77°C</td>
+<td>32°C</td>
+<td>2°C</td>
+<td>96%</td>
+</tr>
+<tr>
+<td>Cooler 3</td>
+<td>84°C</td>
+<td>33°C</td>
+<td>3°C</td>
+<td>94%</td>
+</tr>
+<tr>
+<td>Aftercooler</td>
+<td>74°C</td>
+<td>32°C</td>
+<td>2°C</td>
+<td>95%</td>
+</tr>
+</tbody>
+</table>
+<p>Approach pada snapshot ini sekitar 2–3°C. Baik atau buruknya tetap dinilai terhadap desain atau nilai saat bersih dari cooler itu sendiri. Angka ini konsisten dengan kenaikan temperatur cooling water gabungan yang hanya sekitar 4.4°C: flow air besar dibanding panas yang dibuang, sehingga gas bisa didinginkan sangat dekat ke temperatur air. Pada approach sekecil ini, selisih 1°C antar-cooler perlu dibaca dengan mempertimbangkan akurasi sensor.</p>
+<p>Kombinasi ketiga indikator membantu menebak jenis masalah cooler. Secara kualitatif, model heat exchanger sederhana memberi pola berikut:</p>
+<table>
+<thead>
+<tr>
+<th>Kejadian</th>
+<th>Approach</th>
+<th>Efektivitas</th>
+<th>Kenaikan T air</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fouling</td>
+<td>naik tajam</td>
+<td>turun</td>
+<td>turun</td>
+</tr>
+<tr>
+<td>Flow cooling water berkurang</td>
+<td>naik sedikit</td>
+<td>turun sedikit</td>
+<td>naik tajam</td>
+</tr>
+<tr>
+<td>Cooling water masuk lebih panas</td>
+<td>turun sedikit</td>
+<td>tetap</td>
+<td>turun sedikit</td>
+</tr>
+<tr>
+<td>Stage sebelumnya memburuk</td>
+<td>naik sedikit</td>
+<td>tetap</td>
+<td>naik sedikit</td>
+</tr>
+</tbody>
+</table>
+<p>Baris terakhir penting: approach ikut naik sedikit ketika stage sebelumnya memburuk, karena gas yang masuk cooler lebih panas. Efektivitas tidak ikut berubah, sehingga lebih bersih sebagai indikator kondisi cooler.</p>
+<hr />
+
+<h3 id="membaca-stage-dan-cooler-bersama">Membaca Stage dan Cooler Bersama</h3>
+<p>Efisiensi stage memakai temperatur suction stage itu sendiri. Jika cooler sebelumnya kotor, suction memang lebih panas, tetapi kenaikan suction itu sendiri tidak berarti efisiensi stage turun. Sebaliknya, gas yang lebih panas dari stage yang memburuk tidak dengan sendirinya mengubah efektivitas cooler, selama kondisi cooler lainnya sama. Keduanya membantu memisahkan dua sumber masalah yang gejalanya mirip. Tabel berikut adalah pola diagnosis awal, bukan kepastian penyebab:</p>
+<table>
+<thead>
+<tr>
+<th>Efisiensi stage</th>
+<th>Efektivitas cooler sebelumnya</th>
+<th>Indikasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Turun</td>
+<td>Normal</td>
+<td>Masalah di stage: fouling impeller, keausan, clearance</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>Turun</td>
+<td>Masalah di cooler: fouling atau flow air kurang</td>
+</tr>
+<tr>
+<td>Turun</td>
+<td>Turun</td>
+<td>Keduanya, atau penyebab bersama</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>Normal, tetapi suction naik</td>
+<td>Cooling water lebih panas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+<h3 id="menampilkan-di-dcs">Menampilkan di DCS</h3>
+<p>Semua indikator ini bisa dihitung terus-menerus dan ditampilkan berdampingan dengan referensinya, misalnya rasio tekanan aktual di samping nilai desainnya:</p>
+<ul>
+<li>rasio tekanan overall, dengan referensi desain,</li>
+<li>efisiensi rata-rata stage, dengan referensi desain,</li>
+<li>efisiensi setiap stage (asumsi rasio rata), dengan referensi nilai stage itu saat sehat,</li>
+<li>approach dan efektivitas setiap cooler, dengan referensi nilai saat bersih.</li>
+</ul>
+<p>Referensi "saat sehat" cukup diambil dari rata-rata periode ketika kompresor diketahui normal dan steady. Validitas angka dinilai oleh yang membaca: saat kompresor mati atau transient, nilainya memang tidak bermakna.</p>
+<p>Function block berikut sengaja dibuat minimal.</p>
+<p><strong>Efisiensi satu stage</strong>, satu instance per stage:</p>
+<pre><code class="language-iecst">(* Efisiensi satu stage. PR = rasio tekanan overall dan N_Stage = jumlah
+   stage (asumsi rasio rata), atau PR = rasio stage sebenarnya dan
+   N_Stage = 1 jika tekanan antar-stage tersedia. *)
+FUNCTION_BLOCK FB_StageEfficiency
+VAR_INPUT
+    T_in_C   : REAL;   (* suction stage, degC *)
+    T_out_C  : REAL;   (* discharge stage, sebelum cooler, degC *)
+    PR       : REAL;   (* rasio tekanan, absolut *)
+    N_Stage  : REAL;
+    Eta_Base : REAL;   (* nilai saat sehat, 0-1 *)
+END_VAR
+VAR_OUTPUT
+    Eta       : REAL;  (* 0-1 *)
+    Eta_Index : REAL;  (* %, 100 = sama dengan saat sehat *)
+END_VAR
+
+IF (T_out_C &gt; T_in_C) AND (PR &gt; 1.0) AND (N_Stage &gt; 0.0) THEN
+    Eta := (T_in_C + 273.15) * (EXPT(PR, 0.2857 / N_Stage) - 1.0)
+           / (T_out_C - T_in_C);
+    IF Eta_Base &gt; 0.0 THEN
+        Eta_Index := Eta / Eta_Base * 100.0;
+    END_IF;
+END_IF;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<p><strong>Efisiensi rata-rata stage</strong> dari rasio tekanan overall:</p>
+<pre><code class="language-iecst">(* Efisiensi rata-rata stage, kompresor 4-stage, dari PR overall *)
+FUNCTION_BLOCK FB_AverageStageEfficiency
+VAR_INPUT
+    T_in_C  : ARRAY[1..4] OF REAL;
+    T_out_C : ARRAY[1..4] OF REAL;
+    PR      : REAL;
+END_VAR
+VAR_OUTPUT
+    Eta_avg : REAL;   (* 0-1 *)
+    Sum_dT  : REAL;   (* degC *)
+END_VAR
+VAR
+    i : INT;
+    r_a, sum_ideal : REAL;
+END_VAR
+
+IF PR &gt; 1.0 THEN
+    r_a := EXPT(PR, 0.2857 / 4.0);
+    sum_ideal := 0.0;
+    Sum_dT := 0.0;
+    FOR i := 1 TO 4 DO
+        sum_ideal := sum_ideal + (T_in_C[i] + 273.15) * (r_a - 1.0);
+        Sum_dT := Sum_dT + (T_out_C[i] - T_in_C[i]);
+    END_FOR;
+    IF Sum_dT &gt; 0.0 THEN
+        Eta_avg := sum_ideal / Sum_dT;
+    END_IF;
+END_IF;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<p><strong>Kinerja cooler</strong>, satu instance per cooler:</p>
+<pre><code class="language-iecst">(* Kinerja satu cooler *)
+FUNCTION_BLOCK FB_CoolerPerformance
+VAR_INPUT
+    T_gas_in_C  : REAL;
+    T_gas_out_C : REAL;
+    T_cw_in_C   : REAL;
+    T_cw_out_C  : REAL;
+END_VAR
+VAR_OUTPUT
+    Approach      : REAL;   (* degC *)
+    Effectiveness : REAL;   (* 0-1 *)
+    CW_dT         : REAL;   (* degC *)
+END_VAR
+
+Approach := T_gas_out_C - T_cw_in_C;
+CW_dT    := T_cw_out_C - T_cw_in_C;
+IF T_gas_in_C &gt; T_cw_in_C THEN
+    Effectiveness := (T_gas_in_C - T_gas_out_C) / (T_gas_in_C - T_cw_in_C);
+END_IF;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<hr />
+
+<h3 id="hubungan-dengan-estimasi-flow">Hubungan dengan Estimasi Flow</h3>
+<p>Di artikel <a href="https://blog.kiiota.com/estimasi-flow-kompresor-sentrifugal-pendekatan-isothermal-relatif-terhadap-titik-desain/">Estimasi Flow Kompresor Sentrifugal: Pendekatan Isothermal Relatif terhadap Titik Desain</a>, flow diestimasi dengan asumsi efisiensi kompresor sama dengan desain. Efisiensi rata-rata stage adalah cara langsung untuk memeriksa asumsi itu: selama nilainya stabil di sekitar desain, estimasi flow bisa dipercaya. Jika efisiensi turun sementara estimasi flow masih memakai efisiensi desain, estimasi flow cenderung terlalu tinggi.</p>
+<p>Temperatur per stage juga memberi estimasi flow kedua dari neraca energi: daya yang diterima gas dibagi c_p dan jumlah kenaikan temperatur semua stage. Cara ini tidak memerlukan asumsi efisiensi isentropik, tetapi tetap membutuhkan estimasi rugi mekanis dan c_p. Pada contoh ini hasilnya sekitar 94000–97000 Nm³/h. Estimasi berbasis desain, sekitar 95800 Nm³/h pada basis normal yang sama, berada dalam rentang itu. Dua pendekatan model yang berbeda memberi angka yang berdekatan, dan selisihnya dari waktu ke waktu bisa dipantau sebagai indikator perubahan kondisi kompresor.</p>
+<hr />
+
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Efisiensi isentropik kompresor sentrifugal bisa dianalisis dari temperatur dan tekanan, asalkan per stage. Suction stage pertama dan discharge stage terakhir tidak bisa dipakai untuk satu efisiensi overall pada kompresor multi-stage dengan intercooler, dan degradasi stage awal hampir tidak terlihat di sana.</p>
+<p>Jika tekanan antar-stage tidak tersedia, efisiensi setiap stage tidak bisa diketahui secara absolut. Yang masih bisa dihitung adalah estimasi berbasis asumsi rasio rata: efisiensi rata-rata yang bisa dibandingkan dengan desain, dan efisiensi per stage yang dibandingkan dengan nilainya sendiri saat sehat. Dibaca bersama approach dan efektivitas cooler, yang memakai sensor yang sama, masalah di stage dan masalah di cooler bisa dipilah langsung dari layar DCS.</p>
+<hr />
+
+<p>Artikel ini ditulis dengan bantuan kecerdasan buatan dengan arahan, penyesuaian, dan validasi oleh penulis.</p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="compressor" /><category term="Compressor" /><category term="Centrifugal" /><summary type="html"><![CDATA[Efisiensi kompresor multi-stage bisa dianalisis dari temperatur dan tekanan setiap stage. Tulisan ini membahas apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan cara membedakan masalah stage dari masalah cooler.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1748851556700-560d9b7454ca?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbCUyMGNvbXByZXNzb3J8ZW58MHx8fHwxNzkwMzk0MDY5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1748851556700-560d9b7454ca?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbCUyMGNvbXByZXNzb3J8ZW58MHx8fHwxNzkwMzk0MDY5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Estimasi Flow Kompresor Sentrifugal: Pendekatan Isothermal Relatif terhadap Titik Desain</title><link href="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/estimasi-flow-kompresor-sentrifugal-pendekatan-isothermal-relatif-terhadap-titik-desain.html" rel="alternate" type="text/html" title="Estimasi Flow Kompresor Sentrifugal: Pendekatan Isothermal Relatif terhadap Titik Desain" /><published>2026-09-26T01:27:04+00:00</published><updated>2026-09-26T01:27:04+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/estimasi-flow-kompresor-sentrifugal-pendekatan-isothermal-relatif-terhadap-titik-desain</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/estimasi-flow-kompresor-sentrifugal-pendekatan-isothermal-relatif-terhadap-titik-desain.html"><![CDATA[<h3 id="pendahuluan">Pendahuluan</h3>
+<p>Pada banyak unit kompresor sentrifugal, flowmeter tidak selalu tersedia di titik yang dibutuhkan. Kalaupun tersedia, pembacaannya tidak selalu bisa dipercaya: elemen DP yang kotor, range yang tidak sesuai, atau kompensasi tekanan/temperatur yang belum dikonfigurasi. Padahal DCS biasanya sudah punya tiga besaran lain yang cukup andal: <strong>power motor</strong>, <strong>tekanan suction/discharge</strong>, dan <strong>temperatur inlet</strong>.</p>
+<p>Tulisan ini membahas cara memakai ketiga besaran itu untuk mengestimasi flow kompresor multi-stage ber-intercooler, dengan pendekatan isothermal yang dikalibrasi relatif terhadap titik desain. Hasilnya bukan pengganti flowmeter. Ini adalah model estimasi yang berguna untuk trending, cross-check instrumen, dan memahami titik operasi kompresor.</p>
+<p>Pengaruh masing-masing variabel (daya, temperatur inlet, rasio kompresi) terhadap flow sudah dibahas di artikel <a href="https://blog.kiiota.com/analisis-pengaruh-variasi-kondisi-operasional-terhadap-kapasitas-aliran-kompresor-sentrifugal/">Analisis Pengaruh Variasi Kondisi Operasional terhadap Kapasitas Aliran Kompresor Sentrifugal</a>. Tulisan ini melanjutkannya ke sisi penerapan: kenapa metodenya bekerja, kenapa isothermal, apa saja syaratnya, dan bagaimana menerapkannya di DCS.</p>
+<hr />
+
+<h3 id="prinsip-dasar-energi-yang-masuk-sama-dengan-energi-yang-dipakai-gas">Prinsip Dasar: Energi yang Masuk Sama dengan Energi yang Dipakai Gas</h3>
+<p>Daya poros kompresor dipakai untuk mengompresi gas. Hubungannya sederhana:</p>
+<p>\( P_{shaft} = \frac{\dot{m} \cdot w}{\eta_{comp}} \)</p>
+<p>dengan P_shaft adalah daya mekanis yang benar-benar masuk ke poros kompresor, ṁ adalah massa alir, w adalah kerja kompresi per kg gas, dan η_comp adalah efisiensi kompresor (dari daya poros menjadi kerja gas). Jika P_shaft diketahui dan w bisa dihitung dari tekanan dan temperatur, satu-satunya yang tidak diketahui adalah η. Di sinilah masalahnya: efisiensi aktual kompresor hampir tidak pernah diketahui pasti.</p>
+<p>Solusinya adalah <strong>tidak menghitung flow absolut</strong>, tetapi membandingkan kondisi aktual terhadap titik desain dari datasheet. Titik desain adalah fakta: pada power sekian, rasio kompresi sekian, dan temperatur inlet sekian, flow-nya sekian. Dengan mengambil rasio aktual terhadap desain, η pada pembilang dan penyebut saling menghapus:</p>
+<p>\( \frac{\dot{m}_{real}}{\dot{m}_{design}} = \frac{P_{real}}{P_{design}} \times \frac{w_{design}}{w_{real}} \times \frac{\eta_{comp,real}}{\eta_{comp,design}} \)</p>
+<p>Metode ini mengasumsikan faktor terakhir, η_comp,real/η_comp,design, sama dengan 1. Ini adalah <strong>asumsi inti</strong> seluruh metode. Ketidakpastiannya tidak hilang, tetapi dipindahkan: dari "berapa nilai η?" (sulit dijawab) menjadi "apakah η masih dekat dengan desain?" (lebih mudah dinilai secara operasional).</p>
+<p>Perlu dicatat, efisiensi kompresor sentrifugal bukan sekadar fungsi "dekat atau jauh dari desain". Efisiensi bergantung pada posisi titik operasi di kurva performa: flow, rasio kompresi, bukaan IGV, dan kondisi internal kompresor. Kondisi steady-state saja tidak cukup. Asumsi η konstan hanya masuk akal selama kompresor masih beroperasi di wilayah kurva yang dekat dengan titik desain dan kondisi internalnya belum berubah.</p>
+<p>Dengan kata lain, <strong>model ini bukan alat untuk mengetahui flow secara absolut dari tiga transmitter. Model ini memperkirakan bagaimana flow seharusnya berubah terhadap titik desain, selama karakteristik kompresor dan intercooling belum berubah secara material.</strong></p>
+<p>Konsekuensi yang perlu diingat sejak awal: kompresor yang sudah terdegradasi akan tetap menghasilkan estimasi flow yang terlihat "normal", karena model ini mengasumsikan degradasi tidak terjadi. Estimasi ini tidak bisa mendeteksi penurunan efisiensi. Justru selisih antara estimasi dan flowmeter independen (jika ada) yang bisa menjadi indikator degradasi.</p>
+<hr />
+
+<h3 id="mengapa-pendekatan-isothermal">Mengapa Pendekatan Isothermal</h3>
+<p>Kerja kompresi isothermal reversibel per satuan massa gas ideal adalah:</p>
+<p>\( w = R \cdot T_{in} \cdot \ln(PR) \)</p>
+<p>Jika dimasukkan ke persamaan rasio di atas, didapat formula estimasi flow:</p>
+<p>\( Q_{real} = Q_{design} \times \frac{P_{real}}{P_{design}} \times \frac{T_{design}}{T_{real}} \times \frac{\ln(PR_{design})}{\ln(PR_{real})} \)</p>
+<p>Q di sini adalah flow yang melalui kompresor, pada basis yang sama dengan Q_design. Untuk gas dengan komposisi dan kondisi referensi normal yang sama, rasio massa alir sama dengan rasio flow dalam Nm³/h.</p>
+<p>Tentu saja tidak ada kompresor sentrifugal yang benar-benar isothermal. Setiap stage tetap mengalami kompresi dengan kenaikan temperatur. Tetapi pada kompresor multi-stage, intercooler mengembalikan temperatur gas mendekati temperatur inlet sebelum masuk stage berikutnya. Polanya adalah kompresi, kenaikan temperatur, pendinginan, lalu kompresi lagi. Yang mendekati kerja isothermal adalah <strong>kerja total seluruh rangkaian itu</strong>, bukan masing-masing stage.</p>
+<p>Seberapa dekat bergantung pada jumlah stage, pembagian rasio kompresi antar-stage, dan seberapa efektif intercooler mengembalikan gas ke temperatur inlet. Sebagai gambaran, dengan asumsi gas ideal, k = 1.4, rasio kompresi terbagi rata, intercooling sempurna, dan PR sekitar 5–6, kerja total 2 stage sekitar 13–14% di atas kerja isothermal, 4 stage sekitar 6–7%, dan 6 stage sekitar 4%. Jika intercooling kurang efektif, selisihnya lebih besar. Karena karakteristik ini, kerja isothermal menjadi acuan yang relevan untuk kompresor udara dan nitrogen multi-stage ber-intercooler, termasuk di ASU.</p>
+<p>Namun yang lebih penting untuk metode ini bukan seberapa dekat kerja aktual dengan kerja isothermal secara absolut. Karena yang dipakai adalah <strong>rasio</strong> terhadap titik desain, selisih antara kerja aktual dan kerja isothermal sebagian besar akan terhapus, selama selisih itu relatif konstan terhadap perubahan kondisi operasi. Yang menentukan adalah apakah kerja aktual <strong>berubah dengan cara yang sama</strong> seperti kerja isothermal ketika PR dan T_in berubah. Tabel berikut menunjukkan bahwa perubahannya memang sangat mirip.</p>
+<p>Alternatifnya adalah pendekatan isentropik. Ada dua bentuk:</p>
+<ul>
+<li><strong>Isentropik overall:</strong> memperlakukan seluruh kompresor sebagai satu kompresi adiabatik dari P_in stage-1 langsung ke P_out stage-akhir. Bentuk ini mengabaikan intercooler sama sekali, sehingga tidak mewakili mesin yang sebenarnya.</li>
+<li><strong>Isentropik per-stage:</strong> menjumlahkan kerja isentropik tiap stage dengan asumsi rasio kompresi terbagi rata dan intercooler mengembalikan gas ke T_in. Bentuk ini paling dekat dengan struktur fisik, tetapi memerlukan jumlah stage dan nilai k (Cp/Cv).</li>
+</ul>
+<p>Perbandingan ketiganya pada kompresor 4-stage dengan PR desain 5.07, saat PR aktual menyimpang dari desain (power dan T_in tetap seperti desain):</p>
+<table>
+<thead>
+<tr>
+<th>Penyimpangan PR</th>
+<th>Isothermal</th>
+<th>Isentropik per-stage (4 stage)</th>
+<th>Isentropik overall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>−15%</td>
+<td>111.1%</td>
+<td>111.8%</td>
+<td>113.9%</td>
+</tr>
+<tr>
+<td>−10%</td>
+<td>106.9%</td>
+<td>107.4%</td>
+<td>108.7%</td>
+</tr>
+<tr>
+<td>−5%</td>
+<td>103.3%</td>
+<td>103.5%</td>
+<td>104.1%</td>
+</tr>
+<tr>
+<td>+5%</td>
+<td>97.1%</td>
+<td>96.9%</td>
+<td>96.4%</td>
+</tr>
+<tr>
+<td>+10%</td>
+<td>94.5%</td>
+<td>94.1%</td>
+<td>93.1%</td>
+</tr>
+<tr>
+<td>+15%</td>
+<td>92.1%</td>
+<td>91.6%</td>
+<td>90.1%</td>
+</tr>
+</tbody>
+</table>
+<p>Selisih isothermal terhadap bentuk per-stage paling besar sekitar 0.7 poin persentase, sedangkan bentuk overall menyimpang sampai sekitar 2 poin persentase. Secara matematis ini wajar: bentuk isothermal adalah batas bentuk per-stage ketika jumlah stage sangat banyak.</p>
+<p>Perhitungan isentropik di tabel ini memakai model ideal: k konstan 1.4, rasio kompresi terbagi rata antar-stage, dan intercooler mengembalikan gas tepat ke T_in. Ini pembanding sederhana, bukan evaluasi sifat termodinamika gas yang rigor.</p>
+<p>Jadi pendekatan isothermal memberi hasil yang hampir sama dengan bentuk per-stage. Keuntungan praktisnya, kebutuhan inputnya jauh lebih sedikit:</p>
+<ul>
+<li>jumlah stage tidak diperlukan,</li>
+<li>nilai k tidak diperlukan,</li>
+<li>cukup satu baris formula di DCS.</li>
+</ul>
+<p>Untuk kompresor multi-stage ber-intercooler, ini kombinasi yang sulit dikalahkan. Bentuk isentropik per-stage tetap berguna sebagai <strong>pembanding silang</strong>. Jika selisih kedua model jauh lebih besar dari yang diperkirakan tabel di atas, asumsi model, data input, atau kondisi operasi perlu diperiksa.</p>
+<hr />
+
+<h3 id="variabel-yang-dibutuhkan">Variabel yang Dibutuhkan</h3>
+<table>
+<thead>
+<tr>
+<th>Variabel</th>
+<th>Sumber</th>
+<th>Catatan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power listrik aktual</td>
+<td>Relay proteksi / power meter</td>
+<td>Gunakan real power (kW), bukan arus</td>
+</tr>
+<tr>
+<td>Efisiensi motor (asumsi)</td>
+<td>Datasheet motor</td>
+<td>Untuk konversi power listrik ke daya poros</td>
+</tr>
+<tr>
+<td>P_in, P_out aktual</td>
+<td>Transmitter tekanan</td>
+<td>Tekanan absolut, lokasi sesuai titik referensi datasheet</td>
+</tr>
+<tr>
+<td>T_in aktual</td>
+<td>Sensor temperatur suction stage-1</td>
+<td>Dikonversi ke Kelvin</td>
+</tr>
+<tr>
+<td>P_shaft, Q, PR, T_in desain</td>
+<td>Datasheet kompresor</td>
+<td>Titik kalibrasi</td>
+</tr>
+<tr>
+<td>Posisi IGV, status anti-surge</td>
+<td>DCS</td>
+<td>Untuk syarat validitas estimasi</td>
+</tr>
+</tbody>
+</table>
+<p>Beberapa hal yang sering terlewat:</p>
+<p><strong>Power, bukan arus.</strong> Arus motor bukan proxy daya yang baik, karena daya listrik adalah P = √3 × V × I × PF. Jika tegangan operasi naik beberapa persen dari nameplate, arus akan turun pada daya yang sama. Real power dari relay proteksi sudah menggabungkan tegangan, arus, dan power factor secara langsung.</p>
+<p><strong>Daya poros adalah estimasi.</strong> P_shaft = power listrik × efisiensi motor yang diasumsikan, biasanya dari datasheet. Efisiensi motor aktual bervariasi terhadap beban dan temperatur, sehingga hasilnya bukan pengukuran daya poros. Nilai ini sebaiknya diberi label "estimasi" di historian, bukan "terukur". Jadi rantainya adalah: power listrik terukur, lalu daya poros estimasi, lalu kerja gas, lalu massa alir.</p>
+<p>Sebenarnya, karena metode ini memakai rasio terhadap titik desain, efisiensi motor tidak selalu harus dimasukkan secara eksplisit. Jika power listrik pada titik desain diketahui dan efisiensi motor dianggap tidak banyak berubah, rasio power listrik bisa dipakai langsung. Artikel ini tetap memakai daya poros estimasi agar hubungan energinya lebih jelas, dan karena datasheet kompresor biasanya menyatakan titik desain dalam daya poros.</p>
+<p><strong>Mechanical losses.</strong> Banyak kompresor multi-stage di ASU adalah tipe integrally geared. Rugi di gearbox, bearing, dan seal kira-kira konstan, tidak sebanding dengan beban. Sementara itu, metode rasio menskalakan seluruh daya poros. Sebagai ilustrasi, jika diasumsikan rugi tetap sebesar 3% dari rated power, pada beban 70% estimasi flow akan terlalu tinggi sekitar 1.3%. Besar rugi sebenarnya berbeda untuk tiap mesin. Dekat titik desain efek ini kecil.</p>
+<p><strong>Lokasi transmitter tekanan.</strong> Rasio kompresi adalah variabel utama. Jika tekanan suction diukur sebelum filter atau valve, atau tekanan discharge diukur setelah aftercooler dan piping, PR yang dihitung ikut memasukkan pressure drop di luar kompresor. Pastikan lokasinya sesuai dengan titik referensi pada datasheet.</p>
+<p><strong>Basis Nm³/h.</strong> Rasio yang dihasilkan adalah rasio massa alir. Konversi ke Nm³/h berlaku selama komposisi gas dan kondisi referensi sama antara desain dan aktual. Pastikan juga definisi "normal" (0°C atau 15°C) pada Q_desain sama dengan yang dipakai di DCS.</p>
+<hr />
+
+<h3 id="contoh-perhitungan">Contoh Perhitungan</h3>
+<p>Contoh berikut memakai kompresor udara 4-stage dengan angka ilustratif.</p>
+<p><strong>Data desain:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Daya poros desain</td>
+<td>1600 kW</td>
+</tr>
+<tr>
+<td>Flow desain</td>
+<td>18500 Nm³/h</td>
+</tr>
+<tr>
+<td>Rasio kompresi desain</td>
+<td>5.07</td>
+</tr>
+<tr>
+<td>Temperatur inlet desain</td>
+<td>20°C (293.15 K)</td>
+</tr>
+<tr>
+<td>Efisiensi motor</td>
+<td>96.42%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data aktual:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power listrik terukur</td>
+<td>1700 kW</td>
+</tr>
+<tr>
+<td>Rasio kompresi aktual</td>
+<td>4.825</td>
+</tr>
+<tr>
+<td>Temperatur inlet aktual</td>
+<td>20°C</td>
+</tr>
+</tbody>
+</table>
+<p>Daya poros aktual:</p>
+<p>\( P_{shaft} = 1700 \times 0.9642 \approx 1639.1 \text{ kW} \)</p>
+<p>Estimasi flow:</p>
+<p>\( Q_{real} = 18500 \times \frac{1639.1}{1600} \times \frac{293.15}{293.15} \times \frac{\ln(5.07)}{\ln(4.825)} = 18500 \times 1.0244 \times 1 \times 1.0315 \approx 19548 \text{ Nm}^3/\text{h} \)</p>
+<p>atau sekitar 105.7% desain. Sebagai pembanding silang, bentuk isentropik per-stage menghasilkan sekitar 19583 Nm³/h (105.9%).</p>
+<p>Jika temperatur inlet naik menjadi 30°C (303.15 K) dengan power dan rasio kompresi yang sama:</p>
+<p>\( Q_{real} = 18500 \times 1.0244 \times \frac{293.15}{303.15} \times 1.0315 \approx 18903 \text{ Nm}^3/\text{h} \)</p>
+<p>atau sekitar 102.2% desain. Kenaikan temperatur inlet 10°C menurunkan estimasi flow sekitar 3.5 poin persentase pada daya yang sama. Ini menunjukkan kenapa faktor T_in tidak boleh diabaikan, terutama di iklim tropis dengan variasi temperatur siang dan malam yang signifikan.</p>
+<p>Cara membaca hasilnya juga penting. Angka "105.7%" jangan dibaca sebagai presisi satu desimal, tetapi sebagai "sedikit di atas desain".</p>
+<hr />
+
+<h3 id="batas-validitas">Batas Validitas</h3>
+<p>Model ini dikalibrasi pada satu titik: titik desain. Semakin jauh titik operasi dari titik itu, semakin besar kemungkinan asumsinya tidak lagi berlaku.</p>
+<p><strong>Apa yang sebenarnya diestimasi.</strong> Model berbasis power ini mengestimasi <strong>flow yang melewati kompresor</strong>, bukan net flow yang masuk ke proses downstream. Dalam kondisi steady-state, dengan kebocoran dan perubahan inventory yang dapat diabaikan:</p>
+<p>\( \dot{m}_{comp} = \dot{m}_{process} + \dot{m}_{recycle} \)</p>
+<p>Saat anti-surge atau recycle valve membuka, sebagian gas kembali ke suction, dan kompresor tetap menyerap daya untuk gas tersebut. Estimasinya bisa tetap benar sebagai flow melalui kompresor, tetapi bisa berbeda signifikan dari flow ke proses. Model ini tidak dapat membedakan keduanya.</p>
+<p>Karena itu syarat validitasnya dibagi dua.</p>
+<p><strong>Valid sebagai estimasi flow melalui kompresor jika:</strong></p>
+<ul>
+<li>kondisi steady-state, bukan saat start-up atau transient,</li>
+<li>pengukuran power, tekanan, dan temperatur valid,</li>
+<li>posisi IGV dekat posisi desain, dan titik operasi masih di wilayah kurva yang dekat dengan titik desain,</li>
+<li>intercooler bekerja normal dan temperatur cooling water mendekati desain.</li>
+</ul>
+<p><strong>Valid sebagai estimasi flow ke proses jika, di samping syarat di atas:</strong></p>
+<ul>
+<li>anti-surge/recycle valve tertutup, atau recycle flow diketahui dan dikurangkan.</li>
+</ul>
+<p>Perlu dicatat, saat anti-surge valve membuka, kompresor biasanya juga sedang beroperasi mendekati batas surge, jauh dari titik desain. Jadi estimasi flow melalui kompresor pada kondisi itu pun sebaiknya dibaca dengan hati-hati.</p>
+<p><strong>Estimasi cenderung terlalu tinggi jika:</strong></p>
+<ul>
+<li><strong>IGV lebih menutup</strong> pada beban parsial. Pada kompresor fixed-speed, efisiensi turun saat IGV menutup, sehingga asumsi η konstan tidak berlaku lagi.</li>
+<li><strong>Kompresor terdegradasi</strong> (fouling, keausan, clearance melebar). Efisiensi turun, tetapi model tetap menganggapnya sama dengan desain.</li>
+<li><strong>Intercooler kotor atau cooling water hangat.</strong> Gas masuk stage berikutnya lebih panas, sehingga kerja aktual lebih besar dari kerja isothermal yang diasumsikan.</li>
+<li><strong>Beban jauh di bawah desain.</strong> Mechanical losses yang konstan menjadi porsi yang lebih besar dari daya poros.</li>
+</ul>
+<p>Untuk arah penyimpangan yang dibahas di atas, penyimpangan umumnya mendorong estimasi ke arah yang sama: <strong>flow terlihat lebih besar dari sebenarnya</strong>. Kesalahan pengukuran power atau tekanan tetap bisa mendorong ke dua arah. Ini perlu diingat saat membaca estimasi pada beban parsial.</p>
+<p><strong>Ketidakpastian.</strong> Tidak tepat memberikan satu angka ketidakpastian yang berlaku untuk seluruh rentang operasi tanpa analisis ketidakpastian dan validasi terhadap flowmeter independen. Ada dua jenis sumber yang sifatnya berbeda:</p>
+<ul>
+<li><strong>Ketidakpastian pengukuran:</strong> akurasi power, efisiensi motor, transmitter tekanan dan temperatur. Kontribusinya dapat dievaluasi dari spesifikasi akurasi masing-masing instrumen.</li>
+<li><strong>Ketidakpastian model:</strong> perubahan efisiensi kompresor akibat IGV, fouling, efektivitas intercooling, dan posisi titik operasi. Kontribusi ini kecil di dekat titik desain, tetapi bisa menjadi dominan saat kondisi menjauh darinya.</li>
+</ul>
+<p>Dalam implementasi praktis, total error beberapa persen di sekitar titik desain bukan hal yang mengejutkan, tetapi besar sebenarnya hanya bisa ditentukan melalui validasi terhadap pengukuran independen. Yang jelas, kedua sumber ini jauh lebih besar daripada selisih antara model isothermal dan isentropik per-stage. Jadi pemilihan model bukan sumber ketidakpastian utama. Yang lebih menentukan adalah kualitas data dan seberapa dekat kondisi operasi dengan titik desain.</p>
+<p>Model ini juga tidak punya indikator bawaan yang memberi tahu bahwa estimasi sudah keluar dari rentang validitasnya. Karena itu syarat validitas perlu dibangun secara eksplisit di DCS.</p>
+<hr />
+
+<h3 id="implementasi-di-dcs">Implementasi di DCS</h3>
+<p>Formula isothermal cukup dijalankan sebagai kalkulasi berjalan. Yang membuatnya layak dipakai operasional bukan formulanya, tetapi logika validitas di sekelilingnya.</p>
+<p><strong>Syarat operasi stabil</strong> sebaiknya disusun di logika supervisory, di luar function block perhitungan, dari beberapa permissive:</p>
+<ul>
+<li>kompresor running dan tidak trip,</li>
+<li>posisi IGV dalam rentang tertentu di sekitar posisi desain,</li>
+<li>power, tekanan, dan temperatur stabil (misalnya perubahan dalam jendela waktu tertentu di bawah batas),</li>
+<li>on-delay timer 30–60 detik sebelum status stabil dinyatakan TRUE, agar transient benar-benar meluruh.</li>
+</ul>
+<p>Status anti-surge valve sebaiknya dikirim sebagai sinyal terpisah, bukan digabung ke syarat stabil. Dengan begitu, DCS bisa membedakan "estimasi flow kompresor valid" dari "estimasi flow ke proses valid".</p>
+<p><strong>Nilai dan status harus selalu berpasangan.</strong> Estimasi flow hanya boleh dipakai jika status validnya TRUE. Jika output di-reset ke 0 saat tidak valid, logic downstream yang lalai memeriksa status bisa salah membaca "estimasi tidak valid" sebagai "kompresor tidak mengalirkan gas". Karena itu contoh di bawah memakai pola <strong>nilai valid terakhir + status</strong>: output hanya diperbarui saat perhitungan berhasil, dan status valid turun ke FALSE saat tidak. Pola ini tetap memerlukan disiplin yang sama, karena nilai yang "membeku" juga bisa menyesatkan jika statusnya diabaikan. Historian dan trend sebaiknya dikonfigurasi agar selalu merekam nilai bersama statusnya.</p>
+<p>Contoh function block berikut menghitung estimasi isothermal sebagai nilai utama, dan model isentropik ideal (rasio kompresi terbagi rata) sebagai pembanding silang:</p>
+<pre><code class="language-iecst">(*==============================================================
+  FUNCTION BLOCK: FB_CompressorFlowEstimate
+  Estimasi flow MELALUI kompresor multi-stage ber-intercooler dari
+  power, rasio kompresi, dan temperatur inlet, relatif ke titik
+  desain.
+    - Q_estimate : model isothermal (utama)
+    - Q_check    : model isentropik ideal, rasio kompresi terbagi
+                   rata, k = 1.4 (pembanding silang, bukan kondisi
+                   aktual tiap stage)
+  Output mempertahankan nilai valid terakhir. Nilai hanya boleh
+  dipakai jika Valid = TRUE (flow kompresor) atau
+  Valid_Process = TRUE (flow ke proses).
+  Stable_Operation dan ASV_Closed berasal dari logika supervisory
+  di luar FB ini (running, IGV, stabilitas, on-delay timer).
+================================================================*)
+FUNCTION_BLOCK FB_CompressorFlowEstimate
+VAR_INPUT
+    P_elec_kW        : REAL;   (* power listrik terukur, kW *)
+    Eff_motor_assumed: REAL;   (* efisiensi motor yang diasumsikan, 0-1 *)
+    P_in_abs         : REAL;   (* tekanan suction, absolut *)
+    P_out_abs        : REAL;   (* tekanan discharge, absolut, satuan sama *)
+    T_in_C           : REAL;   (* temperatur inlet stage-1, degC *)
+    P_shaft_design   : REAL;   (* daya poros desain, kW *)
+    Q_design         : REAL;   (* flow desain, Nm3/h *)
+    PR_design        : REAL;   (* rasio kompresi desain *)
+    T_design_C       : REAL;   (* temperatur inlet desain, degC *)
+    N_stage          : INT;    (* jumlah stage, untuk pembanding silang *)
+    Stable_Operation : BOOL;   (* dari logika supervisory *)
+    ASV_Closed       : BOOL;   (* anti-surge / recycle valve tertutup *)
+END_VAR
+VAR_OUTPUT
+    Q_estimate       : REAL;   (* estimasi flow isothermal, Nm3/h *)
+    Pct_of_design    : REAL;   (* Q_estimate dalam % desain *)
+    Q_check          : REAL;   (* estimasi isentropik ideal, Nm3/h *)
+    Model_dev_pct    : REAL;   (* selisih Q_check terhadap Q_estimate, % *)
+    P_shaft_est      : REAL;   (* daya poros estimasi, kW - BUKAN terukur *)
+    CalcValid        : BOOL;   (* rumus berhasil dihitung; BUKAN jaminan data instrumen benar *)
+    Valid            : BOOL;   (* flow melalui kompresor valid *)
+    Valid_Process    : BOOL;   (* flow ke proses valid *)
+END_VAR
+VAR CONSTANT
+    C_TO_K    : REAL := 273.15;
+    EXPONENT  : REAL := 0.2857;  (* (k-1)/k, k = 1.4 untuk udara/N2 *)
+    EFF_MIN   : REAL := 0.80;    (* batas plausibilitas, sesuaikan *)
+    EFF_MAX   : REAL := 1.00;
+    PR_MIN    : REAL := 1.5;     (* plausibilitas PR, sesuaikan per mesin *)
+    PR_MAX    : REAL := 10.0;
+    T_MIN_C   : REAL := -10.0;   (* plausibilitas T_in, sesuaikan *)
+    T_MAX_C   : REAL := 60.0;
+END_VAR
+VAR
+    PR, T_in_K, T_des_K : REAL;
+    q_iso, n, a_n       : REAL;
+    h_des, h_act        : REAL;
+END_VAR
+
+(* Status turun di awal scan; nilai output TIDAK di-reset
+   (pola nilai valid terakhir + status) *)
+CalcValid := FALSE;
+Valid := FALSE;
+Valid_Process := FALSE;
+
+(* Validasi referensi desain dan input *)
+IF (P_shaft_design &lt;= 0.0) OR (Q_design &lt;= 0.0)
+   OR (PR_design &lt; PR_MIN) OR (PR_design &gt; PR_MAX)
+   OR (P_in_abs &lt;= 0.0) OR (P_out_abs &lt;= 0.0) OR (P_elec_kW &lt;= 0.0)
+   OR (Eff_motor_assumed &lt; EFF_MIN) OR (Eff_motor_assumed &gt; EFF_MAX)
+   OR (T_in_C &lt; T_MIN_C) OR (T_in_C &gt; T_MAX_C) THEN
+    RETURN;
+END_IF;
+
+PR := P_out_abs / P_in_abs;
+IF (PR &lt; PR_MIN) OR (PR &gt; PR_MAX) THEN
+    RETURN;
+END_IF;
+
+T_in_K  := T_in_C + C_TO_K;
+T_des_K := T_design_C + C_TO_K;
+IF T_des_K &lt;= 0.0 THEN
+    RETURN;
+END_IF;
+
+(* Model utama: isothermal, linear terhadap daya.
+   LN/LOG: basis logaritma tidak berpengaruh karena yang dipakai rasio. *)
+P_shaft_est := P_elec_kW * Eff_motor_assumed;
+q_iso := Q_design
+       * (P_shaft_est / P_shaft_design)
+       * (T_des_K / T_in_K)
+       * (LN(PR_design) / LN(PR));
+
+Q_estimate    := q_iso;
+Pct_of_design := q_iso / Q_design * 100.0;
+CalcValid     := TRUE;
+
+(* Pembanding silang: isentropik ideal, rasio kompresi terbagi rata *)
+IF N_stage &gt;= 1 THEN
+    n   := INT_TO_REAL(N_stage);
+    a_n := EXPONENT / n;
+    h_des := T_des_K * n * (EXPT(PR_design, a_n) - 1.0);
+    h_act := T_in_K  * n * (EXPT(PR, a_n) - 1.0);
+    IF (h_des &gt; 0.0) AND (h_act &gt; 0.0) THEN
+        Q_check := Q_design * (P_shaft_est / P_shaft_design) / (h_act / h_des);
+        Model_dev_pct := (Q_check - q_iso) / q_iso * 100.0;
+    END_IF;
+END_IF;
+
+Valid         := CalcValid AND Stable_Operation;
+Valid_Process := Valid AND ASV_Closed;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<p>Beberapa catatan penerapan:</p>
+<ul>
+<li>Nama fungsi <code>LN</code>, <code>EXPT</code>, dan <code>INT_TO_REAL</code> mengikuti IEC 61131-3. Sesuaikan jika platform memakai nama lain, misalnya <code>POW</code> untuk pangkat atau <code>LOG</code> untuk logaritma.</li>
+<li>Dengan asumsi ideal yang dipakai di artikel ini, <code>Model_dev_pct</code> berada di bawah sekitar 1% untuk penyimpangan PR sampai ±15%. Pada mesin sebenarnya selisihnya bisa lebih besar, karena pembagian rasio kompresi, efektivitas intercooling, dan sifat gas tidak persis mengikuti asumsi model. Gunakan nilai ini untuk melihat tren atau lonjakan mendadak, bukan sebagai alarm "model benar/salah".</li>
+<li>Untuk kompresor dengan data desain seperti contoh di atas, FB ini menghasilkan sekitar 19548 Nm³/h untuk <code>Q_estimate</code> dan sekitar 19583 Nm³/h untuk <code>Q_check</code>. Angka ini bisa dipakai untuk menguji implementasi.</li>
+<li>Batas plausibilitas (<code>EFF_MIN</code>/<code>EFF_MAX</code>, <code>PR_MIN</code>/<code>PR_MAX</code>, <code>T_MIN_C</code>/<code>T_MAX_C</code>) hanya contoh. Sesuaikan dengan range instrumen dan karakteristik tiap mesin. Batas ini hanya pemeriksaan kewajaran data, bukan batas penerimaan performa kompresor. <code>CalcValid</code> hanya berarti rumus berhasil dihitung; kebenaran data instrumen tetap harus dipastikan di logika supervisory. Kode ini adalah contoh ilustratif, bukan kode siap produksi.</li>
+<li>Keberadaan tag di DCS tidak otomatis berarti datanya siap dipakai. Verifikasi range, scaling, lokasi sensor, kondisi instrumen, dan sinkronisasi waktu antar-sensor sebelum hasilnya dijadikan dasar keputusan.</li>
+</ul>
+<hr />
+
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Flow yang melewati kompresor multi-stage ber-intercooler bisa diestimasi dari power, rasio kompresi, dan temperatur inlet, tanpa flowmeter, dengan mengkalibrasi relatif terhadap titik desain. Pendekatan isothermal adalah pilihan yang tepat untuk jenis kompresor ini. Perubahan hasilnya sangat mirip dengan model isentropik per-stage, tetapi kebutuhan inputnya jauh lebih sedikit dan mudah diterapkan di DCS.</p>
+<p>Kekuatan metode ini ada pada kesederhanaannya. Keterbatasannya ada pada asumsi intinya: efisiensi kompresor dan efektivitas intercooler dianggap sama dengan desain. Model ini bukan alat untuk mengetahui flow secara absolut dari tiga transmitter, melainkan cara memperkirakan bagaimana flow seharusnya berubah terhadap titik desain. Karena itu estimasi ini paling berguna untuk <strong>trending relatif</strong> di sekitar titik desain, dengan logika validitas yang eksplisit di DCS, dan dengan kesadaran bahwa hasilnya adalah flow melalui kompresor, bukan otomatis flow ke proses. Jika flowmeter independen tersedia, selisih keduanya justru menjadi informasi yang berharga: tanda awal bahwa efisiensi kompresor atau intercooler mulai berubah.</p>
+<p>Tulisan berikutnya akan membahas sisi lain dari data yang sama: apa yang bisa dan tidak bisa disimpulkan dari temperatur suction dan discharge kompresor multi-stage, dan mengapa "efisiensi overall" dari T_in stage-1 dan T_out stage-akhir menyesatkan.</p>
+<hr />
+
+<p>Artikel ini ditulis dengan bantuan kecerdasan buatan dengan arahan, penyesuaian, dan validasi oleh penulis.</p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="compressor" /><category term="Compressor" /><category term="Centrifugal" /><summary type="html"><![CDATA[Flowmeter tidak selalu tersedia atau bisa dipercaya. Dengan power motor, rasio kompresi, dan temperatur inlet yang sudah ada di DCS, flow kompresor multi-stage bisa diestimasi secara relatif terhadap titik desain.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1645571498966-869875a6520c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbHxlbnwwfHx8fDE3OTAzNjAyMjR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1645571498966-869875a6520c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDkxfHxjZW50cmlmdWdhbHxlbnwwfHx8fDE3OTAzNjAyMjR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kurva V/Hz pada Roots Blower: Kenapa Menurunkan Kecepatan Bisa Menaikkan Arus Motor</title><link href="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor.html" rel="alternate" type="text/html" title="Kurva V/Hz pada Roots Blower: Kenapa Menurunkan Kecepatan Bisa Menaikkan Arus Motor" /><published>2026-09-12T17:53:49+00:00</published><updated>2026-09-12T17:53:49+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/practical-engineering/2026/09/12/kurva-v-hz-pada-roots-blower-kenapa-menurunkan-kecepatan-bisa-menaikkan-arus-motor.html"><![CDATA[<p><em>Ditulis oleh Ketut Kumajaya — 12 September 2026</em></p>
 <h2 id="pendahuluan">Pendahuluan</h2>
 <p>Salah satu laporan operasional yang cukup menarik perhatian datang dari sebuah plant oksigen: setiap kali frekuensi inverter diturunkan, arus motor justru naik. Secara intuisi, ini berlawanan dengan ekspektasi umum bahwa menurunkan kecepatan mesin seharusnya menurunkan kebutuhan daya dan, pada kondisi tertentu, arus motor. Namun ekspektasi ini valid untuk satu kategori beban tertentu, dan mesin yang dibahas di sini — Roots blower tipe positive displacement — berada di kategori yang berbeda.</p>
 <p>Tulisan ini membahas mengapa fenomena tersebut terjadi, bagaimana root-cause-nya diverifikasi, dan hasil perbaikannya di lapangan.</p>
@@ -3864,439 +4569,4 @@ gpioset 0 12=0   # LED OFF
 <blockquote>
 <p><strong>Catatan:</strong> Untuk menjaga keberlanjutan, lakukan validasi berkala (service status, backup, update keamanan) dan selalu cek versi terbaru software dari sumber resmi sebelum upgrade.</p>
 </blockquote>
-<p>Sebagai penutup, Advantech UNO‑220 dapat menjadi fondasi fleksibel bagi evolusi sistem automasi industri. Selain fungsi gateway, perangkat ini bisa diperluas dengan runtime <strong>Eclipse 4diac FORTE</strong> (IEC 61499) untuk soft logic non‑critical, <strong>CODESYS Runtime</strong> (IEC 61131‑3) sebagai SoftPLC komersial ringan, maupun <strong>OpenPLC Runtime</strong> (IEC 61131‑3) sebagai alternatif open source untuk edukasi dan prototyping. Integrasi ini dapat dipadukan dengan <strong>TensorFlow Lite</strong> untuk predictive maintenance, di mana output dari FORTE, CODESYS, atau OpenPLC diolah oleh model AI untuk deteksi fault real‑time, sehingga UNO‑220 berperan sebagai <strong>hybrid edge device</strong> yang efisien, modular, dan compliant.</p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="edge-computing" /><category term="Edge Computing" /><category term="Distributed Control System" /><category term="Field Experience" /><category term="Practical Engineering" /><summary type="html"><![CDATA[UNO‑220 siap beroperasi sebagai edge device industri: Node‑RED untuk automasi & dashboard lokal, Rapid SCADA 6.4.3 untuk trending historis, ZeroTier untuk konektivitas aman, serta hardening + backup rutin agar sistem modular, audit‑ready, dan andal.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1631553127988-36343ac5bb0c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTc2NzgzNzA1Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1631553127988-36343ac5bb0c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTc2NzgzNzA1Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Menghindari Masalah Grounding dan Petir dengan Fiber Optic</title><link href="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/12/24/menghindari-masalah-grounding-dan-petir-dengan-fiber-optic.html" rel="alternate" type="text/html" title="Menghindari Masalah Grounding dan Petir dengan Fiber Optic" /><published>2025-12-24T18:05:59+00:00</published><updated>2025-12-24T18:05:59+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/12/24/menghindari-masalah-grounding-dan-petir-dengan-fiber-optic</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/12/24/menghindari-masalah-grounding-dan-petir-dengan-fiber-optic.html"><![CDATA[<h2 id="latar-belakang">Latar Belakang</h2>
-<p>Dalam lingkungan industri, jaringan komunikasi antar perangkat umumnya menggunakan kabel tembaga (Ethernet). Walaupun praktis, kabel tembaga memiliki kelemahan mendasar karena bersifat konduktif. Hal ini menimbulkan risiko:</p>
-<ul>
-<li><strong>Gangguan grounding</strong> akibat perbedaan potensial antar panel atau perangkat.</li>
-<li><strong>Induksi elektromagnetik (EMI)</strong> dari peralatan berdaya besar seperti motor atau inverter.</li>
-<li><strong>Sambaran petir</strong> yang dapat merambat melalui kabel dan merusak perangkat sensitif.</li>
-</ul>
-<p>Dampak dari gangguan tersebut tidak hanya berupa kerusakan perangkat, tetapi juga berpotensi menyebabkan downtime operasional yang signifikan serta risiko keselamatan.</p>
-<hr />
-
-<h2 id="fiber-optic-sebagai-solusi">Fiber Optic sebagai Solusi</h2>
-<p>Fiber optic merupakan media komunikasi yang sepenuhnya <strong>non-konduktif</strong>, sehingga tidak menghantarkan arus listrik. Keunggulan utama yang ditawarkan antara lain:</p>
-<ul>
-<li>
-<p><strong>Isolasi Galvanik Total</strong><br />
-Menghilangkan jalur arus listrik antar perangkat, aman dari perbedaan grounding maupun sambaran petir.</p>
-</li>
-<li>
-<p><strong>Ketahanan terhadap EMI/RFI</strong><br />
-Sinyal berbasis cahaya tidak terpengaruh oleh medan elektromagnetik, sehingga komunikasi tetap stabil.</p>
-</li>
-<li>
-<p><strong>Perlindungan Alami dari Petir</strong><br />
-Tidak adanya konduksi listrik membuat fiber optic aman dari energi petir.</p>
-</li>
-<li>
-<p><strong>Kecepatan dan Jangkauan</strong><br />
-Mendukung komunikasi gigabit dengan jarak hingga puluhan kilometer tanpa degradasi berarti.</p>
-</li>
-</ul>
-<hr />
-
-<h2 id="penerapan-di-industri">Penerapan di Industri</h2>
-<p>Fiber optic dapat diterapkan pada berbagai sistem komunikasi industri, antara lain:</p>
-<ul>
-<li><strong>SCADA dan DCS</strong> untuk komunikasi antar panel kontrol.</li>
-<li><strong>Flowmeter, power meter, atau sensor</strong> dalam pengiriman data ke server.</li>
-<li><strong>Koneksi antar gedung atau panel</strong> untuk mengatasi beda potensial grounding.</li>
-<li><strong>Integrasi OPC UA / Modbus TCP</strong> yang membutuhkan komunikasi real-time stabil.</li>
-</ul>
-<h3 id="topologi-sistem">Topologi Sistem</h3>
-<div style="width: 100%; text-align: center; margin: 0.5em auto; max-width: 800px;">
-  <div class="mermaid" style="width: 100%; max-width: 800px;">
-graph TD
-    classDef danger fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,rx:15,ry:15
-    classDef converter fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#e65100,rx:15,ry:15
-    A["⚡ Zona Eksternal<br />Perangkat Lapangan<br />(Area Rentan)"]
-    B["🛡️ Media Converter<br />FC311A-20<br />(Pelindung)"]
-    C["🛡️ Media Converter<br />FC311B-20<br />(Pelindung)"]
-    D["🏢 Zona Internal<br />Server / Data Center<br />(Area Rentan)"]
-    A --&gt; B
-    B --&gt; C
-    C --&gt; D
-    class A danger
-    class D danger
-    class B,C converter
-    linkStyle 1 stroke-dasharray: 5 5
-  </div>
-    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
-    Topologi Sistem Rancangan Jaringan Fiber Optic
-    </figcaption>
-</div>
-<h3 id="media-converter">Media Converter</h3>
-<ul>
-<li><strong>TP-Link FC311A-20</strong> (sisi perangkat)</li>
-<li><strong>TP-Link FC311B-20</strong> (sisi server/switch)</li>
-</ul>
-<figure style="text-align: center;">
-  <img src="/kiiota-blog/assets/media/dcac0bb9-2815-4d0a-9ae6-fa614bf4ccb3-FC311A-20-TL-FC311A-20-_normal_20250208074142m-1-.jpg" alt="TP-Link FC311A-20" width="400" style="display: block; margin: 0 auto;" />
-  <figcaption>FC311A-20 - Gigabit WDM Media Converter</figcaption>
-</figure>
-<p>Spesifikasi utama:</p>
-<ul>
-<li>Ethernet RJ45 10/100/1000 Mbps</li>
-<li>Fiber optic single-mode WDM (BiDi)</li>
-<li>Connector SC/UPC, mode simplex (1 core)</li>
-<li>Jarak dukung hingga 20 km</li>
-<li>Power supply DC 12–48 V</li>
-<li>Plug &amp; play tanpa konfigurasi</li>
-</ul>
-<h3 id="kabel-fiber-optic">Kabel Fiber Optic</h3>
-<ul>
-<li>Single-mode OS2, simplex (1 core)</li>
-<li>Connector SC/UPC – SC/UPC</li>
-<li>Panjang ±300 m (outdoor, UV resistant)</li>
-<li>❌ Tidak boleh multimode</li>
-<li>❌ Tidak boleh SC/APC (hijau)</li>
-</ul>
-<figure style="text-align: center;">
-  <img src="/kiiota-blog/assets/media/dcac0bb9-2815-4d0a-9ae6-fa614bf4ccb3-40494.B-1-.jpg" alt="Patch cord single-mode OS2 SC/UPC simplex" width="400" style="display: block; margin: 0 auto;" />
-  <figcaption>Patch cord single-mode OS2 simplex dengan konektor SC/UPC</figcaption>
-</figure>
-<h3 id="kabel-ethernet">Kabel Ethernet</h3>
-<ul>
-<li>Cat5e/Cat6, panjang ≤5 m</li>
-<li>Digunakan hanya di sisi converter (Perangkat → FC311A, FC311B → Server)</li>
-</ul>
-<h3 id="power-panel">Power &amp; Panel</h3>
-<ul>
-<li>Supply DC 12/24 V untuk masing-masing converter</li>
-<li>Converter ditempatkan dalam panel tertutup dengan grounding chassis</li>
-<li>Fiber optic masuk panel menggunakan strain relief/gland</li>
-</ul>
-<hr />
-
-<h2 id="keunggulan-sistem">Keunggulan Sistem</h2>
-<ul>
-<li><strong>Isolasi galvanik penuh</strong> → aman dari EMI dan petir.</li>
-<li><strong>Komunikasi stabil</strong> → mendukung protokol OPC UA atau Modbus TCP secara terus-menerus.</li>
-<li><strong>Konfigurasi sederhana</strong> → point-to-point tanpa kebutuhan pengaturan tambahan.</li>
-<li><strong>Siap audit</strong> → BOM jelas dan spesifikasi terdokumentasi, memudahkan proses pengadaan dan inspeksi.</li>
-</ul>
-<hr />
-
-<h2 id="bill-of-materials-bom">Bill of Materials (BOM)</h2>
-<table>
-<thead>
-<tr>
-<th>No</th>
-<th>Item</th>
-<th>Spesifikasi</th>
-<th>Qty</th>
-<th>Catatan</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Media Converter FC311A-20</td>
-<td>RJ45 1G, FO WDM SC/UPC</td>
-<td>1</td>
-<td>Sisi perangkat lapangan</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Media Converter FC311B-20</td>
-<td>RJ45 1G, FO WDM SC/UPC</td>
-<td>1</td>
-<td>Sisi server/switch</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Kabel FO Outdoor OS2</td>
-<td>Simplex SC/UPC–SC/UPC ±300 m</td>
-<td>1 roll</td>
-<td>Sesuai site</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Patch Cable RJ45 Cat5e/Cat6</td>
-<td>≤5 m</td>
-<td>2 pcs</td>
-<td>Perangkat &amp; Server</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Panel / Enclosure</td>
-<td>Metal, DIN rail</td>
-<td>1 set</td>
-<td>Opsional</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Cable Gland / Strain Relief</td>
-<td>Untuk FO</td>
-<td>2 pcs</td>
-<td>Masuk panel</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Grounding Accessories</td>
-<td>Lug, kabel grounding</td>
-<td>1 set</td>
-<td>Panel &amp; chassis</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Label Kabel</td>
-<td>FO &amp; Ethernet</td>
-<td>1 set</td>
-<td>Identifikasi</td>
-</tr>
-</tbody>
-</table>
-<hr />
-
-<h2 id="best-practice-instalasi">Best Practice Instalasi</h2>
-<p>Untuk memastikan sistem fiber optic bekerja optimal dan tahan lama, disarankan:</p>
-<ul>
-<li><strong>Manajemen kabel</strong>: gunakan tray/ducting, hindari tekukan tajam (radius min. 30 mm).</li>
-<li><strong>Proteksi panel</strong>: gunakan enclosure dengan rating IP sesuai lingkungan (≥IP54 untuk outdoor).</li>
-<li><strong>Grounding konsisten</strong>: converter, PSU, dan panel tetap digrounding dengan kabel tembaga memadai.</li>
-<li><strong>Label &amp; dokumentasi</strong>: beri label jelas pada kabel, dokumentasikan jalur dan titik terminasi.</li>
-<li><strong>Strain relief/gland</strong>: gunakan gland saat kabel masuk panel untuk mencegah kerusakan mekanis.</li>
-<li><strong>Pemeriksaan konektor</strong>: bersihkan konektor SC/UPC sebelum instalasi untuk menghindari loss.</li>
-</ul>
-<hr />
-
-<h2 id="kesimpulan">Kesimpulan</h2>
-<p>Penggunaan fiber optic dalam sistem komunikasi industri bukan sekadar peningkatan teknologi, melainkan langkah strategis untuk <strong>menghindari masalah grounding dan petir</strong>. Dengan isolasi total, ketahanan terhadap EMI, serta keandalan tinggi, fiber optic memastikan komunikasi tetap aman, stabil, dan berkelanjutan.</p>
-<h2></h2>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cost-optimization" /><category term="Cost Optimization" /><category term="Automation" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Fiber optic memberikan isolasi galvanik total, bebas EMI, dan aman dari petir. Solusi komunikasi industri yang stabil untuk menghindari risiko downtime operasional.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1594915440248-1e419eba6611?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE4fHxmaWJlciUyMHxlbnwwfHx8fDE3NjY1OTc4NTd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1594915440248-1e419eba6611?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE4fHxmaWJlciUyMHxlbnwwfHx8fDE3NjY1OTc4NTd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional</title><link href="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html" rel="alternate" type="text/html" title="Zero-Cost Engineering: Workflow FOSS untuk Hasil Profesional" /><published>2025-08-09T08:31:13+00:00</published><updated>2025-08-09T08:31:13+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/cost-optimization/2025/08/09/zero-cost-engineering-workflow-foss-untuk-hasil-profesional.html"><![CDATA[<div class="kg-card kg-audio-card"><img src="" alt="audio-thumbnail" class="kg-audio-thumbnail kg-audio-hide" /><div class="kg-audio-thumbnail placeholder"><svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 15.33a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM15 13.83a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm-2.25.75a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.486 6.81A2.25 2.25 0 0 1 17.25 9v5.579a.75.75 0 0 1-1.5 0v-5.58a.75.75 0 0 0-.932-.727.755.755 0 0 1-.059.013l-4.465.744a.75.75 0 0 0-.544.72v6.33a.75.75 0 0 1-1.5 0v-6.33a2.25 2.25 0 0 1 1.763-2.194l4.473-.746Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.5a.75.75 0 0 0-.75.75v19.5a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75V5.133a.75.75 0 0 0-.225-.535l-.002-.002-3-2.883A.75.75 0 0 0 18 1.5H3ZM1.409.659A2.25 2.25 0 0 1 3 0h15a2.25 2.25 0 0 1 1.568.637l.003.002 3 2.883a2.25 2.25 0 0 1 .679 1.61V21.75A2.25 2.25 0 0 1 21 24H3a2.25 2.25 0 0 1-2.25-2.25V2.25c0-.597.237-1.169.659-1.591Z"></path></svg></div><div class="kg-audio-player-container"><audio src="https://blog.kiiota.com/content/media/2025/08/zero-cost_engineering.mp3" preload="metadata"></audio><div class="kg-audio-title">Workflow FOSS untuk Hasil Profesional</div><div class="kg-audio-player"><button class="kg-audio-play-icon" aria-label="Play audio"><svg viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"></path></svg></button><button class="kg-audio-pause-icon kg-audio-hide" aria-label="Pause audio"><svg viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"></rect></svg></button><span class="kg-audio-current-time">0:00</span><div class="kg-audio-time">/<span class="kg-audio-duration">5.184</span></div><input type="range" class="kg-audio-seek-slider" max="100" value="0" /><button class="kg-audio-playback-rate" aria-label="Adjust playback speed">1×</button><button class="kg-audio-unmute-icon" aria-label="Unmute"><svg viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"></path></svg></button><button class="kg-audio-mute-icon kg-audio-hide" aria-label="Mute"><svg viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"></path></svg></button><input type="range" class="kg-audio-volume-slider" max="100" value="100" /></div></div></div>
-<h2 id="pendahuluan"><strong>Pendahuluan</strong></h2>
-<p>"<strong>Apakah kita benar-benar perlu membayar mahal untuk perangkat lunak, jika hasil teknikal yang sama — bahkan lebih baik — bisa dicapai secara gratis?</strong>"</p>
-<p>Di banyak industri, optimalisasi performa peralatan sering diasosiasikan dengan perangkat lunak berbayar, lisensi berlapis, dan perangkat keras kelas atas. Namun kenyataannya, <strong>hasil profesional tidak selalu bergantung pada biaya lisensi</strong>. Melalui pendekatan <strong>Zero-Cost Engineering</strong> — rekayasa berbasis FOSS (Free and Open Source Software) dan metodologi modular — kita dapat menghasilkan output teknis berkualitas tinggi tanpa biaya tambahan. Bayangkan: menyelesaikan analisis teknikal level industri tanpa mengeluarkan biaya lisensi perangkat lunak sama sekali. Ini bukan sekadar teori — studi kasus nyata telah membuktikannya.</p>
-<hr />
-
-<h2 id="filosofi-zero-cost-engineering"><strong>Filosofi Zero-Cost Engineering</strong></h2>
-<p>Zero-Cost Engineering bukan berarti kompromi terhadap kualitas. Yang dimaksud di sini adalah: <strong>maksimalkan alat yang tersedia, hilangkan biaya lisensi</strong>, dan investasikan waktu untuk memahami proses secara lebih mendalam.</p>
-<p>Prinsipnya:</p>
-<ul>
-<li><strong>Satu bahasa untuk semuanya</strong> → Python</li>
-<li><strong>Satu editor untuk semuanya</strong> → Visual Studio Code + Jupyter Notebook</li>
-<li><strong>Satu alur kerja yang terdokumentasi penuh</strong> → mudah direplikasi, modular, dan siap diuji ulang</li>
-<li><strong>Satu platform publikasi</strong> → Markdown + Joplin + Ghost CMS</li>
-</ul>
-<p>Dengan pendekatan ini, kita bukan hanya menghemat biaya — kita membangun ekosistem kerja yang transparan, audit-ready, dan siap dibagikan ke komunitas. Setelah memahami filosofinya, mari kita telusuri alur kerja end-to-end yang digunakan.</p>
-<hr />
-
-<h2 id="workflow-foss-end-to-end"><strong>Workflow FOSS End-to-End</strong></h2>
-<h3 id="digitalisasi-data"><strong>Digitalisasi Data</strong></h3>
-<ul>
-<li><strong>Input</strong>: Kurva performa vendor (PDF/JPEG/PNG)</li>
-<li><strong>Tool</strong>: <a href="https://automeris.io/?ref=blog.kiiota.com">WebPlotDigitizer</a> (gratis, berbasis web)</li>
-<li><strong>Hasil</strong>: Ekstraksi kurva performa dari gambar statis menjadi dataset numerik siap analisis</li>
-<li><strong>Alternatif berbayar</strong>: OriginLab Digitizer, MATLAB Toolbox</li>
-</ul>
-<h3 id="analisis-dan-visualisasi"><strong>Analisis dan Visualisasi</strong></h3>
-<ul>
-<li><strong>Tool</strong>: <a href="https://www.python.org/?ref=blog.kiiota.com">Python</a> (<code>pandas</code>, <code>numpy</code>, <code>matplotlib</code>)</li>
-<li><strong>Hasil</strong>: Grafik hubungan IGV vs. tekanan/flow, identifikasi zona efisiensi, dan titik operasi aktual</li>
-<li><strong>Alternatif berbayar</strong>: MATLAB, OriginPro, JMP</li>
-</ul>
-<h3 id="draft-konten-modular"><strong>Draft Konten Modular</strong></h3>
-<ul>
-<li><strong>Tool</strong>: Markdown di <a href="https://code.visualstudio.com/?ref=blog.kiiota.com">Visual Studio Code</a> atau <a href="https://joplinapp.org/?ref=blog.kiiota.com">Joplin</a>, diagram alir dengan <a href="https://mermaid.live/?ref=blog.kiiota.com">Mermaid</a>, diagram teknikal statis di <a href="https://www.drawio.com/?ref=blog.kiiota.com">draw.io</a></li>
-<li><strong>Hasil</strong>: Naskah teknis yang rapi, modular, dan siap dikonversi</li>
-<li><strong>Alternatif berbayar</strong>: MS Word + EndNote + Visio, Adobe FrameMaker</li>
-</ul>
-<h3 id="konversi-dan-layout-pdf"><strong>Konversi dan Layout PDF</strong></h3>
-<ul>
-<li><strong>Tool</strong>: <a href="https://pandoc.org/?ref=blog.kiiota.com">Pandoc</a> (Markdown → LaTeX) + <a href="https://www.overleaf.com/?ref=blog.kiiota.com">Overleaf</a></li>
-<li><strong>Hasil</strong>: Whitepaper PDF siap cetak dan distribusi, bahkan reproduksi</li>
-<li><strong>Alternatif berbayar</strong>: Adobe InDesign, Scientific Word</li>
-</ul>
-<h3 id="narasi-audio"><strong>Narasi Audio</strong></h3>
-<ul>
-<li><strong>Tool</strong>: Python TTS (<a href="https://github.com/nateshmbhat/pyttsx3/?ref=blog.kiiota.com"><code>pyttsx3</code></a>, <a href="https://github.com/pndurette/gTTS/?ref=blog.kiiota.com"><code>gTTS</code></a>)</li>
-<li><strong>Hasil</strong>: Narasi audio untuk presentasi atau podcast teknis</li>
-<li><strong>Alternatif berbayar</strong>: Adobe Audition + TTS API</li>
-</ul>
-<h3 id="distribusi"><strong>Distribusi</strong></h3>
-<ul>
-<li><strong>Tool</strong>: <a href="https://ghost.org/?ref=blog.kiiota.com">Ghost CMS</a> (self-hosted) + PDF distribusi</li>
-<li><strong>Hasil</strong>: Blog post untuk pembaca umum, whitepaper PDF untuk pembaca teknis</li>
-<li><strong>Alternatif berbayar</strong>: CMS enterprise + Adobe Acrobat Pro DC</li>
-</ul>
-<hr />
-
-<h2 id="hasil-nyata-studi-kasus-kompresor-sentrifugal"><strong>Hasil Nyata: Studi Kasus Kompresor Sentrifugal</strong></h2>
-<p>Workflow ini bukan sekadar teori — ia telah digunakan dalam proyek nyata untuk menganalisis performa kompresor sentrifugal yang gagal mencapai target tekanan. Dengan pendekatan berbasis FOSS, seluruh proses — dari data mentah hingga publikasi — dapat dijalankan secara mandiri, transparan, dan tanpa biaya lisensi.</p>
-<p>Hasilnya:</p>
-<ul>
-<li>Masalah operasional berhasil diidentifikasi tanpa bantuan perangkat lunak berbayar atau perangkat analisis khusus</li>
-<li>Rekomendasi teknis disusun berdasarkan kurva performa yang didigitalisasi dan divisualisasikan secara mandiri</li>
-<li>Output akhir berupa blog post yang komunikatif dan whitepaper PDF yang siap diuji ulang — semuanya dibuat dengan alat gratis dan terbuka</li>
-</ul>
-<p>Studi kasus ini membuktikan bahwa dengan workflow yang rapi dan alat yang tepat, <strong>kreativitas teknis dapat melampaui keterbatasan biaya</strong>. Dalam banyak kasus, biaya tidak perlu dialokasikan untuk perangkat lunak berbayar, melainkan lebih baik difokuskan pada perangkat keras, pelatihan operator, dan sumber daya lainnya yang berdampak langsung pada kualitas hasil.</p>
-<blockquote>
-<p>Studi kasus ini membuktikan bahwa hanya dengan satu laptop, satu bahasa, dan satu editor, kita tidak hanya menghemat biaya — kita membangun ekosistem kerja yang siap diuji ulang, dibagikan, dan dikembangkan bersama tim.</p>
-</blockquote>
-<hr />
-
-<h2 id="diagram-alir-workflow-foss"><strong>Diagram Alir Workflow FOSS</strong></h2>
-<!--figure style="text-align: center; margin: 2em auto; max-width: 600px;">
-  <img src="/kiiota-blog/assets/media/ba453585-0b56-4766-897f-7993886a8a9e-zero_cost_workflow.svg" 
-       alt="Diagram alir Zero-Cost Engineering dari data ke publikasi" 
-       style="width: 100%; height: auto;">
-  <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
-    Gambar 1: Alur kerja Zero-Cost Engineering — dari data mentah hingga publikasi menggunakan FOSS tools (dirender menggunakan Mermaid)
-  </figcaption>
-</figure-->
-<p>Diagram berikut dirender langsung menggunakan Mermaid — bukan grafis hasil perangkat lunak eksternal apalagi berbayar, melainkan teks yang bisa direproduksi dan direvisi langsung.</p>
-<div style="text-align: center; margin: 0.5em auto; max-width: 600px;">
-  <div class="mermaid" style="width: 100%; max-width: 800px;">
-    flowchart TB
-      subgraph Workspace["Zero-Cost Engineering"]
-        direction TB
-          A["Digitalisasi Data<br />(WebPlotDigitizer)"]:::Sky
-          B["Analisis &amp; Visualisasi<br />(Python: matplotlib, numpy)"]:::Sky
-          C["Penulisan &amp; Naskah<br />(Joplin, Ghost, Mermaid, draw.io)"]:::Sky
-          D1["Blog Post<br />(Ghost CMS)"]:::Sky
-          D2["Whitepaper PDF<br />(Pandoc + Overleaf)"]:::Sky
-          D3["Narasi Audio<br />(Python TTS)"]:::Sky
-      end
-      A --&gt; B
-      B --&gt; C
-      C --&gt; D1 &amp; D2 &amp; D3
-      D1 --&gt; E["Distribusi Akhir"]:::Pine
-      D2 --&gt; E
-      D3 --&gt; E
-    classDef Sky fill:#F4F8FF,stroke:#2C3E50,color:#2C3E50,stroke-width:1.5px,rx:6px,ry:6px;
-    classDef Pine fill:#2E8B57,stroke:#1E5F3F,color:#FFFFFF,stroke-width:1.5px,rx:6px,ry:6px;
-    classDef Alert fill:#FFF5F5,stroke:#D32F2F,color:#D32F2F,stroke-width:1.5px,rx:6px,ry:6px;
-    style Workspace stroke:#757575,fill:#F5F5F5,rx:8px,ry:8px
-  </div>
-    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
-    Gambar 1: Alur kerja Zero-Cost Engineering — dari data mentah hingga publikasi menggunakan FOSS tools
-    </figcaption>
-</div>
-<p>Salah satu kekuatan dari alur kerja ini adalah kemampuannya untuk mengintegrasikan ekspresi teknikal tingkat lanjut langsung ke dalam publikasi. Dengan menggunakan alat FOSS seperti \(\text{\LaTeX}\), rumus teknik yang kompleks dapat dirender dengan kualitas profesional.<br />
-Sebagai contoh:</p>
-<div style="text-align: center; margin: 0.5em auto; max-width: 600px;">
-    <figure style="text-align: center; margin: 2em auto; max-width: 800px;">
-      <div style="font-size: 1.0em; /*margin: 2.5rem auto; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.08);*/">$$ Q_{real} = Q_{design} \times \sqrt{\left( \frac{T_{design}}{T_{real}} \cdot \frac{P_{real}}{P_{design}} \right)} $$</div>
-    </figure>
-</div>
-<p>Ini memastikan bahwa dokumentasi ilmiah tetap presisi dan siap dipresentasikan tanpa bergantung pada editor persamaan komersial.</p>
-<hr />
-
-<h2 id="perbandingan-biaya-foss-vs-software-komersial"><strong>Perbandingan Biaya: FOSS vs Software Komersial</strong></h2>
-<table>
-<thead>
-<tr>
-<th>Tahap</th>
-<th>FOSS</th>
-<th>Software Komersial</th>
-<th>Harga Lisensi / Tahun</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Digitalisasi data</td>
-<td>WebPlotDigitizer</td>
-<td>OriginLab Digitizer, MATLAB Toolbox</td>
-<td>USD 500–2.000</td>
-</tr>
-<tr>
-<td>Analisis &amp; visualisasi</td>
-<td>Python</td>
-<td>MATLAB, OriginPro</td>
-<td>USD 1.000–2.500</td>
-</tr>
-<tr>
-<td>Draft konten</td>
-<td>Markdown + Joplin</td>
-<td>MS Word + Visio</td>
-<td>USD 150–1.000</td>
-</tr>
-<tr>
-<td>Konversi &amp; layout</td>
-<td>Pandoc + Overleaf</td>
-<td>Adobe InDesign</td>
-<td>USD 250–1.200</td>
-</tr>
-<tr>
-<td>Audio narasi</td>
-<td>Python TTS</td>
-<td>Adobe Audition + TTS API</td>
-<td>USD 200–1.000</td>
-</tr>
-<tr>
-<td>Distribusi</td>
-<td>Ghost CMS</td>
-<td>CMS enterprise + Acrobat Pro DC</td>
-<td>USD 200–600</td>
-</tr>
-<tr>
-<td><strong>Total Estimasi</strong></td>
-<td><strong>± USD 0</strong></td>
-<td><strong>USD 2.300–8.300</strong></td>
-<td>—</td>
-</tr>
-<tr>
-<td><strong>Selisih Estimasi</strong></td>
-<td>—</td>
-<td>—</td>
-<td><strong>± Rp 35–125 juta</strong></td>
-</tr>
-</tbody>
-</table>
-<figcaption style="text-align: left; font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
-Catatan: Estimasi harga lisensi bersifat indikatif dan dapat berubah tergantung wilayah, diskon institusi, dan versi. Tidak termasuk biaya pelatihan, integrasi, atau perangkat keras.
-</figcaption>
-<hr />
-
-<h2 id="diagram-alur-keputusan"><strong>Diagram Alur Keputusan</strong></h2>
-<div style="width: 100%; text-align: center; margin: 0.5em auto; max-width: 800px;">
-  <div class="mermaid" style="width: 100%; max-width: 800px;">
-    flowchart TD
-        A["Mulai Proyek Teknikal"] --&gt; B{"Pilih Workflow"}
-        B -- FOSS --&gt; C["Zero-Cost Engineering"]
-        B -- Komersial --&gt; D["Software Berbayar"]
-        C --&gt; E1["Biaya Lisensi: ± USD 0"] &amp; G1["Investasi: Waktu, Dokumentasi, Pelatihan"] &amp; H1["Hasil: Whitepaper, Blog, Audio, Diagram"]
-        D --&gt; E2["Biaya Lisensi: USD 2.300–8.300"] &amp; G2["Investasi: Lisensi, Integrasi, Pelatihan"] &amp; H2["Hasil: Sama, tergantung lisensi &amp; platform"]
-        E2 --&gt; F["Rugi Potensial: Rp 35–125 juta"]
-        A@{ shape: rounded}
-        C@{ shape: rounded}
-        D@{ shape: rounded}
-        E1@{ shape: rounded}
-        G1@{ shape: rounded}
-        H1@{ shape: rounded}
-        E2@{ shape: rounded}
-        G2@{ shape: rounded}
-        H2@{ shape: rounded}
-        F@{ shape: rounded}
-         A:::Sky
-         A:::Sky
-         B:::Sky
-         C:::Aqua
-         C:::Pine
-         D:::Ash
-         E1:::Sky
-         G1:::Sky
-         H1:::Sky
-         E2:::Sky
-         G2:::Sky
-         H2:::Sky
-         F:::Rose
-        classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#999999, color:#FFFFFF
-        classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
-        classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
-        classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FF5978, color:#FFFFFF
-        classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-  </div>
-    <figcaption style="font-style: italic; margin-top: 0.5em; color: #555; font-size: 0.9em;">
-    Gambar 2: Diagram alur keputusan teknikal — memilih antara workflow FOSS dan software komersial, beserta dampak biaya dan hasilnya
-    </figcaption>
-</div>
-<hr />
-
-<h2 id="kesimpulan"><strong>Kesimpulan</strong></h2>
-<p>Saat pertama kali menggunakan Linux di tahun 2000, saya membayangkan masa depan di mana alat open-source menjadi tulang punggung alur kerja industri dan rekayasa. Dua dekade kemudian, Zero-Cost Engineering membuktikan bahwa visi ini bukan hanya mungkin — tapi sedang terjadi.</p>
-<p><strong>Zero-Cost Engineering</strong> adalah filosofi bahwa <em>keterbatasan biaya tidak membatasi kualitas hasil</em> — bukan sekadar strategi hemat, melainkan pendekatan sistemik untuk membangun ekosistem kerja yang transparan, modular, dan siap diuji ulang. Hasil teknis yang kompleks bisa disampaikan dengan profesional — setara (bahkan melampaui) workflow berbasis solusi berbayar. Meskipun membutuhkan adaptasi bagi tim yang terbiasa dengan perangkat lunak berbayar, manfaat jangka panjangnya signifikan.</p>
-<p>Selain solusi yang digunakan di sini, saya juga mengandalkan Rapid SCADA untuk pemantauan industri, Node-RED untuk otomasi alur kerja, 4diac FORTE untuk kontrol IEC 61499, serta alat lain seperti ZeroTier untuk jaringan virtual yang aman, RutOS/OpenWrt untuk manajemen perangkat edge, mbusd untuk komunikasi Modbus TCP/RTU, dan sistem berbasis Ubuntu atau turunan Debian untuk integrasi IIoT. Semua ini memperkuat filosofi Zero-Cost Engineering — bahwa hasil profesional dapat dicapai tanpa lisensi berbayar, dengan ekosistem kerja yang terbuka, modular, dan siap diuji ulang.</p>
-<p>"<strong>Siap mencoba Zero-Cost Engineering? Gunakan alat FOSS ini dan mulai proyek Anda dengan efisiensi maksimal.</strong>"</p>
-<hr />]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="cost-optimization" /><category term="Cost Optimization" /><category term="Engineering Lessons" /><summary type="html"><![CDATA[Sebuah alur kerja adaptif, berlandaskan tanggung jawab, yang mendorong inovasi, menanamkan pola pikir berusaha, dan membuat proses tetap menyenangkan—memberikan hasil profesional tanpa beban biaya lisensi.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvc3R8ZW58MHx8fHwxNzU0NzI4MDAwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Sebagai penutup, Advantech UNO‑220 dapat menjadi fondasi fleksibel bagi evolusi sistem automasi industri. Selain fungsi gateway, perangkat ini bisa diperluas dengan runtime <strong>Eclipse 4diac FORTE</strong> (IEC 61499) untuk soft logic non‑critical, <strong>CODESYS Runtime</strong> (IEC 61131‑3) sebagai SoftPLC komersial ringan, maupun <strong>OpenPLC Runtime</strong> (IEC 61131‑3) sebagai alternatif open source untuk edukasi dan prototyping. Integrasi ini dapat dipadukan dengan <strong>TensorFlow Lite</strong> untuk predictive maintenance, di mana output dari FORTE, CODESYS, atau OpenPLC diolah oleh model AI untuk deteksi fault real‑time, sehingga UNO‑220 berperan sebagai <strong>hybrid edge device</strong> yang efisien, modular, dan compliant.</p>]]></content><author><name>[&quot;Ketut Putu Kumajaya&quot;]</name></author><category term="edge-computing" /><category term="Edge Computing" /><category term="Distributed Control System" /><category term="Field Experience" /><category term="Practical Engineering" /><summary type="html"><![CDATA[UNO‑220 siap beroperasi sebagai edge device industri: Node‑RED untuk automasi & dashboard lokal, Rapid SCADA 6.4.3 untuk trending historis, ZeroTier untuk konektivitas aman, serta hardening + backup rutin agar sistem modular, audit‑ready, dan andal.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://images.unsplash.com/photo-1631553127988-36343ac5bb0c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTc2NzgzNzA1Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" /><media:content medium="image" url="https://images.unsplash.com/photo-1631553127988-36343ac5bb0c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHJhc3BiZXJyeSUyMHBpfGVufDB8fHx8MTc2NzgzNzA1Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=2000" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

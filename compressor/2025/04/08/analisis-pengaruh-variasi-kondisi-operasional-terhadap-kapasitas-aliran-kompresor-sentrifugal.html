@@ -336,7 +336,7 @@ table th { background-color: #222149; color: #fff !important; font-weight: bold;
       </div>
       
       <div class="force-inline post-authors">
-        <span class="reading-time">4 min read</span>
+        <span class="reading-time">7 min read</span>
       </div>
       
     </div>
@@ -390,43 +390,48 @@ Contoh Spesi
 <hr />
 
 <h3 id="dasar-teori-koreksi-kapasitas-aliran">Dasar Teori Koreksi Kapasitas Aliran</h3>
-<p>Untuk menyederhanakan analisis, proses kompresi dianggap isothermal, dan efisiensi kompresor dianggap tetap. Hubungan antara perubahan parameter dan kapasitas aliran (<span>Q<sub><i>real</i><sub></sub></sub></span>) dapat dihitung menggunakan persamaan koreksi sebagai berikut:</p>
-<p>\( Q_{real} = Q_{design} \times \sqrt{\left( \frac{T_{design}}{T_{real}} \cdot \frac{PR_{design}}{PR_{real}} \cdot \frac{P_{real}}{P_{design}} \right)} \)</p>
+<p>Untuk menyederhanakan analisis, proses kompresi dianggap isothermal, dan efisiensi kompresor dianggap tetap. Kerja kompresi isothermal reversibel per satuan massa gas ideal adalah:</p>
+<p>\( w = R \cdot T_{in} \cdot \ln(PR) \)</p>
+<p>Karena daya poros adalah P = ṁ × w / η, maka pada efisiensi kompresor (η) yang tetap, massa alir sebanding linear dengan daya poros, berbanding terbalik dengan temperatur inlet, dan berbanding terbalik dengan ln(PR). Satuan Nm³/h mewakili massa alir (volume pada kondisi normal), sehingga hubungan antara perubahan parameter dan kapasitas aliran (<i>Q</i><sub><i>real</i></sub>) dapat dihitung menggunakan persamaan koreksi relatif terhadap titik desain:</p>
+<p>\( Q_{real} = Q_{design} \times \frac{P_{real}}{P_{design}} \times \frac{T_{design}}{T_{real}} \times \frac{\ln(PR_{design})}{\ln(PR_{real})} \)</p>
 <p>Rasio kompresi (PR) dihitung berdasarkan tekanan absolut pada outlet dan inlet kompresor:</p>
 <p>\( PR = \frac{Press_{outlet}}{Press_{inlet}} \)</p>
 <p>di mana:</p>
 <ul>
-<li><em>Q</em>: Kapasitas aliran (misalnya dalam Nm³/h)</li>
+<li><em>Q</em>: kapasitas aliran (misalnya dalam Nm³/h)</li>
 <li><em>T</em>: temperatur inlet dalam Kelvin</li>
 <li><em>PR</em>: rasio kompresi (outlet/inlet dalam tekanan absolut)</li>
 <li><em>P</em>: shaft power (misalnya dalam kW)</li>
 </ul>
 <blockquote>
-<p>Akar pangkat dua digunakan dalam persamaan koreksi kapasitas aliran karena hubungan daya terhadap aliran gas dalam kompresor sentrifugal bersifat kuadratis. Artinya, jika daya meningkat dua kali lipat, maka aliran gas hanya meningkat √2 kali lipat, bukan dua kali lipat. Hubungan ini juga berlaku pada perubahan temperatur dan rasio kompresi dalam asumsi isothermal dan efisiensi konstan.</p>
+<p>Persamaan ini tidak menggunakan akar pangkat dua. Pada efisiensi konstan, jika daya poros naik dua kali lipat (dengan temperatur inlet dan rasio kompresi tetap), massa alir yang dikompresi juga naik dua kali lipat. Ini konsekuensi langsung dari kekekalan energi. Bentuk akar kuadrat memang muncul pada konteks lain yang strukturnya mirip, misalnya kompensasi tekanan/temperatur pada flowmeter differential-pressure (Q ∝ √(ΔP/ρ)), tetapi tidak berlaku untuk estimasi flow dari daya poros. Hukum afinitas (P ∝ N³) juga tidak berlaku di sini, karena kompresor beroperasi pada kecepatan tetap dengan pengaturan IGV, bukan dengan variasi kecepatan.</p>
+<p>Faktor rasio kompresi menggunakan ln(PR), bukan PR langsung, karena kerja kompresi isothermal bersifat logaritmik terhadap rasio tekanan.</p>
 </blockquote>
 <h3 id="catatan-tentang-proses-isothermal-dan-peran-intercooleraftercooler">Catatan tentang Proses Isothermal dan Peran Intercooler/Aftercooler</h3>
-<p>Dalam perhitungan ini digunakan pendekatan proses isothermal, yaitu mengasumsikan bahwa suhu gas tetap konstan selama proses kompresi. Hal ini menyederhanakan perhitungan karena perubahan energi internal diabaikan, dan hanya kerja tekanan yang dihitung.</p>
-<p>Namun secara nyata, kompresor sentrifugal bekerja mendekati <strong>proses adiabatik</strong> — gas dikompresi tanpa pertukaran panas sempurna, sehingga suhu gas meningkat. Untuk menurunkan suhu gas kembali dan meningkatkan efisiensi keseluruhan, sistem biasanya dilengkapi dengan <strong>intercooler</strong> (di antara stage) dan <strong>aftercooler</strong> (di akhir proses kompresi). Pendinginan ini berfungsi:</p>
+<p>Dalam perhitungan ini digunakan pendekatan proses isothermal, yaitu mengasumsikan bahwa suhu gas tetap konstan selama proses kompresi. Hal ini menyederhanakan perhitungan karena perubahan energi internal diabaikan, dan hanya kerja tekanan yang dihitung. Formula isothermal juga tidak memerlukan nilai k (Cp/Cv).</p>
+<p>Namun secara nyata, kompresor sentrifugal bekerja mendekati <strong>proses adiabatik</strong> pada tiap stage: gas dikompresi tanpa pertukaran panas sempurna, sehingga suhu gas meningkat. Untuk menurunkan suhu gas kembali dan meningkatkan efisiensi keseluruhan, sistem biasanya dilengkapi dengan <strong>intercooler</strong> (di antara stage) dan <strong>aftercooler</strong> (di akhir proses kompresi). Pendinginan ini berfungsi:</p>
 <ul>
 <li>Menurunkan suhu gas sebelum masuk stage berikutnya → mengurangi beban kerja stage berikutnya,</li>
 <li>Menurunkan temperatur akhir sebelum masuk ke sistem proses downstream → menjaga integritas peralatan.</li>
 </ul>
-<p>Dengan <strong>pendinginan antar tahap yang cukup efisien</strong>, suhu gas mendekati kondisi awal di setiap tahap. Oleh karena itu, dalam estimasi kapasitas aliran dengan asumsi isothermal, pendekatan ini tetap <strong>relevan dan cukup akurat</strong> untuk perbandingan performa kompresor antar kondisi operasi.</p>
+<p>Tiap stage tetap merupakan proses adiabatik/politropik, bukan berubah menjadi isothermal. Yang terjadi adalah kerja kompresi total (seluruh stage plus pendinginan antar-stage) menjadi lebih dekat ke kerja isothermal. Semakin efektif pendinginan antar-stage, semakin dekat kerja aktual ke benchmark tersebut. Karena itu pendekatan isothermal layak dipakai sebagai model pembanding performa antar kondisi operasi, yang dikalibrasi relatif terhadap titik desain.</p>
+<p>Pendekatan ini bukan pengganti flowmeter. Ketidakpastian absolutnya realistis di orde ±3–5% (akurasi pengukuran daya, variasi efisiensi motor, perubahan efisiensi kompresor akibat IGV dan fouling, rugi mekanis), dan presisinya menurun semakin jauh titik operasi dari titik desain.</p>
 <hr />
 
 <h3 id="contoh-perhitungan-kapasitas-jika-daya-motor-7800-kw-kondisi-lain-tetap-seperti-desain">Contoh perhitungan kapasitas jika daya motor 7800 kW, kondisi lain tetap seperti desain</h3>
 <p>Dengan motor 7800 kW dan efisiensi 97.6%, daya poros (shaft power) adalah:</p>
 <p>\( P_{shaft} = 7800 \times 0.976 = 7612.8 \text{ kW} \)</p>
 <p>Menggunakan formula:</p>
-<p>\( Q_{real} = 96000 \times \sqrt{ \frac{7612.8}{6850} } = 101204.11 \text{ Nm}^3/\text{h} \)</p>
+<p>\( Q_{real} = 96000 \times \frac{7612.8}{6850} = 106690 \text{ Nm}^3/\text{h} \; (\approx 111\% \text{ desain}) \)</p>
+<p>Angka ini berada di luar jangkauan kendali (maksimum 105%). Artinya, pada temperatur inlet dan rasio kompresi desain, motor tidak akan pernah terbebani sampai 7800 kW. Batas operasi praktisnya ditentukan oleh bukaan IGV, batas choke, dan kurva kompresor, bukan oleh kapasitas motor.</p>
 <h3 id="contoh-perhitungan-daya-motor-jika-kapasitas-100800-nm%C2%B3h-kondisi-lain-tetap-seperti-desain">Contoh perhitungan daya motor jika kapasitas 100800 Nm³/h, kondisi lain tetap seperti desain</h3>
-<p>Jika diketahui flow aktual sebesar 100800 Nm³/h, dengan temperatur inlet dan rasio kompresi tetap sama seperti desain, maka daya motor yang dibutuhkan dapat dihitung dengan membalik formula:</p>
-<p>\( P_{real} = P_{design} \times \left( \frac{Q_{real}}{Q_{design}} \right)^2 \)</p>
-<p>\( P_{real} = \frac{6850}{0.976} \times \left( \frac{100800}{96000} \right)^2 = 7018.44 \times 1.1025 = 7737.83 \text{ kW} \)</p>
+<p>Jika diketahui flow aktual sebesar 100800 Nm³/h (105% desain), dengan temperatur inlet dan rasio kompresi tetap sama seperti desain, maka daya motor yang dibutuhkan dapat dihitung dengan membalik formula:</p>
+<p>\( P_{real} = P_{design} \times \frac{Q_{real}}{Q_{design}} \)</p>
+<p>\( P_{real} = \frac{6850}{0.976} \times \frac{100800}{96000} = 7018.44 \times 1.05 = 7369.36 \text{ kW} \)</p>
 <hr />
 
 <h3 id="hasil-perhitungan-dan-analisis">Hasil Perhitungan dan Analisis</h3>
-<h3 id="1-variasi-daya-motor-kondisi-lain-tetap-seperti-desain">1. Variasi Daya Motor (kondisi lain tetap seperti desain)</h3>
+<h4 id="1-variasi-daya-motor-kondisi-lain-tetap-seperti-desain">1. Variasi Daya Motor (kondisi lain tetap seperti desain)</h4>
 <table>
 <thead>
 <tr>
@@ -439,17 +444,17 @@ Contoh Spesi
 <tr>
 <td>6600</td>
 <td>6441.60</td>
-<td>93094</td>
+<td>90276</td>
 </tr>
 <tr>
 <td>6700</td>
 <td>6539.20</td>
-<td>93797</td>
+<td>91644</td>
 </tr>
 <tr>
 <td>6800</td>
 <td>6636.80</td>
-<td>94494</td>
+<td>93012</td>
 </tr>
 <tr>
 <td><strong>7018</strong></td>
@@ -459,23 +464,74 @@ Contoh Spesi
 <tr>
 <td>7100</td>
 <td>6929.60</td>
-<td>96556</td>
+<td>97116</td>
 </tr>
 <tr>
 <td>7200</td>
 <td>7027.20</td>
-<td>97234</td>
+<td>98483</td>
 </tr>
 <tr>
 <td>7300</td>
 <td>7124.80</td>
-<td>97907</td>
+<td>99851</td>
 </tr>
 </tbody>
 </table>
-<figure class="kg-card kg-image-card"><img src="/kiiota-blog/assets/media/feb232c9-7c89-4085-8b51-dfda1ca6e468-Variasi_Daya_Motor.svg" class="kg-image" alt="" loading="lazy" width="960" height="576" /></figure>
-<p><em>Analisis:</em><br />Kapasitas aliran meningkat seiring dengan bertambahnya daya poros. Peningkatan flow sekitar 5% dari desain membutuhkan kenaikan daya sebesar 10.3%.</p>
-<h3 id="2-variasi-temperatur-inlet-daya-dan-rasio-kompresi-tetap">2. Variasi Temperatur Inlet (daya dan rasio kompresi tetap)</h3>
+<!-- Tempel grafik_1.html (HTML card) di sini -->
+
+<!--kg-card-begin: html-->
+<figure style="margin:1.5em 0">
+<svg viewBox="0 0 720 420" width="100%" role="img" aria-labelledby="kc1t" style="max-width:720px;height:auto;display:block;margin:0 auto;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:inherit">
+<title id="kc1t">Variasi Daya Poros terhadap Kapasitas Aliran</title>
+<text x="360.0" y="26" text-anchor="middle" font-size="17" font-weight="600" fill="currentColor">Variasi Daya Poros terhadap Kapasitas Aliran</text>
+<line x1="78.0" y1="44" x2="78.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="78.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6400</text>
+<line x1="155.2" y1="44" x2="155.2" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="155.2" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6500</text>
+<line x1="232.5" y1="44" x2="232.5" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="232.5" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6600</text>
+<line x1="309.8" y1="44" x2="309.8" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="309.8" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6700</text>
+<line x1="387.0" y1="44" x2="387.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="387.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6800</text>
+<line x1="464.2" y1="44" x2="464.2" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="464.2" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6900</text>
+<line x1="541.5" y1="44" x2="541.5" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="541.5" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">7000</text>
+<line x1="618.8" y1="44" x2="618.8" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="618.8" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">7100</text>
+<line x1="696.0" y1="44" x2="696.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="696.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">7200</text>
+<line x1="78" y1="358.0" x2="696" y2="358.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="362.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">90000</text>
+<line x1="78" y1="295.2" x2="696" y2="295.2" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="299.2" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">92000</text>
+<line x1="78" y1="232.4" x2="696" y2="232.4" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="236.4" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">94000</text>
+<line x1="78" y1="169.6" x2="696" y2="169.6" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="173.6" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">96000</text>
+<line x1="78" y1="106.8" x2="696" y2="106.8" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="110.8" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">98000</text>
+<line x1="78" y1="44.0" x2="696" y2="44.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="48.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">100000</text>
+<rect x="78" y="44" width="618" height="314" fill="none" stroke="currentColor" stroke-opacity=".35" />
+<text x="387.0" y="406" text-anchor="middle" font-size="14" fill="currentColor">Shaft Power (kW)</text>
+<text transform="translate(20 201.0) rotate(-90)" text-anchor="middle" font-size="14" fill="currentColor">Flow (Nm³/h)</text>
+<polyline points="110.1,349.3 185.5,306.4 260.9,263.4 425.6,169.6 487.1,134.6 562.5,91.6 637.9,48.7" fill="none" stroke="#7e22ce" stroke-width="2.5" stroke-linejoin="round" />
+<circle cx="110.1" cy="349.3" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>6442 → 90,276 Nm³/h</title></circle>
+<circle cx="185.5" cy="306.4" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>6539 → 91,644 Nm³/h</title></circle>
+<circle cx="260.9" cy="263.4" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>6637 → 93,012 Nm³/h</title></circle>
+<circle cx="425.6" cy="169.6" r="6" fill="#fff" stroke="#7e22ce" stroke-width="2.5"><title>Desain → 96,000 Nm³/h</title></circle>
+<circle cx="487.1" cy="134.6" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>6930 → 97,116 Nm³/h</title></circle>
+<circle cx="562.5" cy="91.6" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>7027 → 98,483 Nm³/h</title></circle>
+<circle cx="637.9" cy="48.7" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>7125 → 99,851 Nm³/h</title></circle>
+<text x="435.6" y="187.6" font-size="12" fill="currentColor" fill-opacity=".75">Desain (96000)</text>
+</svg>
+</figure>
+<!--kg-card-end: html-->
+<p><em>Analisis:</em> Kapasitas aliran meningkat linear terhadap daya poros. Peningkatan flow 5% dari desain membutuhkan kenaikan daya poros sekitar 5% juga (daya motor ≈7369 kW), selama temperatur inlet, rasio kompresi, dan efisiensi kompresor tidak berubah.</p>
+<h4 id="2-variasi-temperatur-inlet-daya-dan-rasio-kompresi-tetap">2. Variasi Temperatur Inlet (daya dan rasio kompresi tetap)</h4>
 <table>
 <thead>
 <tr>
@@ -488,17 +544,17 @@ Contoh Spesi
 <tr>
 <td>45</td>
 <td>318.15</td>
-<td>94785</td>
+<td>93586</td>
 </tr>
 <tr>
 <td>41</td>
 <td>314.15</td>
-<td>95387</td>
+<td>94778</td>
 </tr>
 <tr>
 <td>39</td>
 <td>312.15</td>
-<td>95692</td>
+<td>95385</td>
 </tr>
 <tr>
 <td><strong>37</strong></td>
@@ -508,23 +564,76 @@ Contoh Spesi
 <tr>
 <td>35</td>
 <td>308.15</td>
-<td>96311</td>
+<td>96623</td>
 </tr>
 <tr>
 <td>33</td>
 <td>306.15</td>
-<td>96625</td>
+<td>97254</td>
 </tr>
 <tr>
 <td>30</td>
 <td>303.15</td>
-<td>97102</td>
+<td>98217</td>
 </tr>
 </tbody>
 </table>
-<figure class="kg-card kg-image-card"><img src="/kiiota-blog/assets/media/feb232c9-7c89-4085-8b51-dfda1ca6e468-Variasi_Temp_Inlet.svg" class="kg-image" alt="" loading="lazy" width="960" height="576" /></figure>
-<p><em>Analisis:</em><br />Penurunan temperatur inlet menyebabkan peningkatan densitas gas, yang pada kondisi daya tetap, menghasilkan peningkatan kapasitas aliran. Mengoperasikan pada temperatur inlet yang lebih rendah meningkatkan efisiensi.</p>
-<h3 id="3-variasi-rasio-kompresi-daya-dan-temperatur-inlet-tetap">3: Variasi Rasio Kompresi (daya dan temperatur inlet tetap)</h3>
+<!-- Tempel grafik_2.html (HTML card) di sini -->
+
+<!--kg-card-begin: html-->
+<figure style="margin:1.5em 0">
+<svg viewBox="0 0 720 420" width="100%" role="img" aria-labelledby="kc2t" style="max-width:720px;height:auto;display:block;margin:0 auto;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:inherit">
+<title id="kc2t">Variasi Temperatur Inlet terhadap Kapasitas Aliran</title>
+<text x="360.0" y="26" text-anchor="middle" font-size="17" font-weight="600" fill="currentColor">Variasi Temperatur Inlet terhadap Kapasitas Aliran</text>
+<line x1="78.0" y1="44" x2="78.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="78.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">30</text>
+<line x1="155.2" y1="44" x2="155.2" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="155.2" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">32</text>
+<line x1="232.5" y1="44" x2="232.5" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="232.5" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">34</text>
+<line x1="309.8" y1="44" x2="309.8" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="309.8" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">36</text>
+<line x1="387.0" y1="44" x2="387.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="387.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">38</text>
+<line x1="464.2" y1="44" x2="464.2" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="464.2" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">40</text>
+<line x1="541.5" y1="44" x2="541.5" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="541.5" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">42</text>
+<line x1="618.8" y1="44" x2="618.8" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="618.8" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">44</text>
+<line x1="696.0" y1="44" x2="696.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="696.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">46</text>
+<line x1="78" y1="358.0" x2="696" y2="358.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="362.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">93000</text>
+<line x1="78" y1="305.7" x2="696" y2="305.7" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="309.7" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">94000</text>
+<line x1="78" y1="253.3" x2="696" y2="253.3" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="257.3" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">95000</text>
+<line x1="78" y1="201.0" x2="696" y2="201.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="205.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">96000</text>
+<line x1="78" y1="148.7" x2="696" y2="148.7" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="152.7" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">97000</text>
+<line x1="78" y1="96.3" x2="696" y2="96.3" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="100.3" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">98000</text>
+<line x1="78" y1="44.0" x2="696" y2="44.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="48.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">99000</text>
+<rect x="78" y="44" width="618" height="314" fill="none" stroke="currentColor" stroke-opacity=".35" />
+<text x="387.0" y="406" text-anchor="middle" font-size="14" fill="currentColor">Inlet Temperature (°C)</text>
+<text transform="translate(20 201.0) rotate(-90)" text-anchor="middle" font-size="14" fill="currentColor">Flow (Nm³/h)</text>
+<polyline points="78.0,85.0 193.9,135.4 271.1,168.4 348.4,201.0 425.6,233.2 502.9,265.0 657.4,327.3" fill="none" stroke="#7e22ce" stroke-width="2.5" stroke-linejoin="round" />
+<circle cx="78.0" cy="85.0" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>30 → 98,217 Nm³/h</title></circle>
+<circle cx="193.9" cy="135.4" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>33 → 97,254 Nm³/h</title></circle>
+<circle cx="271.1" cy="168.4" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>35 → 96,623 Nm³/h</title></circle>
+<circle cx="348.4" cy="201.0" r="6" fill="#fff" stroke="#7e22ce" stroke-width="2.5"><title>Desain → 96,000 Nm³/h</title></circle>
+<circle cx="425.6" cy="233.2" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>39 → 95,385 Nm³/h</title></circle>
+<circle cx="502.9" cy="265.0" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>41 → 94,778 Nm³/h</title></circle>
+<circle cx="657.4" cy="327.3" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>45 → 93,586 Nm³/h</title></circle>
+<text x="358.4" y="191.0" font-size="12" fill="currentColor" fill-opacity=".75">Desain (96000)</text>
+</svg>
+</figure>
+<!--kg-card-end: html-->
+<p><em>Analisis:</em> Penurunan temperatur inlet menurunkan kerja kompresi spesifik (kerja per kg gas sebanding dengan T<sub>in</sub>). Pada daya poros yang sama, kompresor mampu mengompresi massa gas yang lebih besar, sehingga kapasitas aliran meningkat. Setiap penurunan 1°C memberi tambahan flow sekitar 0.3%. Efisiensi kompresor sendiri diasumsikan tetap dalam model ini. Yang turun adalah konsumsi energi spesifik (kWh per Nm³), bukan efisiensi kompresor yang naik.</p>
+<h4 id="3-variasi-rasio-kompresi-daya-dan-temperatur-inlet-tetap">3. Variasi Rasio Kompresi (daya dan temperatur inlet tetap)</h4>
 <table>
 <thead>
 <tr>
@@ -535,15 +644,15 @@ Contoh Spesi
 <tbody>
 <tr>
 <td>6.20</td>
-<td>93955</td>
+<td>93734</td>
 </tr>
 <tr>
 <td>6.10</td>
-<td>94722</td>
+<td>94577</td>
 </tr>
 <tr>
 <td>6.00</td>
-<td>95508</td>
+<td>95450</td>
 </tr>
 <tr>
 <td><strong>5.94</strong></td>
@@ -551,46 +660,156 @@ Contoh Spesi
 </tr>
 <tr>
 <td>5.85</td>
-<td>96725</td>
+<td>96818</td>
 </tr>
 <tr>
 <td>5.75</td>
-<td>97562</td>
+<td>97772</td>
 </tr>
 <tr>
 <td>5.65</td>
-<td>98422</td>
+<td>98763</td>
 </tr>
 </tbody>
 </table>
-<figure class="kg-card kg-image-card"><img src="/kiiota-blog/assets/media/feb232c9-7c89-4085-8b51-dfda1ca6e468-Variasi_Rasio_Kompresi.svg" class="kg-image" alt="" loading="lazy" width="960" height="576" /></figure>
-<p><em>Analisis:</em><br />Rasio kompresi yang lebih tinggi membutuhkan lebih banyak daya, sehingga kapasitas aliran menurun secara gradual jika daya tetap. Pada tekanan inlet yang lebih rendah dengan target outlet yang tetap meningkatkan rasio kompresi, menurunkan efisiensi. Tetapi kondisi proses tetap harus diperhatikan karena mungkin proses membutuhkan kondisi tekanan yang lebih tinggi dibandingkan flow yang lebih besar.</p>
+<!-- Tempel grafik_3.html (HTML card) di sini -->
+<!--kg-card-begin: html-->
+<figure style="margin:1.5em 0">
+<svg viewBox="0 0 720 420" width="100%" role="img" aria-labelledby="kc3t" style="max-width:720px;height:auto;display:block;margin:0 auto;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:inherit">
+<title id="kc3t">Variasi Rasio Kompresi terhadap Kapasitas Aliran</title>
+<text x="360.0" y="26" text-anchor="middle" font-size="17" font-weight="600" fill="currentColor">Variasi Rasio Kompresi terhadap Kapasitas Aliran</text>
+<line x1="78.0" y1="44" x2="78.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="78.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">5.6</text>
+<line x1="166.3" y1="44" x2="166.3" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="166.3" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">5.7</text>
+<line x1="254.6" y1="44" x2="254.6" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="254.6" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">5.8</text>
+<line x1="342.9" y1="44" x2="342.9" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="342.9" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">5.9</text>
+<line x1="431.1" y1="44" x2="431.1" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="431.1" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6.0</text>
+<line x1="519.4" y1="44" x2="519.4" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="519.4" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6.1</text>
+<line x1="607.7" y1="44" x2="607.7" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="607.7" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6.2</text>
+<line x1="696.0" y1="44" x2="696.0" y2="358" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="696.0" y="378" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">6.3</text>
+<line x1="78" y1="358.0" x2="696" y2="358.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="362.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">93000</text>
+<line x1="78" y1="305.7" x2="696" y2="305.7" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="309.7" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">94000</text>
+<line x1="78" y1="253.3" x2="696" y2="253.3" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="257.3" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">95000</text>
+<line x1="78" y1="201.0" x2="696" y2="201.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="205.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">96000</text>
+<line x1="78" y1="148.7" x2="696" y2="148.7" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="152.7" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">97000</text>
+<line x1="78" y1="96.3" x2="696" y2="96.3" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="100.3" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">98000</text>
+<line x1="78" y1="44.0" x2="696" y2="44.0" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="4 4" />
+<text x="70" y="48.0" text-anchor="end" font-size="13" fill="currentColor" fill-opacity=".75">99000</text>
+<rect x="78" y="44" width="618" height="314" fill="none" stroke="currentColor" stroke-opacity=".35" />
+<text x="387.0" y="406" text-anchor="middle" font-size="14" fill="currentColor">Compression Ratio (PR)</text>
+<text transform="translate(20 201.0) rotate(-90)" text-anchor="middle" font-size="14" fill="currentColor">Flow (Nm³/h)</text>
+<polyline points="122.1,56.4 210.4,108.3 298.7,158.2 377.0,201.0 431.1,229.8 519.4,275.5 607.7,319.6" fill="none" stroke="#7e22ce" stroke-width="2.5" stroke-linejoin="round" />
+<circle cx="122.1" cy="56.4" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>5.7 → 98,763 Nm³/h</title></circle>
+<circle cx="210.4" cy="108.3" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>5.8 → 97,772 Nm³/h</title></circle>
+<circle cx="298.7" cy="158.2" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>5.8 → 96,818 Nm³/h</title></circle>
+<circle cx="377.0" cy="201.0" r="6" fill="#fff" stroke="#7e22ce" stroke-width="2.5"><title>Desain → 96,000 Nm³/h</title></circle>
+<circle cx="431.1" cy="229.8" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>6.0 → 95,450 Nm³/h</title></circle>
+<circle cx="519.4" cy="275.5" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>6.1 → 94,577 Nm³/h</title></circle>
+<circle cx="607.7" cy="319.6" r="4.5" fill="#7e22ce" stroke="#7e22ce" stroke-width="2.5"><title>6.2 → 93,734 Nm³/h</title></circle>
+<text x="387.0" y="191.0" font-size="12" fill="currentColor" fill-opacity=".75">Desain (96000)</text>
+</svg>
+</figure>
+<!--kg-card-end: html-->
+<p><em>Analisis:</em> Rasio kompresi yang lebih tinggi membutuhkan kerja spesifik yang lebih besar (sebanding dengan ln(PR)), sehingga kapasitas aliran menurun secara gradual jika daya tetap. Pada PR sekitar 5.94, kenaikan PR sebesar 1% menurunkan flow sekitar 0.56% (= 1/ln(PR)). Sensitivitas ini lebih besar pada PR rendah: pada PR sekitar 2, kenaikan PR 1% menurunkan flow sekitar 1.4%. Tekanan inlet yang lebih rendah dengan target outlet tetap akan meningkatkan rasio kompresi dan konsumsi energi spesifik. Tetapi kondisi proses tetap harus diperhatikan, karena mungkin proses membutuhkan tekanan yang lebih tinggi dibandingkan flow yang lebih besar.</p>
 <hr />
 
+<!-- CATATAN PENULIS: gist Python dan ST lama perlu diperbarui dengan kode di bawah, atau cukup pakai blok kode ini. -->
 <h3 id="formula-python">Formula Python</h3>
 <p>Berikut contoh penerapan kalkulasi dalam bahasa Python:</p>
+<pre><code class="language-python">import math
 
-<!--kg-card-begin: html-->
-<script src="https://gist.github.com/kumajaya/d756def7e69c4197a800e178def8ad2f.js"></script>
+# Titik desain
+Q_DESIGN = 96000.0           # Nm3/h
+P_DESIGN = 6850.0            # kW, shaft power
+T_DESIGN = 37.0 + 273.15     # K
+PR_DESIGN = 3.1 / 0.522      # rasio kompresi desain (~5.94)
+ETA_MOTOR = 0.976
 
-<!--kg-card-end: html-->
+def flow_estimate(p_motor_kw, t_in_c, pr):
+    """Estimasi flow (Nm3/h) - isothermal, efisiensi kompresor tetap."""
+    p_shaft = p_motor_kw * ETA_MOTOR
+    t_in = t_in_c + 273.15
+    return (Q_DESIGN * (p_shaft / P_DESIGN)
+            * (T_DESIGN / t_in)
+            * (math.log(PR_DESIGN) / math.log(pr)))
+
+def motor_power_required(q, t_in_c, pr):
+    """Daya motor (kW) yang dibutuhkan untuk flow q (Nm3/h)."""
+    t_in = t_in_c + 273.15
+    p_shaft = (P_DESIGN * (q / Q_DESIGN)
+               * (t_in / T_DESIGN)
+               * (math.log(pr) / math.log(PR_DESIGN)))
+    return p_shaft / ETA_MOTOR
+
+print(f"Flow @ 7800 kW      : {flow_estimate(7800, 37, PR_DESIGN):.0f} Nm3/h")
+print(f"Daya @ 100800 Nm3/h : {motor_power_required(100800, 37, PR_DESIGN):.2f} kW")
+</code></pre>
 <p>📎 Bisa langsung dicoba di: 👉 <a href="https://onecompiler.com/python?ref=blog.kiiota.com">Python Online Compiler</a></p>
 <h3 id="formula-structured-text">Formula Structured Text</h3>
 <p>Contoh penerapan kalkulasi dalam bahasa Structured Text (ST) untuk sistem kontrol PLC atau DCS:</p>
+<pre><code class="language-iecst">FUNCTION FC_FlowEstimateIsothermal : REAL
+VAR_INPUT
+    P_Motor_kW : REAL;   (* daya motor aktual, kW *)
+    T_In_C     : REAL;   (* temperatur inlet aktual, degC *)
+    P_In_MPa   : REAL;   (* tekanan inlet, MPa abs *)
+    P_Out_MPa  : REAL;   (* tekanan outlet, MPa abs *)
+END_VAR
+VAR CONSTANT
+    Q_DESIGN  : REAL := 96000.0;   (* Nm3/h *)
+    P_DESIGN  : REAL := 6850.0;    (* kW shaft *)
+    T_DESIGN  : REAL := 310.15;    (* K *)
+    PR_DESIGN : REAL := 5.9387;    (* 3.1 / 0.522 *)
+    ETA_MOTOR : REAL := 0.976;
+END_VAR
+VAR
+    PR      : REAL;
+    P_Shaft : REAL;
+END_VAR
 
-<!--kg-card-begin: html-->
-<script src="https://gist.github.com/kumajaya/0e1a98b99d824d67b14f5f8a00e4afaf.js"></script>
+(* Proteksi: tekanan inlet harus valid dan PR &gt; 1 agar LN(PR) &gt; 0 *)
+IF P_In_MPa &lt;= 0.0 THEN
+    FC_FlowEstimateIsothermal := 0.0;
+    RETURN;
+END_IF;
+PR := P_Out_MPa / P_In_MPa;
+IF PR &lt;= 1.0 THEN
+    FC_FlowEstimateIsothermal := 0.0;
+    RETURN;
+END_IF;
 
-<!--kg-card-end: html-->
+P_Shaft := P_Motor_kW * ETA_MOTOR;
+
+(* Linear terhadap daya, 1/T, dan 1/LN(PR) - tanpa akar kuadrat *)
+FC_FlowEstimateIsothermal := Q_DESIGN
+    * (P_Shaft / P_DESIGN)
+    * (T_DESIGN / (T_In_C + 273.15))
+    * (LN(PR_DESIGN) / LN(PR));
+END_FUNCTION
+</code></pre>
 <h3 id="formula-wolframalpha">Formula WolframAlpha</h3>
-<p>Contoh penerapan kalkulasi untuk WolframAlpha:</p>
-<p>📎 Link siap jalan: 👉 <a href="https://www.wolframalpha.com/input?i=Q%3DQ1*sqrt%28%28T1%2FT%29*%28P1%2FP%29*%28H%2FH1%29%29+where+Q1%3D96000%2CT1%3D310.15%2CT%3D310.15%2CP1%3D5.94%2CP%3D5.94%2CH1%3D7018%2CQ%3D100800&amp;ref=blog.kiiota.com">Klik di sini untuk mencari daya motor</a></p>
+<p>Contoh penerapan kalkulasi untuk WolframAlpha (di WolframAlpha, <code>log</code> adalah logaritma natural):</p>
+<p>📎 Link siap jalan: 👉 <a href="https://www.wolframalpha.com/input?i=Q%3DQ1*%28H%2FH1%29*%28T1%2FT%29*%28log%28P1%29%2Flog%28P%29%29+where+Q1%3D96000%2CT1%3D310.15%2CT%3D310.15%2CP1%3D5.94%2CP%3D5.94%2CH1%3D7018%2CQ%3D100800&amp;ref=blog.kiiota.com">Klik di sini untuk mencari daya motor</a></p>
 <hr />
 
 <h3 id="kesimpulan">Kesimpulan</h3>
-<p>Analisis variasi ini menunjukkan bahwa kapasitas aliran kompresor sentrifugal sangat dipengaruhi oleh parameter daya poros, temperatur masuk, dan rasio kompresi. Dalam sistem yang dikendalikan dengan motor tetap, pemahaman pengaruh ini penting untuk optimasi beban dan pemanfaatan maksimum kapasitas tanpa risiko overloading. Pemilihan motor dengan kapasitas sedikit lebih besar dari kebutuhan desain — seperti 7800 kW untuk desain 7000 kW — merupakan keputusan engineering yang logis untuk menjamin fleksibilitas operasi.</p>
+<p>Analisis variasi ini menunjukkan bahwa kapasitas aliran kompresor sentrifugal dipengaruhi oleh daya poros, temperatur masuk, dan rasio kompresi. Dengan pendekatan isothermal dan efisiensi tetap, flow berbanding lurus dengan daya poros, berbanding terbalik dengan temperatur inlet absolut, dan berbanding terbalik dengan ln(PR). Dalam sistem yang dikendalikan dengan motor tetap, pemahaman pengaruh ini penting untuk optimasi beban dan pemanfaatan maksimum kapasitas tanpa risiko overloading.</p>
+<p>Pada kondisi desain, flow 105% hanya membutuhkan daya motor sekitar 7370 kW. Motor 7800 kW (desain ≈7018 kW) memberi margin sekitar 6% di atas kebutuhan batas atas jangkauan kendali. Margin ini berguna untuk menampung kondisi yang lebih berat dari desain, misalnya temperatur inlet lebih tinggi, rasio kompresi lebih besar, atau penurunan efisiensi akibat fouling. Karena itu pemilihannya tetap merupakan keputusan engineering yang logis untuk menjamin fleksibilitas operasi. Model ini bersifat relatif terhadap titik desain dan sebaiknya divalidasi terhadap data flowmeter atau compressor map sebelum dipakai sebagai dasar keputusan operasional.</p>
 <hr />
 
+<p><em>Catatan revisi: versi sebelumnya artikel ini menggunakan akar kuadrat dan PR langsung dalam persamaan koreksi. Bentuk tersebut keliru: kerja kompresi isothermal sebanding dengan ln(PR), dan pada efisiensi tetap flow berbanding linear dengan daya poros. Akibatnya, versi lama meredam pengaruh variasi daya dan temperatur sekitar separuh dari yang seharusnya. Persamaan, contoh perhitungan, tabel, grafik, dan kode telah diperbarui.</em></p>
 <p>Artikel ini ditulis dengan bantuan kecerdasan buatan dengan arahan, penyesuaian, dan validasi oleh penulis.</p>
 
 
