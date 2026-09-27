@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-09-26T05:51:46+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://kumajaya.github.io/kiiota-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kumajaya.github.io/kiiota-blog/" rel="alternate" type="text/html" /><updated>2026-09-27T06:14:54+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/feed.xml</id><title type="html">Kiiota Blog</title><subtitle>Kiiota Blog adalah ruang catatan teknis dan refleksi humanis di dunia otomasi industri. Berisi dokumentasi eksperimen, troubleshooting, dan filosofi kerja yang lahir dari lapangan. Repositori ini menyimpan konten dalam bentuk statis, memungkinkan backup otomatis, serta publikasi via static site generator (Jekyll, Hugo, Eleventy) dan GitHub Pages.
 </subtitle><author><name>Ketut Kumajaya</name><email>ketut.kumajaya@gmail.com</email></author><entry><title type="html">Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan</title><link href="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html" rel="alternate" type="text/html" title="Analisis Efisiensi Isentropik Kompresor Sentrifugal berdasarkan Temperatur dan Tekanan" /><published>2026-09-26T03:51:16+00:00</published><updated>2026-09-26T03:51:16+00:00</updated><id>https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan</id><content type="html" xml:base="https://kumajaya.github.io/kiiota-blog/compressor/2026/09/26/analisis-efisiensi-isentropik-kompresor-sentrifugal-berdasarkan-temperatur-dan-tekanan.html"><![CDATA[<h3 id="pendahuluan">Pendahuluan</h3>
 <p>Kompresor yang kurang efisien membutuhkan kerja lebih besar untuk menaikkan tekanan yang sama, dan kerja tambahan itu muncul sebagai temperatur discharge yang lebih tinggi. Karena itu efisiensi isentropik sebuah stage bisa dihitung hanya dari <strong>temperatur dan tekanan</strong>, tanpa flowmeter.</p>
 <p>Pada kompresor single-stage, perhitungannya langsung. Pada kompresor multi-stage dengan intercooler, rumusnya sama, tetapi harus diterapkan <strong>per stage</strong>. Tulisan ini membahas kenapa, apa yang masih bisa dilakukan jika tekanan antar-stage tidak tersedia, dan bagaimana membaca efisiensi stage bersama kinerja cooler. Contohnya diambil dari kompresor recycle nitrogen 4-stage yang juga dipakai di artikel <a href="https://blog.kiiota.com/analisis-pengaruh-variasi-kondisi-operasional-terhadap-kapasitas-aliran-kompresor-sentrifugal/">Analisis Pengaruh Variasi Kondisi Operasional terhadap Kapasitas Aliran Kompresor Sentrifugal</a>.</p>
@@ -350,9 +350,9 @@ END_FUNCTION_BLOCK
 <p>Alternatifnya adalah pendekatan isentropik. Ada dua bentuk:</p>
 <ul>
 <li><strong>Isentropik overall:</strong> memperlakukan seluruh kompresor sebagai satu kompresi adiabatik dari P_in stage-1 langsung ke P_out stage-akhir. Bentuk ini mengabaikan intercooler sama sekali, sehingga tidak mewakili mesin yang sebenarnya.</li>
-<li><strong>Isentropik per-stage:</strong> menjumlahkan kerja isentropik tiap stage dengan asumsi rasio kompresi terbagi rata dan intercooler mengembalikan gas ke T_in. Bentuk ini paling dekat dengan struktur fisik, tetapi memerlukan jumlah stage dan nilai k (Cp/Cv).</li>
+<li><strong>Isentropik per-stage:</strong> menjumlahkan kerja isentropik tiap stage dengan asumsi rasio kompresi terbagi rata dan intercooler mengembalikan gas ke T_in. Bentuk ini paling dekat dengan struktur fisik, tetapi memerlukan jumlah stage dan nilai k (Cp/Cv).<br />
+Perbandingan ketiganya pada kompresor 4-stage dengan PR desain 5.07, saat PR aktual menyimpang dari desain (power dan T_in tetap seperti desain):</li>
 </ul>
-<p>Perbandingan ketiganya pada kompresor 4-stage dengan PR desain 5.07, saat PR aktual menyimpang dari desain (power dan T_in tetap seperti desain):</p>
 <table>
 <thead>
 <tr>
@@ -407,9 +407,9 @@ END_FUNCTION_BLOCK
 <ul>
 <li>jumlah stage tidak diperlukan,</li>
 <li>nilai k tidak diperlukan,</li>
-<li>cukup satu baris formula di DCS.</li>
+<li>cukup satu baris formula di DCS.<br />
+Untuk kompresor multi-stage ber-intercooler, ini kombinasi yang sulit dikalahkan. Bentuk isentropik per-stage tetap berguna sebagai <strong>pembanding silang</strong>. Jika selisih kedua model jauh lebih besar dari yang diperkirakan tabel di atas, asumsi model, data input, atau kondisi operasi perlu diperiksa.</li>
 </ul>
-<p>Untuk kompresor multi-stage ber-intercooler, ini kombinasi yang sulit dikalahkan. Bentuk isentropik per-stage tetap berguna sebagai <strong>pembanding silang</strong>. Jika selisih kedua model jauh lebih besar dari yang diperkirakan tabel di atas, asumsi model, data input, atau kondisi operasi perlu diperiksa.</p>
 <hr />
 
 <h3 id="variabel-yang-dibutuhkan">Variabel yang Dibutuhkan</h3>
@@ -464,8 +464,8 @@ END_FUNCTION_BLOCK
 <hr />
 
 <h3 id="contoh-perhitungan">Contoh Perhitungan</h3>
-<p>Contoh berikut memakai kompresor udara 4-stage dengan angka ilustratif.</p>
-<p><strong>Data desain:</strong></p>
+<p>Contoh berikut memakai data nyata recycle air compressor 4-stage di sebuah plant ASU, sebelum dan sesudah posisi IGV dikoreksi karena power motor terlalu tinggi.</p>
+<p><strong>Data desain (datasheet):</strong></p>
 <table>
 <thead>
 <tr>
@@ -483,8 +483,8 @@ END_FUNCTION_BLOCK
 <td>18500 Nm³/h</td>
 </tr>
 <tr>
-<td>Rasio kompresi desain</td>
-<td>5.07</td>
+<td>Tekanan suction / discharge desain</td>
+<td>0.58 / 2.942 MPa abs (rasio 5.072)</td>
 </tr>
 <tr>
 <td>Temperatur inlet desain</td>
@@ -496,36 +496,197 @@ END_FUNCTION_BLOCK
 </tr>
 </tbody>
 </table>
-<p><strong>Data aktual:</strong></p>
+<p><strong>Data operasi:</strong></p>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th>Nilai</th>
+<th>Sebelum koreksi IGV</th>
+<th>Sesudah koreksi IGV</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Power listrik terukur</td>
 <td>1700 kW</td>
+<td>1640 kW</td>
 </tr>
 <tr>
-<td>Rasio kompresi aktual</td>
-<td>4.825</td>
+<td>Tekanan suction</td>
+<td>0.481 MPaG</td>
+<td>0.462 MPaG</td>
 </tr>
 <tr>
-<td>Temperatur inlet aktual</td>
+<td>Tekanan discharge</td>
+<td>2.71 MPaG</td>
+<td>2.67 MPaG</td>
+</tr>
+<tr>
+<td>Rasio tekanan (absolut)</td>
+<td>4.828</td>
+<td>4.920</td>
+</tr>
+<tr>
+<td>Temperatur inlet</td>
+<td>20°C</td>
 <td>20°C</td>
 </tr>
 </tbody>
 </table>
-<p>Daya poros aktual:</p>
-<p>\( P_{shaft} = 1700 \times 0.9642 \approx 1639.1 \text{ kW} \)</p>
+<p>Rasio tekanan dihitung dari tekanan absolut, jadi tekanan gauge ditambah 0.101325 MPa: (2.71 + 0.101325) / (0.481 + 0.101325) ≈ 4.828.</p>
+
+<!--kg-card-begin: html-->
+<!-- ============================================================
+  Kalkulator Estimasi Flow Kompresor Sentrifugal
+  Pendekatan isothermal relatif terhadap titik desain.
+  Tempel seluruh blok ini ke HTML card artikel. Semua style
+  dibatasi pada .kfc sehingga tidak memengaruhi tema blog.
+  Default tertutup; pembaca klik judul untuk membuka.
+============================================================= -->
+<style>
+.kfc{--bg:#ffffff;--panel:#f6f7f9;--line:#dde1e6;--text:#1c2430;--muted:#5d6878;--accent:#1f3864;--good:#1e7a46;--warn:#a15c00;--bad:#b3261e;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:0;max-width:880px;margin:1.5em auto;line-height:1.45;font-size:15px;box-sizing:border-box}
+@media (prefers-color-scheme:dark){.kfc{--bg:#161b22;--panel:#1f2630;--line:#323c49;--text:#e6eaf0;--muted:#9aa6b5;--accent:#8fb3ff;--good:#5fd18d;--warn:#f0b35a;--bad:#ff8a80}}
+.kfc *{box-sizing:border-box}
+.kfc summary{cursor:pointer;padding:14px 18px;font-weight:650;color:var(--accent);list-style:none;display:flex;align-items:center;gap:10px}
+.kfc summary::-webkit-details-marker{display:none}
+.kfc summary::before{content:"▸";display:inline-block;transition:transform .15s}
+.kfc[open] summary::before{transform:rotate(90deg)}
+.kfc summary .hint{font-weight:400;color:var(--muted);font-size:.85em}
+.kfc[open] summary .hint{display:none}
+.kfc .body{padding:0 18px 18px}
+@media (max-width:480px){.kfc summary{padding:12px}.kfc .body{padding:0 12px 12px}.kfc input{width:84px}}
+.kfc .sub{margin:0 0 14px;color:var(--muted);font-size:.9em}
+.kfc .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:14px}
+.kfc fieldset{border:1px solid var(--line);border-radius:8px;padding:10px 12px 12px;margin:0;background:var(--panel);min-width:0}
+.kfc legend{font-weight:600;font-size:.9em;padding:0 6px;color:var(--accent)}
+.kfc label{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:6px 0;font-size:.88em}
+.kfc label span{flex:1;min-width:0}
+.kfc input,.kfc select{width:96px;padding:5px 7px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--text);font:inherit;font-size:.95em;text-align:right}
+.kfc select{width:auto;text-align:left}
+.kfc input:focus,.kfc select:focus{outline:2px solid var(--accent);outline-offset:0}
+.kfc .unit{width:64px;color:var(--muted);font-size:.85em}
+.kfc select.unit{padding:4px 2px;text-align:left}
+.kfc label .unit{flex:0 0 64px;width:64px}
+.kfc .btns{display:flex;gap:8px;margin:14px 0 4px;flex-wrap:wrap;align-items:center}
+.kfc button{font:inherit;font-size:.88em;padding:6px 12px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer}
+.kfc button:hover{border-color:var(--accent)}
+.kfc .btns label{margin:0 0 0 auto;gap:6px}
+.kfc .res{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));gap:10px}
+.kfc .card{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--panel)}
+.kfc .card .k{font-size:.8em;color:var(--muted)}
+.kfc .card .v{font-size:1.35em;font-weight:650;font-variant-numeric:tabular-nums}
+.kfc .card .n{font-size:.8em;color:var(--muted)}
+.kfc .notes{margin-top:12px;font-size:.85em}
+.kfc .notes p{margin:4px 0;padding:6px 10px;border-left:3px solid var(--line);background:var(--panel);border-radius:0 6px 6px 0}
+.kfc .notes .warn{border-color:var(--warn)}
+.kfc .notes .bad{border-color:var(--bad)}
+.kfc .notes .ok{border-color:var(--good)}
+.kfc .foot{font-size:.78em;color:var(--muted);margin:10px 0 0}
+</style>
+
+<details class="kfc" id="kfc">
+
+
+<summary>Kalkulator estimasi flow <span class="hint">klik untuk membuka</span></summary>
+<div class="body">
+<p class="sub">Isi dengan data mesin Anda. Tombol "Isi contoh" memuat contoh perhitungan di artikel ini.</p>
+
+<div class="grid">
+  <fieldset><legend>Titik desain (datasheet)</legend>
+    <label><span>Flow desain</span><input id="kfc_qd" type="number" step="any" /><span class="unit">Nm³/h</span></label>
+    <label><span>Daya poros desain</span><input id="kfc_psd" type="number" step="any" /><span class="unit">kW</span></label>
+    <label><span>Tekanan suction desain</span><input id="kfc_p1d" type="number" step="any" /><select id="kfc_md" class="unit"><option value="a">abs</option><option value="g">gauge</option></select></label>
+    <label><span>Tekanan discharge desain</span><input id="kfc_p2d" type="number" step="any" /><span class="unit">bar</span></label>
+    <label><span>T inlet desain</span><input id="kfc_td" type="number" step="any" /><span class="unit">°C</span></label>
+    <label><span>Jumlah stage</span><input id="kfc_n" type="number" step="1" min="1" /><span class="unit"></span></label>
+  </fieldset>
+  <fieldset><legend>Data operasi aktual</legend>
+    <label><span>Power listrik</span><input id="kfc_pe" type="number" step="any" /><span class="unit">kW</span></label>
+    <label><span>Efisiensi motor (nameplate)</span><input id="kfc_eta" type="number" step="any" /><span class="unit">%</span></label>
+    <label><span>Tekanan suction</span><input id="kfc_p1" type="number" step="any" /><select id="kfc_ma" class="unit"><option value="a">abs</option><option value="g">gauge</option></select></label>
+    <label><span>Tekanan discharge</span><input id="kfc_p2" type="number" step="any" /><span class="unit">bar</span></label>
+    <label><span>T inlet</span><input id="kfc_ta" type="number" step="any" /><span class="unit">°C</span></label>
+  </fieldset>
+</div>
+
+<div class="btns">
+  <button type="button" id="kfc_ex">Isi contoh</button>
+  <button type="button" id="kfc_clr">Kosongkan</button>
+</div>
+
+<div class="res" id="kfc_cards"></div>
+<div class="notes" id="kfc_notes"></div>
+<p class="foot">Estimasi model, bukan pengukuran. Mengasumsikan efisiensi kompresor dan efektivitas intercooling sama dengan desain, operasi steady-state, dan titik operasi dekat desain. Hasilnya adalah flow melalui kompresor, bukan otomatis flow ke proses. Tekanan dalam bar; untuk input gauge, tekanan atmosfer 1.01325 bar ditambahkan. Pilihan abs/gauge di baris suction berlaku juga untuk discharge pada kelompok yang sama. Pembanding isentropik memakai k = 1.4 dan rasio tekanan terbagi rata.</p>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('kfc'); if(!root) return;
+  var A=0.2857;
+  var ids=['qd','psd','p1d','p2d','td','n','pe','eta','p1','p2','ta'];
+  var ex={qd:18500,psd:1600,p1d:5.8,p2d:29.42,td:20,n:4,pe:1700,eta:96.42,p1:4.81,p2:27.1,ta:20};
+  function el(k){return root.querySelector('#kfc_'+k);}
+  function val(k){var x=parseFloat(el(k).value);return isFinite(x)?x:NaN;}
+  function f(x,d){return isFinite(x)?x.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false}):'—';}
+  function card(k,v,n){return '<div class="card"><div class="k">'+k+'</div><div class="v">'+v+'</div><div class="n">'+(n||'')+'</div></div>';}
+
+  function calc(){
+    var d={};ids.forEach(function(k){d[k]=val(k);});
+    var patm=1.01325;
+    var od=el('md').value==='g'?patm:0, oa=el('ma').value==='g'?patm:0;
+    var prd=(d.p2d+od)/(d.p1d+od), pra=(d.p2+oa)/(d.p1+oa);
+    var tdK=d.td+273.15, taK=d.ta+273.15, eta=d.eta/100;
+    var cards=root.querySelector('#kfc_cards'), notes=root.querySelector('#kfc_notes');
+    var ok=d.qd>0&&d.psd>0&&d.pe>0&&eta>0&&eta<=1&&prd>1&&pra>1&&tdK>0&&taK>0;
+    if(!ok){cards.innerHTML='';notes.innerHTML='<p class="warn">Lengkapi data desain dan data operasi. Tekanan discharge harus lebih besar dari suction.</p>';return;}
+
+    var ps=d.pe*eta, kP=ps/d.psd, kT=tdK/taK, kPR=Math.log(prd)/Math.log(pra);
+    var q=d.qd*kP*kT*kPR;
+    var h='';
+    h+=card('Estimasi flow',f(q,0)+' Nm³/h',f(q/d.qd*100,1)+'% desain');
+    h+=card('Daya poros estimasi',f(ps,1)+' kW',f(kP*100,1)+'% daya poros desain');
+    h+=card('Rasio tekanan',f(pra,3),'Desain '+f(prd,3)+' ('+(pra>=prd?'+':'')+f((pra/prd-1)*100,1)+'%)');
+    var qc=NaN, dev=NaN;
+    if(d.n>=1){
+      var an=A/d.n, hr=(taK*(Math.pow(pra,an)-1))/(tdK*(Math.pow(prd,an)-1));
+      qc=d.qd*kP/hr; dev=(qc-q)/q*100;
+      h+=card('Pembanding isentropik','≈ '+f(qc,0)+' Nm³/h',f(d.n,0)+' stage, selisih '+(dev>=0?'+':'')+f(dev,1)+'%');
+    }
+    cards.innerHTML=h;
+
+    var n=[], dPR=(pra/prd-1)*100;
+    if(Math.abs(dPR)>10) n.push(['bad','Rasio tekanan '+f(dPR,1)+'% dari desain. Jauh dari titik kalibrasi; estimasi hanya indikatif.']);
+    else if(Math.abs(dPR)>5) n.push(['warn','Rasio tekanan '+f(dPR,1)+'% dari desain. Presisi estimasi mulai menurun.']);
+    if(kP<0.8) n.push(['warn','Daya poros '+f(kP*100,0)+'% desain. Pada beban parsial, IGV yang lebih menutup dan rugi mekanis yang konstan membuat estimasi cenderung terlalu tinggi.']);
+    if(kP>1.1) n.push(['warn','Daya poros '+f(kP*100,0)+'% desain. Titik operasi cukup jauh di atas desain.']);
+    if(Math.abs(d.ta-d.td)>10) n.push(['warn','T inlet berbeda '+f(d.ta-d.td,0)+'°C dari desain. Faktor temperatur sudah dikoreksi, tetapi pastikan intercooler dan cooling water juga normal.']);
+    if(isFinite(dev)&&Math.abs(dev)>2) n.push(['warn','Selisih dengan pembanding isentropik '+f(dev,1)+'%, lebih besar dari yang biasa terjadi. Periksa data input dan kondisi operasi.']);
+    if(!n.length) n.push(['ok','Titik operasi dekat desain. Estimasi paling bisa dipercaya pada kondisi seperti ini, selama kompresor steady dan anti-surge valve tertutup.']);
+    notes.innerHTML=n.map(function(x){return '<p class="'+x[0]+'">'+x[1]+'</p>';}).join('');
+  }
+
+  function fill(o){ids.forEach(function(k){el(k).value=(o&&o[k]!==undefined)?o[k]:'';});if(o){el('md').value='a';el('ma').value='g';}calc();}
+  root.addEventListener('input',calc);
+  root.addEventListener('change',calc);
+  root.querySelector('#kfc_ex').addEventListener('click',function(){fill(ex);});
+  root.querySelector('#kfc_clr').addEventListener('click',function(){fill(null);});
+  fill(ex);
+})();
+</script>
+</details>
+<!-- ================= akhir kalkulator ================= -->
+<!--kg-card-end: html-->
+<p>Sebelum koreksi, daya poros:</p>
+<p>\( P_{shaft} = 1700 \times 0.9642 \approx 1639.14 \text{ kW} \)</p>
 <p>Estimasi flow:</p>
-<p>\( Q_{real} = 18500 \times \frac{1639.1}{1600} \times \frac{293.15}{293.15} \times \frac{\ln(5.07)}{\ln(4.825)} = 18500 \times 1.0244 \times 1 \times 1.0315 \approx 19548 \text{ Nm}^3/\text{h} \)</p>
+<p>\( Q_{real} = 18500 \times \frac{1639.14}{1600} \times \frac{293.15}{293.15} \times \frac{\ln(5.072)}{\ln(4.828)} = 18500 \times 1.02446 \times 1 \times 1.0314 \approx 19548 \text{ Nm}^3/\text{h} \)</p>
 <p>atau sekitar 105.7% desain. Sebagai pembanding silang, bentuk isentropik per-stage menghasilkan sekitar 19583 Nm³/h (105.9%).</p>
-<p>Jika temperatur inlet naik menjadi 30°C (303.15 K) dengan power dan rasio kompresi yang sama:</p>
-<p>\( Q_{real} = 18500 \times 1.0244 \times \frac{293.15}{303.15} \times 1.0315 \approx 18903 \text{ Nm}^3/\text{h} \)</p>
+<p>Sesudah IGV diturunkan, power turun ke 1640 kW (daya poros sekitar 1581.29 kW) dan rasio tekanan naik ke 4.920:</p>
+<p>\( Q_{real} = 18500 \times 0.9883 \times 1 \times 1.0192 \approx 18635 \text{ Nm}^3/\text{h} \)</p>
+<p>atau sekitar 100.7% desain, dengan pembanding isentropik sekitar 18655 Nm³/h. Koreksi IGV mengembalikan flow ke sekitar desain dan power ke bawah rating motor.</p>
+<p>Pengaruh temperatur inlet juga perlu dilihat. Jika pada kondisi sebelum koreksi temperatur inlet 30°C (303.15 K), dengan power dan rasio tekanan yang sama:</p>
+<p>\( Q_{real} = 18500 \times 1.02446 \times \frac{293.15}{303.15} \times 1.0314 \approx 18903 \text{ Nm}^3/\text{h} \)</p>
 <p>atau sekitar 102.2% desain. Kenaikan temperatur inlet 10°C menurunkan estimasi flow sekitar 3.5 poin persentase pada daya yang sama. Ini menunjukkan kenapa faktor T_in tidak boleh diabaikan, terutama di iklim tropis dengan variasi temperatur siang dan malam yang signifikan.</p>
 <p>Cara membaca hasilnya juga penting. Angka "105.7%" jangan dibaca sebagai presisi satu desimal, tetapi sebagai "sedikit di atas desain".</p>
 <hr />
@@ -545,156 +706,106 @@ END_FUNCTION_BLOCK
 </ul>
 <p><strong>Valid sebagai estimasi flow ke proses jika, di samping syarat di atas:</strong></p>
 <ul>
-<li>anti-surge/recycle valve tertutup, atau recycle flow diketahui dan dikurangkan.</li>
+<li>anti-surge/recycle valve tertutup, atau recycle flow diketahui dan dikurangkan.<br />
+Perlu dicatat, saat anti-surge valve membuka, kompresor biasanya juga sedang beroperasi mendekati batas surge, jauh dari titik desain. Jadi estimasi flow melalui kompresor pada kondisi itu pun sebaiknya dibaca dengan hati-hati.</li>
 </ul>
-<p>Perlu dicatat, saat anti-surge valve membuka, kompresor biasanya juga sedang beroperasi mendekati batas surge, jauh dari titik desain. Jadi estimasi flow melalui kompresor pada kondisi itu pun sebaiknya dibaca dengan hati-hati.</p>
 <p><strong>Estimasi cenderung terlalu tinggi jika:</strong></p>
 <ul>
 <li><strong>IGV lebih menutup</strong> pada beban parsial. Pada kompresor fixed-speed, efisiensi turun saat IGV menutup, sehingga asumsi η konstan tidak berlaku lagi.</li>
 <li><strong>Kompresor terdegradasi</strong> (fouling, keausan, clearance melebar). Efisiensi turun, tetapi model tetap menganggapnya sama dengan desain.</li>
 <li><strong>Intercooler kotor atau cooling water hangat.</strong> Gas masuk stage berikutnya lebih panas, sehingga kerja aktual lebih besar dari kerja isothermal yang diasumsikan.</li>
-<li><strong>Beban jauh di bawah desain.</strong> Mechanical losses yang konstan menjadi porsi yang lebih besar dari daya poros.</li>
+<li><strong>Beban jauh di bawah desain.</strong> Mechanical losses yang konstan menjadi porsi yang lebih besar dari daya poros.<br />
+Untuk arah penyimpangan yang dibahas di atas, penyimpangan umumnya mendorong estimasi ke arah yang sama: <strong>flow terlihat lebih besar dari sebenarnya</strong>. Kesalahan pengukuran power atau tekanan tetap bisa mendorong ke dua arah. Ini perlu diingat saat membaca estimasi pada beban parsial.</li>
 </ul>
-<p>Untuk arah penyimpangan yang dibahas di atas, penyimpangan umumnya mendorong estimasi ke arah yang sama: <strong>flow terlihat lebih besar dari sebenarnya</strong>. Kesalahan pengukuran power atau tekanan tetap bisa mendorong ke dua arah. Ini perlu diingat saat membaca estimasi pada beban parsial.</p>
 <p><strong>Ketidakpastian.</strong> Tidak tepat memberikan satu angka ketidakpastian yang berlaku untuk seluruh rentang operasi tanpa analisis ketidakpastian dan validasi terhadap flowmeter independen. Ada dua jenis sumber yang sifatnya berbeda:</p>
 <ul>
 <li><strong>Ketidakpastian pengukuran:</strong> akurasi power, efisiensi motor, transmitter tekanan dan temperatur. Kontribusinya dapat dievaluasi dari spesifikasi akurasi masing-masing instrumen.</li>
-<li><strong>Ketidakpastian model:</strong> perubahan efisiensi kompresor akibat IGV, fouling, efektivitas intercooling, dan posisi titik operasi. Kontribusi ini kecil di dekat titik desain, tetapi bisa menjadi dominan saat kondisi menjauh darinya.</li>
+<li><strong>Ketidakpastian model:</strong> perubahan efisiensi kompresor akibat IGV, fouling, efektivitas intercooling, dan posisi titik operasi. Kontribusi ini kecil di dekat titik desain, tetapi bisa menjadi dominan saat kondisi menjauh darinya.<br />
+Dalam implementasi praktis, total error beberapa persen di sekitar titik desain bukan hal yang mengejutkan, tetapi besar sebenarnya hanya bisa ditentukan melalui validasi terhadap pengukuran independen. Yang jelas, kedua sumber ini jauh lebih besar daripada selisih antara model isothermal dan isentropik per-stage. Jadi pemilihan model bukan sumber ketidakpastian utama. Yang lebih menentukan adalah kualitas data dan seberapa dekat kondisi operasi dengan titik desain.</li>
 </ul>
-<p>Dalam implementasi praktis, total error beberapa persen di sekitar titik desain bukan hal yang mengejutkan, tetapi besar sebenarnya hanya bisa ditentukan melalui validasi terhadap pengukuran independen. Yang jelas, kedua sumber ini jauh lebih besar daripada selisih antara model isothermal dan isentropik per-stage. Jadi pemilihan model bukan sumber ketidakpastian utama. Yang lebih menentukan adalah kualitas data dan seberapa dekat kondisi operasi dengan titik desain.</p>
 <p>Model ini juga tidak punya indikator bawaan yang memberi tahu bahwa estimasi sudah keluar dari rentang validitasnya. Karena itu syarat validitas perlu dibangun secara eksplisit di DCS.</p>
 <hr />
 
 <h3 id="implementasi-di-dcs">Implementasi di DCS</h3>
-<p>Formula isothermal cukup dijalankan sebagai kalkulasi berjalan. Yang membuatnya layak dipakai operasional bukan formulanya, tetapi logika validitas di sekelilingnya.</p>
-<p><strong>Syarat operasi stabil</strong> sebaiknya disusun di logika supervisory, di luar function block perhitungan, dari beberapa permissive:</p>
+<p>Formula isothermal cukup dijalankan sebagai kalkulasi berjalan. Function block di bawah sengaja dibuat minimal: hanya menghitung, dengan pengecekan seperlunya agar tidak terjadi pembagian dengan nol. Validitas hasil dinilai oleh yang membacanya, dengan konteks operasi yang terlihat di layar DCS:</p>
 <ul>
-<li>kompresor running dan tidak trip,</li>
-<li>posisi IGV dalam rentang tertentu di sekitar posisi desain,</li>
-<li>power, tekanan, dan temperatur stabil (misalnya perubahan dalam jendela waktu tertentu di bawah batas),</li>
-<li>on-delay timer 30–60 detik sebelum status stabil dinyatakan TRUE, agar transient benar-benar meluruh.</li>
+<li>kompresor running dan steady, bukan saat start-up atau transient,</li>
+<li>posisi IGV di sekitar posisi desain,</li>
+<li>untuk flow ke proses, anti-surge/recycle valve tertutup.</li>
 </ul>
-<p>Status anti-surge valve sebaiknya dikirim sebagai sinyal terpisah, bukan digabung ke syarat stabil. Dengan begitu, DCS bisa membedakan "estimasi flow kompresor valid" dari "estimasi flow ke proses valid".</p>
-<p><strong>Nilai dan status harus selalu berpasangan.</strong> Estimasi flow hanya boleh dipakai jika status validnya TRUE. Jika output di-reset ke 0 saat tidak valid, logic downstream yang lalai memeriksa status bisa salah membaca "estimasi tidak valid" sebagai "kompresor tidak mengalirkan gas". Karena itu contoh di bawah memakai pola <strong>nilai valid terakhir + status</strong>: output hanya diperbarui saat perhitungan berhasil, dan status valid turun ke FALSE saat tidak. Pola ini tetap memerlukan disiplin yang sama, karena nilai yang "membeku" juga bisa menyesatkan jika statusnya diabaikan. Historian dan trend sebaiknya dikonfigurasi agar selalu merekam nilai bersama statusnya.</p>
-<p>Contoh function block berikut menghitung estimasi isothermal sebagai nilai utama, dan model isentropik ideal (rasio kompresi terbagi rata) sebagai pembanding silang:</p>
-<pre><code class="language-iecst">(*==============================================================
-  FUNCTION BLOCK: FB_CompressorFlowEstimate
-  Estimasi flow MELALUI kompresor multi-stage ber-intercooler dari
-  power, rasio kompresi, dan temperatur inlet, relatif ke titik
-  desain.
-    - Q_estimate : model isothermal (utama)
-    - Q_check    : model isentropik ideal, rasio kompresi terbagi
-                   rata, k = 1.4 (pembanding silang, bukan kondisi
-                   aktual tiap stage)
-  Output mempertahankan nilai valid terakhir. Nilai hanya boleh
-  dipakai jika Valid = TRUE (flow kompresor) atau
-  Valid_Process = TRUE (flow ke proses).
-  Stable_Operation dan ASV_Closed berasal dari logika supervisory
-  di luar FB ini (running, IGV, stabilitas, on-delay timer).
-================================================================*)
-FUNCTION_BLOCK FB_CompressorFlowEstimate
+<p>Saat kompresor mati atau sedang transient, angka yang keluar memang tidak bermakna.</p>
+<p><strong>Model isothermal</strong>, sebagai estimasi utama:</p>
+<pre><code class="language-iecst">(* Estimasi flow melalui kompresor, model isothermal,
+   relatif terhadap titik desain. PR dalam tekanan absolut. *)
+FUNCTION_BLOCK FB_FlowIsothermal
 VAR_INPUT
-    P_elec_kW        : REAL;   (* power listrik terukur, kW *)
-    Eff_motor_assumed: REAL;   (* efisiensi motor yang diasumsikan, 0-1 *)
-    P_in_abs         : REAL;   (* tekanan suction, absolut *)
-    P_out_abs        : REAL;   (* tekanan discharge, absolut, satuan sama *)
-    T_in_C           : REAL;   (* temperatur inlet stage-1, degC *)
-    P_shaft_design   : REAL;   (* daya poros desain, kW *)
-    Q_design         : REAL;   (* flow desain, Nm3/h *)
-    PR_design        : REAL;   (* rasio kompresi desain *)
-    T_design_C       : REAL;   (* temperatur inlet desain, degC *)
-    N_stage          : INT;    (* jumlah stage, untuk pembanding silang *)
-    Stable_Operation : BOOL;   (* dari logika supervisory *)
-    ASV_Closed       : BOOL;   (* anti-surge / recycle valve tertutup *)
+    P_elec_kW      : REAL;   (* power listrik terukur, kW *)
+    Eff_motor      : REAL;   (* efisiensi motor yang diasumsikan, 0-1 *)
+    PR             : REAL;   (* rasio tekanan aktual *)
+    T_in_C         : REAL;   (* temperatur inlet stage 1, degC *)
+    P_shaft_design : REAL;   (* daya poros desain, kW *)
+    Q_design       : REAL;   (* flow desain, Nm3/h *)
+    PR_design      : REAL;   (* rasio tekanan desain *)
+    T_design_C     : REAL;   (* temperatur inlet desain, degC *)
 END_VAR
 VAR_OUTPUT
-    Q_estimate       : REAL;   (* estimasi flow isothermal, Nm3/h *)
-    Pct_of_design    : REAL;   (* Q_estimate dalam % desain *)
-    Q_check          : REAL;   (* estimasi isentropik ideal, Nm3/h *)
-    Model_dev_pct    : REAL;   (* selisih Q_check terhadap Q_estimate, % *)
-    P_shaft_est      : REAL;   (* daya poros estimasi, kW - BUKAN terukur *)
-    CalcValid        : BOOL;   (* rumus berhasil dihitung; BUKAN jaminan data instrumen benar *)
-    Valid            : BOOL;   (* flow melalui kompresor valid *)
-    Valid_Process    : BOOL;   (* flow ke proses valid *)
+    Q_estimate     : REAL;   (* Nm3/h *)
+    Pct_of_design  : REAL;   (* % *)
+    P_shaft_est    : REAL;   (* daya poros estimasi, kW *)
 END_VAR
-VAR CONSTANT
-    C_TO_K    : REAL := 273.15;
-    EXPONENT  : REAL := 0.2857;  (* (k-1)/k, k = 1.4 untuk udara/N2 *)
-    EFF_MIN   : REAL := 0.80;    (* batas plausibilitas, sesuaikan *)
-    EFF_MAX   : REAL := 1.00;
-    PR_MIN    : REAL := 1.5;     (* plausibilitas PR, sesuaikan per mesin *)
-    PR_MAX    : REAL := 10.0;
-    T_MIN_C   : REAL := -10.0;   (* plausibilitas T_in, sesuaikan *)
-    T_MAX_C   : REAL := 60.0;
+
+P_shaft_est := P_elec_kW * Eff_motor;
+
+IF (PR &gt; 1.0) AND (PR_design &gt; 1.0) AND (P_shaft_design &gt; 0.0) THEN
+    Q_estimate := Q_design * (P_shaft_est / P_shaft_design)
+                * ((T_design_C + 273.15) / (T_in_C + 273.15))
+                * (LN(PR_design) / LN(PR));
+    Pct_of_design := Q_estimate / Q_design * 100.0;
+END_IF;
+
+END_FUNCTION_BLOCK
+</code></pre>
+<p><strong>Model isentropik per-stage</strong>, sebagai pembanding silang:</p>
+<pre><code class="language-iecst">(* Estimasi flow melalui kompresor, model isentropik per-stage
+   dengan rasio tekanan terbagi rata dan k = 1.4, relatif terhadap
+   titik desain. Pembanding silang untuk FB_FlowIsothermal. *)
+FUNCTION_BLOCK FB_FlowIsentropic
+VAR_INPUT
+    P_elec_kW      : REAL;   (* power listrik terukur, kW *)
+    Eff_motor      : REAL;   (* efisiensi motor yang diasumsikan, 0-1 *)
+    PR             : REAL;   (* rasio tekanan aktual *)
+    T_in_C         : REAL;   (* temperatur inlet stage 1, degC *)
+    P_shaft_design : REAL;   (* daya poros desain, kW *)
+    Q_design       : REAL;   (* flow desain, Nm3/h *)
+    PR_design      : REAL;   (* rasio tekanan desain *)
+    T_design_C     : REAL;   (* temperatur inlet desain, degC *)
+    N_Stage        : REAL;   (* jumlah stage *)
+END_VAR
+VAR_OUTPUT
+    Q_estimate     : REAL;   (* Nm3/h *)
+    Pct_of_design  : REAL;   (* % *)
 END_VAR
 VAR
-    PR, T_in_K, T_des_K : REAL;
-    q_iso, n, a_n       : REAL;
-    h_des, h_act        : REAL;
+    a_n, h_des : REAL;
 END_VAR
 
-(* Status turun di awal scan; nilai output TIDAK di-reset
-   (pola nilai valid terakhir + status) *)
-CalcValid := FALSE;
-Valid := FALSE;
-Valid_Process := FALSE;
-
-(* Validasi referensi desain dan input *)
-IF (P_shaft_design &lt;= 0.0) OR (Q_design &lt;= 0.0)
-   OR (PR_design &lt; PR_MIN) OR (PR_design &gt; PR_MAX)
-   OR (P_in_abs &lt;= 0.0) OR (P_out_abs &lt;= 0.0) OR (P_elec_kW &lt;= 0.0)
-   OR (Eff_motor_assumed &lt; EFF_MIN) OR (Eff_motor_assumed &gt; EFF_MAX)
-   OR (T_in_C &lt; T_MIN_C) OR (T_in_C &gt; T_MAX_C) THEN
-    RETURN;
+IF (PR &gt; 1.0) AND (PR_design &gt; 1.0) AND (P_shaft_design &gt; 0.0) AND (N_Stage &gt; 0.0) THEN
+    a_n   := 0.2857 / N_Stage;
+    h_des := (T_design_C + 273.15) * (EXPT(PR_design, a_n) - 1.0);
+    Q_estimate := Q_design * (P_elec_kW * Eff_motor / P_shaft_design)
+                * h_des / ((T_in_C + 273.15) * (EXPT(PR, a_n) - 1.0));
+    Pct_of_design := Q_estimate / Q_design * 100.0;
 END_IF;
-
-PR := P_out_abs / P_in_abs;
-IF (PR &lt; PR_MIN) OR (PR &gt; PR_MAX) THEN
-    RETURN;
-END_IF;
-
-T_in_K  := T_in_C + C_TO_K;
-T_des_K := T_design_C + C_TO_K;
-IF T_des_K &lt;= 0.0 THEN
-    RETURN;
-END_IF;
-
-(* Model utama: isothermal, linear terhadap daya.
-   LN/LOG: basis logaritma tidak berpengaruh karena yang dipakai rasio. *)
-P_shaft_est := P_elec_kW * Eff_motor_assumed;
-q_iso := Q_design
-       * (P_shaft_est / P_shaft_design)
-       * (T_des_K / T_in_K)
-       * (LN(PR_design) / LN(PR));
-
-Q_estimate    := q_iso;
-Pct_of_design := q_iso / Q_design * 100.0;
-CalcValid     := TRUE;
-
-(* Pembanding silang: isentropik ideal, rasio kompresi terbagi rata *)
-IF N_stage &gt;= 1 THEN
-    n   := INT_TO_REAL(N_stage);
-    a_n := EXPONENT / n;
-    h_des := T_des_K * n * (EXPT(PR_design, a_n) - 1.0);
-    h_act := T_in_K  * n * (EXPT(PR, a_n) - 1.0);
-    IF (h_des &gt; 0.0) AND (h_act &gt; 0.0) THEN
-        Q_check := Q_design * (P_shaft_est / P_shaft_design) / (h_act / h_des);
-        Model_dev_pct := (Q_check - q_iso) / q_iso * 100.0;
-    END_IF;
-END_IF;
-
-Valid         := CalcValid AND Stable_Operation;
-Valid_Process := Valid AND ASV_Closed;
 
 END_FUNCTION_BLOCK
 </code></pre>
 <p>Beberapa catatan penerapan:</p>
 <ul>
-<li>Nama fungsi <code>LN</code>, <code>EXPT</code>, dan <code>INT_TO_REAL</code> mengikuti IEC 61131-3. Sesuaikan jika platform memakai nama lain, misalnya <code>POW</code> untuk pangkat atau <code>LOG</code> untuk logaritma.</li>
-<li>Dengan asumsi ideal yang dipakai di artikel ini, <code>Model_dev_pct</code> berada di bawah sekitar 1% untuk penyimpangan PR sampai ±15%. Pada mesin sebenarnya selisihnya bisa lebih besar, karena pembagian rasio kompresi, efektivitas intercooling, dan sifat gas tidak persis mengikuti asumsi model. Gunakan nilai ini untuk melihat tren atau lonjakan mendadak, bukan sebagai alarm "model benar/salah".</li>
-<li>Untuk kompresor dengan data desain seperti contoh di atas, FB ini menghasilkan sekitar 19548 Nm³/h untuk <code>Q_estimate</code> dan sekitar 19583 Nm³/h untuk <code>Q_check</code>. Angka ini bisa dipakai untuk menguji implementasi.</li>
-<li>Batas plausibilitas (<code>EFF_MIN</code>/<code>EFF_MAX</code>, <code>PR_MIN</code>/<code>PR_MAX</code>, <code>T_MIN_C</code>/<code>T_MAX_C</code>) hanya contoh. Sesuaikan dengan range instrumen dan karakteristik tiap mesin. Batas ini hanya pemeriksaan kewajaran data, bukan batas penerimaan performa kompresor. <code>CalcValid</code> hanya berarti rumus berhasil dihitung; kebenaran data instrumen tetap harus dipastikan di logika supervisory. Kode ini adalah contoh ilustratif, bukan kode siap produksi.</li>
-<li>Keberadaan tag di DCS tidak otomatis berarti datanya siap dipakai. Verifikasi range, scaling, lokasi sensor, kondisi instrumen, dan sinkronisasi waktu antar-sensor sebelum hasilnya dijadikan dasar keputusan.</li>
+<li>Nama fungsi <code>LN</code> dan <code>EXPT</code> mengikuti IEC 61131-3. Sesuaikan jika platform memakai nama lain, misalnya <code>POW</code> untuk pangkat atau <code>LOG</code> untuk logaritma. Basis logaritma tidak berpengaruh karena yang dipakai rasio.</li>
+<li>PR dihitung dari tekanan absolut. Jika transmitter dalam tekanan gauge, tambahkan tekanan atmosfer sebelum dibagi.</li>
+<li>Selisih kedua model bisa ditampilkan langsung di DCS, misalnya (Q isentropik − Q isothermal) / Q isothermal × 100%. Dengan asumsi ideal yang dipakai di artikel ini, selisihnya di bawah sekitar 1% untuk penyimpangan PR sampai ±15%. Pada mesin sebenarnya bisa lebih besar; gunakan untuk melihat tren atau lonjakan mendadak.</li>
+<li>Untuk kondisi sebelum koreksi IGV pada contoh di atas, <code>FB_FlowIsothermal</code> menghasilkan sekitar 19548 Nm³/h dan <code>FB_FlowIsentropic</code> sekitar 19583 Nm³/h. Angka ini bisa dipakai untuk menguji implementasi.</li>
+<li>Keberadaan tag di DCS tidak otomatis berarti datanya siap dipakai. Verifikasi range, scaling, lokasi sensor, dan kondisi instrumen sebelum hasilnya dijadikan dasar keputusan.</li>
 </ul>
 <hr />
 
